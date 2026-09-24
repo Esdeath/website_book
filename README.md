@@ -29,6 +29,8 @@ npm run preview
 
 首次使用的电脑需要配置 GitHub SSH 访问权限和 Git 用户名、邮箱。
 
+在 macOS 上，脚本会自动使用系统已启用的 SOCKS 代理完成 Git 传输，不修改系统或全局 Git 配置。需要直连时运行 `LABOOK_USE_SYSTEM_PROXY=0 ./deploy.sh`，也可以通过 `GIT_SSH_COMMAND` 自定义 SSH 连接方式。
+
 ## Cloudflare Pages 配置
 
 | 项目 | 值 |

@@ -15,6 +15,18 @@ fi
 if ! git diff --cached --quiet; then
   echo '暂存区已有改动，请先提交或取消暂存，再运行 deploy.sh。' >&2; exit 1
 fi
+# macOS 的系统代理不会自动应用于 Git SSH；沿用已启用的 SOCKS 配置。
+# 显式设置 GIT_SSH_COMMAND 或 LABOOK_USE_SYSTEM_PROXY=0 可以覆盖此行为。
+if [[ -z "${GIT_SSH_COMMAND:-}" && "${LABOOK_USE_SYSTEM_PROXY:-1}" != 0 ]] && command -v scutil >/dev/null 2>&1; then
+  proxy_config="$(scutil --proxy)"
+  socks_enabled="$(awk '/SOCKSEnable :/ {print $3}' <<< "$proxy_config")"
+  socks_host="$(awk '/SOCKSProxy :/ {print $3}' <<< "$proxy_config")"
+  socks_port="$(awk '/SOCKSPort :/ {print $3}' <<< "$proxy_config")"
+  if [[ "$socks_enabled" == 1 && "$socks_host" =~ ^[a-zA-Z0-9._-]+$ && "$socks_port" =~ ^[0-9]+$ ]]; then
+    export GIT_SSH_COMMAND="ssh -o ConnectTimeout=20 -o ServerAliveInterval=30 -o 'ProxyCommand=nc -X 5 -x $socks_host:$socks_port %h %p'"
+    echo "Git 使用已启用的系统 SOCKS 代理：$socks_host:$socks_port"
+  fi
+fi
 npm run build
 npm run check
 git status --short
@@ -34,7 +46,7 @@ git fetch origin
 if git show-ref --verify --quiet refs/remotes/origin/main; then
   git rebase origin/main
 fi
-git push --set-upstream origin main
+git push --progress --set-upstream origin main
 local_sha="$(git rev-parse HEAD)"
 remote_sha="$(git ls-remote origin refs/heads/main | cut -f1)"
 [[ "$local_sha" == "$remote_sha" ]] || { echo '远端提交校验失败。' >&2; exit 1; }
