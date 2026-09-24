@@ -33,6 +33,8 @@ npm run preview
 
 | 项目 | 值 |
 | --- | --- |
+| Pages 项目 | `labook-book` |
+| Pages 地址 | `https://labook-book.pages.dev` |
 | GitHub 仓库 | `Esdeath/website_book` |
 | 生产分支 | `main` |
 | 框架 | None |
@@ -42,7 +44,7 @@ npm run preview
 | Node.js | 22（`.node-version`） |
 | 自定义域名 | `book.labook.cn` |
 
-需先在 Pages 项目中添加自定义域名，再在阿里云 DNS 添加 `book` 的 CNAME，记录值为该项目实际的 `*.pages.dev` 地址。仅添加 DNS 记录不能完成 Pages 域名绑定。
+已在 Pages 项目中绑定 `book.labook.cn`，阿里云 DNS 对应记录为 `book CNAME labook-book.pages.dev`（TTL 600）。迁移项目时，需先在新 Pages 项目添加自定义域名，再修改 DNS；仅添加 DNS 记录不能完成 Pages 域名绑定。
 
 ## 构建与目录
 
