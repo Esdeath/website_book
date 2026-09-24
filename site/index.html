@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Labook 在线书房。从价值投资到哲学与科学，在跨学科阅读中，慢慢建立自己的判断。">
+  <meta name="theme-color" content="#f5f6fa">
+  <title>Labook 书房 · 在阅读中，建立自己的判断</title>
+  <link rel="canonical" href="https://book.labook.cn/">
+  <link rel="icon" href="/favicon.svg">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#library">跳到书籍列表</a>
+  <header class="header">
+    <a class="brand" href="/" aria-label="Labook 书房首页"><img src="/favicon.svg" width="34" height="34" alt=""><strong>Labook<span>书房</span></strong></a>
+    <nav aria-label="书房导航"><button class="nav-button active" data-view="all" aria-pressed="true">全部藏书</button><button class="nav-button" data-view="favorites" aria-pressed="false">我的收藏 <span id="favorites-count">0</span></button><button class="nav-button" data-view="recent" aria-pressed="false">最近阅读</button></nav>
+    <span class="header-note">给思考，留一点时间。</span>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy"><p class="intro">一个人的书房，也是通向世界的窗口</p><h1 id="hero-title">在阅读中，<br>建立自己的判断。</h1><p class="hero-description">从价值投资到哲学与科学，<br>让不同学科的好思想，在这里相遇。</p><a class="explore" href="#library">找一本书，开始阅读 <span aria-hidden="true">↗</span></a></div>
+      <div class="book-scene" aria-hidden="true"><div class="scene-caption">阅读的宽度，思考的深度</div><div class="standing-books"><div class="spine spine-a"><span>穷查理宝典</span><small>跨学科思考</small></div><div class="spine spine-b"><span>聪明的投资者</span><small>价值与常识</small></div><div class="spine spine-c"><span>思考，快与慢</span><small>认识自己</small></div><div class="spine spine-d"><span>万物简史</span><small>理解世界</small></div><div class="spine spine-e"><span>沉思录</span><small>向内探索</small></div></div><div class="shelf-line"></div></div>
+    </section>
+    <section id="continue" class="continue" hidden aria-label="继续阅读"></section>
+    <section id="library" class="library" aria-labelledby="library-title">
+      <aside class="sidebar"><div class="sidebar-heading"><h2>阅读主题</h2><span id="category-total"></span></div><nav id="categories" aria-label="按主题筛选"></nav><p class="sidebar-note">不必读完所有书。<br>找到此刻需要的那一本。</p></aside>
+      <div class="collection"><div class="collection-head"><div><p class="section-note" id="view-description">让好思想，成为日常的一部分</p><h2 id="library-title">全部藏书 <span id="result-count"></span></h2></div><label class="search-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><input id="search" type="search" placeholder="搜索书名、作者" aria-label="搜索书名、作者"><kbd>/</kbd></label></div>
+      <div class="collection-tools"><p id="filter-label" role="status" aria-live="polite">正在整理书架…</p><label class="sort-label">排序 <select id="sort" aria-label="书籍排序"><option value="category">按主题</option><option value="title">按书名</option><option value="author">按作者</option></select></label></div>
+      <div id="books" class="book-grid"></div><div id="empty" class="empty" hidden><span aria-hidden="true">⌕</span><h3 id="empty-title">没有找到这本书</h3><p id="empty-description">试试更短的书名，或搜索作者。</p><button id="reset" class="text-button">查看全部藏书</button></div>
+      <div id="load-error" class="empty" hidden><h3>书架暂时没有加载成功</h3><p>请检查网络连接后重试。</p><button class="text-button" onclick="location.reload()">重新加载</button></div>
+      <!-- CATALOG_FALLBACK -->
+      </div>
+    </section>
+  </main>
+  <footer><a class="footer-brand" href="/">Labook 书房</a><p>读得慢一点，想得深一点。</p><span>book.labook.cn</span></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

@@ -1,0 +1,1390 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light" data-page-node-id="VClnreVVT76VP2QwGYjNCp">
+<head data-page-node-id="kAk8Z6HSCBe3BgX5leukjT">
+<meta charset="utf-8" data-page-node-id="xP06yNCPgnoV24R9pV2xIW">
+<meta name="viewport" content="width=device-width,initial-scale=1" data-page-node-id="zCY8yqIsYvhPxNgSGKFSQT">
+<title>巴菲特给投资者和管理者的几点建议 — 沃伦·巴菲特</title>
+<style>
+
+
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --paper:#c0edc6; --page:#c0edc6; --ink:#162c17; --ink-soft:#33503a; --muted:#5c7763;
+  --rule:#a3d8ac; --rule-soft:#b5e3bd; --amber:#9e4433; --sel:#a9e3b3;
+  --accent:#7c4331; --quote-bg:#cfead4;
+  --shadow:0 1px 0 rgba(22,44,23,.04), 0 18px 44px rgba(22,44,23,.06);
+  --serif:"Songti SC","Noto Serif CJK SC","Source Han Serif SC","SimSun",serif;
+  --kai:"Kaiti SC","STKaiti","KaiTi","Songti SC",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",sans-serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --measure:36em; --gutter:90px; --fs:17px; --bar:52px;
+}
+html[data-theme="warm"]{
+  --paper:#e7ddc9; --page:#f7f0e1; --ink:#2a2318; --ink-soft:#544835;
+  --muted:#857a63; --rule:#ddd0b6; --rule-soft:#eae0cb; --amber:#96671a; --sel:#eadcbb;
+  --accent:#6b5a3f; --quote-bg:#efe5d0;
+  --shadow:0 1px 0 rgba(42,35,24,.05), 0 18px 44px rgba(42,35,24,.08);
+}
+html[data-theme="night"]{
+  --paper:#121513; --page:#1a1e1c; --ink:#dfe4e0; --ink-soft:#b3bcb7; --muted:#828d88;
+  --rule:#2a302d; --rule-soft:#232825; --amber:#c9a052; --sel:#2c3a34;
+  --accent:#d4a858; --quote-bg:#1e2522;
+  --shadow:none;
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:var(--fs);line-height:1.95;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--sel)}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+/* ── 顶栏 ─────────── */
+.bar{position:fixed;inset:0 0 auto 0;z-index:40;height:var(--bar);display:flex;align-items:center;
+  gap:14px;padding:0 18px;background:var(--paper);border-bottom:1px solid var(--rule)}
+.controls{display:contents}
+.bar .brand{font-family:var(--kai);font-size:16px;letter-spacing:.04em;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;flex:0 1 auto}
+.bar .brand b{font-weight:400}
+.bar .brand .author{font-family:var(--sans);font-size:12px;color:var(--muted);margin-left:8px}
+.bar .spacer{flex:1 1 auto}
+.menu-btn{display:none;font-family:var(--mono);font-size:12px;border:1px solid var(--rule);
+  border-radius:4px;padding:4px 8px}
+.progress{position:fixed;top:var(--bar);left:0;height:2px;width:0;background:var(--amber);z-index:41}
+
+.seg{display:flex;border:1px solid var(--rule);border-radius:5px;overflow:hidden}
+.seg button{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:5px 9px;color:var(--muted)}
+.seg button+button{border-left:1px solid var(--rule)}
+.seg button[aria-pressed="true"]{background:var(--page);color:var(--ink)}
+
+.search{position:relative;flex:0 1 260px;min-width:120px}
+.search input{width:100%;font-family:var(--sans);font-size:13px;padding:6px 26px 6px 10px;
+  background:var(--page);border:1px solid var(--rule);border-radius:5px;color:var(--ink)}
+.search input::placeholder{color:var(--muted)}
+.search kbd{position:absolute;right:7px;top:50%;transform:translateY(-50%);font-family:var(--mono);
+  font-size:10px;color:var(--muted);pointer-events:none}
+.search input:focus + kbd{display:none}
+
+/* ── 目录侧边栏 ─────────── */
+.toc{position:fixed;top:var(--bar);bottom:0;left:0;width:280px;overflow-y:auto;overscroll-behavior:contain;
+  padding:16px 0 60px;border-right:1px solid var(--rule);background:var(--paper);z-index:30}
+.toc-part{margin:0 0 2px}
+.toc-part>button{display:flex;align-items:baseline;gap:8px;width:100%;padding:8px 16px 6px;
+  text-align:left;font-family:var(--sans);font-size:12.5px;line-height:1.45;color:var(--ink-soft);font-weight:600}
+.toc-part>button .caret{font-size:9px;color:var(--muted);transition:transform .18s;flex-shrink:0}
+.toc-part[data-open="false"] .caret{transform:rotate(-90deg)}
+.toc-part[data-open="false"] .toc-children{display:none}
+.toc-children{padding:0 0 4px}
+.toc-item{display:block;padding:4px 16px 4px 24px;font-family:var(--sans);font-size:12px;
+  line-height:1.5;color:var(--muted);text-decoration:none;border-left:2px solid transparent}
+.toc-item:hover{color:var(--ink);background:var(--rule-soft)}
+.toc-item.current{color:var(--ink);border-left-color:var(--amber);background:var(--rule-soft)}
+.toc-chapter{font-weight:500;color:var(--ink-soft)}
+.toc-foot{padding:14px 16px;margin-top:8px;border-top:1px solid var(--rule);
+  font-family:var(--mono);font-size:10px;line-height:1.9;color:var(--muted);letter-spacing:.05em}
+
+/* ── 正文 ─────────── */
+.wrap{margin-left:280px;padding:var(--bar) 0 0}
+.sheet{background:var(--page);min-height:100vh;
+  padding:0 clamp(20px,5vw,64px) 22vh}
+.col{max-width:var(--measure);margin:0 auto}
+@media (min-width:1240px){ .col{margin-left:calc(50% - var(--measure)/2 + var(--gutter)/2)} }
+
+/* 扉页 */
+.title-page{padding:14vh 0 10vh;border-bottom:1px solid var(--rule);margin-bottom:0}
+.title-page .kicker{font-family:var(--mono);font-size:10.5px;letter-spacing:.28em;color:var(--muted);
+  text-transform:uppercase;margin:0 0 30px}
+.title-page h1{font-family:var(--kai);font-weight:400;font-size:clamp(28px,4.6vw,44px);
+  line-height:1.5;margin:0;letter-spacing:.02em}
+.title-page .subtitle{font-family:var(--sans);font-size:15px;color:var(--ink-soft);margin:8px 0 0}
+.title-page .attrib{font-family:var(--sans);font-size:13px;color:var(--muted);margin:26px 0 0;line-height:1.8}
+.stats{display:flex;flex-wrap:wrap;gap:8px 26px;margin:44px 0 0;font-family:var(--mono);
+  font-size:11px;letter-spacing:.08em;color:var(--muted)}
+.legend{margin:46px 0 0;border-top:1px solid var(--rule);padding-top:22px}
+.legend h2{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;color:var(--muted);
+  font-weight:400;text-transform:uppercase;margin:0 0 14px}
+.legend ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.legend li{font-family:var(--sans);font-size:12.5px;line-height:1.6;color:var(--muted);padding-left:12px;
+  border-left:2px solid var(--rule)}
+.legend li b{font-weight:600;color:var(--ink-soft)}
+
+/* 部标题 h1 */
+.content-block h1 {
+  margin:8vh 0 0.3em;
+  font-size:1.1em;
+  color:var(--amber);
+  font-weight:600;
+  text-align:left;
+  font-family:var(--sans);
+  letter-spacing:.1em;
+  scroll-margin-top:calc(var(--bar) + 24px);
+}
+/* 部副标题：h1 后面的另一个 h1 */
+.content-block h1 + h1 {
+  margin-top:0;
+  font-size:2em;
+  line-height:1.3;
+  margin-bottom:2em;
+  font-family:var(--kai);
+  font-weight:600;
+  text-align:left;
+  color:var(--accent);
+  letter-spacing:.02em;
+}
+
+/* 章标题 h2 */
+.content-block h2 {
+  margin:6vh 0 0.3em;
+  font-size:1.1em;
+  color:var(--amber);
+  font-weight:600;
+  text-align:left;
+  font-family:var(--sans);
+  letter-spacing:.08em;
+  scroll-margin-top:calc(var(--bar) + 24px);
+}
+/* 章副标题：h2 后面的 h3 */
+.content-block h2 + h3 {
+  margin:0 0 1.5em;
+  font-size:1.6em;
+  line-height:1.4;
+  color:var(--accent);
+  font-family:var(--kai);
+  font-weight:600;
+  text-align:left;
+  border-bottom:1px solid var(--amber);
+  padding:0 0 0.3em 0;
+  scroll-margin-top:calc(var(--bar) + 24px);
+}
+
+/* 节标题 h3（独立的，不跟在 h2 后面） */
+.content-block h3:not(.calibre15) {
+  margin:2.5em 0 0.8em;
+  font-size:1.2em;
+  font-family:var(--sans);
+  line-height:1.4;
+  color:var(--accent);
+  font-weight:600;
+  text-align:left;
+  scroll-margin-top:calc(var(--bar) + 24px);
+}
+
+/* 小标题 h4 */
+.content-block h4 {
+  margin:2em 0 0.6em;font-size:1.05em;font-family:var(--sans);
+  line-height:1.4;color:var(--ink-soft);font-weight:600;text-align:left;scroll-margin-top:calc(var(--bar) + 24px)}
+
+/* 正文段落 */
+.sheet p{margin:0 0 1.3em;text-align:justify;hanging-punctuation:allow-end}
+.sheet p.indent{text-indent:2em}
+
+/* 图片 */
+.content-block img {max-width:100%;height:auto;display:block;margin:1.5em auto;border-radius:4px;
+  box-shadow:0 2px 12px rgba(0,0,0,.08)}
+
+/* 脚注序号 */
+.content-block sup.fn {font-family:var(--mono);font-size:.6em;vertical-align:.5em;color:var(--amber);
+  margin-left:.1em;letter-spacing:.02em;cursor:default}
+.content-block sup {font-size:.75em;color:var(--amber)}
+
+/* 列表 */
+.content-block p[style*="text-align: center"],
+.content-block .center {text-align:center;text-indent:0}
+
+.end{margin:16vh 0 0;padding-top:26px;border-top:1px solid var(--rule);font-family:var(--mono);
+  font-size:11px;letter-spacing:.1em;color:var(--muted);display:flex;justify-content:space-between;gap:16px}
+
+/* 搜索结果 */
+.results{position:fixed;top:var(--bar);right:0;width:min(420px,100%);max-height:calc(100vh - var(--bar));
+  overflow-y:auto;background:var(--page);border-left:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  z-index:39;padding:8px 0 20px;box-shadow:var(--shadow)}
+.results[hidden]{display:none}
+.results .rhead{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--muted);
+  padding:10px 18px;border-bottom:1px solid var(--rule)}
+.results button.hit{display:block;width:100%;text-align:left;padding:11px 18px;border-bottom:1px solid var(--rule-soft)}
+.results button.hit:hover{background:var(--rule-soft)}
+.results .hit-t{font-family:var(--sans);font-size:12px;color:var(--muted);margin-bottom:3px}
+.results .hit-s{font-family:var(--sans);font-size:13px;line-height:1.7}
+.results mark{background:var(--amber);color:var(--page);border-radius:2px;padding:0 1px}
+
+.tool{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);
+  border:1px solid var(--rule);border-radius:5px;padding:5px 9px;white-space:nowrap}
+
+.resume{position:fixed;left:296px;bottom:22px;z-index:35;display:flex;align-items:center;gap:12px;
+  background:var(--page);border:1px solid var(--rule);border-radius:6px;padding:9px 12px;
+  box-shadow:var(--shadow);font-family:var(--sans);font-size:12.5px;max-width:min(420px,70vw)}
+.resume[hidden]{display:none}
+.resume b{font-weight:600}
+.resume .x{font-family:var(--mono);font-size:11px;color:var(--muted)}
+
+.totop{position:fixed;right:16px;bottom:22px;z-index:35;font-family:var(--mono);font-size:11px;
+  letter-spacing:.08em;color:var(--muted);background:var(--page);border:1px solid var(--rule);
+  border-radius:5px;padding:7px 10px;opacity:0;pointer-events:none;transition:opacity .2s}
+.totop.on{opacity:1;pointer-events:auto}
+
+/* ── 窄屏 ─────────── */
+@media (max-width:900px){
+  .menu-btn{display:block}
+  .toc{transform:translateX(-100%);transition:transform .22s ease;box-shadow:var(--shadow)}
+  body[data-toc="open"] .toc{transform:none}
+  .wrap{margin-left:0}
+  .sheet{padding-left:clamp(18px,5vw,30px);padding-right:clamp(18px,5vw,30px)}
+  .resume{left:16px;right:16px;max-width:none}
+  .search{flex:1 1 auto}
+  .bar .brand{display:none}
+  .results{width:100%;border-left:0}
+}
+@media (max-width:720px){
+  :root{--bar:94px}
+  .bar{flex-wrap:wrap;align-content:center;gap:9px 10px;padding:0 12px}
+  .bar .spacer{display:none}
+  .search{flex:1 1 auto;min-width:0}
+  .controls{display:flex;align-items:center;gap:8px;flex:1 1 100%;
+    overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .controls::-webkit-scrollbar{display:none}
+  .controls>*{flex:0 0 auto}
+}
+@media print{
+  .bar,.toc,.results,.resume,.totop,.progress{display:none!important}
+  .wrap{margin:0}.sheet{box-shadow:none;padding:0}
+  body{font-size:11pt}
+}
+
+/* 侧栏目录字号固定（不随正文 A+/A− 缩放） */
+.toc .toc-part>button{font-size:12.5px}
+.toc .toc-part>button .caret{font-size:9px}
+.toc .toc-item{font-size:12px}
+.toc .toc-item.toc-sub{font-size:11px}
+.toc .toc-foot{font-size:10px}
+
+/* ── 本书补充样式 ── */
+
+/* 小节标题（章内 A/B/C 分组） */
+.content-block h3.sec{margin:2.8em 0 1em;font-family:var(--sans);font-size:1.12em;
+  line-height:1.5;font-weight:600;color:var(--accent);letter-spacing:.02em;
+  padding-left:.72em;border-left:3px solid var(--amber);
+  scroll-margin-top:calc(var(--bar) + 24px)}
+/* 编者提示句（原 Markdown 中的斜体整段） */
+.content-block p.note{margin:2em 0 1.05em;text-indent:0;font-family:var(--kai);
+  font-size:.95em;line-height:1.85;color:var(--accent)}
+/* 出处年份 */
+.content-block .yr{font-family:var(--mono);font-size:.72em;color:var(--muted);
+  letter-spacing:.02em;white-space:nowrap}
+.content-block em{font-style:normal;color:var(--accent)}
+/* 编号列表 */
+.content-block ol{margin:0 0 1.5em;padding-left:1.7em}
+.content-block ol li{margin:0 0 .75em;text-align:justify;line-height:1.9}
+.content-block ol li::marker{color:var(--amber);font-family:var(--mono);font-size:.9em}
+/* 落款与版权页文字 */
+.content-block p.sign{margin:.2em 0 1.6em;text-align:right;text-indent:0;color:var(--muted)}
+.content-block p.colophon{margin:6vh 0 0;text-align:center;text-indent:0;
+  font-family:var(--sans);font-size:.85em;color:var(--muted)}
+/* 目录二级条目 */
+.toc-item.toc-sub{padding-left:40px;font-size:11.5px;color:var(--muted)}
+.toc-item.toc-sub.current{color:var(--ink)}
+
+</style>
+</head>
+<body data-toc="closed" data-page-node-id="kbsWNvTJerAE7ePZIJr1P6">
+<div class="bar" data-page-node-id="zAcs1IJHnGEskuTGsYZW5F">
+  <button class="menu-btn" id="menuBtn" aria-label="目录" data-page-node-id="d7yDedwLt5Ac71gSLD6q0e">目录</button>
+  <div class="brand" data-page-node-id="SimZEt6nfqYCOC12Cbd71V"><b data-page-node-id="JZl1HEIG8kBkNkB9nLxmAT">巴菲特给投资者和管理者的几点建议</b> <span class="author" data-page-node-id="WkMur0PrEYJvNIUtBks5sc">沃伦·巴菲特 言论集</span></div>
+  <div class="spacer" data-page-node-id="5lrNmqBKk39zQAXI61G9Rx"></div>
+  <div class="search" data-page-node-id="0fGpgo6bwe50tjlm7C9uEb"><input id="q" type="search" placeholder="搜全书…" aria-label="搜索全书" data-page-node-id="FXbsZ0u5JXcSnu5pwTxFCu"><kbd data-page-node-id="bUwPbeVxrtg9iftkydSNmP">/</kbd></div>
+  <div class="controls" data-page-node-id="MlGnqgDMo2KyFd7d8EVtuv">
+    <div class="seg" role="group" aria-label="字号" data-page-node-id="fV6uduB8TOsTrHUhT0iH4e">
+      <button id="fsDown" aria-label="减小字号" data-page-node-id="PCcr9OBHyOo41K4h3XVaVd">A−</button>
+      <button id="fsNow" tabindex="-1" aria-hidden="true" style="cursor:default" data-page-node-id="LFyNjDLuyICvclQIoxNfV7">17</button>
+      <button id="fsUp" aria-label="增大字号" data-page-node-id="kKxFM48GBuNxyXdsq9wAjn">A+</button>
+    </div>
+    <div class="seg" role="group" aria-label="配色" data-page-node-id="BbyYY7UargExAXG40sSdkk">
+      <button data-theme-btn="light" aria-pressed="true" data-page-node-id="PCqTOs3wTIVZECdSRKkN6p">昼</button>
+      <button data-theme-btn="warm" aria-pressed="false" data-page-node-id="v98usCh0qFjGXAU463Q4MB">暖</button>
+      <button data-theme-btn="night" aria-pressed="false" data-page-node-id="jobkoJ7c5DsAD02FYF8Ggf">夜</button>
+    </div>
+  </div>
+</div>
+<div class="progress" id="progress" data-page-node-id="sGkOXmTcqw1AnKuvsFLxlu"></div>
+
+<nav class="toc" aria-label="目录" data-page-node-id="DxihnWWBKf4HIIvnnHLw1s">
+<div class="toc-part" data-open="true" data-page-node-id="3M52lOYkc4r8VsINuVrekg"><button aria-expanded="true" data-page-node-id="5A6qj4yl2yl8wjdJy5CL2h"><span class="caret" data-page-node-id="f6yLQFOTNtxaoWZ5WCpzcC">▾</span><span data-page-node-id="CkYq1kab3S2b0kkJHBpatr">投资篇 · 投资、估值与企业类型</span></button><div class="toc-children" data-page-node-id="nR99Q2VSUiHZiImvnlK54V">
+<a class="toc-item toc-chapter" href="#ch-01" data-page-node-id="vP6dPBFHhOWomObnTcWBaD"><span data-page-node-id="TCy4MRNWTDHKgZQAqrAwSS">第一章 投资金融资产到底是怎么回事</span></a>
+<a class="toc-item toc-chapter" href="#ch-02" data-page-node-id="1CZ1Yfm9EKsknZLRKSYVlN"><span data-page-node-id="YWeCHjSk9Osu7k0EYdmadS">第二章 估值</span></a>
+<a class="toc-item toc-chapter" href="#ch-03" data-page-node-id="KD60ucAgUEGZAhluOYfGo2"><span data-page-node-id="uFqJ2VP3qzbeSCYx3rSgQl">第三章 企业的价值</span></a>
+<a class="toc-item toc-chapter" href="#ch-04" data-page-node-id="GV9LeGaJzrpwxWy27thT2e"><span data-page-node-id="fjJElco1k8GiPP1E1AndSc">第四章 有形投入资本回报率反映企业的现金流创造能力</span></a>
+<a class="toc-item toc-chapter" href="#ch-05" data-page-node-id="ma9Lz2LDxLIy2j1HFwPYVC"><span data-page-node-id="iFHEUiSywjzQqx53cgOy0Z">第五章 企业特质：卓越、良好与糟糕</span></a>
+<a class="toc-item toc-sub" href="#ch-05-s1" data-page-node-id="6mcWHmOdA1n8qbAeOHC5Sx"><span data-page-node-id="8es3UYDJHc7vu5l9ZROgga">A. 真正卓越的生意</span></a>
+<a class="toc-item toc-sub" href="#ch-05-s2" data-page-node-id="SWgt4dvCztmsChO4AreD7H"><span data-page-node-id="16P7aTumgYVIF2CduntfO7">B. 良好的生意</span></a>
+<a class="toc-item toc-sub" href="#ch-05-s3" data-page-node-id="fuUpoGl3BVNRvH10P3wbnR"><span data-page-node-id="6RSCAbYgb59Cf3CZfLMAHE">C. 糟糕的生意</span></a>
+<a class="toc-item toc-sub" href="#ch-05-s4" data-page-node-id="QkOOSywKMwPeWkVv8hTwos"><span data-page-node-id="MpMhviYM97NI3GzggTReWw">D. 其他棘手的生意</span></a>
+<a class="toc-item toc-sub" href="#ch-05-s5" data-page-node-id="hYsCYHpluzJe6C1WoRYDFE"><span data-page-node-id="T5dY3Q2J7nGRDCJpeu5Vad">E. 看待会计商誉的正确方式</span></a>
+<a class="toc-item toc-sub" href="#ch-05-s6" data-page-node-id="IDAZucJAg71QFEGTpVEa0b"><span data-page-node-id="ooYVcMC5YiYSGJR9CvUtxe">F. 成功或损害的关键因素是什么？它们的可预测性如何？</span></a>
+<a class="toc-item toc-chapter" href="#ch-06" data-page-node-id="6Yb3HnSFfqFefTIIh4pt2t"><span data-page-node-id="jaWGDiOFvFADrHU03e50j6">第六章 以过往业绩为指引：有时有用，有时危险</span></a>
+</div></div>
+<div class="toc-part" data-open="true" data-page-node-id="1eBE49XxTnlSzNHvVNMLEG"><button aria-expanded="true" data-page-node-id="QX8jXaEeAIe4WSwTRMD2GN"><span class="caret" data-page-node-id="ZC9pi3pOg0Cwr7DEovIQvT">▾</span><span data-page-node-id="ZydAg8RVeFgCxSbHMmTevh">管理篇 · 管理层、治理、薪酬与并购</span></button><div class="toc-children" data-page-node-id="edukBTyrUGEAaMJeUKA6Af">
+<a class="toc-item toc-chapter" href="#ch-07" data-page-node-id="JKZU3orFXzxGso5WpgtTE3"><span data-page-node-id="3u0BYHnVMk71XonZG5SCpM">第七章 值得信赖且才华横溢的管理层的重要性</span></a>
+<a class="toc-item toc-chapter" href="#ch-08" data-page-node-id="O2ght2Q6EiUaYJjVnFOA0m"><span data-page-node-id="QmB0iPUD4wA0NuwxqMeMIP">第八章 用清晰的标尺评判管理层业绩的重要性</span></a>
+<a class="toc-item toc-chapter" href="#ch-09" data-page-node-id="fkFW3rjBv4raFDTF33EsQG"><span data-page-node-id="4lIG2f0NuQ9TkrRMww3BN7">第九章 公司治理</span></a>
+<a class="toc-item toc-chapter" href="#ch-10" data-page-node-id="jepihrnI4hwjmuR3wwuNE0"><span data-page-node-id="FMNK8INLVfjmKdBEwdm01u">第十章 所有者与管理层</span></a>
+<a class="toc-item toc-chapter" href="#ch-11" data-page-node-id="YbtC9ccaWnxqByvL2F5Sex"><span data-page-node-id="e2SbEDSk1T5A1NUGJ1iG0w">第十一章 管理层薪酬：奖励什么，就得到什么</span></a>
+<a class="toc-item toc-chapter" href="#ch-12" data-page-node-id="HPqmiAoMygfb6LLJPwEMXZ"><span data-page-node-id="1A6XVd6AZZjbWb9AFrnSPX">第十二章 兼并与收购：愚蠢的收购让所有者付出的代价远超大多数其他事情</span></a>
+<a class="toc-item toc-chapter" href="#ch-13" data-page-node-id="xQNd3tjQw9NvDwoWBCA8iZ"><span data-page-node-id="L1WVTg7c1uc3DnzXDiXUeI">第十三章 几个管理问题</span></a>
+<a class="toc-item toc-sub" href="#ch-13-s1" data-page-node-id="ce4vCLtjMRoHFCuEF0Y2zG"><span data-page-node-id="fIRS8G8XIyqwKlRJem2yfU">A. 做诚实可信的人，并选择你能信任的人</span></a>
+<a class="toc-item toc-sub" href="#ch-13-s2" data-page-node-id="JzM5wbl1o2YHa59i2WHoqp"><span data-page-node-id="q5Gn21SC80qe16BSOGZ5Gd">B. 管理与成本效率</span></a>
+<a class="toc-item toc-sub" href="#ch-13-s3" data-page-node-id="1QaDi5AUUBLoISmDzvv7aF"><span data-page-node-id="cOENvKUchrbyGH3kQy7Eww">C. 沟通</span></a>
+</div></div>
+<div class="toc-part" data-open="true" data-page-node-id="Eofzl51OTxsOFSRxqCYNWD"><button aria-expanded="true" data-page-node-id="DbQLEK5jB5I1eKrEHWaLoH"><span class="caret" data-page-node-id="23UHpDM9ZpSmHrTgxgXKvA">▾</span><span data-page-node-id="JfJaEwrEOChFZaJDPEJbB7">风险篇 · 如何降低风险与面对错误</span></button><div class="toc-children" data-page-node-id="i0r9yBJcaA5i2jYRB2czB6">
+<a class="toc-item toc-chapter" href="#ch-14" data-page-node-id="6hsFtpV8mfz2tK6oaNVLtD"><span data-page-node-id="k2gaElEf11NlWRRUjjL248">第十四章 如何降低风险</span></a>
+<a class="toc-item toc-sub" href="#ch-14-s1" data-page-node-id="gQLnm2LeKw0EkApdQtdXGb"><span data-page-node-id="44WLHGTEsU1iUPwONa1dO3">A. 简单方好办</span></a>
+<a class="toc-item toc-sub" href="#ch-14-s2" data-page-node-id="Ab6uptsY2Li14SWUjDO4Xw"><span data-page-node-id="FGTqIsXKjGpuzKNYnvpQlb">B. 把做出坏交易的可能性降到最低</span></a>
+<a class="toc-item toc-sub" href="#ch-14-s3" data-page-node-id="ChU57rQhSefHw2BbVMCdvK"><span data-page-node-id="Ny4rac1pNj3JvXKXCMhcoK">C. 我最有机会找到好交易的条件和环境——以及在好日子里的警告</span></a>
+<a class="toc-item toc-sub" href="#ch-14-s4" data-page-node-id="fQYMi78MAd2ToP2ZXU5zV8"><span data-page-node-id="Gpr8LplrlrifJbC2TTFtuX">E. 不要轻信带有偏见的建议</span></a>
+<a class="toc-item toc-sub" href="#ch-14-s5" data-page-node-id="moAxpn7tPAZ5EkmoOKl94A"><span data-page-node-id="ZJLOtOOog6qnVzIC1f5e9q">F. 避免无脑模仿，不要被最新的潮流和时髦所席卷</span></a>
+<a class="toc-item toc-sub" href="#ch-14-s6" data-page-node-id="75L8SJYyGGC0xCuKMkyln6"><span data-page-node-id="BIQ4o1MgrGvLQaBUtz1VLm">G. 出于害怕失去业务而模仿</span></a>
+<a class="toc-item toc-sub" href="#ch-14-s7" data-page-node-id="cAe5CZlH8PZZ83HoNabneY"><span data-page-node-id="6OOtgCfIRaMGRq2mZSMtRe">H. 不必理会经济预测</span></a>
+<a class="toc-item toc-sub" href="#ch-14-s8" data-page-node-id="0stbP0JwUipEAfkYtzWcNb"><span data-page-node-id="JDZ3ShFteTF0St9hfCLa6H">I. 对市场波动持有正确的心态</span></a>
+<a class="toc-item toc-chapter" href="#ch-15" data-page-node-id="wgcY32MtwxqenAx4KSeFGz"><span data-page-node-id="cLrckZCDEY0jkH2Wz89GSf">第十五章 有时也会犯错</span></a>
+</div></div>
+  <div class="toc-foot" data-page-node-id="GjpGKs5xFPIqzlJmGeogaA">15 章 · 17 小节<br data-page-node-id="m82ZopTp0NeKH0B5oJsMPj">/ 搜索 &nbsp; [ ] 上下章节</div>
+</nav>
+
+<div class="wrap" data-page-node-id="IoLYtn5hvHQjWk6PKWet4g"><div class="sheet" data-page-node-id="fu6JwDDvMYLUJPqqqozN0O"><div class="col" data-page-node-id="E7Mz0iz3UhTjREU9LFcuMX">
+<header class="title-page" data-page-node-id="geALzhzmIZC554InyEDqgq">
+    <p class="kicker" data-page-node-id="gyixBECMEcKCcvbDrAkSX8">WARREN BUFFETT · FOR INVESTORS AND MANAGERS</p>
+    <h1 data-page-node-id="xflyQ2FVBxGuKqyo3efUIH">巴菲特给投资者和管理者的几点建议</h1>
+    <p class="subtitle" data-page-node-id="iuClgFyX0tG06UPkMxTv5K">巴菲特致股东信中关于投资、估值与管理层的原话集录</p>
+    <p class="attrib" data-page-node-id="o5kWSe3sD93DdVSpwtXiDt">[美] 沃伦·巴菲特 原话 · 编者整理<br data-page-node-id="QKBG0NepfIX8xxuOK4g5Sz">按主题分章编纂 · 引文括注为发言年份</p>
+    <div class="stats" data-page-node-id="sq1SJDo5tiTSdmBolcxGy6">
+      <span data-page-node-id="o4QEBunfr0fFhnAJxMO3WC">15 章</span>
+      <span data-page-node-id="3EBthd5w1PUlFse5LO3Xpv">17 小节</span>
+      <span data-page-node-id="xxM2pzI8NX5CGbxI7v8nvF">致股东信原文</span>
+    </div>
+    <div class="legend" data-page-node-id="SIQjInbYy1RXH4IvvboYr4">
+      <h2 data-page-node-id="5sSq2lFCkR1Ff8NrjoGyLs">阅读说明</h2>
+      <ul data-page-node-id="tQycOJZ97bu4hKHmDiq04T">
+        <li data-page-node-id="b2ITJd7zyCMFUPy80W9gjs"><b data-page-node-id="wv6M7AwzPBPHUkZztZ3136">楷体提示句</b>：编者归纳的主题句，提示下文要讲什么</li>
+        <li data-page-node-id="W8r5bpauigQgzFPy1tlexZ"><b data-page-node-id="ulRcd9qnydEz8Xy6rslp5I">正文段落</b>：巴菲特原话，括注中的年份为出处</li>
+        <li data-page-node-id="1EKpvCtoO6uUOLdOaqhirA"><b data-page-node-id="KqvtVeCffLIhMEGkKf3HHm">章内小节</b>：A / B / C 主题分组，可在左侧目录直接跳转</li>
+        <li data-page-node-id="mWDhaxBWhK59uStxVHUMFd"><b data-page-node-id="OAywHV1NsdWjgA9zv2oDZ0">快捷键</b>：<b data-page-node-id="QsWIqXxrRJIG3nk8e7ESxw">/</b> 搜索全书，<b data-page-node-id="eAbYaCiBwCQZQH2DFPAYK9">[ ]</b> 上下章切换</li>
+      </ul>
+    </div>
+  </header>
+
+<section class="content-block" id="ch-01" data-page-node-id="EtggPDopX2vSMfHDxF7dOK">
+<h2 data-page-node-id="pGvjpSBN3KWbu1ajRjQnGU">第一章</h2>
+<h3 data-page-node-id="fz1WuwXAKe51h6l9bhhGUX">投资金融资产到底是怎么回事</h3>
+<p class="note" data-page-node-id="LvJhZJFIecYUAD0oSplLEG">今日付出现金，是为了将来收回更多的现金</p>
+<p class="note" data-page-node-id="QZtp0OfYQ9JrAz8SY1NO1S">我能获得多少回报，取决于我支付的价格、我能拿回多少现金，以及何时拿回</p>
+<p class="indent" data-page-node-id="bZvGfh2WH9GFRJEeKtsgyi">很久以前，本·格雷厄姆就教过我："价格是你支付的，价值是你得到的。"<span class="yr" data-page-node-id="dRmS9exjxAMdXLyyth73PH">（2008年）</span></p>
+<p class="note" data-page-node-id="cXplbzNBzKsGB8B7ZDnJcg">这种回报还可以与其他可选机会的预期回报进行比较</p>
+<p class="note" data-page-node-id="0uzSjZRXE9OvKpObgG2guZ">由于我的回报取决于我支付的价格与其真正价值之间的关系，因此我永远不应支付高于其价值的价格</p>
+<p class="indent" data-page-node-id="KyyMSjBgZbMCrjDgqUlanf">如果"投资"不是指那种至少要寻求与所付价格相称的价值的行为，那它还能是什么呢？<span class="yr" data-page-node-id="jvN5zRaIOcNUE1TnF3zN5i">（1992年）</span></p>
+<p class="note" data-page-node-id="E3uFmWftWvnevjywDHEXCE">要做到这一点，我必须能够弄清楚一项金融资产究竟值多少钱——否则，我又怎么知道在给定价格下能期望什么样的回报呢？</p>
+<p class="indent" data-page-node-id="ECkTexbn1U1XYM4O8jiiPY">只要我们了解所购买的业务，并相信价格与价值之间可能存在显著差距，我们就会考察任何类别的投资。<span class="yr" data-page-node-id="gTejauCL96fZKGuzypLHUy">（1990年）</span></p>
+</section>
+
+<section class="content-block" id="ch-02" data-page-node-id="jCI8ylDT0IXUxMX75CP7ds">
+<h2 data-page-node-id="Nb5njnuD7mLATGp7du6slJ">第二章</h2>
+<h3 data-page-node-id="M5It3IqnBQ9HUf7PPrFBi0">估值</h3>
+<p class="note" data-page-node-id="c1Aepv0s9URhqixsP1LpgY">紧盯现金——这是我唯一能花的东西</p>
+<p class="indent" data-page-node-id="cNsXlwfMgMElJ8XHucVQCh">约翰·伯尔·威廉姆斯（John Burr Williams）在50多年前所著的《投资价值理论》（The Theory of Investment Value）中提出了价值公式，我们在此将其浓缩为：今天任何一只股票、债券或一家企业的价值，由其在剩余存续期内可预期发生的现金流入和流出——按适当利率折现后——所决定。<span class="yr" data-page-node-id="DIFNxVn7cIBSFn2oddmfNq">（1992年）</span></p>
+<p class="note" data-page-node-id="oZNDSSkSBcHp49hfTGOAXD">经过这样的估值之后，所有金融资产在经济意义上都成为等同物</p>
+<p class="indent" data-page-node-id="XLEhAv3RLakUzwjJRNIyJN">它适用于对农场、油气特许权、债券、股票、彩票和制造厂的投入。蒸汽机的出现、电力的应用、汽车的诞生都没有让这个公式改变一丝一毫——互联网也不会。只要代入正确的数字，你就可以对宇宙中所有可能的资本用途按吸引力进行排序。<span class="yr" data-page-node-id="xqWGipRwDaSMOap4Lb0sdZ">（2000年）</span></p>
+<p class="note" data-page-node-id="zKW6V2jialilJdYdliXqFI">现金的来源无关紧要——花起来都一样</p>
+<p class="indent" data-page-node-id="6YqWUwJpRgUjvNu8b5W4oC">无论这些美元来自媒体资产的运营，还是来自钢铁厂的经营，美元就是美元。<span class="yr" data-page-node-id="nJLceEl3PD8wNmGL0VoPyJ">（1991年）</span></p>
+<p class="note" data-page-node-id="t1TzQJPcRBriWiQAJDq5lG">相对于其价格而言价值最高的金融资产，才能给我带来最高的回报</p>
+<p class="indent" data-page-node-id="njyJgl4HvQBstnmPBQXhSS">通过现金流折现计算得出最便宜的那项投资，就是投资者应当购买的标的。<span class="yr" data-page-node-id="0kQyVFMYAvmPQ1fuEVto1o">（1992年）</span></p>
+<p class="note" data-page-node-id="9AG3ikCDOKSbb3PKuy0114">由于未来是未知的，价值自然只是一个粗略的估计，而非一个精确的数字</p>
+<p class="indent" data-page-node-id="3ZDYYKNqb8kH9D1PEOouDs">然而，内在价值的计算并不简单。正如我们的定义所暗示的，内在价值是一个估计值，而不是精确数字，而且当利率发生变化或未来现金流的预测被修正时，这个估计值也必须随之调整。（《所有者手册》）</p>
+<p class="note" data-page-node-id="E7w0jBY2xqTwGRGCD6tAgs">而花哨的计算机也无济于事</p>
+<p class="indent" data-page-node-id="BHPtXQrFlhTnGBAbPamhed">我们相信它们所投射出的精确性只是一种幻象。事实上，这类模型可能会让决策者陷入虚假的安全感，从而增加犯下重大错误的可能性。<span class="yr" data-page-node-id="HUZGrdmFp0oyaD0UJZ0Mei">（1996年）</span></p>
+<p class="note" data-page-node-id="h2FQefUVy3nn6y8JiFSEQ7">粗略的近似已经足够</p>
+<p class="indent" data-page-node-id="FZKXBZqjfpbK6b0BblCJOF">我们无法精确指出一个数字，但这并不让我们感到困扰：我们宁愿大致正确，也不要精确地错。<span class="yr" data-page-node-id="Xo2pdE4Bb5DMzegibWTF0V">（2010年）</span></p>
+<p class="indent" data-page-node-id="KwmchH63zAUJX3DfkGbzOt">事实上，使用精确的数字是愚蠢的；使用一个范围才是更好的方法。<span class="yr" data-page-node-id="wtSvKBOu9E4o6K2wHG1pGa">（2000年）</span></p>
+<p class="indent" data-page-node-id="4vUb3XNQOSjCU2uvQsxDRj">然而，尽管内在价值模糊不清，它仍是至关重要的，是评估投资和企业相对吸引力的唯一合乎逻辑的方法。<span class="yr" data-page-node-id="utNlDhwdQAGBJtqVCMSUfp">（1994年）</span></p>
+</section>
+
+<section class="content-block" id="ch-03" data-page-node-id="GSDuxvF7MdMZmMnId23kPY">
+<h2 data-page-node-id="9kNbOhE9FBKLevDl9XRuO6">第三章</h2>
+<h3 data-page-node-id="Sp5wF2OSxDIEQlEg52eilo">企业的价值</h3>
+<p class="note" data-page-node-id="b8bTKxKxZXPBkR1i4rcwE3">一家企业类似于一张债券，但两者之间存在一些重要差异</p>
+<p class="indent" data-page-node-id="50fjvkVtkkBtQq5nLC9kpR">请注意，股票和债券的估值公式是相同的。然而，两者之间存在一个重要且难以处理的差异：债券有一张息票和到期日，明确了未来的现金流；但在股票的情形下，投资分析师必须自己估算未来的"息票"。<span class="yr" data-page-node-id="ADEpKAskJuxahLrGtsFc7z">（1992年）</span></p>
+<p class="indent" data-page-node-id="c72ioH43P6l8vVBiL6AIge">我之所以说"估算"，是因为内在价值的计算虽然至关重要，却必然是不精确的，而且常常严重失准。一家企业的未来越是不确定，计算出的结果就越有可能与实际相去甚远。<span class="yr" data-page-node-id="VsDQFMsgAMfmp40h8as6SK">（2005年）</span></p>
+<p class="indent" data-page-node-id="RNIRAirzVJEjMwoYKWSATM">此外，管理质量很少影响债券的息票——只有当管理层无能或不诚实，以至于停付利息时才会发生影响。相比之下，管理层的能力却可以显著影响股票的"息票"。<span class="yr" data-page-node-id="MKxH3SCsFjDBo1wmd3Q2rP">（1992年）</span></p>
+<p class="note" data-page-node-id="IIMzILZBq5xljkMjIymTs0">账面价值与真正的价值几乎无关</p>
+<p class="indent" data-page-node-id="lm5mIE1BB4mDgBrJQooZEF">重要的是每股内在价值，而不是账面价值。账面价值是一个会计术语，衡量的是已经投入企业的资本，包括留存收益。内在价值则是对企业在剩余存续期内可以取出的现金的现值估计。<span class="yr" data-page-node-id="YQgzZXIHHscjziKjm1hGYT">（1993年）</span></p>
+<p class="indent" data-page-node-id="FHSx2QRVeK6IYALY66YxA4">例如，就在LTV和Baldwin-United破产之前，它们发布的年终审计报告显示账面价值分别为6.52亿美元和3.97亿美元。相反，Belridge Oil公司在1979年以36亿美元的价格出售给壳牌，尽管其账面价值仅为1.77亿美元。<span class="yr" data-page-node-id="K5ncDDEjiWSke5M0WUNiWI">（1987年）</span></p>
+<p class="indent" data-page-node-id="JMDquaG0yvuEsop77u2MUb">通过观察一种投资形式——大学教育——你可以对账面价值与内在价值之间的差异有一些洞察。把教育的成本视为它的"账面价值"。要使这一成本准确，应当包括学生因选择上大学而放弃的工作收入。（《所有者手册》）</p>
+<p class="indent" data-page-node-id="NSF6lXtnANgHIScbTVQPFw">在这个练习中，我们将忽略教育重要的非经济收益，而严格关注其经济价值。首先，我们必须估算毕业生一生中将获得的收入，再从中减去他若未受教育将赚取的金额。这样我们就得到了一个超额收入数字，然后用适当的利率将其折现回毕业当天。所得的美元数额即为该教育的内在经济价值。（《所有者手册》）</p>
+<p class="indent" data-page-node-id="Be9uNempUJc3SMvpUVFu4b">一些毕业生会发现他们所受教育的账面价值超过了它的内在价值，这意味着为这份教育付费的人没有得到与其金钱相称的价值。另一些情况下，教育的内在价值则远远超过其账面价值，这一结果证明资本得到了明智的投入。在所有情况下，显而易见的是，账面价值作为内在价值的指标毫无意义。（《所有者手册》）</p>
+<p class="note" data-page-node-id="l7w1N9vy4L3zOGSlNpQ1Hl">其他许多衡量标准也是如此</p>
+<p class="indent" data-page-node-id="Hx2huD9LFgP0oKYy9WjNlu">诸如股息收益率、市盈率、市净率甚至增长率等常见的衡量标准，与估值毫无关系，除非它们能为流入和流出企业的现金的数额和时间提供线索。<span class="yr" data-page-node-id="Uw1yJyuKnHG8fvVLsvvLRn">（2000年）</span></p>
+<p class="indent" data-page-node-id="terGiW5cUWWCG8gfHC5ev1">事实上，如果一个项目或企业在初期所需的现金投入超过这些资产在后期所产生现金的折现值，那么增长会摧毁价值……增长只是价值公式中的一个组成部分——通常是加分项，有时则是减分项。<span class="yr" data-page-node-id="ZbiIdFktKojWb1E7ogEmlJ">（2000年）</span></p>
+<p class="indent" data-page-node-id="JPkaNraSGVeYBKvbnoJ1CK">在讨论增长率时，你应当怀疑起始年份和终止年份是如何被选定的。如果其中任何一年存在异常，对增长率的任何计算都会被扭曲。</p>
+<p class="indent" data-page-node-id="6PjWp0jYmnUZAy96iBYrRC">尤其是，一个收益不佳的基准年可以产生一个惊人但毫无意义的增长率。<span class="yr" data-page-node-id="vQcsFNdUT2xKN5gsoNIroP">（2005年）</span></p>
+<p class="indent" data-page-node-id="DVeyfVf2kK73IEXILHBqUC">选择一个特别景气的终止年份也会使增长率的计算产生有利的偏差。<span class="yr" data-page-node-id="Q6BXekW9WJOdnzvtwzpQAJ">（2003年）</span></p>
+<p class="indent" data-page-node-id="oUD0A52JjOHYBBKo0sJtER">通过现金流折现计算得出最便宜的那项投资，就是投资者应该购买的——无论这家企业增长与否，盈利是否波动，相对于当前盈利和账面价值价格是高还是低。<span class="yr" data-page-node-id="CrOm8uVddj2KC05LPCMf94">（1992年）</span></p>
+<p class="note" data-page-node-id="gbLSDbZNPAd8OOf8aOo8xl">企业的现金流，即"所有者收益"，是扣除资本支出之后的</p>
+<p class="indent" data-page-node-id="5S2RpGAtQ99YthqCddUtg1">"所有者收益"……指的是（a）报告的盈利加上（b）折旧、损耗、摊销以及其他某些非现金支出……再减去（c）企业为充分维持其长期竞争地位和单位产量所需要的厂房与设备等的资本性支出年均额。（如果企业为维持竞争地位和单位产量需要追加营运资金，那么这一增量也应包含在（c）中。）<span class="yr" data-page-node-id="SwMEVCvh625qvvBRqniX5F">（1986年）</span></p>
+<p class="note" data-page-node-id="sGnj2ijhCbvVAGWAcKXjOi">牙仙不会替你支付资本支出</p>
+<p class="indent" data-page-node-id="Mc4Qs8D2ElvBaqd5u9wcwL">这一切都说明华尔街报告中常见的"现金流"数字何其荒谬。这些数字通常是把（a）加上（b）——却没有减去（c）。投资银行的销售册子大多也以这种方式做出欺骗性的呈现。这些数字暗示所推销的企业堪比商业版的金字塔——永远保持最先进的状态，永远无需更换、改进或翻修。<span class="yr" data-page-node-id="tF1wECGqLltyVkfnxF3UNs">（1986年）</span></p>
+<p class="indent" data-page-node-id="MdvRO4gfpTRekGPggCZr2Y">不应在不减去（c）的情况下就加上（b）：尽管牙医正确地宣称"如果你忽视你的牙齿，它们就会离你而去"，但对（c）来说情况却并非如此。<span class="yr" data-page-node-id="NYU39X8rbYqoFSDQbDpVME">（1986年）</span></p>
+<p class="note" data-page-node-id="MYyAu87A83Jh62UWlLHeKC">警惕乐观会计和"会计花招"</p>
+<p class="indent" data-page-node-id="mMiAPfnXgk9I822b8cN9EA">"盈利"一词听起来精确无比。当一个盈利数字附带毫无保留的审计师证明时，天真的读者可能会认为它的确定性堪比圆周率精确到小数点后几十位。但实际上，当一个骗子掌管一家报告盈利的公司时，盈利可以像油灰一样被任意揉捏。真相终会浮出水面，但与此同时，会有大量金钱易手。</p>
+<p class="indent" data-page-node-id="5IF0DyDfMndr4zRqsgv9Pu">事实上，一些美国的巨额财富正是通过会计幻象的变现而创造的。<span class="yr" data-page-node-id="LVAAk1GtxAs6GO1tOLAA0l">（1990年）</span></p>
+<p class="indent" data-page-node-id="1SMhNpUObn21n7AAjSGqt9">当然，从长远来看，那些用会计手段掩盖经营问题的管理层终将自食其果。最终，这类管理层会和那个对医生说"我做不起手术，但你愿意接受一小笔报酬，帮我修一下X光片吗？"的重病患者一样，落得同样的下场。（1991年)</p>
+<p class="note" data-page-node-id="w5PLCxz70e0wDcIYqFKY7W">归根结底，无论是冶金的炼金术还是金融的炼金术，都会失败</p>
+<p class="indent" data-page-node-id="uMK0UnEyPoyy9kBn1KX1al">一家普通的企业不可能通过会计或资本结构的伎俩变成一家黄金般的企业。声称自己是金融炼金术士的人也许会变得富有，但他财富的来源往往不是商业成就，而是轻信的投资者。<span class="yr" data-page-node-id="AhbegXs2vZ59OlyK0DdH2X">（1989年）</span></p>
+<p class="note" data-page-node-id="xtgkTvQJwArkHHVlRI5C4t">警惕那些用花哨的预测来诱惑我的管理者</p>
+<p class="indent" data-page-node-id="NgZUYKCoetMpTjiqi6LkPQ">这些管理者中有几位会被证明是先知——但其他人会被证明是天生的乐观主义者，甚至是骗子。不幸的是，投资者很难提前知道自己面对的是哪一类。<span class="yr" data-page-node-id="24sJgTdpVPe7Ueu0zJtyER">（2000年）</span></p>
+<p class="indent" data-page-node-id="itnO4sqBjMKUhDkUNgi5kS">我和查理不仅不知道我们的企业明年会赚多少——我们甚至不知道下一个季度会赚多少。<span class="yr" data-page-node-id="R5vAO4YLgHihoSMY1xAgY3">（2002年）</span></p>
+<p class="indent" data-page-node-id="MvOhGJs8rdK47p6uGNu3gK">高调预测带来的问题不仅是它散播了毫无根据的乐观情绪。更麻烦的是，它会侵蚀CEO的行为。多年来，我和查理观察到许多CEO采取了不经济的经营手段，只为达到他们已经宣布的盈利目标。<span class="yr" data-page-node-id="qF7bwnEJRQpIJotxya3sCs">（2000年）</span></p>
+<p class="note" data-page-node-id="Qk4d2NF699NCiFEGISUMLF">总是承诺"完成数字"的管理者，迟早会在某个时刻被诱惑去"编造数字"。<span class="yr" data-page-node-id="dQK0O9OzDr2AISE0IEFRLc">（2002年）</span></p>
+<p class="indent" data-page-node-id="jkaToEPEI4DmNmJZmyZCSo">这种会计上的小动作有一种滚雪球的趋势：一旦一家公司将盈利从一个时期挪到另一个时期，此后出现的经营缺口就会要求它进行进一步、更加"英勇"的会计操作。这些操作会把粉饰变成欺诈。（有人指出，用笔尖偷走的钱比用枪口偷走的还要多。）<span class="yr" data-page-node-id="m8aFpgn0BQrTAuaLfonnBs">（2000年）</span></p>
+</section>
+
+<section class="content-block" id="ch-04" data-page-node-id="2m6PaQM5iSYHdX2dzubAH0">
+<h2 data-page-node-id="Ps02x5R7PKX3jAu1nOH1ki">第四章</h2>
+<h3 data-page-node-id="wWAAEgFtTasHMn4L0LAdSj">有形投入资本回报率反映企业的现金流创造能力</h3>
+<p class="indent" data-page-node-id="4TnAuZLvtdvKQ7EGII1ZlS">任何公司的盈利水平都由三项因素决定：</p>
+<ol data-page-node-id="mz3BlcLW9JUhnQ4KZjKF2q">
+<li data-page-node-id="UEXNTxr1FDOvvblLdnPGSk">其资产能带来的收益；</li>
+<li data-page-node-id="oaDM6M46DFRVz6BXR6WzbS">其负债的成本；以及</li>
+<li data-page-node-id="hBC8sjZGGT95eAz0pYzivv">其对"杠杆"的运用——即资产中由负债而非股权出资的比例。<span class="yr" data-page-node-id="gemzvva0FUqJMCCXUwuyb2">（1987年）</span></li>
+</ol>
+<p class="indent" data-page-node-id="oMeJpFtriP9UjOVbiGRuMT">一家企业要获得尽可能好的财务业绩，必须同时管理好资产负债表的两边。这意味着获得尽可能高的资产回报率和尽可能低的负债成本。<span class="yr" data-page-node-id="QOuGb3Edd6XhfDAnMxcuGJ">（1987年）</span></p>
+<p class="note" data-page-node-id="iPRUVdv3o3V18CVxSQgohd">企业在投入资本上赚取的回报越高，它产生的现金就越多，所创造的价值也就越大</p>
+<p class="indent" data-page-node-id="ZGAkawW1V0TZJumQqkrtpu">我们更愿意通过直接拥有一组多元化的企业来实现我们的目标——这些企业能够产生现金，并能持续地赚取高于平均水平的资本回报率。（《所有者手册》）</p>
+<p class="note" data-page-node-id="RWjGLuGmZEgAScJHVwy8tR">经营企业所需的有形资产越少，每投入一美元所产生的现金就越多——在给定回报率下</p>
+<p class="indent" data-page-node-id="wo5pvxjRRT2wltSAVy2wD2">当一家企业可以预期在净有形资产上产生远超市场回报率的盈利时，从逻辑上讲，这家企业的价值远超其净有形资产。这种超额回报的资本化价值就是经济商誉。<span class="yr" data-page-node-id="imrSDWrMMEddQVBd61EKEh">（1983年）</span></p>
+<p class="note" data-page-node-id="WzxBqVAnVCvFaCLfX3QfFB">即使企业完全不增长这一点也是成立的，因为在资本更密集的企业中，现金流会被削减以进行投资，仅仅是为了保持相同的单位产量和竞争地位</p>
+<p class="indent" data-page-node-id="8xKME46SukqcEb5GQYGt0r">只有当所讨论的企业能在具有吸引力的边际回报率上再投资时——换句话说，只有当用于支持增长的每一美元能创造超过一美元的长期市值时——增长才会让投资者受益。在低回报且需要追加资金的企业中，增长反而会损害投资者。<span class="yr" data-page-node-id="5MeBRTBwl3uBRHWevjeCIE">（1992年）</span></p>
+<p class="note" data-page-node-id="yEyqFp4UkkWGBhRkaX73Ay">从长期来看，我投入资金的回报很难显著高于其所投资企业本身在投入资本上获得的回报</p>
+<p class="indent" data-page-node-id="x1Av21FH6wnNEqQVuiw0Dw">如果我长期获得的回报取决于投入资本的回报率，那么是什么决定了这个回报率呢？</p>
+<p class="indent" data-page-node-id="1sqgxvB9QHsv8zEsE1RW88">投入资本回报率主要由三个变量决定：</p>
+<ol data-page-node-id="IiUVPrrjugCe4428TMPvFQ">
+<li data-page-node-id="TZCfKMYZVH4DNeAvX8BQ9O"><em data-page-node-id="2oepriqbDF27b9xmEgcEbA">销售</em> —— 将以怎样的价格销售多少单位的产品？</li>
+<li data-page-node-id="Fxxrp4iMc4IxGb7842oGNJ"><em data-page-node-id="9RhMGBQCfBQHBlB879gJIX">运营成本</em> —— 制造这些产品（或提供该服务）以及经营企业的成本是多少？</li>
+<li data-page-node-id="Gxqe7sRsm78PxeAlcy7YIV"><em data-page-node-id="J0qzHwNIQsQhgTratA9hhi">投入资本</em> —— 经营这家企业需要多少资本？</li>
+</ol>
+<p class="indent" data-page-node-id="byTZhsey0jxUNb5IauzpyI">销售、成本和资本需求在很大程度上取决于企业的特性、需求、来自同类或替代产品的竞争、相对于竞争对手的优势及其可持续性、成本和资本的效率，以及在执行层面的经营有效性。</p>
+</section>
+
+<section class="content-block" id="ch-05" data-page-node-id="73qS1wSIlz5w0d2mZnFo2a">
+<h2 data-page-node-id="x9ywy5VpzUdlXHmjuTliH0">第五章</h2>
+<h3 data-page-node-id="HbrEkchDkEtFBy5umy49DD">企业特质：卓越、良好与糟糕</h3>
+<p class="indent" data-page-node-id="6px8ZOPAQZWiDVzDQWDyZk">我们的收购偏好倾向于那些产生现金的企业，而不是消耗现金的企业。<span class="yr" data-page-node-id="0iubMAGduWr6oJE8vrf9AA">（1980年）</span></p>
+<p class="note" data-page-node-id="LPE1Gd0RpGhoE83ruyOqnL">所谓的好生意是</p>
+<p class="indent" data-page-node-id="LFIeDz4NvsvM0Ak16CEmg8">对所有者而言，迄今为止最好的生意，仍然是那些资本回报率高且增长所需追加投资很少的生意。<span class="yr" data-page-node-id="DtRmfbI5GMiQ5b2sfw61ww">（2009年）</span></p>
+<h3 class="sec" id="ch-05-s1" data-page-node-id="BCqhpLBjXqNkRlW0xyhjyb">A. 真正卓越的生意</h3>
+<p class="note" data-page-node-id="qufIHHmIvXdGPifNc949Te">高回报、可持续的竞争优势，以及让新进入者难以进入的障碍</p>
+<p class="indent" data-page-node-id="bYlSDDZXt5FVM1r54bBIJ9">一家真正卓越的企业必须拥有一条经久不衰的"护城河"，以保护它在投入资本上的优异回报。<span class="yr" data-page-node-id="vfN8R6YCtIHxB8Jkr8C8nq">（2007年）</span></p>
+<p class="indent" data-page-node-id="pn1WZRuFhH5p5CWFPHE0JI">"护城河"——这是一种比喻，指的是它们所拥有的、让竞争对手难以应付的优势。<span class="yr" data-page-node-id="nP5wnmXnkrTfxFcpBROVGj">（2007年）</span></p>
+<p class="note" data-page-node-id="Bw4Hnz2ELZszEGgZGNTnkw">护城河可以拓宽，也可以收窄</p>
+<p class="indent" data-page-node-id="XHRxFN6pXYW289k4EjrCYt">我们在企业中所寻求的，是稳定行业中的长期竞争优势。<span class="yr" data-page-node-id="PEn6KFQMae3mASgyd30dlv">（2007年）</span></p>
+<p class="indent" data-page-node-id="WrBfON8PRtKoSCtOSQom24">仅仅是行业领导地位并不能给出任何确定性：看看几年前通用汽车、IBM和西尔斯所遭受的冲击吧——它们都曾享有似乎不可战胜的漫长时期。<span class="yr" data-page-node-id="DTMdehUirxdKenJ4sYiGfN">（1996年）</span></p>
+<p class="indent" data-page-node-id="ektHBPJ9ILdI0PEMpppsOH">资本主义的动力机制保证了：任何赚取高回报的企业"城堡"都会反复遭到竞争对手的冲击。因此，诸如成为低成本生产商（GEICO、Costco）或拥有强大的全球品牌（可口可乐、吉列、美国运通）这样的强大壁垒，对于持续成功来说必不可少。商业史上充满了"罗马蜡烛"——这些公司的护城河被证明只是幻象，很快就被对手跨越。<span class="yr" data-page-node-id="mAyTGw4BCPW2MMtELpoDAl">（2007年）</span></p>
+<p class="indent" data-page-node-id="TTWMa9BT5BAi71D5McfG68">在评估一家企业时，我总是问自己一个问题：如果我有充足的资本和优秀的人才，我会如何与之竞争。<span class="yr" data-page-node-id="JQCO3QVLOHM8L87FvmbEPH">（1983年）</span></p>
+<p class="indent" data-page-node-id="ZW5UDcO2rsjXe57NIsXT4w">如果一家企业要靠一位超级巨星才能产生卓越的业绩，那么这家企业本身就不能被称为卓越。一家由你所在地区最顶尖的脑外科医生领衔的医疗合伙制企业，可能享有超高且不断增长的盈利，但这并不能说明它的未来。当这位外科医生离开时，这家合伙制企业的护城河也将不复存在。然而，你可以指望梅奥诊所（Mayo Clinic）的护城河长久存在，即使你说不出它的CEO是谁。<span class="yr" data-page-node-id="L0ryDDvWHx2R6yFbI8wZVc">（2007年）</span></p>
+<p class="note" data-page-node-id="qojaZNVeMkFl58gNf18AdS">一家卓越的企业拥有定价权，或者说拥有不会因为提价而失去客户的能力</p>
+<p class="indent" data-page-node-id="LpnXg6bT3h7CpLwvIDxAUa">经济特许权（economic franchise）源自一种产品或服务，它：</p>
+<ol data-page-node-id="uUND1Yp9cwazCp0nshaict">
+<li data-page-node-id="9PNcXBeYiVrr5miNKUYogG">是被需要或被渴望的；</li>
+<li data-page-node-id="xVfzIz7G3ZQNpPMSeRkibV">在客户眼中没有近似的替代品；并且</li>
+<li data-page-node-id="suHpAtGIHA23OzG9LFLekC">不受价格管制。这三个条件同时存在的标志，便是公司能够定期对其产品或服务积极提价，从而获得较高的资本回报率。此外，特许权可以容忍管理不善。无能的管理者可能会削弱特许权的盈利能力，但他们无法对其造成致命伤害。<span class="yr" data-page-node-id="NRyXf4bm1JmYhn4knJzYzE">（1991年）</span></li>
+</ol>
+<p class="note" data-page-node-id="E71GVsJ0uGTiQhiqoWNvyC">对抗通胀的最佳防御是一门卓越的生意</p>
+<p class="indent" data-page-node-id="gQBdkJ9plR2Yo36FW8a4Y0">这样备受青睐的企业必须具备两个特征：</p>
+<ol data-page-node-id="l7ZvMpQwvwjpBHg2nzGtTh">
+<li data-page-node-id="DAYbUSgtHafO0SNGh7h7t5">能够轻易提价（即使产品需求平淡，产能也未充分利用），而不必担心市场份额或销量的重大损失；以及</li>
+<li data-page-node-id="BcGStrHeX7k8tL00Eu40zf">能够以仅需少量追加资本的方式，承担起业务上的大额美元增量（这种增量往往更多由通胀而非真实增长所产生）。<span class="yr" data-page-node-id="gQ9Jez8kg82TQxJ35l4cpb">（1981年）</span></li>
+</ol>
+<p class="indent" data-page-node-id="1bFlczpgGhquoexuwA2qYK">随着通胀加剧，越来越多的公司发现它们必须将所有内部产生的资金都用于维持现有的实物业务规模。<span class="yr" data-page-node-id="KPDtxI3W3wKNlzBKZnjawP">（1980年）</span></p>
+<p class="indent" data-page-node-id="r4SII0ZSeqR4ptV8eV25J7">任何在经营中需要一定净有形资产、且未加杠杆的企业，都会受到通胀的伤害（几乎所有企业都是如此）。所需有形资产很少的企业，仅仅是受到的伤害最小而已。<span class="yr" data-page-node-id="ybSI5VUcgCt08pEKTwsx2l">（1983年）</span></p>
+<p class="note" data-page-node-id="kOQ1mULaX3cLoICPLZNqF9">梦寐以求的生意——"甜美"的回报</p>
+<p class="indent" data-page-node-id="oGQkehK8SGZ5mGFmTugsBn">让我们来看看一个梦想生意的原型——我们自己的喜诗糖果（See's Candy）。<span class="yr" data-page-node-id="1DFDrmuMV7sBZQY4fdgcDz">（2007年）</span></p>
+<p class="indent" data-page-node-id="NEMPWDvGX1RBa8Omom1WWc">在收购喜诗时，我和查理获得了一个重要的洞察：我们看出这家企业拥有尚未释放的定价能力。<span class="yr" data-page-node-id="m2aAjtS3UJUFhiH7JLkXl1">（1991年）</span></p>
+<p class="indent" data-page-node-id="9umL9rJBbl6bZ7wRlCxmu9">1972年蓝筹印花公司收购喜诗时，其年销量为1600万磅糖果……去年喜诗销售了3100万磅，年增长率仅为2%。然而，喜诗家族在50年间所建立、随后又被查克·哈金斯（Chuck Huggins）和布拉德·金斯特勒（Brad Kinstler）所强化的持久竞争优势，为伯克希尔带来了惊人的业绩。<span class="yr" data-page-node-id="7OfXyytpjuZEkUT51zECi7">（2007年）</span></p>
+<p class="indent" data-page-node-id="6BWjPI5dasYydkVK3bw2xB">我们以2500万美元买下了喜诗，当时它的销售额为3000万美元，税前利润不到500万美元。当时维持业务所需的资本为800万美元。（每年也需要几个月的小额季节性债务。）因此，公司在投入资本上的税前回报率为60%。有两个因素帮助将经营所需资金最小化。首先，产品以现金销售，这消除了应收账款。其次，生产和分销周期很短，这使库存最小化。<span class="yr" data-page-node-id="zeIbBhaVLCGAW52QEIlseg">（2007年）</span></p>
+<p class="indent" data-page-node-id="Qor6GpEcxnFBHnG7sDBlxB">去年喜诗的销售额为3.83亿美元，税前利润为8200万美元。如今经营这家企业所需的资本为4000万美元。这意味着自1972年以来，我们仅追加了3200万美元的再投资，就支撑了业务温和的实物增长——以及不太温和的财务增长。与此同时，税前盈利累计达到13.5亿美元。除了那3200万美元，其余全部都被送到了伯克希尔（或在早年送到蓝筹印花）。在为利润支付公司税之后，我们用剩下的钱去收购其他有吸引力的企业。<span class="yr" data-page-node-id="JFUsFDxG2VJCvZCCp3nrB6">（2007年）</span></p>
+<p class="note" data-page-node-id="zADD2pPPI6looTYx8CPdZy">顾客的好感造就了经济商誉</p>
+<p class="indent" data-page-node-id="XV7BVtFvNwAXcB8J5k80AK">喜诗拥有独一无二的产品"个性"，这是其糖果美味的口感和适中的价格、公司对分销过程的完全掌控，以及门店员工提供的卓越服务三者共同造就的结果。<span class="yr" data-page-node-id="4hFP5GKIQB1Ww34L5FR7Pw">（1986年）</span></p>
+<p class="indent" data-page-node-id="hcwcA4CE1IGM6qc27XT5OP">并不是存货、应收款或固定资产的公允市场价值带来了那么高的回报率。相反，是一组无形资产的组合，特别是消费者对它无所不在的良好声誉——这种声誉建立在他们与产品和员工无数次愉快接触的体验之上。<span class="yr" data-page-node-id="xp2O3wmwyKi1vjw1gAsXRz">（1983年）</span></p>
+<p class="indent" data-page-node-id="yyPKaQzT1HSHJZS86uFLkC">这样的声誉创造了一种消费者特许权，它使产品在购买者眼中的价值——而非其生产成本——成为售价的主要决定因素。消费者特许权是经济商誉的主要来源。<span class="yr" data-page-node-id="BWnkhPdLHDaaqx0Ocnpzdq">（1983年）</span></p>
+<p class="note" data-page-node-id="DBd1JojQMKjRGaIWDDCMnK">像喜诗这样的公司极为罕见</p>
+<p class="indent" data-page-node-id="BZjHp6y7t6VDmUfpjeoCgW">在美国企业界，像喜诗这样的公司寥寥无几。通常，一家将盈利从500万美元增长到8200万美元的公司，需要大约4亿美元左右的资本投入来支持增长。这是因为成长型企业既有随销售增长而成比例增加的营运资金需求，也有大量固定资产投资的需求。<span class="yr" data-page-node-id="XoKTAyLvRsehl0HxvIpGAK">（2007年）</span></p>
+<p class="indent" data-page-node-id="kB5JzB7xeCPCWbHeyCty4B">一家需要大量追加资本来推动增长的公司，仍可能被证明是一项令人满意的投资。延续我们的例子，在4亿美元的净有形资产上赚取8200万美元的税前利润并非什么寒酸的事情。但对所有者而言，这种等式与喜诗的情形大相径庭。能够拥有一条几乎不需要重大资本投入的不断增长的盈利之流要好得多。问问微软或谷歌就知道了。<span class="yr" data-page-node-id="P4H87uEsAvaaudFFjrJ6TJ">（2007年）</span></p>
+<h3 class="sec" id="ch-05-s2" data-page-node-id="nvdAXBNd8mczHpVaI6lfgK">B. 良好的生意</h3>
+<p class="note" data-page-node-id="xHZU8kC2NlAG8nJuTj2JFB">在有形投入资本上赚取良好的回报</p>
+<p class="indent" data-page-node-id="RuSYAvOfntwj41Afud4SDG">一个良好（但远谈不上轰动）的商业经济范例是我们自己的飞行安全公司（FlightSafety）。这家公司为客户提供的福利与我所知道的任何企业一样优秀。它也拥有持久的竞争优势：去任何一家次优的飞行培训机构，就像在外科手术上选最低价的投标方一样。<span class="yr" data-page-node-id="TEWlNZk7Nw4RrEnuxicG5b">（2007年）</span></p>
+<p class="indent" data-page-node-id="mj4uSDTY6g6qaDbxlCmGJl">然而，这门生意若要增长，需要对盈利进行大量再投资。1996年我们收购飞行安全公司时，其税前营业利润为1.11亿美元，固定资产的净投资为5.7亿美元。自我们收购以来，折旧累计达到9.23亿美元。但资本支出累计达到了16.35亿美元，其中大部分用于购置与不断推出的新型飞机相匹配的模拟器。（一台模拟器的成本可能超过1200万美元，我们拥有273台。）扣除折旧后，我们的固定资产如今已达10.79亿美元。2007年的税前营业利润为2.7亿美元，比1996年增加了1.59亿美元。这一增长使我们在5.09亿美元的增量投资上获得了良好——但远不及喜诗的——回报。<span class="yr" data-page-node-id="iLPgqFw3pv4HG3Mr26S04P">（2007年）</span></p>
+<p class="note" data-page-node-id="5GNnEp1XUIUM9AKfHLFdfk">高资本密集度需要高利润率来获得像样的回报</p>
+<p class="indent" data-page-node-id="cRoqRHqBzM9XHuEbcnnTlB">在飞行安全公司……每产生1美元的年收入需要多达3.5美元的资本投入。在这种资本密集度下，飞行安全公司需要非常高的营业利润率才能获得合理的资本回报，这意味着设备使用率至关重要。<span class="yr" data-page-node-id="u71AGnUfMCg1aWDYaWpRrG">（2004年）</span></p>
+<p class="indent" data-page-node-id="MMjjRDxOwtVYdrDbcPJMZ1">因此，如果仅按经济回报来衡量，飞行安全是一门优秀但不出众的生意。它"投入更多才能赚得更多"的经历，是大多数公司所面临的情形。<span class="yr" data-page-node-id="BPq4806Tup9sw3VWpmA8fE">（2007年）</span></p>
+<h3 class="sec" id="ch-05-s3" data-page-node-id="55MR76BQ8kZpDL0wGdkG2P">C. 糟糕的生意</h3>
+<p class="note" data-page-node-id="N8CpMtmzqjNFf8uIF9h74u">需要大量资本但回报却很低的生意</p>
+<p class="indent" data-page-node-id="O4Fj6eplc4qBoekK0pEVp7">最糟糕的那种生意是：增长迅速、为支撑增长需要大量资本，然后却赚不到什么钱甚至不赚钱。想想航空公司吧。自莱特兄弟时代以来，这个行业的持久竞争优势就一直难以捉摸。<span class="yr" data-page-node-id="gRJ6nfh5TLRwXD4TwFLjx3">（2007年）</span></p>
+<p class="indent" data-page-node-id="8RRqiNjJlKjPAdtIZDOcuI">资产密集型企业通常获得的回报率很低——这种回报率往往只够勉强为现有业务的通胀需求提供资本，而无法剩余用于真正的增长、向所有者分配，或收购新的业务。<span class="yr" data-page-node-id="hj4ahsO7YmRbgFEpKMFTfm">（1983年）</span></p>
+<p class="note" data-page-node-id="ZzsXzBVHmyYptyJT41V4wy">令人沮丧的行业等式——产品同质化、易于进入、竞争者众多、产能过剩</p>
+<p class="indent" data-page-node-id="ZSzIqzBAslG6ufockugQEZ">那些既有大量产能过剩、又生产"大宗商品"式产品（在客户重视的性能、外观、服务支持等因素上没有任何区别）的行业里的企业，是利润困境的主要候选者。<span class="yr" data-page-node-id="1FaLlAFmfST3v0vmJCpkTi">（1982年）</span></p>
+<p class="indent" data-page-node-id="1FI5Caxdw7G4xGCdz7nDCE">最终决定此类行业长期盈利水平的，是供应紧张年份与供应充足年份的比率。这个比率通常令人沮丧。<span class="yr" data-page-node-id="WRmiS7BsR4EWQ22DQZCEQH">（1982年）</span></p>
+<p class="indent" data-page-node-id="9bPsTtqdGP8RXUHiEtFj4l">如果……成本和价格由全力的竞争决定，产能绰绰有余，且买方并不在意自己用的是谁的产品或分销服务，那么行业经济几乎肯定缺乏吸引力。甚至可能是灾难性的。<span class="yr" data-page-node-id="7mzAsqhX5PEIbbiOZjVXY3">（1982年）</span></p>
+<p class="note" data-page-node-id="bCUWg2Rv3BOJnuEIjZx33Z">在许多行业中，差异化无法被赋予实质意义</p>
+<p class="indent" data-page-node-id="zHI5ENkRJhedqyJy5Z0Bn1">因此每个供应商都不停地努力建立和强调产品或服务的特殊品质。这对糖果棒有效（顾客按品牌购买，而不会问"来一根二盎司的糖果棒"），但对蔗糖无效（你有多少次听到："请给我一杯加奶油和C&amp;H牌糖的咖啡"？）。<span class="yr" data-page-node-id="NyuzERfKsEJBJpebZFyr8H">（1982年）</span></p>
+<p class="note" data-page-node-id="6mJYFNbS5kosb17qBSs3qB">有些企业能赚钱，但前提是它们是低成本经营者</p>
+<p class="indent" data-page-node-id="5AkMJLZna0oii8pSlypGB4">当一家公司销售的产品具有大宗商品式的经济特征时，成为低成本生产者至关重要。<span class="yr" data-page-node-id="edLdBUmR7CUXhz7bF6aChF">（2000年）</span></p>
+<p class="indent" data-page-node-id="Fa3owzDG1smZmzSIIzjbQg">如果在这类行业中拥有既广阔又可持续的成本优势，少数几家生产者可能持续表现良好。从定义上讲，这种例外很少；在许多行业中，根本不存在。<span class="yr" data-page-node-id="0zYeiNplb9aMumnoXB6rW8">（1982年）</span></p>
+<p class="indent" data-page-node-id="8y5HMDWBCFBINExVIZCAZJ">凭借优秀的管理，一家公司可以更长时间地维持其低成本经营者的地位，但即便如此，它也始终面临着竞争攻击的可能性。与特许权不同的是，一项生意可能被糟糕的管理"杀死"。<span class="yr" data-page-node-id="2k7PRZBQoIhivYKJtxJQDa">（1991年）</span></p>
+<p class="note" data-page-node-id="pm59q73RVFVHvhCkM1eCFw">或者找到一个受保护的利基市场</p>
+<p class="indent" data-page-node-id="9Gaw9KEuTiccXxpli0Ycdz">在受保护的（通常是小的）利基市场中经营的人，可以维持高水平的盈利能力。<span class="yr" data-page-node-id="9G8wxnjTrlItClCtWmuN67">（1987年）</span></p>
+<p class="note" data-page-node-id="x9qEAxOPLxZAnHdXmLQtvT">或者在供应紧张时</p>
+<p class="indent" data-page-node-id="Saq6CwmxKFS3EwWG7k43JP">当出现短缺时……即便是大宗商品业务也会欣欣向荣。<span class="yr" data-page-node-id="29kG5Aw6LfOaG9uHJDDIHS">（1987年）</span></p>
+<p class="note" data-page-node-id="m4M9bryI4LwHN7ptpySSXf">但这可能需要时间</p>
+<p class="indent" data-page-node-id="9oIQVbEMCYITAYDNhkcv0s">产能过剩最终会自我纠正，要么是产能收缩，要么是需求扩张。然而对参与者而言不幸的是，这种纠正往往迟迟不来。<span class="yr" data-page-node-id="AtW3GZkRRv35IUjdh0Dw7k">（1982年）</span></p>
+<p class="note" data-page-node-id="U7IeZm9d6vihZ1rhxCzn92">而且通常持续不了多久</p>
+<p class="indent" data-page-node-id="GKXsxCWiSwkmajLH4SXXbT">资本主义的讽刺之一是：大宗商品行业的大多数管理者都厌恶短缺状况——尽管那是他们能获得良好回报的唯一情形。<span class="yr" data-page-node-id="KLKTuoxCu1vGhiBw7tFdOe">（1987年）</span></p>
+<p class="indent" data-page-node-id="wCfpuDG7eMU5mzkfsqSeBv">当短缺最终出现时，回到繁荣往往会引发普遍的扩张热情，几年之内又会造成产能过剩和新的无利可图的环境。换句话说，没有什么比成功更容易导致失败。<span class="yr" data-page-node-id="FpDVit3jnlLW4QBCtByLie">（1982年）</span></p>
+<p class="note" data-page-node-id="nuXybutYhq9lzIpSAcCA5B">但在某些行业，供应紧张可以持续相当长的时间</p>
+<p class="indent" data-page-node-id="eB6JvwE546XH0fDMrZ1LPD">有时实际需求增长会在较长时间内超过预期增长。在其他情况下，新增产能需要很长的前置期，因为复杂的生产设施必须经过规划和建造。<span class="yr" data-page-node-id="rqIUpFLWcoQ7VkUF0aih70">（1982年）</span></p>
+<p class="note" data-page-node-id="xcUCWiqKrJihFfZE8Tg4LD">伯克希尔在纺织行业的不幸经历</p>
+<p class="indent" data-page-node-id="xouWzIAWCAtjmnJdL03h3M">国内纺织业从事的是一项大宗商品业务，在一个产能严重过剩的全球市场上竞争。我们所经历的许多麻烦，直接或间接都可归因于来自外国的竞争——那些国家工人的工资只有美国最低工资的一小部分。<span class="yr" data-page-node-id="eb3PbRDrGaTRW7jO1tmylp">（1985年）</span></p>
+<p class="note" data-page-node-id="MoUBzCo0MSiNTzm7bhB8lv">无论伯克希尔做出怎样的改进，竞争对手都会同样去做</p>
+<p class="indent" data-page-node-id="PwjY8zSO59uhtin4Gwcdxy">缓慢的资本周转，加上低销售利润率，必然产生不足的资本回报。提高利润率的明显方法包括：产品差异化、通过更高效的设备或更好地利用人力来降低制造成本、转向享有更强市场趋势的面料等。我们的管理层在追求这些目标方面非常勤勉。但问题当然在于：我们的竞争对手也同样勤勉地在做同样的事情。<span class="yr" data-page-node-id="m8CgQIHE6HTuJxnEe60eby">（1978年）</span></p>
+<p class="indent" data-page-node-id="X0g5bG1IBkOcJQ8CliPOor">多年来，我们曾有机会在纺织业务上进行大额资本支出，从而在一定程度上降低可变成本。每一项这样的提案看起来都像是立即就能取胜的方案。事实上，按照标准的投资回报测试来衡量，这些提案所承诺的经济利益通常比同等金额的支出投入到我们高利润的糖果和报纸业务中要多。<span class="yr" data-page-node-id="XAY31KIKwaAlkmxGVtjt6e">（1985年）</span></p>
+<p class="note" data-page-node-id="eMyAzaYWn1hX2eEgxkD4tW">我看到了成本削减立竿见影但只是幻象的好处。我没看到竞争对手的行动，以及所有好处最终都流向了顾客</p>
+<p class="indent" data-page-node-id="HlNtrCoNm1deOdeXU4pfDb">但是这些纺织投资所承诺的好处只是幻象。我们的许多国内外竞争对手都加大了同类支出，而一旦有足够多的公司这样做了，他们降低的成本就变成了行业范围内降价的基准。单独来看，每家公司的资本投资决策似乎都是经济有效且理性的；从集体来看，这些决策相互抵消，是不理性的（就像每个观看游行的人都决定踮起脚尖以便看得更清楚一样）。每一轮投资之后，所有参与者投入的钱都更多了，但回报依然贫弱。<span class="yr" data-page-node-id="SzuKB2NnJl3t8Rmn2sj9XU">（1985年）</span></p>
+<p class="indent" data-page-node-id="YTDjVpZHIlwIWZOw0L2HXt">因此，我们面临着一个悲惨的选择：巨额资本投资可以帮助我们的纺织业务存活下来，但留给我们的却是在不断增长的资本上获得糟糕回报。而且，即使在投资之后，外国竞争对手仍将在劳动力成本上保持重大且持续的优势。然而，若拒绝投资，我们的竞争力将日益下降，甚至与国内的纺织制造商相比也是如此。<span class="yr" data-page-node-id="dBs59T197QY9Jqc3nWmgfG">（1985年）</span></p>
+<p class="indent" data-page-node-id="NF6VSU0WawBMhPS10oECVe">这种对股东毁灭性的结果表明：当大量的脑力和精力被应用到错误的前提上时会发生什么。这种情形让人联想到塞缪尔·约翰逊的那匹马："一匹能数到十的马是一匹非凡的马——但不是一位非凡的数学家。"同样，一家在其行业内出色地配置资本的纺织公司是一家非凡的纺织公司——但不是一家非凡的企业。<span class="yr" data-page-node-id="5BbCukkfiCdAPyTdKDXW1d">（1985年）</span></p>
+<p class="note" data-page-node-id="ZRFk3hfPkjPQ3R7DPh3g63">一个重要的教训</p>
+<p class="indent" data-page-node-id="evvGcqvikc42rVRY0ghCrO">我们对"通过大额资本支出就能让糟糕的企业恢复到令人满意的盈利水平"这样的建议反应非常谨慎。（这些预测会令人眼花缭乱、倡导者也会十分真诚，但归根结底，在一个糟糕的行业中追加重大投资，通常和在流沙中挣扎一样徒劳无功。）（《所有者手册》）</p>
+<p class="note" data-page-node-id="YTTQFaG5xltxZjW8sSD8O4">一个重要的真理</p>
+<p class="indent" data-page-node-id="b6MrqrnC7EARqtYexks0E4">在销售大宗商品类产品的生意中，你不可能比你最笨的竞争对手聪明太多。<span class="yr" data-page-node-id="pAjfvvpyUa1jRgxNU5jOxi">（1990年）</span></p>
+<p class="note" data-page-node-id="A0Fijt3sHzchOPTj4pGg1M">但如果我以真正的便宜价格买下一家糟糕的企业呢？</p>
+<p class="indent" data-page-node-id="FLcBFXRWuIO1gl2IGuN09L">如果你以足够低的价格买入一只股票，通常会出现这家企业命运中的某种小起伏，让你有机会以体面的利润出手，即使该企业的长期表现可能很糟糕。我把这称为投资中的"烟蒂"方法。在街上捡到的烟蒂只剩一口可抽，可能不会让你吸得过瘾，但"便宜买入"使得那一口完全成了利润。<span class="yr" data-page-node-id="fcz9FLCNAQMy4UCy9umVVW">（1989年）</span></p>
+<p class="note" data-page-node-id="QKr1ClaHYKFiBHIq2hCN02">不要把"便宜"和好交易混为一谈</p>
+<p class="indent" data-page-node-id="PCCTg4GJ1dPaGNGhvnF8IO">除非你是一个清算者，否则用这种方法买企业是愚蠢的。首先，最初的"便宜"价格很可能最终被证明并非如此划算。在一个困难的生意里，一个问题刚解决，另一个问题马上又冒出来——厨房里从来不会只有一只蟑螂。<span class="yr" data-page-node-id="czIteTaVkFvqp24pdbQagB">（1989年）</span></p>
+<p class="indent" data-page-node-id="0JgzcD25aBxNTmL9p7syDL">其次，你最初获得的任何优势，都会被这家企业获得的低回报迅速侵蚀。例如，如果你以800万美元买下一家可以被出售或清算获得1000万美元的企业，并立即采取这两种方式之一，你可以实现高回报。但如果这家企业在10年后以1000万美元出售，而期间每年仅按成本的几个百分点赚取并分配利润，那么这项投资就会令人失望。时间是优秀企业的朋友，却是平庸企业的敌人。<span class="yr" data-page-node-id="ujNgGgKs1shBCCH57LgfkY">（1989年）</span></p>
+<p class="note" data-page-node-id="RLdBVQSbUJsGRfDB0cFF0v">在某些生意中，即使是出色的管理也无济于事</p>
+<p class="indent" data-page-node-id="WZ1GzRjJ1aIeGMukTvp3VQ">我说过很多次：当一位以聪明著称的管理者去对付一家以糟糕经济著称的企业时，最终保持声誉完整无损的是这家企业。<span class="yr" data-page-node-id="rjxFDz5xYm8gs7PhvEkgLK">（1989年）</span></p>
+<p class="indent" data-page-node-id="nxgZYEZ5C063pSodlIrV76">好骑师在好马上能跑出佳绩，但骑在垮掉的老马上就不行了。<span class="yr" data-page-node-id="gME9eom9UMxJmnEHr59yIP">（1989年）</span></p>
+<p class="indent" data-page-node-id="olTfHm5UHhFBAaDeahJsU7">当一个行业的基本经济正在崩塌时，有才华的管理可以减缓衰退的速度。但最终，恶化的基本面将压倒管理上的卓越。（很久以前一位睿智的朋友告诉我："如果你想获得好商人的声誉，一定要进入一门好生意。"）<span class="yr" data-page-node-id="a2SmMA05nZJqP9Kg2Z7x1X">（2006年）</span></p>
+<p class="indent" data-page-node-id="AHDIGo1Wo6Q2zszaOu5ue7">我从自己的经历以及对其他企业的诸多观察中得出的结论是：一份良好的经营业绩（按经济回报衡量），更多取决于你登上了哪艘业务之船，而非你划桨划得多有效率（当然，在任何行业，无论好坏，聪明才智和努力都大有帮助）。<span class="yr" data-page-node-id="Tt736A3tKwlUJzo4yBF4XD">（1985年）</span></p>
+<p class="indent" data-page-node-id="OHszw3SCCoicXwqCWLmg7e">如果你发现自己身处一艘长期漏水的船中，将精力用于换船很可能比用于补漏更有成效。<span class="yr" data-page-node-id="XEJoBj6RWlJxoBAqkMdkyR">（1985年）</span></p>
+<p class="note" data-page-node-id="8fVj9Y7DR0jVuZr84u4EGY">转折往往不会发生，或耗时比预期更长</p>
+<p class="indent" data-page-node-id="wXBe88fgFdaNOA7iwScEWv">我们的经营和投资经验都让我们得出结论："转折"很少真正发生，相同的精力和才华用在以合理价格买入一门好生意上，比用在以便宜价格买入一门糟糕生意上要划算得多。<span class="yr" data-page-node-id="2xDNEkaVheClK9HAtkTp4N">（1979年）</span></p>
+<p class="note" data-page-node-id="I2tRTKAVmBiik6wiiOGAft">但要把普遍且长期的问题，与孤立且可修正的问题、暂时的挫折区分开——前提是这是一门卓越或良好的生意</p>
+<p class="indent" data-page-node-id="W2cVWZVGdkoFTOXtmrZdOr">应将"具有非凡商业特许权但有一处局部可切除癌症"（当然需要技术高超的外科医生）与"真正的扭亏为盈"情形区分开来——后者要求管理者期待并需要上演一场企业版的皮格马利翁奇迹。<span class="yr" data-page-node-id="EE78Eovm424lEFK7S0oNAo">（1980年）</span></p>
+<p class="indent" data-page-node-id="vNGMhglXmtMKuKTavjUOH3">当一家了不起的企业遇到一次性的巨大但可解决的问题时，就会出现绝佳的投资机会，多年前美国运通和GEICO的情况就是如此。然而总体而言，我们靠避开恶龙比斩杀恶龙获益更多。<span class="yr" data-page-node-id="R3hFUAHFvJr6ZizWBkFzTm">（1989年）</span></p>
+<p class="note" data-page-node-id="x0dFAEt1GlpGRt4SCBi6Uv">并非所有的盈利都是平等的——在资本密集型企业中，受限盈利往往必须被大幅折扣</p>
+<p class="indent" data-page-node-id="eFbDA6dCKq0jzGdQ6Pb01A">在许多企业中——尤其是那些资产/利润比率高的企业——通胀使得部分或全部报告的盈利变得"伪劣"。这些"伪劣"部分——我们称这些盈利为"受限的"——如果该企业要维持其经济地位，就不能作为股息分配出去。一旦这些盈利被分发出去，企业就会在以下一个或多个方面失去阵地：维持其销量、长期竞争地位、财务实力的能力。无论其派息率多么保守，一家持续分配受限盈利的公司注定要走向消亡，除非以其他方式注入股本资本。<span class="yr" data-page-node-id="wErPHEkDVlnTSkifREtzt2">（1984年）</span></p>
+<p class="indent" data-page-node-id="vZJjrHH49diqG8rtc5eKuM">让我们再看那种远更有价值的"非受限"盈利。这些盈利既可以保留，也可以分配，两者都同样可行。在我们看来，管理层应当选择对企业所有者更有意义的那条路。<span class="yr" data-page-node-id="U6gdIgqZdGqA5VpHTwusmG">（1984年）</span></p>
+<p class="indent" data-page-node-id="wF4mvibAN7F6bQ2Xw4xXLo">非受限盈利只有在有合理预期——最好以历史证据为后盾，或在适当时以对未来的深思熟虑分析为后盾——表明公司每留存一美元，至少会为所有者创造一美元的市值时，才应被保留。只有当被保留的资本所产生的增量盈利等于或高于投资者在市场上普遍可获得的水平时，这种情况才会发生。<span class="yr" data-page-node-id="EmYP60xfPXAhKPrF9wsNvO">（1984年）</span></p>
+<h3 class="sec" id="ch-05-s4" data-page-node-id="QSEvxZHpd8gdZmw8V82DB9">D. 其他棘手的生意</h3>
+<p class="note" data-page-node-id="2RIqs8GxhsyzePEewMLJZ2">我必须每天都聪明的生意</p>
+<p class="indent" data-page-node-id="7YMi7AGkpvCn4ipGXdJiAj">零售业是一门艰难的生意……部分原因在于零售商必须日复一日地保持聪明。你的竞争对手总是在抄袭你所做的一切，并加以超越。与此同时，购物者会被以各种可以想象的方式吸引去尝试一波接一波的新商家。在零售业中，"顺势而行"等于失败。<span class="yr" data-page-node-id="3uz3gv1DFIZfHHQR0c8OCp">（1995年）</span></p>
+<p class="indent" data-page-node-id="EmaYvcrZGVL5ofueCQcbiO">与这种"每天都得聪明"的生意相反，还有一种我称之为"只需聪明一次"的生意。例如，如果你足够聪明，在很早的阶段就买下了一家电视网台，那么你哪怕找一个又懒又笨的侄子去经营它，这门生意几十年间也仍会做得不错。<span class="yr" data-page-node-id="qNdi2SASCkYpzJzwIuGD98">（1995年）</span></p>
+<p class="note" data-page-node-id="wpbwNF1tZDRiCBUDCjsJIt">变化迅速的行业也会很麻烦——即便我了解它们的产品，几乎也不可能判断未来的竞争地位以及未来可能出现什么问题</p>
+<p class="indent" data-page-node-id="nxlejf4fVpH65ASL1yLC7q">我们对"持久"的标准让我们排除了那些容易快速且持续变化的行业里的公司……一条必须不断重建的护城河，最终就不是护城河了。<span class="yr" data-page-node-id="fi2BxMHKHTgXHTyPCQHBfs">（2007年）</span></p>
+<p class="indent" data-page-node-id="32bnN2CXsHw5FiSnys0j63">过去，人们不需要什么聪明才智就能预见汽车业<span class="yr" data-page-node-id="3TU6tTvkW3KodlFQfs6ZZl">（1910年）</span>、飞机业<span class="yr" data-page-node-id="hYsUQIvc5LnAz1UCRejRyu">（1930年）</span>和电视机业<span class="yr" data-page-node-id="bgiBg6ca2MBGWSrBK03mcp">（1950年）</span>等行业等待着的巨大增长。但当时的未来也包含了将摧毁几乎所有进入这些行业的公司的竞争动力。即使是幸存者，也往往伤痕累累地走出来。<span class="yr" data-page-node-id="UiGr65yMMiErPkaLLPrBfu">（2009年）</span></p>
+<p class="indent" data-page-node-id="uhbfeFDHaADkVocDt2JPSY">不断遭遇重大变化的企业也会遇到许多犯下重大错误的机会。此外，永远剧烈变动的经济地形，是难以建立堡垒式商业特许权的土地。而这种特许权通常是持续高回报的关键。<span class="yr" data-page-node-id="vI9WFvmsUIpVBy2KULmVCL">（1987年）</span></p>
+<p class="note" data-page-node-id="22y1oKVSlJ1JxLoa05EQ7m">这其中也包括科技——会有少数赚到钱，但很多会亏损，而事先很难看出谁能成功谁会失败</p>
+<p class="indent" data-page-node-id="q5ezTabQChEVh1BETUcZhq">一家必须应付快速变动技术的企业，不会对其长期经济进行可靠的评估。<span class="yr" data-page-node-id="xIJJ15KWOVh9ihHkMxvbrD">（1993年）</span></p>
+<p class="indent" data-page-node-id="3WHGWrAaocRL7sHIpWgdsX">在伯克希尔，我们不试图从一片未经证明的企业海洋中挑出那为数不多的赢家。我们没有那么聪明，我们自己也清楚这一点。<span class="yr" data-page-node-id="xJqHy7z000kYofopwDCB6p">（2000年）</span></p>
+<p class="indent" data-page-node-id="bzgNJKuCDYj7vB7Bdmn8LH">我们三十年前能预见电视制造业或计算机行业后来发生的事吗？当然不能。（大多数热情进入这些行业的投资者和企业管理者也没能预见。）那么，为什么现在我和查理认为我们能预测其他快速演变行业的未来呢？<span class="yr" data-page-node-id="g9I4SjFhg1dMsZpVEqdObx">（1993年）</span></p>
+<p class="indent" data-page-node-id="CZgNXCrgIllHyYIU65o89l">剧烈变化与卓越回报通常并不相伴而行。当然，大多数投资者却仿佛认为情况正相反。</p>
+<p class="indent" data-page-node-id="jBL7dNPxd3lwJmZAMGxZdV">也就是说，他们通常将最高的市盈率给予那些听起来异国情调、承诺狂热变化的企业。</p>
+<p class="indent" data-page-node-id="ZT7npLf34zpAMJum2dxu3I">这样的前景让投资者得以幻想未来的盈利能力，而不是面对当下的商业现实。对于这种爱做梦的投资者来说，任何盲目约会都比与隔壁邻家女孩的约会更有吸引力——无论邻家女孩多么令人心仪。<span class="yr" data-page-node-id="hseUslYokp3otDdFUaOPk8">（1987年）</span></p>
+<p class="indent" data-page-node-id="ge3cCFSwSl7XATrtC089Ly">仅仅因为我和查理可以清楚地看到一个行业前方的巨大增长，并不意味着我们就能判断当一群竞争者争夺霸主地位时，它的利润率和资本回报率会是多少。在伯克希尔，我们将坚持选择那些其未来几十年盈利前景看起来相对可预测的企业。即便如此，我们还是会犯不少错误。<span class="yr" data-page-node-id="DKNKiCRhw7pGWSNzt0Cji7">（2009年）</span></p>
+<p class="indent" data-page-node-id="3SYJgU7IkfVK8qmnXvSdrN">我们的问题——而这是无法靠学习来解决的——是我们对科技领域哪些参与者拥有真正持久的竞争优势没有任何洞察力。<span class="yr" data-page-node-id="HccZytWdsz1ZCeRna4B7Nr">（1999年）</span></p>
+<p class="note" data-page-node-id="AJgKX2kIlD0bi6ZY4B0vBe">而且增长有其极限——没有树能长到天上</p>
+<p class="indent" data-page-node-id="B9rop495XZXEEtg9nq1oRF">在一个有限的世界里，高增长率终将自我毁灭。如果增长所基于的基数很小，这条法则可能在一段时间内不发挥作用。但当基数膨胀起来后，宴会就结束了：高增长率最终会铸成自己的锚。<span class="yr" data-page-node-id="o7NqoJwq0oI3hRZCc4Aqic">（1989年）</span></p>
+<p class="indent" data-page-node-id="HhRoldWkz2eE5uMQ4lmvQA">对一家大公司而言，预测其每股盈利在长期内将以每年比如15%的速度增长，是在自找麻烦。这是因为</p>
+<p class="indent" data-page-node-id="zvPymAOB26pIT4yzsEnZXw">只有极小比例的大型企业才能维持这样幅度的增长率。这里有个检验：拿1970年或1980年盈利最高的前200家公司的记录来检验，看看从那时起有多少家公司每股盈利每年增长15%以上。你会发现只有极少数。我愿意以一笔非常可观的金额打赌，到2020年时，2000年最赚钱的200家公司中不到10家能在未来20年实现每股盈利每年15%的增长。<span class="yr" data-page-node-id="psJbbIDdzTI9MasP7FYwE8">（2000年）</span></p>
+<p class="indent" data-page-node-id="bo2wEMZZqpogwParGLCQib">我们爽快承认，过去十年中，新生或年轻的企业创造了大量真实价值，未来还会有更多。但是任何企业，如果它在其生命周期中亏损，无论其中间估值有多高，它都是在摧毁价值而不是在创造价值。<span class="yr" data-page-node-id="p0kLIM5EC9FLCy8QymRCra">（2000年）</span></p>
+<p class="indent" data-page-node-id="rauTCwxCBvMNebvDQen4NS">我们应当补充一点：我们缺乏科技洞察并不让我们苦恼。毕竟，有很多业务领域，我和查理都没有专门的资本配置专长。例如，在评估专利、生产工艺或地质前景方面，我们一无所长。所以我们干脆不去对这些领域作出判断。<span class="yr" data-page-node-id="zTexxJfQVBnOuehCcAj70u">（1999年）</span></p>
+<h3 class="sec" id="ch-05-s5" data-page-node-id="FInlui1lMXOd1s71LbFCJs">E. 看待会计商誉的正确方式</h3>
+<p class="indent" data-page-node-id="cT3eAK16fVtCmG6yzeIUTT">我们相信，管理者和投资者都应从两个角度看待无形资产：<span class="yr" data-page-node-id="yMQt3rpRa9O7CHC1nTJFta">（1983年）</span></p>
+<p class="note" data-page-node-id="iVpohjz8ON9leCRq9qHUgH">在评估企业的吸引力时，看净有形资产上的回报</p>
+<ol data-page-node-id="280U156oya1VmPVOZhGhTr">
+<li data-page-node-id="KOtQiCMvJlPlu6sbE4Yn3G">在分析经营业绩时——也就是评估一个业务单元的基本经济时——摊销支出应予以忽略。一家企业在不加杠杆的净有形资产上预期可获得的盈利（不计任何商誉摊销对收益的扣减），是衡量其经济吸引力的最佳指南。它也是衡量该业务现时经济商誉价值的最佳指南。<span class="yr" data-page-node-id="2wZ83EA6QZLVCYWDQOd6kI">（1983年）</span></li>
+</ol>
+<ol start="2" data-page-node-id="fDB8qXgEWi1EdWfmY8PvGA">
+<li data-page-node-id="q09PtiMN2N8FpMsOBNNsRU"><p class="note" data-page-node-id="Q112EyUphoGIspyslFEeqB">商誉不应摊销，而应在必要时予以注销</p>在评估企业收购是否明智时，摊销支出也应被忽略。它们既不应从盈利中扣除，也不应从企业的成本中扣除。这意味着永远以购入商誉的全额成本，即在任何摊销之前的成本看待它。此外，成本应被定义为包括所有支付对价的全部内在商业价值——而不仅仅是入账的会计价值——无论合并时所涉证券的市场价格如何，也无论是否允许使用权益合并法。<span class="yr" data-page-node-id="O0XkbkXjKTucvGfuMbgNvd">（1983年）</span></li>
+</ol>
+<ol data-page-node-id="4oCFbnWcgMjg4cHTRlKwF5">
+<li data-page-node-id="6gTSU1uu0BMA6uPlb3lwyq">从角度1看起来很出色的经营 可能从角度2看时就会黯然失色。</li>
+<li data-page-node-id="HzKKFYRhe0q3Ad79DluKEO">一家好的企业并不总是好的购买对象——尽管那里是寻找好购买的好地方。<span class="yr" data-page-node-id="A4t2hlrTxLBp0IKIn3wB1i">（1983年）</span></li>
+</ol>
+<p class="indent" data-page-node-id="gADEcLfup1BrlI81dJuPA2">我们将力图收购那些在角度1的衡量下具有优秀经营经济、并在角度2的衡量下提供合理回报的企业。会计后果将被完全忽略。<span class="yr" data-page-node-id="eG2BXP9TrqQl7GlgydZ9fE">（1983年）</span></p>
+<h3 class="sec" id="ch-05-s6" data-page-node-id="CChGj7KVXflypqJOZwPygb">F. 成功或损害的关键因素是什么？它们的可预测性如何？</h3>
+<p class="note" data-page-node-id="PflJi9sXf2mG9jPxwu0tJw">让我们把分析转化为一个简单的问题：这家企业是否拥有现在和未来人们需要或想要的东西（需求），没有其他人拥有（竞争优势）、或者无法被复制、夺走或获取（可持续），以及这些优势能否转化为商业价值？</p>
+<p class="indent" data-page-node-id="GHsEoyFdbplY69847h8vvo">投资者应该记住，他们的记分牌不是按奥运跳水的方法计算的：难度系数不算分。如果你对一家公司的判断是正确的，而这家公司的价值在很大程度上取决于一个既易于理解又持久的关键因素，那么所获回报与你正确分析一项由许多不断变化和复杂变量决定的投资替代方案是一样的。<span class="yr" data-page-node-id="Bt2h5pTCyQC5IGS8Ex0YMA">（1994年）</span></p>
+<p class="indent" data-page-node-id="azieGCwkcbvdeD0y17qtzB">真正的大投资构想通常可以用一小段话说清楚。<span class="yr" data-page-node-id="VpNODwq81zKEaKDFEIMpfR">（1994年）</span></p>
+<p class="note" data-page-node-id="GYmYGHjEd0tsFdItWKYK2V">分辨什么重要什么不重要——尝试找出决定企业成败的关键因素。几个例子：</p>
+<p class="note" data-page-node-id="Ce23ElEYI36waI9ZNEzmvD">保险</p>
+<p class="indent" data-page-node-id="B9jWv8yazq5Pkn5XfDuZ6f">我们的主营业务……是保险。因此，要理解伯克希尔，你必须了解如何评估一家保险公司。其关键决定因素是：</p>
+<ol data-page-node-id="GgzEa9FKDyuHTiVsmapLMx">
+<li data-page-node-id="glELI3lqWoiOAjA11lbnOs">这门业务所产生的浮存金的金额；</li>
+<li data-page-node-id="kmTZYbjwx2BRIcdzjzOOZn">它的成本；以及</li>
+<li data-page-node-id="8mFPiyidvJTaz7jdwvsq10">最关键的，这两个因素的长期前景。<span class="yr" data-page-node-id="1juGHz3ciwWMPBcCZgrS9l">（1999年）</span></li>
+</ol>
+<p class="indent" data-page-node-id="wgZy0amFFuibS4d1tC9xsK">GEICO成功的最重要因素是触底低位的运营成本，这让它有别于字面意义上的数百家提供汽车保险的竞争对手。<span class="yr" data-page-node-id="ZQRvMEHlNRv32ckVbIMVGo">（1986年）</span></p>
+<p class="indent" data-page-node-id="amWhxr7qg7CXOXQDXL0ug7">正是由于公司低廉的成本，其保单持有人持续保持盈利，并表现出非同寻常的忠诚度。<span class="yr" data-page-node-id="DxYy8gSRWKm6PPqGEwWYvh">（2010年）</span></p>
+<p class="note" data-page-node-id="d93DCAyrJb2avyIkN3OTPv">报纸</p>
+<p class="indent" data-page-node-id="jo38rFafEpa8DKKzG2lnf5">在这种环境下，《新闻报》拥有一项异常的优势：它被公众接受的程度，这通过报纸的"渗透率"——社区内每天购买该报的家庭百分比——来衡量……我们相信报纸的渗透率是其特许权强度的最佳衡量标准。<span class="yr" data-page-node-id="pj5MlpxyApEkGR7rmh6YuQ">（1983年）</span></p>
+<p class="indent" data-page-node-id="GzEq72DTedUVeiwfNK8Cwv">一个庞大且被明智利用的新闻容量……能吸引广泛的读者群，从而提高渗透率。反过来，高渗透率使报纸对零售商特别有价值，因为这让他们能够通过单一的"扩音器"对整个社区讲话。一份低渗透率的报纸对许多广告商而言远不那么吸引人，最终会在广告费率和利润上都受到影响。<span class="yr" data-page-node-id="ITaKDAhFNIe2rfzZicAqIq">（1989年）</span></p>
+<p class="note" data-page-node-id="VIVYZvpLoga1528w9Mhh7y">零售</p>
+<p class="indent" data-page-node-id="0rHn9kxAr7EZBqQ21HwrUf">我们认为衡量零售趋势的最重要指标是每店销售的单位数，而不是销售额。<span class="yr" data-page-node-id="xMD7TVBbobNQ2L1CG6pZJU">（1983年）</span></p>
+<p class="indent" data-page-node-id="Lsi87o3UbvP381adVUAvPG">NFM（内布拉斯加家具市场）和Borsheim's（精品珠宝）遵循完全相同的成功模式：</p>
+<ol data-page-node-id="GYf8VJ2lOElYne2VYIe9Sw">
+<li data-page-node-id="XzLGXdm372YDnyNAbjsCcG">在一个地点拥有无与伦比的商品深度和广度；</li>
+<li data-page-node-id="3zWmTxMd8hxubW8v6vZIVz">业内最低的运营成本；</li>
+<li data-page-node-id="O3EGvWgfMtuaZaEWgXyEPO">最精明的采购，这部分得益于大批量的进货；</li>
+<li data-page-node-id="lNkLNlpyUceHpWhhfK9Kdl">远低于竞争对手的毛利率，因而价格也远低于对手；以及</li>
+<li data-page-node-id="Ew9tMfEFd6RFdBD89C4o5z">由家庭成员随时坐镇，提供友好的个性化服务。<span class="yr" data-page-node-id="ebaIeE9LD83zXw4QZX9fAL">（1989年）</span></li>
+</ol>
+<p class="note" data-page-node-id="eWV4txCw65YhrZanvoXVP8">铁路</p>
+<p class="indent" data-page-node-id="DE60xbydUyuzkIRbJK41fW">我们俩对BNSF的未来都充满热情，因为铁路相比其主要竞争对手——卡车运输——具有重大的成本和环境优势。去年，BNSF用一加仑柴油就将每吨货物运送了创纪录的500英里。这比卡车运输的燃油效率高出三倍，这意味着我们的铁路在运营成本上拥有重要优势。<span class="yr" data-page-node-id="AhXP2DAlHXJ0gSurQFUz9b">（2010年）</span></p>
+<p class="note" data-page-node-id="T94mL25ILYYxbY2b2Wkz6N">总结卓越、良好与糟糕</p>
+<p class="indent" data-page-node-id="7yPnRNYwDZbsLMjl9EkJpI">总而言之，想想三种类型的"储蓄账户"。卓越的那种支付极高的利率，而且这个利率会随着年份的推移而上升。良好的那种支付有吸引力的利率，而且这个利率也适用于新增的存款。最后，糟糕的那种既支付不足的利率，又要求你以这些令人失望的回报率不断追加资金。<span class="yr" data-page-node-id="q4rBRCDKHLQ0hDHv2x6BDF">（2007年）</span></p>
+<p class="indent" data-page-node-id="4Nu9iRMy2nutBcgbCP1fkf">商业经验，无论是直接的还是间接的，让我形成了如今强烈的偏好：偏向那些拥有大量持久商誉、并使用最少有形资产的企业。<span class="yr" data-page-node-id="K6izgC6p4Xg9k0pGKDpSYt">（1983年）</span></p>
+</section>
+
+<section class="content-block" id="ch-06" data-page-node-id="rwtzaLlGowVEQZcBpU4EBo">
+<h2 data-page-node-id="Va2LaJcBfNl4641Hf0diLs">第六章</h2>
+<h3 data-page-node-id="MeuepTbe80rw1tf5MSW4dn">以过往业绩为指引：有时有用，有时危险</h3>
+<p class="note" data-page-node-id="fn1vThPBu4OaIJIyoBGxwS">什么是"正常"的现金流？过去的信息有多大代表性？过去为什么会是那样？哪些因素造就了过去的现金流？它们今天还存在吗？哪些力量可以改变它们？</p>
+<p class="note" data-page-node-id="IkqW3YRkrjttAj6VIE4FHg">如果过去能给我提供任何关于未来的线索，那它就是有用的</p>
+<p class="indent" data-page-node-id="scy5VJRTOhnzBfcUj44uW4">在商业世界里……后视镜总是比挡风玻璃更清晰。<span class="yr" data-page-node-id="2UoJlzVefJpSGOcNF2c7EF">（1991年）</span></p>
+<p class="indent" data-page-node-id="o0NAzzX4Zkm4So1c74Byqr">但投资者必须透过的是挡风玻璃，而那块玻璃总是模糊不清。<span class="yr" data-page-node-id="K65jFPanSaVZXDqGxHFv2Z">（2004年）</span></p>
+<p class="note" data-page-node-id="7xhAmmMYBa8GZHOG0pIHqQ">但过去无法告诉我未来，而价值取决于未来</p>
+<p class="indent" data-page-node-id="GNGqNoJCisJKigaPzxPc4y">如果仅仅查看过去的财务数据就能告诉你未来会怎样，那么《福布斯》400富豪榜上将会全是图书管理员。<span class="yr" data-page-node-id="NKCgEx6FdtZodjvwsu09Cf">（2008年）</span></p>
+<p class="indent" data-page-node-id="juu4b1uHfuQWEA7H5tY9do">问题不在于过去有效的东西未来就会失效。恰恰相反，我们相信我们的公式——以合理的价格买入由诚实而能干的人经营、具有良好基本经济的企业——一定会取得合理的成功。<span class="yr" data-page-node-id="UdvDMI0J1OEIQL6I7pYOuJ">（1994年）</span></p>
+<p class="indent" data-page-node-id="OB1Eq2rFSbAGrIYUzoF0tS">行业未来的盈利能力将由当前的竞争特征决定，而不是过去的特征。许多管理者迟迟未能认识到这一点。不仅是将军们偏爱重打上一场战争。大多数商业和投资分析也都来自后视镜。<span class="yr" data-page-node-id="idyFRLkjZoGL8JjvubKVGs">（1982年）</span></p>
+<p class="indent" data-page-node-id="wSGzrr47c5nxk9fVCIdSMm">应该如何看待一家企业</p>
+<p class="indent" data-page-node-id="H4is8drauB4ziUZ0dM4ivy">应该把一家公司视为一部正在展开的电影，而不是一张静止的照片。那些过去只关注当日快照的人有时得出了错误的结论。<span class="yr" data-page-node-id="G6CB7FcLdewiQHilgZi7vC">（2003年）</span></p>
+<p class="note" data-page-node-id="KabiRwHoKdBXHeJctuVoYz">以前有效的东西未来可能不再有效</p>
+<p class="indent" data-page-node-id="JXEneP9Zo6noGe98CynXVs">虽然投资者和管理者必须把脚迈向未来，但他们的记忆和神经系统却常常还插在过去。对于投资者来说，使用历史市盈率比每天重新思考前提要容易得多；对于管理者来说，使用历史商业估值标准比每天重新思考前提也要容易得多。当变化缓慢时，不断的重新思考实际上并不可取；这样做收效甚微，反而会减慢反应速度。但当变化巨大时，保留昨日的假设代价将十分高昂。<span class="yr" data-page-node-id="xL6UWkQqo8n3pAkqCQaYg0">（1981年）</span></p>
+<p class="note" data-page-node-id="FF975Hs1DIFhtpK0weWvBH">如果我的关键假设从等式中消失了会怎样？</p>
+<p class="note" data-page-node-id="X01ldl9UopwD6tTSMmtVEA">情境、环境和条件在变化——行业状况和技术在变化，顾客改变行为和偏好，好日子变坏，竞争更激烈，管理质量也在恶化</p>
+<p class="indent" data-page-node-id="ZgfO9eg2BOfCZ9Pqo7Hn7s">伯克希尔过去的账面价值和企业价值增长率，是在与如今迥然不同的环境下实现的。任何忽视这些差异的人，都犯了与下面那位棒球教练相同的错误——他试图根据一位42岁中外野手一生的击打率来判断他未来的前景。<span class="yr" data-page-node-id="FeULRgHDWnggTuNsYzWcAe">（1988年）</span></p>
+<p class="note" data-page-node-id="7TUyqHG0uCEFs3dV01pgym">有时候，过去会极具误导性——2008年的房屋危机</p>
+<p class="indent" data-page-node-id="EAdbnxYCxfkLnAEDkH41XH">几乎所有美国人都开始相信房价会永远上涨。这种信念使得借款人的收入和现金股本在贷款机构眼中显得无关紧要，他们大把放贷，相信HPA（房屋价格升值）将解决所有问题。<span class="yr" data-page-node-id="0o9esAZijinxHbF3vFVC49">（2007年）</span></p>
+<p class="indent" data-page-node-id="W8QybNjXI4lPcCadbWi3Ci">销售员、评级机构和投资者……查看了那些房价仅温和上涨、房屋投机微不足道的时期的损失记录。然后他们把这种经验作为评估未来损失的标尺。他们对最近房价飙升、贷款实践恶化、许多购房者选择了他们负担不起的住房这些事实视而不见。简而言之，"过去"的世界和"当下"的世界有着非常不同的特征。但贷款机构、政府和媒体在很大程度上未能认识到这一至关重要的事实。<span class="yr" data-page-node-id="vUldY2UcypYBzFga3EkbNg">（2008年）</span></p>
+<p class="note" data-page-node-id="LT6cB19vuGjdloaNCLxj41">繁荣时期、景气或暂时的顺风（或拙劣的竞争对手）可能让我误以为企业或管理层的表现比实际要好（反之，在相反的情况下亦然）</p>
+<p class="indent" data-page-node-id="s8WCiry8oNwL23JcDuGE7Z">我和查理非常关注我们的企业经营得有多好，我们也努力理解每家企业所处的环境。例如，我们某家企业是享有行业的顺风，还是面临逆风？我和查理需要确切地知道哪种情况占主导，并相应调整我们的预期。（《所有者手册》）</p>
+<p class="note" data-page-node-id="wpEdJhRgiQVvqEjySARZXC">企业和管理层在动荡或糟糕的时期表现如何？只有当"潮水退去"时，我才能评估真正的管理层表现、他们的品格以及业务特征</p>
+<p class="note" data-page-node-id="OAjGOYaXQGyC4p77Fm6TQW">过去有效的也可能部分或全部归功于随机因素</p>
+<p class="note" data-page-node-id="rfHUc5H83rIM3fojDhLuZI">别把幸运当作聪明</p>
+<p class="indent" data-page-node-id="yvbABhk6Gjn7cMjx95rrG0">1995年的收益没什么值得跳跃欢呼的。在这一年里，任何傻瓜都能在股市里赚一大笔。我们也是。套用肯尼迪总统的话：水涨船高，所有的游艇都浮起来了。<span class="yr" data-page-node-id="sqmVXqkhN1x5L55RrQB0GE">（1995年）</span></p>
+<p class="note" data-page-node-id="TARL8Eldrs4B6e82HZyGao">只是在下雨，还是企业或管理层真的那么好？</p>
+<p class="indent" data-page-node-id="M0pbNqmUVRvKAW3QipIup2">任何投资者在股市暴涨时（如1997年）都能记上一笔大额回报。在牛市中，必须避免那只洋洋自得的鸭子的错误——它在倾盆大雨之后骄傲地嘎嘎叫，以为是它的划水技艺让自己在世上的位置上升了。一只想得对的鸭子，会在大雨之后将自己的位置与池塘里其他鸭子的位置进行比较。<span class="yr" data-page-node-id="5pJ55yHnDhiIu0xFh5zXCq">（1997年）</span></p>
+<p class="note" data-page-node-id="3ajz6kB7HTkyoJsRDBwQ5l">消失的竞争优势——世界在变，竞争对手也在变——有时变得很快——环境和商业条件可能发生永久性的变化——护城河消失了，或管理质量恶化了</p>
+<p class="indent" data-page-node-id="JCs5GWb3puEW17PNO7GA6G">在《证券分析》的扉页上，本·格雷厄姆和大卫·多德引用了贺拉斯的话："许多如今落魄的将要恢复，许多如今荣光的将要陷落。"在我第一次读到这些字句的52年后，我对它们关于商业和投资所言之意的领悟仍在不断加深。<span class="yr" data-page-node-id="EYLCE4DqxKjabvzvKszYpT">（2001年）</span></p>
+<p class="note" data-page-node-id="evQsY7JrA0zuZMUpeVY8cm">《世界图书百科全书》——变化的技术</p>
+<p class="indent" data-page-node-id="HkDJD6dpDP7ME5K4Y6zUbs">《世界图书百科全书》（World Book）继续主导着美国直销百科全书市场——这是有原因的。这些图书编辑极为精良，每页价格不到5美分，对青少年和成年人来说都物有所值。<span class="yr" data-page-node-id="zqbuaefcUIPNx2cOZSADa3">（1986年）</span></p>
+<p class="indent" data-page-node-id="QyWwWHBwZj7gIxMXaNOZTV">伯克希尔最棘手的问题是《世界图书百科全书》，它所在的行业正受到来自CD-ROM和在线产品日益激烈的竞争。<span class="yr" data-page-node-id="KCsu8it9Ksh8NQcsg12zDN">（1995年）</span></p>
+<p class="note" data-page-node-id="5pfsCPUBmMsdCdMThPJKi0">报纸——对广告商的价值降低，定价权也失去了</p>
+<p class="indent" data-page-node-id="iMAILNDq55wh4gUqFQXjhG">这个行业惊人的回报可以简单地解释。在20世纪的大部分时间里，报纸是美国公众获取信息的主要来源。无论是体育、金融还是政治，报纸都至高无上。同样重要的是，它们的广告是寻找工作机会或了解你所在城镇超市食杂价格的最便捷途径。<span class="yr" data-page-node-id="OSeb7N4IEva6QllAFXRwMM">（2006年）</span></p>
+<p class="indent" data-page-node-id="EFnGwHYGdaYcWv3hjF7bXV">广告商更愿意选择发行量最大的报纸，而读者也倾向于希望看到广告和新闻版面最多的报纸。这种循环导致了报纸丛林的一条法则：肥者生存。因此，当一个大城市里存在两家或更多报纸时（一个世纪前这几乎是普遍情况），跑在前面的那家通常脱颖而出成为独立的赢家。竞争消失后，这家报纸在广告和发行两方面的定价权就被释放出来。通常，广告商和读者所支付的费率都会逐年提高——利润便滚滚而来。对所有者而言，这是经济上的天堂。<span class="yr" data-page-node-id="BUnQBeehBoYEGLHVKv19CM">（2006年）</span></p>
+<p class="indent" data-page-node-id="6a9nqW6krjkT1MkPvqdLHU">但如今……印刷和电子广告渠道的数量都大幅增加。结果，广告费分散得更广，广告供应方的定价权也减弱了。<span class="yr" data-page-node-id="kQGRjoyulGnAxPa0d29v3I">（1990年）</span></p>
+<p class="indent" data-page-node-id="pB4ucpWJIoRA99cEhT6pXd">如今……几乎所有报纸的所有者都意识到自己在争夺眼球的战斗中节节败退。简而言之，如果有线电视、卫星广播以及互联网先出现的话，我们今天所熟知的报纸可能根本就不会存在。<span class="yr" data-page-node-id="NkmpirblauFgGed7K7Y2NY">（2006年）</span></p>
+<p class="note" data-page-node-id="BYRB8WmvbgxOtEyQX8M5uJ">当预期改变时，估值也必须改变</p>
+<p class="indent" data-page-node-id="4829Kh4iCB8BYOxAhiJ4I1">几年前，传统观点认为一份报纸、电视台或杂志资产将永远以每年6%左右的速度增加其盈利，而且无需使用追加资本，因为折旧大致与资本支出相匹配，营运资金需求也不大。因此，报告的盈利（在无形资产摊销之前）也是可自由分配的盈利，这意味着持有一项媒体资产可被视为类似于拥有一项每年增长6%的永续年金。再假定使用10%的折现率来确定这一盈利流的现值。那么人们就可以计算出，为一项当前税后盈利100万美元的资产支付高达2500万美元都是合适的[1÷(0.10-0.06)]。<span class="yr" data-page-node-id="u0VqkBqZGFepTdgxUhZeKn">（1991年）</span></p>
+<p class="indent" data-page-node-id="br1OrBpsu3wNntkbGIgcR2">现在让我们改变这个假设，设想这100万美元代表"正常盈利能力"，并且盈利会围绕这个数字周期性地起伏。"起起伏伏"的模式确实是大多数企业的命运，它们的收入流只有在所有者愿意投入更多资本（通常以留存收益的形式）时才会增长。在我们修正后的假设下，100万美元的盈利按同样10%折现，估值就变成了1000万美元。因此，假设上的微小变化就把该资产的估值缩减到了税后盈利的10倍。<span class="yr" data-page-node-id="pCDFzEncaGyljIHDBDISYh">（1991年）</span></p>
+<p class="note" data-page-node-id="8HGkH64z54HR4WeO6fOJmb">Dexter案例——高劳动力含量、产品易于运入、来自低工资国家竞争加剧</p>
+<p class="indent" data-page-node-id="QuAAlya7KfLeHt55bYmHAL">去年我们迅速抓住机会收购了缅因州德克斯特的德克斯特鞋业（Dexter Shoe），它生产平价男女鞋……这是我和查理在商业生涯中所见过的管理最好的公司之一……普遍认为美国国内制鞋业无法与低工资国家的进口产品竞争。但有人忘了告诉Dexter和H. H. Brown公司聪明的管理层和他们熟练的劳动力——这两家公司的美国工厂联手起来，与任何来者都极具竞争力。<span class="yr" data-page-node-id="QVZQNepxXLuhmyLzmKayB0">（1993年）</span></p>
+<p class="indent" data-page-node-id="WyFYm9lKznQhbcbnqk3HzM">我犯了一个更糟糕的错误，当我对Dexter说"是"——这家鞋业公司是我在1993年以4.33亿美元的伯克希尔股票（25,203股A类股）买下的。我评估的那种持久竞争优势在几年内就消失了。但这还只是开始：通过使用伯克希尔的股票，我把这个错误极大地放大了。这一举动让伯克希尔股东付出的代价不是4亿美元，而是35亿美元。本质上，我赠送了一家美妙企业（如今市值达2200亿美元）1.6%的股份，去买一个一文不值的企业。<span class="yr" data-page-node-id="yVcYdnL1advOtNfMdGk2zt">（2008年）</span></p>
+<p class="note" data-page-node-id="EEtjRYe5wBN81lgoPrIBfX">但即便是一家卓越的企业也会随时间变化，不变的是人们购买其产品或使用其服务的原因</p>
+<p class="indent" data-page-node-id="Ro5G3HzF1mKbhGHynylO9S">显然，所有企业在某种程度上都会变化。今天的喜诗在许多方面与我们1972年买下它时不同：它提供不同种类的糖果，使用不同的机械，并通过不同的分销渠道销售。但是今天人们购买盒装巧克力的原因，以及他们选择从我们这里而不是别人那里购买的原因，与1920年代喜诗家族建立这门生意时几乎没有变化。此外，这些动机在未来20年、甚至50年都不大可能改变。<span class="yr" data-page-node-id="BKQM2V1MgCu8uUwAEwAHxt">（1996年）</span></p>
+<p class="note" data-page-node-id="4uGFOPNUe2loYgFbzjYf7I">改进企业的机会总是存在的</p>
+<p class="indent" data-page-node-id="amIOvwBMbFblVUUmqK0aCA">经验……表明，最好的商业回报通常是由那些今天所做的事情与五年或十年前所做的事情非常相似的公司所获得的。这并不是为管理上的自满辩护。企业总有机会改进服务、产品线、制造技术等等，显然这些机会应该被抓住。<span class="yr" data-page-node-id="kHeggjGX4QIxTijxLiCXPo">（1987年）</span></p>
+<p class="indent" data-page-node-id="VjXSG1Xh8q5N7VPHyuBkvY">我们的管理者做着相当普通的事情却产生了非凡的业绩——但他们把这些事情做得异常出色。我们的管理者保护他们的特许权，控制成本，在现有优势的基础上寻找新产品和新市场，而不让自己分心。他们对业务细节极为努力，而这一点显而易见。<span class="yr" data-page-node-id="PaeaUspIVmcBGNKwZf1dmJ">（1987年）</span></p>
+<p class="note" data-page-node-id="BF0b1e9qaQBzhPEDQrDlT6">改进还包括维护和拓宽护城河</p>
+<p class="indent" data-page-node-id="6ZWeITBQG5CYvvBRZpzjsi">每一天，我们每一家企业的竞争地位都在以无数种方式变得更弱或更强。如果我们让客户高兴、消除不必要的成本、改善我们的产品和服务，我们就在增强实力。但如果我们对客户漠然处之、容忍臃肿，我们的企业就会枯萎。在日常基础上，我们行为的影响微不可察；但累积起来，其后果是巨大的。当我们的长期竞争地位因这些几乎不为人知的行动而得到改善时，我们将这种现象描述为"拓宽护城河"。<span class="yr" data-page-node-id="0gnCSFdTJQ3AhCaiNSURgZ">（2005年）</span></p>
+<p class="note" data-page-node-id="tMFa4vaEuyQUZHUSPbYXJT">竞争优势是否变得更强、更持久了？</p>
+<p class="indent" data-page-node-id="hS5xQW0sXx52HrXA8LZNEk">要在十年或二十年后拥有我们想要的那种业务，这一点至关重要。当然，我们总是希望短期内多赚些钱。但当短期与长期发生冲突时，拓宽护城河必须优先。如果一个管理层为了达到短期盈利目标而做出糟糕的决策，从而在成本、客户满意度或品牌实力上落入被动，那么此后再多的卓越表现也无法弥补已经造成的损害。看看今天汽车和航空行业管理者们所面临的困境吧，他们正与前任留下的巨大问题作斗争。查理喜欢引用本·富兰克林的话："一盎司的预防胜过一磅的治疗。"但有时再多的治疗也无法弥补过去的错误。<span class="yr" data-page-node-id="p98sArdbb8WDukQMQbnbeX">（2005年）</span></p>
+</section>
+
+<section class="content-block" id="ch-07" data-page-node-id="mSyliIT0rnlbTUmaVymBLF">
+<h2 data-page-node-id="QTnh2AUrPKqmw2NUoAEonr">第七章</h2>
+<h3 data-page-node-id="4qsesPZvsTWbfvgAHlDLgV">值得信赖且才华横溢的管理层的重要性</h3>
+<p class="note" data-page-node-id="FLiaHtnqBV4GYggG78evBM">坚持选择那些已被证明拥有正直品格、才华和热情的管理层</p>
+<p class="indent" data-page-node-id="7LWROrPEje9gj6mO0E5ugE">在犯了几个错误之后，我学会了只与我喜欢、信任和敬佩的人共事。<span class="yr" data-page-node-id="GsBpni6seKGC6KatWVpILS">（1989年）</span></p>
+<p class="indent" data-page-node-id="Q94MHDT1AEowJx2KS730CD">无论一家企业的前景多么诱人，我们都不愿与缺乏可敬品质的管理者合作。我们从未在与坏人的交易中取得过成功。<span class="yr" data-page-node-id="NsSHjdGLZdKUV7Gkxg6Nmb">（1989年）</span></p>
+<p class="note" data-page-node-id="dk6rEQXfQbmMzeX3BguSz3">文化很重要</p>
+<p class="indent" data-page-node-id="ZYzmMtPAOAMKMWAXnYB0nv">文化决定一家组织的行为方式，远胜于规章手册。（2010年，致伯克希尔·哈撒韦经理人员备忘录）</p>
+<p class="note" data-page-node-id="VbmBtDIrRefZ2aG1DobSPY">现有的文化难以改变，所以要避免那些需要我去改变人的情形</p>
+<p class="indent" data-page-node-id="pOGhUz905rC6LfOLU0W7fk">更换管理层，与更换婚姻一样，痛苦、耗时且充满变数。<span class="yr" data-page-node-id="8kFUgyniIpANLRUfPZ0DR0">（1987年）</span></p>
+<p class="note" data-page-node-id="OdLyl3N4gVaZKnES1h2VIN">不需要MBA也可以有才华</p>
+<p class="indent" data-page-node-id="3OhTrxqrYjgh7s6g9vZo6S">伯克希尔的CEO形态多样。有些拥有MBA学位；有些则从未读完大学。有些使用预算、按规矩行事；有些则凭直觉操作。我们的团队就像一支由全明星组成的棒球队，每个人的击打风格都迥异。我们很少需要更换阵容。<span class="yr" data-page-node-id="RSbFCGFzE8mNUMh1sfGhOl">（2010年）</span></p>
+<p class="indent" data-page-node-id="uTcNgh0x8Rbjwy2MrxNhS8">苏珊（雅克）25年前以时薪4美元的销售员身份来到Borsheims。尽管她没有管理背景，我在1994年还是毫不犹豫地任命她为CEO。她聪明，她热爱这门生意，她热爱她的同事。这随时都胜过拥有一张MBA文凭。（顺便说一句：我和查理并不是简历的粉丝。相反，我们关注的是头脑、热情和诚信。）<span class="yr" data-page-node-id="vC6Z68WCukTaZBOC1fR5h7">（2007年）</span></p>
+<p class="indent" data-page-node-id="SRvpdN0LYkMFRlKGZ5whZX">我们对刚毕业的MBA们的经验并不算好。他们的学术成绩看起来总是非常出色，候选人总是知道该说什么；但他们往往缺乏对公司的个人投入和对商业的整体感觉。要教会一只新狗学会老把戏，是件难事。<span class="yr" data-page-node-id="d3uHTnmHiEzhiEKKsCEhp3">（1988年）</span></p>
+<p class="indent" data-page-node-id="ku01GIIuon6L9IdEk4B9KZ">我们不会仅仅因为某位超级巨星达到了某个特定年龄就把他从我们的阵容里移除……顶级管理者是一种稀缺资源，不应该仅仅因为生日蛋糕上插满了蜡烛就被抛弃。<span class="yr" data-page-node-id="xjdJZYXnU0GMR6JLRyGbCg">（1988年）</span></p>
+<p class="note" data-page-node-id="W62kwh4E0uw9hhS8CwZSo8">管理层如何处理现金至关重要</p>
+<p class="indent" data-page-node-id="WXzO8Vfkg81HlM4QPxM7rZ">内在价值的计算中还有一个更具主观性的要素，可以是正面的，也可以是负面的：留存收益未来将以何种效率被部署……有些公司能把这些留存的美元变成五十美分，另一些则能把它们变成两美元。<span class="yr" data-page-node-id="2LiBqjzyHsfziYWaSNkR0n">（2010年）</span></p>
+<p class="indent" data-page-node-id="blKGzTMHiDwl7ZDEl6d3AZ">许多CEO缺乏资本配置技能并不是小事：在岗位上工作十年后，一家公司若每年留存相当于净资产10%的盈利，那么CEO将负责部署该企业全部运作资本的60%以上。意识到自己缺乏资本配置技能的CEO（并非所有人都意识到这一点），通常会试图通过求助于自己的下属、管理顾问或投资银行家来弥补。我和查理常常观察到这类"帮助"的结果。综合而言，我们觉得它更可能加剧资本配置问题，而不是解决它。<span class="yr" data-page-node-id="gBZOYhzogOza51RAEUAyas">（1987年）</span></p>
+<p class="indent" data-page-node-id="qIT7AZzAvgYjevlEKeVq3F">要让我们或任何人得出一家公司内在价值的合理估计，这个"他们会怎样用这些钱"的因素必须始终与"我们现在拥有什么"的计算一起进行评估。这是因为一个外部投资者只能眼睁睁地看着管理层把他名下那部分公司盈利再投资出去。如果可以预期CEO会把这件事做好，那么再投资前景就会为公司当前的价值锦上添花；如果对CEO的才能或动机有所怀疑，那么今天的价值就必须打折。结果的差别可能巨大。<span class="yr" data-page-node-id="sMDta2cA7UPFCoPMiDGJoN">（2010年）</span></p>
+<p class="indent" data-page-node-id="GJN0rVqGOCompLoDGMH6Aq">如果盈利被不明智地保留下来，那么管理层多半也是不明智地被保留下来的。<span class="yr" data-page-node-id="iOmAWxNQBc3uOo0HZdrgtB">（1984年）</span></p>
+<p class="note" data-page-node-id="UuG6Z9TeSmeE1iwM1hiOqA">关注真正重要的三个问题</p>
+<ol data-page-node-id="4EFeNLmCmhtiNjZpqwxIxM">
+<li data-page-node-id="DDd53CeR7sT2NwmHesbzbN">第一，公司是否拥有合适的CEO？</li>
+<li data-page-node-id="WpkVq2ZnJ0rglmKRGsWrRP">第二，他/她在薪酬方面是否过度伸手？</li>
+<li data-page-node-id="O9RWxMP6ioKaCCZpZglcaL">第三，拟议的收购是更可能创造还是摧毁每股价值？<span class="yr" data-page-node-id="4vkeP5hNYQMNgFFsfhomYO">（2004年）</span></li>
+</ol>
+</section>
+
+<section class="content-block" id="ch-08" data-page-node-id="NO4lw7sYjuxxk0hGxgPuen">
+<h2 data-page-node-id="JFjGl3z8MB99t9NyNqUEdV">第八章</h2>
+<h3 data-page-node-id="cjBjB2o3gRKTO697bHPHv8">用清晰的标尺评判管理层业绩的重要性</h3>
+<p class="indent" data-page-node-id="EVY2zgiIEqBWS522gjtr2N">从一开始，我和查理就相信，应当用一把理性而不变的标尺来衡量我们取得了——或没有取得——什么样的成绩。<span class="yr" data-page-node-id="mva51EybkQRStz2P4I9s91">（2009年）</span></p>
+<p class="indent" data-page-node-id="GdXJ80yAxsOJWDxnFv7BK9">我和查理认为，那些被委托管理他人资金的人应当在受托之初就设定业绩目标。如果没有这样的标准，管理层就会被诱使去射出业绩之箭，然后在它落下的地方画上靶心。<span class="yr" data-page-node-id="u9ATJApsR4COsWXWg4VHut">（2010年）</span></p>
+<p class="note" data-page-node-id="9oXtFDFf7UH76u9FM6MXI9">不要自动地被更高的盈利所打动</p>
+<p class="indent" data-page-node-id="r7NaVCfQLjS0YyfpnDFI2V">虽然盈利从800万美元增长到7200万美元听起来令人惊叹——通常也确实如此——但你不应该自动地假定情况就是如此。你必须首先确认基准年的盈利没有被严重压低。如果它相对于所投入的资本仍然是可观的，那么一个更重要的问题必须被审视：为产生这部分额外盈利，需要追加多少资本？<span class="yr" data-page-node-id="lfDSn0rPdGRHgAzZXjfxDk">（1985年）</span></p>
+<p class="indent" data-page-node-id="KDh2QFlIRJphLq1jEUuBcu">当资本回报率平庸时，"投入更多就赚得更多"的记录并不是什么了不起的管理成就。你坐在摇椅上也能取得同样的结果。只要把投入储蓄账户的资金翻两番，你的盈利也会翻两番。但你很难指望因这样的成就而获得欢呼。<span class="yr" data-page-node-id="cBEE7XvsMlpgN2Fv1oMcfP">（1985年）</span></p>
+<p class="note" data-page-node-id="9wGkYB0mFfIDe0HTL0l5IW">当事情不如人意时，有些人会改换标尺</p>
+<p class="indent" data-page-node-id="vC24GFY9zwqyeMpbrZatyd">标尺在显示有利数值时几乎不会被丢弃。但当结果恶化时，大多数管理者倾向于处理标尺，而不是处理管理者。<span class="yr" data-page-node-id="6CqlZmmCGOgMakyi5O5JhO">（1982年）</span></p>
+<p class="indent" data-page-node-id="0646yJXYAEcXh5AZJqLZq1">对面临这种业绩恶化的管理者来说，一种更灵活的衡量体系往往会浮现：把业绩之箭射向空白画布，然后小心地在嵌入箭杆的位置画上靶心。<span class="yr" data-page-node-id="KLTNsvDVo2ja1oLOkjLU3C">（1982年）</span></p>
+<p class="note" data-page-node-id="5X5EzkW4EgJDiXGHFBCL7h">警惕那些用"除……以外"来为糟糕结果开脱的人</p>
+<p class="indent" data-page-node-id="THApQMSxcKbec0rt7kWjwE">在任何业务中，无论是保险还是其他，"除……以外"都应从词典中删除。如果你要参加比赛，就必须把全部九局中对方得到的每一分都计算在内。一个总是说"除……以外"，然后向你汇报他从自己错误中所学到的教训的管理者，可能正在错过唯一重要的教训——那就是：真正的错误不是行为本身，而是行为者。<span class="yr" data-page-node-id="IGp1AS25XGh2kNIK29F88u">（1985年）</span></p>
+<p class="note" data-page-node-id="1dAobFzg6ewCfnQigENENA">或者把责任推到他们关注长期上</p>
+<p class="indent" data-page-node-id="vl2lGjRRa9SYJkox7DcGmL">如果信心满满地播种之后却反复迎来令人失望的收获，那一定是农民出了问题。（或者也许是农场的问题：投资者应该明白，对某些公司、甚至某些行业来说，根本不存在好的长期战略。）你应当怀疑那些通过会计花招、资产出售之类的手段来粉饰短期盈利的管理者；同样，你也应该怀疑那些长期都拿不出成绩、并把它归咎于自己专注长期的管理者。（即使是爱丽丝，在听了王后关于"明日的果酱"的训话之后，最后也坚持："总得有时候是今日的果酱吧。"）<span class="yr" data-page-node-id="f4fr6GON4KZwI0C1uNvAqt">（1992年）</span></p>
+</section>
+
+<section class="content-block" id="ch-09" data-page-node-id="KDQGgVSMwydOuXVYuCbgZV">
+<h2 data-page-node-id="eermJzvJZbfTlYxeHelCuM">第九章</h2>
+<h3 data-page-node-id="P0zThCaNyjwNmQG9ZLHEHY">公司治理</h3>
+<p class="note" data-page-node-id="P9RMrNj2XQsmJnWmerlbZs">董事会最重要的工作是挑选合适的人来经营企业，并评估其表现</p>
+<p class="indent" data-page-node-id="R7Q0u7orxOw1CQ7CGSOIWP">这意味着董事必须辞退一位平庸甚至更差的管理者，无论他多么讨人喜欢。<span class="yr" data-page-node-id="nd8CBTkfxGQoT3jN375tNC">（2002年）</span></p>
+<p class="note" data-page-node-id="yU6RPBKL31SR4kEHOiCY7A">并在管理者做出违背股东利益的事情时进行干预</p>
+<p class="indent" data-page-node-id="2GXHpeQ9CjBzdPwHxHTEPu">如果有能力但贪婪的管理者越界、试图过深地把手伸进股东的口袋，董事就必须打他们的手。<span class="yr" data-page-node-id="OhguSApNjWbrag0ilMtiKW">（1993年）</span></p>
+<p class="note" data-page-node-id="F8fRwRzDxZDb2q77ZgrxC0">选择董事的关键标准</p>
+<p class="indent" data-page-node-id="b8oxFaodGfPrYzNvajWPGq">在选择新董事时，我们以长期坚持的标准为指导，即董事必须以所有者为导向、精通商业、对公司感兴趣，并且真正独立。<span class="yr" data-page-node-id="hsCGM5nHPCcHzP9ZeuxO1S">（2006年）</span></p>
+<p class="indent" data-page-node-id="mBtClMZirF4roSA4TnvrM5">这些品质中最稀缺的是商业头脑……许多聪明、能言善辩、备受推崇的人对商业并没有真正的理解。这无可厚非；他们可能在其他领域闪光。但他们不属于公司董事会。<span class="yr" data-page-node-id="UEVtyAJcTVpJM3Zde2g0QL">（2003年）</span></p>
+<p class="note" data-page-node-id="gtkid82d2TAfVMd7T0t2tF">重要的不是声望或多样性，而是商业判断力</p>
+<p class="indent" data-page-node-id="YKrI5ZKJjxOOZN1NCaFi07">董事常常仅仅因为有名望或能为董事会增加多样性而被选中。这种做法是错误的。此外，选错董事尤其严重，因为这种任命极难撤销：一位讨人喜欢但毫无内容的董事永远不必担心他的工作保障。<span class="yr" data-page-node-id="FGq5FVO0hZDMlbvE5L1UsI">（1993年）</span></p>
+<p class="indent" data-page-node-id="MhhWrRZVfVSU72BPkitqrM">我和查理认为，如果董事要按法律规定忠实地代表所有者去履行职责，那么我们的四项标准就必不可少。然而这些标准通常被忽视。相反，寻找董事候选人的咨询师和CEO常会说："我们正在找一位女性，"或者"一位西班牙裔的，"或者"一位来自国外的，"诸如此类。听起来有时仿佛任务是装满诺亚方舟。多年来，我曾被多次问及潜在的董事人选，却从未听到有人问："他的思考方式像一位聪明的所有者吗？"<span class="yr" data-page-node-id="66LYZLqTF8BYTf8XnAkOii">（2006年）</span></p>
+<p class="indent" data-page-node-id="FaXFvFnCGDD5NDmQRqZEDM">我所听到的那些问题，如果用来挑选一支橄榄球队、仲裁小组或军事指挥官的人选，听起来会显得荒唐可笑。在那些情形下，遴选者会去寻找具备某项专门工作所需的特定才能和态度的人。在伯克希尔，我们从事的是经营好一家企业这项专门活动，因此我们寻求的是<em data-page-node-id="I0mhR1wm4kuoFG4egiC1Ea">商业</em>判断力。<span class="yr" data-page-node-id="ieuiCjHa5V6U1QbNGY8jjp">（2006年）</span></p>
+<p class="note" data-page-node-id="bgdW90zHHDdkN5sL4Pdgxq">真正的独立</p>
+<p class="indent" data-page-node-id="awzq7U5XosAPQ8e9ypYxsi">真正的独立——意味着在某件事错误或愚蠢时，愿意挑战一位强势的CEO——是董事身上极为宝贵的品质。它也十分稀有。寻找它的去处是在那些高素质、且其利益与普通股东的利益相一致——而且是相当大程度上一致——的人之中。<span class="yr" data-page-node-id="SjqyapJnqyaDhNOyPGFV38">（2003年）</span></p>
+<p class="indent" data-page-node-id="pc2xpvPjwfGH1StZdrWJ2z">耶稣懂得对独立性的衡量……在《马太福音》6:21中他说："因为你的财宝在哪里，你的心也在哪里。"<span class="yr" data-page-node-id="d130s6au2GboiU9zOnhi9m">（2004年）</span></p>
+<p class="indent" data-page-node-id="Agi6Gp8irZk7rCFWgfNb2E">我们将选择那些拥有巨大且真实所有权权益（也就是说，由他们或其家庭购买、而非由伯克希尔赠予、亦非通过期权获得的股票）的董事，期待这些权益对他们的行动产生的影响，会让其他考虑（例如声望和董事费）相形见绌。<span class="yr" data-page-node-id="wRTUPnwoRFccJZcsD4YxpT">（2002年）</span></p>
+<p class="indent" data-page-node-id="0zcfTsaVsAffhsnXxrAzyB">我们大多数董事的净资产的相当一部分都投资于公司。我们吃自己烹饪的菜。（《所有者手册》）</p>
+<p class="indent" data-page-node-id="8njHRZo7pABEViIhkeT1T1">基本上，我们希望我们董事的行为由他们的决定对其家庭净资产的影响所驱动，而不是由他们的薪酬所驱动。对于我和查理作为管理者来说，这就是这个等式；我们认为它对伯克希尔的董事们同样适用。<span class="yr" data-page-node-id="fbQYKJFoDxhCOTSkfvLJoZ">（2002年）</span></p>
+<p class="indent" data-page-node-id="JcEMhGBiTuLhq0bd1QGqLD">对我们董事而言的底线是：你赢，他们赢得很多；你输，他们也输得很多。我们的方法可以称之为"所有者资本主义"。我们不知道还有什么更好的方法能够激发真正的独立性。<span class="yr" data-page-node-id="Iy7rfZIZGUBEVVJbPQyGNy">（2003年）</span></p>
+<p class="note" data-page-node-id="QErJjLu1RkrOdRMb7STlG4">他们可能看起来独立，实际上却不是</p>
+<p class="indent" data-page-node-id="QlgweMmNIdQ1SxylO2wDEf">许多如今被各种权威人士和观察人士视为独立的董事，其实远非独立——因为他们严重依赖董事费来维持其生活水平。这些以各种形式支付的报酬通常每年在15万美元到25万美元之间，可能接近甚至超过这位"独立"董事的全部其他收入。<span class="yr" data-page-node-id="O8fleFZWTtcUEzmj7AFO5s">（2006年）</span></p>
+<p class="indent" data-page-node-id="FreBm4y08NAWHsrKern8a7">一位收入不高、又严重依赖董事费——并且热切希望被邀请加入其他董事会以赚取更多董事费——的董事，极不可能去得罪一位CEO或同僚董事，因为他们将在很大程度上决定他在公司圈内的声誉。<span class="yr" data-page-node-id="CDdXFtHRD6VgrBlQl6cUpa">（2002年）</span></p>
+<p class="note" data-page-node-id="l9gheta4w6ek8F5Motol7a">董事会虽然是一个法律产物，但它也是一种社会动物</p>
+<p class="indent" data-page-node-id="IQTvOPApjfLpyz5R5zVOgh">在一个由谦谦君子组成的董事会里，几乎不可能……提出CEO是否应该被替换的问题。同样令人尴尬的是，对一项已被CEO支持的拟议收购提出质疑，特别是当他的内部员工和外部顾问都在场并一致支持他的决定时。（如果他们不支持，他们就不会出现在那个房间里。）<span class="yr" data-page-node-id="5uQeocf2M8n4uRAbtbY3xt">（2002年）</span></p>
+<p class="indent" data-page-node-id="ICBZySJd6rwMUDc2bNvYOJ">这些"社交"上的困难使得外部董事在没有CEO的情况下定期开会变得很有必要——这是一项正在推行的改革，我对此热烈赞同。<span class="yr" data-page-node-id="8BAMtD47cwHL5TVvrGf2zY">（2002年）</span></p>
+</section>
+
+<section class="content-block" id="ch-10" data-page-node-id="ECWKfLiUDgbl2IAbfDUag5">
+<h2 data-page-node-id="YncPYB2UlQsPetJOLxEGJ6">第十章</h2>
+<h3 data-page-node-id="mWpsEJQd1DNg7GCwPA2bup">所有者与管理层</h3>
+<p class="indent" data-page-node-id="UFnDZwQW43csgqDNN0ht1D">如果我和查理要与几个合伙人一起做一项小生意，我们会寻找那些与我们志同道合的人，因为我们知道，共同的目标和共同的命运能够促成所有者与管理者之间一段幸福的商业"婚姻"。把规模放大到巨型也并不改变这一事实。<span class="yr" data-page-node-id="Jl2Kfwcty5gk7wDGcrBh7G">（2009年）</span></p>
+<p class="indent" data-page-node-id="uLpXEvUjchd2ouNh14Mp0D">在伯克希尔，管理者可以专注于经营自己的业务：他们不必出席总部的会议，不必担忧融资问题，也不必应付华尔街的骚扰……我们信任的是人，而不是流程。"招得好、少管"的准则既适合他们，也适合我。<span class="yr" data-page-node-id="CTDyeEFi9ZEBJ0Ybdg0fmF">（2010年）</span></p>
+<p class="note" data-page-node-id="teNDg65FOkUbvrGPHBOBXD">只需遵循黄金法则</p>
+<p class="indent" data-page-node-id="4HslCsWa39XoGFt6ENvkVp">我们大多数的管理者已经独立致富，因此创造一种让他们更愿意选择在伯克希尔工作而非去打高尔夫或钓鱼的氛围，是我们的事情。这就要求我们公平地对待他们，并以我们若身处其位希望被对待的方式来对待他们。（《所有者手册》）</p>
+<p class="indent" data-page-node-id="CMHPPZc0c9ZjEBgeDGg1UW">虽然"工作"对我在财务上毫无意义，但我热爱在伯克希尔工作，原因很简单：它给我一种成就感、一种按我认为合适的方式行事的自由，以及每天与我喜爱和信任的人互动的机会。我们的管理者——他们是各自领域出色的"艺术家"——又怎么会有不同的看法呢？<span class="yr" data-page-node-id="uhRf8Y8uY9UV0oAnPBincM">（1999年）</span></p>
+<p class="note" data-page-node-id="FMudY2rtgNBmVjVK23Bur7">而且，如果我告诉别人该做什么，又怎么能让他们负起责任？</p>
+<p class="indent" data-page-node-id="FmDbEdpiefos26EMYunGjt">我和查理主要关心资本配置以及照料和呵护我们的关键管理者。这些管理者中的大多数在被放任自主经营业务时最为开心，而我们通常正是这样让他们经营的。这把所有运营决策的权力、以及将其产生的多余现金送往总部的责任都交到了他们手中。（《所有者手册》）</p>
+<p class="note" data-page-node-id="MoDsULZWytgEcLtYbGcDYE">通过分权和不加控制，我往往能得到更好的管理结果</p>
+<p class="indent" data-page-node-id="8ATSJLHvBN6SLxv6lFw5sz">贵公司的运营原则是：财务决策高度集中在最高层（甚至可以说是顶级），而经营权则相当极端地下放到若干个公司或业务单元层面的关键管理者手中。<span class="yr" data-page-node-id="GMruBoaNUdi1Bu4LAfK6LJ">（1979年）</span></p>
+<p class="indent" data-page-node-id="fxf7vdpBBBXfh7xWrsDu9n">这种方法偶尔会产生一次本可以通过更紧密的运营控制来消除或减轻的重大错误。但它同时消除了大量层级的成本，并显著加快了决策速度。因为每个人手头都有大量事情要做，于是大量的事情就被完成了。<span class="yr" data-page-node-id="cwvCABXCaZJX0gAdLXtiHs">（1979年）</span></p>
+<p class="indent" data-page-node-id="BH75sqs8hKjGDjkpdDUKv7">我们的管理者完全掌控自己的个人日程。第二，我们给每个人一个简单的使命：把你的业务当作下面三种情形来经营：</p>
+<ol data-page-node-id="7cL4BvlU2fxr8GhQTUYSeG">
+<li data-page-node-id="fC0f5zr2ummMfvOfAka44K">你拥有它的100%；</li>
+<li data-page-node-id="gZQrCso1trM85umbYqxkRH">它是你和你的家人在这个世界上拥有、或永远将会拥有的唯一资产；</li>
+<li data-page-node-id="i7X9ecWndT28ElGOF3utKk">在至少一个世纪里，你不能出售或合并它。作为推论，我们告诉他们，他们不应让自己的任何决策受到会计因素的任何丝毫影响。我们希望我们的管理者思考的是什么是重要的，而不是它如何被计入账面。<span class="yr" data-page-node-id="z5FBwUmTggFFDtPjeR5OrK">（1998年）</span></li>
+</ol>
+<p class="indent" data-page-node-id="R92N2lx3jyLv0bTFnqjNH4">在伯克希尔，我们信奉查理的格言——"只告诉我坏消息；好消息会自己照顾自己"——这也是我们期望管理者向我们汇报时所采取的行为方式。<span class="yr" data-page-node-id="tZfx4UdlpKZteci46xIt0F">（1995年）</span></p>
+</section>
+
+<section class="content-block" id="ch-11" data-page-node-id="gLsElI8yQcvErWNWTOkBco">
+<h2 data-page-node-id="ceBOp5LZwNO93iuh6R8aMt">第十一章</h2>
+<h3 data-page-node-id="fQ8PIYvVYaA5rDYWLp0wWz">管理层薪酬：奖励什么，就得到什么</h3>
+<p class="note" data-page-node-id="SPGjI1HpCw9mmNHzYvYxnq">管理层与所有者应当拥有相同的利益</p>
+<p class="indent" data-page-node-id="dTv52rOMC2yGdMcOwfziU1">对所有者最好的事情未必对管理者最好。</p>
+<p class="indent" data-page-node-id="0PoDUMfr24ViNHkKC27ghh">幸运的是，我和查理拥有完全的工作保障，而我们的财务利益与股东完全一致。<span class="yr" data-page-node-id="iussbySCnX16EBzlBwFBPi">（1989年）</span></p>
+<p class="note" data-page-node-id="wwhGFcN01LMDgm4QkhUGLl">与那些与所有者一起赚钱、而不是从所有者身上赚钱的人共事</p>
+<p class="indent" data-page-node-id="piBsLC6X05u1fWwM3g25iz">我们对高额薪资、期权或任何能让我们比你"占便宜"的手段都不感兴趣。我们只想在我们的合伙人赚钱时赚钱，并且按完全相同的比例。（《所有者手册》）</p>
+<p class="indent" data-page-node-id="Us8ReIZ9oEwAEEBb6JiSoR">由于我把我净资产的极大一部分终身投入了伯克希尔的股份——而且公司既不会向我发行限制性股份，也不会授予我股票期权——我的盈亏方程式将始终与所有其他股东一致。<span class="yr" data-page-node-id="BZBfBnUJwwSGCyYuE9egV5">（1993年）</span></p>
+<p class="note" data-page-node-id="sN99MhvxveSNzuVwM3odBL">不应有无责任的权利，也不应有没有大棒的胡萝卜</p>
+<p class="note" data-page-node-id="im4uYgtklrq6CcfntWA92C">作决策的人应当为后果负责，既要面对上行，也要面对下行</p>
+<p class="indent" data-page-node-id="JUZqbmc46w9axNvUxBjtct">在我们看来，"对齐利益"意味着双向作为伙伴，而不仅仅是上行的对齐。许多"对齐"方案都通不过这一基本检验，它们都是巧妙伪装的"正面我赢，反面你输"。<span class="yr" data-page-node-id="7B6BsF4z3sZbE1DUvoIU5s">（1994年）</span></p>
+<p class="indent" data-page-node-id="Qvw6vBZ31vxAdduttYu7UT">CEO们，以及在许多情况下董事们，长期以来都享受了过大的财务胡萝卜；现在也需要把一些有分量的"大棒"纳入他们的雇佣画面。<span class="yr" data-page-node-id="6GogoCX6Nk9GtFJGqG39gn">（2009年）</span></p>
+<p class="note" data-page-node-id="EIAmNVKn2hOxswdkH1n7pE">确保激励与决定所有者价值的变量相挂钩</p>
+<p class="indent" data-page-node-id="nMh1SRsErjr5XPmZJAdcyZ">在通用再保险及其科隆子公司，激励薪酬方案如今直接与浮存金增长和浮存金成本这两项变量挂钩，而这两项也正是决定所有者价值的变量。<span class="yr" data-page-node-id="SBFaHaEEhXfDQEZfSfqJEZ">（1999年）</span></p>
+<p class="note" data-page-node-id="N0fYIjEuaEN2nRVEGe9Zvx">而且要与该管理者所负责且能够施加影响的领域的结果挂钩</p>
+<p class="indent" data-page-node-id="74PsW6DdjpxWCWspENObQ1">当我们使用激励时……它们总是与该CEO拥有职权的经营结果挂钩。我们不发行回报与业务表现无关的彩票。<span class="yr" data-page-node-id="5Kfk2Yjgesihp9ZuVpGMU8">（2006年）</span></p>
+<p class="indent" data-page-node-id="QtHkFlkFIHFEnQuAi9iOFT">我们以Scott Fetzer的业绩，而不是伯克希尔的业绩，来对拉尔夫·谢伊（Ralph Schey）发放薪酬。这有什么比这更合理的呢？因为他对一项业务负责，而对另一项并不负责。一笔与伯克希尔的命运挂钩的现金奖金或股票期权，会给拉尔夫带来完全任意的回报。例如，他可能在Scott Fetzer连连击出本垒打，而我和查理却在伯克希尔吞下错误，从而把他的努力数倍地抵消。反之，如果伯克希尔的其他部门表现良好但Scott Fetzer落后，又为什么要把期权利润或奖金堆到拉尔夫头上呢？<span class="yr" data-page-node-id="Wknn7ZtJrFP1A1SnmLGeLd">（1994年）</span></p>
+<p class="indent" data-page-node-id="CdKbqGfHIOQziyq9d8QHN7">那些以任意方式、与经理个人成就无关的支付安排，可能会受到某些经理的欢迎。毕竟谁会拒绝一张免费的彩票呢？但这种安排对公司是浪费，并且会让经理失去对其真正应关注领域的聚焦。此外，母公司的非理性行为很可能会在子公司诱发模仿行为。<span class="yr" data-page-node-id="DljFxr3ZkbgDHA2518MLdJ">（1994年）</span></p>
+<p class="note" data-page-node-id="BYgj7BLPlKZtd44Th1Lf9q">奖励可以很丰厚</p>
+<p class="indent" data-page-node-id="PP4LWYxr9LUHdfKqMNu7UJ">在设定薪酬时，我们喜欢承诺大胡萝卜，但要确保它的发放直接与经理可控的领域中的结果挂钩。<span class="yr" data-page-node-id="9MMiL8tFgZqPiRKrn9TpQA">（1994年）</span></p>
+<p class="indent" data-page-node-id="heSqGveTQBEfGvFGI6EkGn">我们不为奖金设置上限，奖励的潜力也不按等级分配。如果业绩表明应得，一个相对较小单位的经理可以比一个较大单位的经理赚得多得多。我们进一步相信，资历和年龄等因素不应该影响激励薪酬（尽管它们有时会影响基础薪酬）。一个能打出.300打击率的20岁选手，与一个表现同样出色的40岁选手同样宝贵。<span class="yr" data-page-node-id="W8X6FaP0CG43pOkMDwfZGn">（1985年）</span></p>
+<p class="note" data-page-node-id="u2HT5HKNoNGHniGDbWwMsZ">建立良好激励制度的方式有很多</p>
+<p class="indent" data-page-node-id="SAMazN0WXQPkxfJlqmAVmN">在伯克希尔，我们希望薪酬政策既易于理解，又与我们希望同事们去完成的事情保持一致。<span class="yr" data-page-node-id="UGXY6xiggFHBEn05kTq8az">（1999年）</span></p>
+<p class="indent" data-page-node-id="u9VUW4AOoK9f1Ufwo9ybkT">"业绩"……根据企业基础经济的不同有不同的定义：在某些企业中，我们的管理者享受着并非他们自己创造的顺风；在另一些企业中，他们要与无法避免的逆风作战。<span class="yr" data-page-node-id="SsR1HeuO4BIMHge8TlQGR8">（1985年）</span></p>
+<p class="indent" data-page-node-id="JFvv3p94XC1JmzgV35Pp5R">伯克希尔采用许多不同的激励安排，其条款取决于一位CEO所在业务的经济潜力或资本密集度等因素。但无论何种薪酬安排，我都努力做到既简单又公平。<span class="yr" data-page-node-id="1tyVWOzYZhQXrGXILkrAU7">（2006年）</span></p>
+<p class="indent" data-page-node-id="tdKNukAiitafHf8WnR07tx">当一项业务中投入的资本数额可观时，我们也会对管理者所使用的增量资本收取较高的费率，同时对他们所释放出来的资本以同样高的费率予以贷记。<span class="yr" data-page-node-id="MeNGGismBecuTaSSKCdJBp">（1994年）</span></p>
+<p class="indent" data-page-node-id="IXAO8nbuvQnWSxsXQ3XpPS">这种"钱不是免费的"方法的结果在Scott Fetzer清晰可见。如果拉尔夫可以以良好的回报率使用增量资金，那对他来说是合算的：当增量资本上的盈利超过一个有意义的"门槛费用"时，他的奖金就会增加。但我们的奖金计算是对称的：如果增量投资的回报低于标准，这一缺口对拉尔夫和伯克希尔同样代价高昂。这种双向安排的结果是：把他在自己业务中无法有利使用的现金送回奥马哈，对拉尔夫来说是合算的——而且非常合算。<span class="yr" data-page-node-id="bPnU1LHysYeJ8qtempnzoR">（1994年）</span></p>
+<p class="indent" data-page-node-id="jEXN5atgT0ASE0dv7CX2aS">H. H. Brown的一个显著特征是我所遇到过的最不寻常的薪酬体系之一——但它温暖了我的心：若干关键管理者的年薪为7,800美元，再加上公司利润中一个特定百分比（这一利润要先扣除一笔所用资本的费用）。因此这些管理者真正站在了所有者的位置上。<span class="yr" data-page-node-id="EdX7y1T6DechtupqbtHr3D">（1991年）</span></p>
+<p class="indent" data-page-node-id="tYeLFftFhOJN7hUChHDGdj">GEICO的方案体现了伯克希尔的激励薪酬原则：目标应该</p>
+<ol data-page-node-id="P4kn5suExzf21CF5jk6VJr">
+<li data-page-node-id="hgjoGaxeILXsv0mBzahlg3">因具体经营业务的经济情况而量身定制；</li>
+<li data-page-node-id="RVJrqTLQKGOAWpr0rsFRDD">性质简单，使其实现的程度易于衡量；以及</li>
+<li data-page-node-id="cvrkT1c7WbOoIiMDyEoAMo">与方案参与者的日常活动直接相关。<span class="yr" data-page-node-id="7V8oPyVFWxmxIAsHNYW3Mm">（1996年）</span></li>
+</ol>
+<p class="note" data-page-node-id="4lIZCA1yumZS4phc0NtGIn">期权并不意味着利益对齐，尤其是设计不良的期权——它甚至可能导致更多的冒险行为</p>
+<p class="indent" data-page-node-id="sHdeQsXG5JKJThYUfcMFBz">具有讽刺意味的是，关于期权的修辞经常把它描述为可取的，因为它让管理者和所有者坐在同一条财务船上。但实际上，这两条船相差甚远。所有者从未摆脱过资本成本的负担，而固定价格期权的持有者根本不承担任何资本成本。所有者必须权衡上行潜力和下行风险；期权持有人则没有下行。<span class="yr" data-page-node-id="YsixAt3wFy6PdqdF5qOE6c">（1985年）</span></p>
+<p class="indent" data-page-node-id="AtmkvtFTDHbHFQBj6yw2Pd">管理者们经常为自己和同事设计十年期、固定价格的期权——这种期权首先完全忽略了留存收益自动构建价值的事实，其次忽略了资本的持有成本。结果，这些管理者所获得的利润，就好像他们在一个价值自动增长的储蓄账户上拥有期权一样。<span class="yr" data-page-node-id="87UTCeZjJXTxd7sTAOmjAN">（1985年）</span></p>
+<p class="indent" data-page-node-id="X2JSXIr3mGZDQnrqpaCwxl">如果Stagnant公司（"停滞公司"）的CEO弗雷德·"无所作为"（Fred Futile）获得了一捆……[十年期权]——比如说，足以让他对公司1%的股份拥有期权——他的自身利益就再清楚不过了：他应该完全跳过股息，而是把公司的所有盈利用于回购股票。<span class="yr" data-page-node-id="pkBDRpjtCfSh8GRELESa6W">（2005年）</span></p>
+<p class="indent" data-page-node-id="howUqFhEBFxZ2aRrszkoCG">让我们假定在弗雷德的领导下，Stagnant公司名副其实地停滞了。在期权授予后的十年中，它每年在100亿美元的净资产上赚10亿美元，最初按当时的1亿股流通股算，每股是10美元。弗雷德不发股息，定期把所有盈利都用来回购股份。如果股价始终以每股盈利的十倍出售，那么到期权期结束时，它将上涨158%。这是因为到那时回购会把股份数减少到3870万股，每股盈利因此上升到25.80美元。<span class="yr" data-page-node-id="PsSRf046oiBD4nts3R4dbT">（2005年）</span></p>
+<p class="indent" data-page-node-id="uFAYNTiH9AMESKEcCtANKI">仅仅通过把盈利留下来不给所有者，弗雷德就变得非常富有，轻轻松松赚到1.58亿美元——尽管业务本身根本没有改善。令人惊讶的是，即使Stagnant在这十年期间盈利下降了20%，弗雷德仍能赚到超过1亿美元。弗雷德还可以通过不支付股息，并把从股东那里扣留下来的盈利投入到各种令人失望的项目和收购中，为自己取得辉煌的成果。即使这些举措只带来5%的微薄回报，弗雷德还是会赚一大笔。具体来说——在Stagnant的市盈率保持十倍不变的情况下——弗雷德的期权将给他带来6300万美元。与此同时，他的股东们将会纳闷：当初承诺与弗雷德"利益对齐"的那回事到底去哪儿了？<span class="yr" data-page-node-id="gWRyx16VCblzbPD1D8sgIM">（2005年）</span></p>
+<p class="note" data-page-node-id="UEnprmTYR4RqAnwtf3oBEH">在某些情况下，如果结构合理，期权也可以适用</p>
+<p class="indent" data-page-node-id="8CHzUB0DLFluHybS6UF43G">期权应当只授予那些对整体负有责任的管理者。承担责任范围有限的管理者，应当获得与其可控结果相挂钩的激励。<span class="yr" data-page-node-id="5IFSfrJAXz22ljEDGLeCMQ">（1985年）</span></p>
+<p class="indent" data-page-node-id="FJ9ori51Ybe7xAtMHuEZkr">第二，期权应被精心设计。除非有特殊因素，否则期权中应内置一个留存收益或持有成本的因子。同样重要的是，期权应被合理定价……期权应按真正的商业价值定价。<span class="yr" data-page-node-id="tGvUc62MQRXdTMQkZ5RlAj">（1985年）</span></p>
+</section>
+
+<section class="content-block" id="ch-12" data-page-node-id="iDPiml9dKWpqrbVEYi46Ip">
+<h2 data-page-node-id="WnFor21HacJLOt8WcAO8IU">第十二章</h2>
+<h3 data-page-node-id="6lHGnpKDk5CzWPws4KaDZx">兼并与收购：愚蠢的收购让所有者付出的代价远超大多数其他事情</h3>
+<p class="note" data-page-node-id="AUQUyl4RTdHRokHWQUTRHS">伯克希尔寻找的企业类型</p>
+<p class="indent" data-page-node-id="tvxZtWygPU6KRXNSW0UVzu">我和查理寻找具备以下条件的公司：</p>
+<ol data-page-node-id="GGE5XpAGs7VCWdAo9C3I9B">
+<li data-page-node-id="IIvyqCtgTRQ7MbScS29ReK">我们能理解的业务；</li>
+<li data-page-node-id="vAjriyrCEtePMAvYaXscvD">良好的长期经济前景；</li>
+<li data-page-node-id="cFigDPGXmpOECEuXNW0fqs">能干且值得信赖的管理层；以及</li>
+<li data-page-node-id="vhzCGBeuFxx7HHraa2NBjs">合理的价格标签。<span class="yr" data-page-node-id="eAXy3QqixnRqoNETQ7JDnP">（2007年）</span></li>
+</ol>
+<p class="indent" data-page-node-id="PmYWQC1i2ykpBPINEHeyNR">成功投资上市公司的艺术与成功收购子公司的艺术几乎没有什么差别。在这两种情况下，你都不过是想以合理的价格收购一家具有出色经济、由能干且诚实的管理层经营的企业。此后，你只需要监督这些品质是否仍然保持。<span class="yr" data-page-node-id="PV4AcSTGjZabvL5k707eKN">（1996年）</span></p>
+<p class="note" data-page-node-id="sB7ZeU7EVZRXtLtLTqjaRd">伯克希尔的收购标准</p>
+<p class="indent" data-page-node-id="zyuhvGEV4XkIxp5W57pyKw">我们急切希望听到符合以下所有条件的企业的所有人或其代表的来电：</p>
+<ol data-page-node-id="xI6Hsl9AXxpva6WyBEgsTT">
+<li data-page-node-id="UEqvmyrC1jJkfbUgsg7GAL">大额收购（除非该业务可以并入我们现有的某个单位，否则税前盈利至少7500万美元）；</li>
+<li data-page-node-id="ldq0FH00FcGuYVtQfkhoOf">经证实的持续盈利能力（未来预测对我们没有兴趣，"扭亏为盈"情形也是如此）；</li>
+<li data-page-node-id="Dd88gGqMV6XQ8zZbRMqICA">在很少使用甚至不使用债务的情况下能获得良好股本回报的企业；</li>
+<li data-page-node-id="WvoiuiiqkW3qPSGl5QGiFU">现有管理层到位（我们无法提供管理层）；</li>
+<li data-page-node-id="WE2eEX6rUxyxPaFnlI6sLY">简单的业务（如果涉及大量技术，我们将无法理解）；</li>
+<li data-page-node-id="4VV8zyQD4jWrew8Zw01Sm9">报价（在不知道价格的情况下谈论一笔交易，哪怕是初步的，我们都不想浪费自己或卖方的时间）。<span class="yr" data-page-node-id="9Bgt1ZS28Ho3o3CQ4EK6aq">（2010年）</span></li>
+</ol>
+<p class="indent" data-page-node-id="2KxFKag4M9ibAHJsBRxNCZ">会计上的后果不会影响我们的经营或资本配置决策。当收购成本相近时，相比购买1美元在标准会计原则下我们可以报告的盈利，我们远更愿意购买2美元在标准会计原则下我们无法报告的盈利。（《所有者手册》）</p>
+<p class="note" data-page-node-id="rr9DcX6rwF3ggLyjuwRDM3">伯克希尔的收购技巧</p>
+<p class="indent" data-page-node-id="LDxyl0sHLzDGQWyrLJK8eR">我们在伯克希尔的收购技巧简单至极：我们接听电话。<span class="yr" data-page-node-id="keHaa7gPsNKgAkHTjn0P1T">（2000年）</span></p>
+<p class="indent" data-page-node-id="Ot2EKhFxPjvx0zF1C8zcqk">我们确实有几项优势，最重要的也许是我们没有战略规划。因此，我们感觉没有必要朝着一个既定方向前进（这条道路几乎总是导致愚蠢的购买价格），而是可以简单地决定什么对我们的所有者最有意义。<span class="yr" data-page-node-id="G9ERS4Z270zuVpdF7onUgl">（1995年）</span></p>
+<p class="note" data-page-node-id="Lx5turPWrphAYKfVICp34t">我现金的最佳用途是什么？我今天想在这个价格上把现金投入这门生意吗？还是有别的事情我更愿意用我的现金去做？</p>
+<p class="indent" data-page-node-id="nIuxRZGwcwki4GefyyH5PF">在这样做的时候，我们总是在心里把我们正在考虑的任何举动与对我们开放的几十个其他机会进行比较……我们这种把收购与被动投资作比较的做法，是一种只关注扩张的管理者很少使用的纪律。<span class="yr" data-page-node-id="jq9lsD7Ie4IHAbEN3w2NLp">（1995年）</span></p>
+<p class="indent" data-page-node-id="2r3eqdjZylwXJv9biyrAJh">Scott Fetzer的收购说明了我们对收购有些"漫不经心"的方式。我们没有总体战略，没有公司规划人员向我们提供关于社会经济趋势的洞见，也没有员工去调查由推销者和中介人提出的众多想法。相反，我们只是希望某些合理的机会到来——并且当它出现时，我们采取行动。<span class="yr" data-page-node-id="b1v3dwZAXllJHbNC4nAuAx">（1985年）</span></p>
+<p class="indent" data-page-node-id="qRKby3GavHjaAqMn0p6sl0">如果我们的成功要靠通过工厂巡查所获得的洞见，那伯克希尔就麻烦大了。相反，在考虑一项收购时，我们试图评估该业务的经济特征——它的竞争优势和劣势——以及我们将与之共事的人的素质。<span class="yr" data-page-node-id="Gzdv67NfhrGbDJjFlVJ9AE">（1986年）</span></p>
+<p class="note" data-page-node-id="WBGHhdVB89H88WJjX9MiUC">只有当收购能提升价值时才进行收购</p>
+<p class="indent" data-page-node-id="whUp8tOcy8FGQMueRzra8W">我和查理只对那些我们认为能提高伯克希尔股票每股内在价值的收购感兴趣。（《所有者手册》）</p>
+<p class="indent" data-page-node-id="eevmH6LdaqpZJEIRLv4ZOZ">我们的收购决策将以最大化真正的经济利益为目标，而非最大化管理领域或为会计目的而做的报告数字。（长期来看，那些注重会计外观胜过经济实质的管理层，通常两者都得不到。）<span class="yr" data-page-node-id="fZTiUizFjff3zYSDYiiziF">（1981年）</span></p>
+<p class="note" data-page-node-id="G9MAYoqZveG9ez95HgGwTT">但并非所有收购都符合所有者的最大利益</p>
+<p class="note" data-page-node-id="InsY5yjgUgVH6ckxzFZalr">动机一：行动的快感</p>
+<p class="indent" data-page-node-id="i4pyl9JmTdL2gEdywXIW5z">无论是商业还是其他领域的领导者，很少缺乏动物般的激情，他们常常乐于看到活动增加、挑战增多。在伯克希尔，公司脉搏跳得最快的时候莫过于一项收购即将到来之际。<span class="yr" data-page-node-id="w0rJ2VHA0RxsANCAXpyN90">（1981年）</span></p>
+<p class="indent" data-page-node-id="jWtDpk4uZ4IHIPJLceSJqP">在许多这样的收购中，管理者的智力在与管理者的肾上腺素较量时萎缩了。追逐的快感让追逐者看不见捕获的后果。帕斯卡的观察似乎很恰当："我注意到，人类所有的不幸都源于一个原因，那就是他们无法静静地待在一个房间里。"<span class="yr" data-page-node-id="03tKDYDoqHSuaswE86TFZ6">（1982年）</span></p>
+<p class="note" data-page-node-id="dUM9hpSHdoQoiaQfHDtuMy">不要把忙碌与成就混为一谈</p>
+<p class="indent" data-page-node-id="XuIANSbKqIeaQYdSaOj5ug">一个……更严重的问题发生在：当一家伟大公司的管理层迷失方向，忽视了它精彩的核心业务，转而去收购那些平庸甚至更差的其他业务时……当我和查理考虑投资那些整体看起来出色的企业时，最让我们担心的就是失去焦点。我们见过太多这样的情景：在自大或厌倦使管理者注意力游移时，价值停滞不前。<span class="yr" data-page-node-id="ywSiRSKoNgrGZDFEbuvBqY">（1996年）</span></p>
+<p class="indent" data-page-node-id="E1fZmF0LYuzqFUgGBDNk4x">我忍不住要重复一位企业高管去年讲给我的一个故事。他成长起来的那门生意是一门好生意，长期在其行业中处于领导地位。然而，它的主打产品却令人沮丧地缺乏魅力。所以几十年前，公司聘请了一位管理顾问，这位顾问自然而然地建议多元化——这是当时流行的潮流。（那时"聚焦"还不流行。）很快，公司收购了若干家企业，每一项收购前那家咨询公司都做了漫长——而且昂贵——的收购研究。结果呢？这位高管哀伤地说："我们开始时，100%的盈利来自原来的业务。十年后，我们150%的盈利来自原来的业务。"<span class="yr" data-page-node-id="0OFc9IbUXTU5w4AxrKFgbh">（1995年）</span></p>
+<p class="note" data-page-node-id="4T2CXv00GHF1VhIM4uW4sA">动机二：规模与地位（更大的帝国，更穷的公民）</p>
+<p class="indent" data-page-node-id="MecmgxDXDiZWZtYf5cQCyp">大多数组织，无论是商业还是其他类型，都用规模这把尺子衡量自己、被他人衡量并对管理者支付薪酬——远超任何其他尺子。<span class="yr" data-page-node-id="RqaIMpMgBkDNLszGi8Auxl">（1981年）</span></p>
+<p class="indent" data-page-node-id="LfnNCjGBGBvhBMAJ8XTf4D">可悲的事实是，大多数重大收购呈现出严重失衡的局面：它们是被收购方股东的金山；它们提高了收购方管理层的收入和地位；它们是双方投资银行家及其他专业人士的蜜罐。但唉，它们通常会减少收购方股东的财富，而且常常是大幅度地。这种情况之所以发生，是因为收购方通常付出的内在价值多于它得到的。<span class="yr" data-page-node-id="cH1C8cjKGHTHN9vPwzPFo1">（1994年）</span></p>
+<p class="indent" data-page-node-id="a8EuhqWwLSjm0lQAhaA7qq">我们长期的经济目标……是按每股计算最大化伯克希尔每年内在企业价值的平均增长率。我们不以规模衡量伯克希尔的经济意义或业绩；我们以每股的进步来衡量。（《所有者手册》）</p>
+<p class="note" data-page-node-id="LRBnC7A5WoZQw4Dp8LSl6f">动机三：过度自信（尤其是在近期成功之后）</p>
+<p class="indent" data-page-node-id="M7k3YEE1QVAt25bCPaVUAw">许多管理层显然在易受影响的童年时期对"被囚禁的英俊王子被美丽公主一吻而从蟾蜍之身解放"的故事接触过度。结果，他们确信他们管理者的一吻会为目标公司的盈利能力创造奇迹。<span class="yr" data-page-node-id="QmcnnykkT4vOqbFTQu6PPr">（1981年）</span></p>
+<p class="indent" data-page-node-id="rkQGkaGV87IQIQJXoHhDHA">倘若没有这种乐观的看法，A公司的股东为何要以其直接在市场上购买价格两倍的接管成本去获得对B的权益呢？换言之，投资者总能以蟾蜍的市场价格购买蟾蜍。如果投资者反而出钱让那些公主以双倍的价格去亲吻蟾蜍，那这些吻最好真的能产生一些真正的爆炸力。我们观察过许多吻，但极少看到奇迹。然而，许多管理者公主们仍然对自己未来一吻的威力安详地充满信心，即使他们公司的后院里已经膝盖深地堆着无动于衷的蟾蜍。<span class="yr" data-page-node-id="PNfJe0baRzNTPpYRkIyS7Y">（1981年）</span></p>
+<p class="note" data-page-node-id="JCuQfNrC1Ofop9Wv57JaR6">许多协同效应也只是幻象</p>
+<p class="indent" data-page-node-id="3LekHWT5S2L9bsuxe2zpqM">在某些合并中，确实存在重大的协同效应——尽管收购方常常为获取这些效应支付得过多——但在另一些情况下，所预计的成本和收入效益最终被证明是幻象。<span class="yr" data-page-node-id="wGO5jFO3htDS9oJIOm1nHC">（1997年）</span></p>
+<p class="note" data-page-node-id="By0M8GG3Sc0XvzP3FWXerK">发行新股进行收购 = 出售公司的一部分</p>
+<p class="indent" data-page-node-id="v6jdTOVLkRJRVaG1hboRZ1">如果A公司宣布它将发行股份与B公司合并，这一过程通常被描述为"A公司收购B公司"，或"B出售给A"。如果使用一种更别扭但更准确的描述，对此事的思考将更加清晰："A的一部分被出售用以收购B"，或"B的所有者将以其财产换取A的一部分。"<span class="yr" data-page-node-id="CarQBrfYWc9AwtEvJMn3Ju">（1982年）</span></p>
+<p class="indent" data-page-node-id="mA4Apo579dKyn487EyoIEE">在一笔交易中，你所付出的与你所得到的同等重要。<span class="yr" data-page-node-id="UakhTDadv7SIbfmfRvfFtY">（1982年）</span></p>
+<p class="indent" data-page-node-id="f3YN980q4ZrWVcoz1zSVL7">如果</p>
+<ol data-page-node-id="aDeIQRC0FANHzJtssxEgY4">
+<li data-page-node-id="7MNggs09xWFEqHnjDg2a7n">你的家族拥有一座120英亩的农场；</li>
+<li data-page-node-id="SJyn8nPXFkv1L48rn3Ehd1">你邀请一位拥有60英亩相当土地的邻居把他的农场合并到一份平等的合伙关系中——并由你做管理合伙人；那么</li>
+<li data-page-node-id="7dKOgOq6n93g3HEVKci9v7">你的管理领域将增长到180英亩，但你家在土地面积和作物上的所有权权益将永久减少25%。<span class="yr" data-page-node-id="rTaW4WC8l2xsm7xNFkpIuR">（1982年）</span></li>
+</ol>
+<p class="indent" data-page-node-id="KFHYfH9xNqhcaOLh3t8fv5">如果他们的管理者故意以80美分出售实际上价值1美元的资产，所有者就遭受了不公正的损失。（《所有者手册》）</p>
+<p class="note" data-page-node-id="j1Q1BqDyK1E9sfhADatMno">理解我所交出的东西的真正价值</p>
+<p class="indent" data-page-node-id="uRprXZjKU7lGSTr5nOsQTr">我参加过几十次讨论收购的董事会议，董事们经常被收费高昂的投资银行家（还有别的种类吗？）"指点"。这些银行家无一例外都会向董事会详细评估被收购公司的价值，重点说明为何它的价值远高于其市场价格。然而，在我担任董事会成员的五十多年里，我从未听到投资银行家（或管理层！）讨论过所付出的东西的真实价值。当一笔交易涉及收购方发行股票时，他们仅仅使用市值来衡量成本。即便如此——如果讨论的主题是反过来对收购方进行接管要约，他们就会主张收购方的股价被严重低估、绝非其真实价值的任何指标——他们也会这样做。<span class="yr" data-page-node-id="U0ZTTmicU0vxcao1KwLFrt">（2009年）</span></p>
+<p class="note" data-page-node-id="GEL5hRSo4EgrZk8ntBkuGN">如果我付出的比得到的多，我最终会变穷</p>
+<p class="indent" data-page-node-id="0fRNzdAxIlkCnzF9sNsyKo">如果一位潜在收购方的股票售价低于其内在价值，那么在全股票交易中他不可能做出一笔明智的交易。你根本不可能用一只被低估的股票去换一只被充分估值的股票而不伤害你的股东。<span class="yr" data-page-node-id="6FrFD1cRASXp56hos4IwHH">（2009年）</span></p>
+<p class="indent" data-page-node-id="f6s7R0caHpp1Y7lE6pqlVs">在这种情况下，一家以合理售价购入的奇妙企业反而成了糟糕的买入。因为以"铅"估价的金——甚至以"铅"估价的银——是不可能用来明智地购买以"金"估价的金的。<span class="yr" data-page-node-id="UYPomv3FMplDAFYsDvUZkd">（1982年）</span></p>
+<p class="indent" data-page-node-id="Ck7Mgifzg1TA69Vq5qbuEK">吉列收购金霸王（Duracell）让吉列股东付出了数十亿美元的代价，这种损失从未通过常规会计被显现出来。简单地说，吉列在这次收购中得到的商业价值并不等同于它所付出的。<span class="yr" data-page-node-id="cw9saiRx2Py7XvDrJP9Gas">（2005年）</span></p>
+<p class="indent" data-page-node-id="gX3HXGBVMr5AY5E5Z0Eddl">管理者和董事可以通过问自己以下问题来磨练他们的思维：他们是否愿意在他们被要求出售其业务一部分的相同基础上出售业务的100%。如果以这样的基础出售全部并不明智，他们就应该问自己，为什么按这样的基础出售一部分就是明智的。<span class="yr" data-page-node-id="Z8CBYIsaCZSDVHzEvzCjoV">（1982年）</span></p>
+<p class="indent" data-page-node-id="Z8XVaho33xd2RE90QPzAhS">只有当我们以业务价值得到与所付出相等的对价时，我们才会发行普通股。这一规则适用于所有形式的股票发行——不仅仅是合并或公开发行，也包括以股代债、股票期权和可转换证券。（《所有者手册》）</p>
+<p class="note" data-page-node-id="CTFHzZdVboAhKz8KW3qlVw">但仍有人在这样做——对管理层来说是一笔大交易，对所有者来说却是糟糕的交易</p>
+<p class="indent" data-page-node-id="zQirOr6zlncv8Lrt1T1g91">如果……对规模和行动的渴望足够强烈，收购方的管理者就能为这种损害价值的股票发行找到充分的合理化理由。友善的投资银行家也会让他对自己行动的稳妥性放心。<span class="yr" data-page-node-id="UrsJMP2u91ULd0mq7Broxg">（1982年）</span></p>
+<p class="indent" data-page-node-id="wFEt5GkTJ5nnBsrgsbLDMs">如今他的CEO经营着一家比他原来领地大两倍的公司，而在这个世界里，规模往往与声望和薪酬都正相关。<span class="yr" data-page-node-id="D5gTEJKjPDICnSQupVlCUC">（2009年）</span></p>
+<p class="indent" data-page-node-id="BnGYzfsmYTNWlqs2EAW26e">当一项收购考虑使用股票作为对价、且董事们正在听取顾问意见时，我觉得只有一种方式能获得理性而平衡的讨论。董事们应当聘请第二位顾问来对拟议的收购提出反对意见，并将其费用与交易未能完成挂钩。如果没有这种激烈的补救措施，我们关于使用顾问的建议仍是："不要问理发师你是否需要理发。"<span class="yr" data-page-node-id="fybxIZe1TKOV9TKsJBbygj">（2009年）</span></p>
+<p class="note" data-page-node-id="35mgAeGOx5CwmPzg8KTAJW">而且任何价格都会被合理化</p>
+<p class="indent" data-page-node-id="TacE60tV10FooDabls6Yn6">虽然交易在实践中常常失败，但它们在预测里从未失败过。<span class="yr" data-page-node-id="nYfE2wFunYqfPQNA46LdfQ">（1982年）</span></p>
+<p class="indent" data-page-node-id="oUqWxph5aFB9aZT3DmLovJ">不过，有一点你可以确定：如果一位CEO对某项尤其愚蠢的收购充满热情，他的内部员工和外部顾问就会拿出任何足以为他的立场辩护的预测。只有在童话故事里，皇帝才会被告知他没有穿衣服。<span class="yr" data-page-node-id="qm6haLmJqpHIsaUjCnt8jx">（1997年）</span></p>
+<p class="note" data-page-node-id="vhxQOALWa9udPF303zyjdK">不要对我不喜欢的信息闭上眼睛——去寻找那些可能告诉我这笔交易其实并非那么好的证据</p>
+<p class="note" data-page-node-id="jyH7ZH8UeMNpS1Bg8FFimj">警惕来自卖方或经纪人的预测</p>
+<p class="indent" data-page-node-id="BujCmsSBHycUCFqD730dr8">我们相信大多数交易都会损害收购方公司股东的利益。"事物很少如其所见，脱脂奶冒充奶油"这句出自《皮纳福尔号》的话太多时候适用。具体来说，卖方及其代表无一例外地呈现具有娱乐价值多过教育价值的财务预测。<span class="yr" data-page-node-id="LHmGfcFjQaXYoV9EZmjSzk">（1995年）</span></p>
+<p class="note" data-page-node-id="AQ1dXB8gQAcL42fAlTbAiM">不要试图通过押注于乐观情景来赚钱</p>
+<p class="indent" data-page-node-id="YQwO0mVGeqcwwG5eE7wBRu">只有在投资银行的销售陈述中，盈利才会永远向上。<span class="yr" data-page-node-id="yQrLkAcjIpv60kod4gRFkz">（2000年）</span></p>
+<p class="indent" data-page-node-id="TlPZ0H3yzKA0cfdOy5jidQ">警惕那些大肆宣扬盈利预测和增长预期的公司。企业很少在平静的、没有意外的环境中运作，盈利根本不会平稳前进（当然，除了在投资银行的招股说明书中）。<span class="yr" data-page-node-id="x1OAhqYE2Pk3xt3S5vDiJ0">（2002年）</span></p>
+<p class="note" data-page-node-id="OUdn03OcPXCGGBIThcGEdI">预测带来的伤害往往多于好处，因为它们提供虚假的精确性，从而给我虚假的信心</p>
+<p class="indent" data-page-node-id="YWmooRcwQti0xf2qt3uJfV">高管们可能会致力于追求与投资银行家合作的收购可能性，使用一种已经标准化的拍卖流程。在这个练习中，银行家们会准备一份"标书"……这些标书中特别有娱乐性的，是其中对盈利在未来许多年所做的精确预测。然而，如果你问写这份标书的银行家他自己公司下个月会赚多少，他就会摆出防御姿势，告诉你商业和市场太过不确定，他无法贸然作出预测。<span class="yr" data-page-node-id="VENwIpiHJVkyzEZUBqaZdp">（1999年）</span></p>
+<p class="indent" data-page-node-id="B7OXmcHxOTDc7yalV3QyVM">当他们做出这些发行时，投资银行家展示了他们幽默的一面：他们对几个月前他们几乎从未听说过的公司，散发着延伸到未来五年甚至更长时间的收益和资产负债表预测。如果你看到这样的表格，我建议你也参与一下乐趣：让投资银行家拿出他自己公司在过去几年年初编制的年度预算，然后与实际发生的情况比较一下。<span class="yr" data-page-node-id="dxE9LhiPgMMZEUepjNpnwE">（1989年）</span></p>
+<p class="note" data-page-node-id="T1MEoqfGUvLcf33EzOsyzX">不要以为你比卖方更了解这家企业的价值</p>
+<p class="indent" data-page-node-id="BggTttA0zZ0EUBEZNQPx9v">无论如何，潜在买方为何还要看卖方准备的预测，让我感到困惑。我和查理从不瞧一眼，而是牢记一个关于"有一匹生病马的人"的故事。他去看兽医，说："你能帮帮我吗？我的马有时走得很好，有时却瘸。"兽医直截了当地回答："没问题——在它走得好的时候，把它卖掉。"<span class="yr" data-page-node-id="BgFBH8RATvX06onLEtQg0G">（1995年）</span></p>
+<p class="indent" data-page-node-id="gQLxCJLm95Hz2lNRYWRCUe">在伯克希尔，我们在感知未来时所遇到的所有困难，其他热衷收购的公司也都会遇到。和它们一样，我们也面临一个固有问题：业务的卖方几乎总是比买方知道得多得多，并且会挑选出售的时机——一个生意有可能正"走得正好"的时刻。<span class="yr" data-page-node-id="RvFab3K60lLYz7tMcTdgJY">（1995年）</span></p>
+<p class="note" data-page-node-id="Y5grAJ40qzFAg2bOOVDy7W">他们为何要出售？他们爱这门生意胜过爱钱吗？</p>
+<p class="indent" data-page-node-id="7nCKHoQ2LkgGxAD9ArXW0Q">当一位所有者关心他卖给谁时，我们觉得这很有意义。我们喜欢与一个爱自己公司的人做生意，而不仅仅是爱出售将带给他的金钱（当然我们能理解他为何也喜欢后者）。当存在这种情感依恋时，它便预示着业务内部很可能蕴藏着重要的品质：诚实的会计、对产品的自豪、对客户的尊重，以及一群带有强烈方向感的忠诚的同事。<span class="yr" data-page-node-id="Z0jIkytBYz8JqI7k1BwBLw">（2000年）</span></p>
+<p class="indent" data-page-node-id="lMOHUmPhU7znmzyBAxRJJt">反过来也可能是真的。当一位所有者拍卖他的企业、对后续完全不闻不问时，你会经常发现这家企业是被打扮起来出售的，尤其是当卖方是"财务所有者"时。如果所有者对他们的企业及其员工漠不关心，他们的行为往往会污染整个公司的态度和做法。<span class="yr" data-page-node-id="E4E3GZsfu2iVYjDCRkjtho">（2000年）</span></p>
+</section>
+
+<section class="content-block" id="ch-13" data-page-node-id="bHdNhg7KSFXyRUuzn7EBI8">
+<h2 data-page-node-id="9Smpwm9waTHahFJ4VEkJux">第十三章</h2>
+<h3 data-page-node-id="xgBrBjDpHsRhYh2ucW36Lk">几个管理问题</h3>
+<h3 class="sec" id="ch-13-s1" data-page-node-id="h2Uyc6W0ACCvxXEvgiFDxf">A. 做诚实可信的人，并选择你能信任的人</h3>
+<p class="note" data-page-node-id="lGyUajOPJ1GAR4pQcmjVgF">不要雇用和共事那种需要被告知要诚实、友善和值得信赖的人。要雇用和共事有才华、诚实、友善和值得信赖的人</p>
+<p class="indent" data-page-node-id="hdMlhSnKIrwmqqKa3RMDaa">我和查理知道，合适的球员几乎会让任何球队的教练显得出色。我们认同奥美广告的创始天才大卫·奥格威的哲学："如果我们每个人都雇用比我们小的人，我们就会变成一家侏儒公司。但如果我们每个人都雇用比我们更大的人，我们就会变成一家巨人公司。"<span class="yr" data-page-node-id="pOOU8d0mJCE3JLU8KvMfNI">（1986年）</span></p>
+<p class="note" data-page-node-id="mFuGC3CLebvSBsJXsF0HoF">保护好声誉</p>
+<p class="indent" data-page-node-id="ahUShYsrERTjCrX5kDNeQY">首要任务是我们所有人都要继续热忱地守护伯克希尔的声誉。我们不可能完美，但我们可以努力做到。正如我在这些备忘录里说了25年以上的那样："我们可以承受亏钱——甚至亏很多钱。但我们承受不起失去声誉——哪怕一丝一毫的声誉。"（2010年，致伯克希尔·哈撒韦经理人员备忘录）</p>
+<p class="indent" data-page-node-id="AgdCpgIFYUTEKKJYYocey7">有时你的同事会说："其他人都在这么做。"如果这是某项商业行动的主要理由，那么这种合理化几乎总是糟糕的。当评估一项道德决定时，它则是完全不可接受的。每当有人用这句话作为理由，他们实际上是在说自己找不到一个好的理由。如果有人给出这样的解释，告诉他们试着对一个记者或一个法官用这句话，看看能走多远。（2010年，致伯克希尔·哈撒韦经理人员备忘录）</p>
+<p class="note" data-page-node-id="CdVBOocyrou1kuPuU3SpYD">伯克希尔·哈撒韦的商业行为与道德准则</p>
+<p class="indent" data-page-node-id="D6wuc7cEs8aqMKHkyoCW7l">公司为其经营业务所秉持的价值观感到自豪。它已经并且将继续在所有类型的交易和互动中坚持最高水平的商业道德和个人正直。（《伯克希尔·哈撒韦商业行为与道德准则》）</p>
+<p class="note" data-page-node-id="mjRa38XjWIDqRGCg96Frig">疑虑之时，请记住沃伦·巴菲特的经验法则</p>
+<p class="indent" data-page-node-id="cW0i2fQAIjuOqjIHfX1osy">我希望员工们问自己：他们是否愿意让任何考虑中的行动在第二天出现在他们当地报纸的头版上——被他们的配偶、孩子和朋友阅读——而报道则是由一位见多识广且具有批判精神的记者完成的。（《伯克希尔·哈撒韦商业行为与道德准则》）</p>
+<p class="indent" data-page-node-id="DMLqRnT9AfmWLGOkIJBGKW">如果你看到任何因其适当性或合法性让你犹豫的事情，一定要给我打个电话。然而，如果某项行动激起这种犹豫，那它很可能太接近边界了，应该被放弃。在场地中央有很多钱可以赚。如果某项行动是否接近边界存在疑问，就假定它已在界外，然后忘掉它。（2010年，致伯克希尔·哈撒韦经理人员备忘录）</p>
+<h3 class="sec" id="ch-13-s2" data-page-node-id="ekZBcvpgwco55tDMw5pzhg">B. 管理与成本效率</h3>
+<p class="note" data-page-node-id="MbxN4jqGjPuOcAVx9mwCoC">高额的公司开支与良好的业绩之间没有关联</p>
+<p class="indent" data-page-node-id="XNOhAfZGeGwpkyQdD3PX3I">在某些公司，公司开支占经营盈利的10%甚至更多。各业务部门由此向总部缴纳的"什一税"，不仅伤害盈利，更重要的是会大幅削减资本价值。如果一家在总部成本上花费10%的企业，在经营层面取得的盈利与一家成本仅为1%的企业相同，那么第一家企业的股东仅因为公司管理费就承受了持股价值9%的损失。我和查理观察不到高额公司开支与良好公司业绩之间存在相关性。事实上，我们看到的是：更简单、低成本的运营比官僚化的同伴更可能高效运作。<span class="yr" data-page-node-id="h1XHfXgRJ3zqoMZlO8TrG8">（1992年）</span></p>
+<p class="indent" data-page-node-id="qY5GApEp7slSTDAANgoXvW">我们的经验是：本已高成本运营的管理者，在寻找新方式来增加管理费用方面常常显得异常足智多谋；而管理紧凑的运营的管理者，即使他的成本已经远低于竞争对手，通常仍会继续寻找额外的方法来削减成本。<span class="yr" data-page-node-id="p9iMvW1xAn6rRZUdHrq7sR">（1978年）</span></p>
+<p class="indent" data-page-node-id="IGJGH4B48n7Sk6wDkhgatj">规模似乎让许多组织变得思维迟缓、抵制变化、自鸣得意。用丘吉尔的话说："我们塑造了我们的建筑，然后建筑塑造了我们。"<span class="yr" data-page-node-id="UhDXEjFOgbtx5GTSPvBB0E">（2006年）</span></p>
+<p class="indent" data-page-node-id="SmwkYVl5PoJ5Rd63DGsrI9">这种智慧也适用于企业。官僚程序滋生更多官僚作风，帝王般的公司宫殿招致专横的行为。<span class="yr" data-page-node-id="f6ewe4qUGBf68axzH0n1H5">（2010年）</span></p>
+<p class="indent" data-page-node-id="PRVSKuHlzfBbpWm2M4VwWh">我们宁愿承受几个错误决定的显性成本，也不愿因僵化的官僚体系导致决策迟缓——或根本不做出决策——所招致的诸多隐性成本。<span class="yr" data-page-node-id="pe7YHbv3PyanNCr2n4CV8z">（2009年）</span></p>
+<p class="indent" data-page-node-id="x32Z1ui6R2f74uUR4ftZCW">一个紧凑的组织让我们所有人都能把时间花在经营业务上，而不是相互管理。<span class="yr" data-page-node-id="GVvPPujATO8owPaTGbeQPC">（1982年）</span></p>
+<p class="note" data-page-node-id="yIYph4Pw266yV5tWcfGWX4">在好的时候，注意避免人员超编——它还会带来模仿且危险的后果</p>
+<p class="indent" data-page-node-id="6D6kkKGjsNCYRQfFVGBExJ">三十年前，时任Capital Cities首席执行官的汤姆·墨菲（Tom Murphy）用一个假设的故事让我对这一点有了切身的认识：一位员工请求他的老板允许他雇佣一名助理。这位员工以为每年增加2万美元的工资支出无关紧要。但他的老板告诉他，这项提议应被作为一项300万美元的决定来评估——考虑到一个增加的员工在其整个职业生涯中可能至少花掉这么多钱，加上加薪、福利和其他费用（更多的人意味着更多的厕纸）。而且除非公司陷入非常艰难的时期，新增的员工不太可能被解雇，无论他对业务的贡献多么微不足道。<span class="yr" data-page-node-id="0PoXcjV5J1WOBPm9gOlnJT">（2004年）</span></p>
+<p class="note" data-page-node-id="HqebAegSwBhCeMoQMacGRJ">无论好时机还是坏时机——都要做到成本高效，做那些有意义的事情</p>
+<p class="indent" data-page-node-id="pelBIbL2BrVxCQ0qXUqMlv">我和查理不相信弹性运营预算，那种"如果收入是Y，间接费用可以是X，但如果收入是Y-5%，间接费用就必须削减"的做法。难道我们真的应该仅仅因为某一年或某一季度利润下降了，就削减《布法罗新闻》的新闻容量，或喜诗的产品和服务质量吗？或者反过来，难道我们应该仅仅因为现在赚钱多了，就增加一位首席经济学家、一位企业战略家、一场机构形象广告活动或其他对伯克希尔毫无好处的事情吗？<span class="yr" data-page-node-id="9Dp95bym2IaPIKZMcvEYrc">（1987年）</span></p>
+<p class="indent" data-page-node-id="mIxMG9g0Oeseal4G2dtMVN">这对我们来说毫无道理。我们既不理解因利润暴涨而增加不必要的人员或活动，也不理解因盈利缩水而削减必要的人员或活动。这种摇摆不定的方式既不商业，也不人道。我们的目标是在任何时候都做对伯克希尔的客户和员工有意义的事情，绝不增加不需要的东西。<span class="yr" data-page-node-id="6MdcbRFumn2K549h7hKAmF">（1987年）</span></p>
+<p class="note" data-page-node-id="AttmA40n3cbKbG9tQHP6FQ">做有意义的事，不做按报表上看起来漂亮的事</p>
+<p class="indent" data-page-node-id="Vvfp0ylNAAkACRwHqAMgE4">然而，对任何在数学上具有令人信服意义的提议，我和查理都喜欢，无论它对报告盈利的影响如何。<span class="yr" data-page-node-id="HTradUonASgAYMk1SNnJ0z">（2000年）</span></p>
+<h3 class="sec" id="ch-13-s3" data-page-node-id="JF6eTsRn9tNfAJ7Xf7iINU">C. 沟通</h3>
+<p class="note" data-page-node-id="TBN6wC0mydgq2cAyexrPKf">与所有者沟通</p>
+<p class="indent" data-page-node-id="gV1AKvDEIToZiHky2Hd7xo">当我和查理阅读报告时，我们对员工、工厂或产品的照片毫无兴趣……我们非常怀疑模糊不清的会计方法，因为这往往意味着管理层希望隐藏某些东西。我们不想阅读公关部门或顾问写出来的信息。相反，我们期望一家公司的CEO用他或她自己的话来解释正在发生的事情。<span class="yr" data-page-node-id="lgCjZpV4mmz9Nj9kZ6Zw7s">（2000年）</span></p>
+<p class="indent" data-page-node-id="DVWhPtTViD9YkFwlFLY5oy">需要报告的是有助于具有金融素养的读者回答以下三个关键问题的数据：</p>
+<ol data-page-node-id="HazuRCgA9IlSoskenfagN6">
+<li data-page-node-id="USlikMoT3bgdpS7PANAPXf">这家公司大约值多少钱？</li>
+<li data-page-node-id="h9yUaqjEszPGZgMIQSkIwm">它能履行其未来义务的可能性有多大？以及</li>
+<li data-page-node-id="IM2JmQ1BW9mBf6yPAENdz2">在他们所面对的牌局下，它的管理者们做得有多好？<span class="yr" data-page-node-id="A9rhjBlZyfkEMEIghtDpJ3">（1988年）</span></li>
+</ol>
+<p class="indent" data-page-node-id="4RM0zGJ3z95e2Ycb2PW67c">在伯克希尔，"完整报告"意味着给你我们如果身处其位希望你给我们的信息。在这种情况下，我和查理希望得到的是所有有关当前经营的重要事实，以及CEO对业务长期经济特征的坦诚看法。我们期望大量的财务细节，以及任何我们需要的、用来解读所呈报内容的重要数据的讨论。<span class="yr" data-page-node-id="WGYHBueWvdSQMcMIVY3TcO">（2000年）</span></p>
+<p class="indent" data-page-node-id="WCKuRfVLLGsAHDA8UZSJPZ">会计数字……是商业的语言，因此对任何评估一家企业价值和追踪其进展的人都极有帮助。如果没有这些数字，我和查理将无所适从：它们无一例外都是我们在评估自家企业和他人企业时的起点。然而，管理者和所有者需要记住的是：会计只是商业思考的辅助工具，永远不能替代它。<span class="yr" data-page-node-id="TClQhuseX60vpLcKSiGYvv">（1986年）</span></p>
+<p class="indent" data-page-node-id="wBNjV5MdPebPaXwGkCLBzS">我们努力在年度报告中给你那些真正重要的数字和其他信息。（《所有者手册》）</p>
+<p class="indent" data-page-node-id="C2sQBnojhoMxCSFZSjBTUY">我们的指导原则是：告诉你我们如果身处其位希望知道的业务事实。我们也相信，坦诚对我们作为管理者也有好处：在公开场合误导他人的CEO最终可能会在私下里误导自己。（《所有者手册》）</p>
+<p class="note" data-page-node-id="LedAWaFgasYbJ0JCP3BZx5">关于谣言</p>
+<p class="indent" data-page-node-id="83AgJuGA9EjOPDCJvHKoBW">你应当明白，我们对谣言（无论真假）一概不予置评。如果我们否认错误的报道而拒绝评论正确的报道，我们实际上就是在评论所有的报道。<span class="yr" data-page-node-id="UNDzv12pxDPAUipLSaHw6d">（1987年）</span></p>
+</section>
+
+<section class="content-block" id="ch-14" data-page-node-id="jUqfcb09xd9kTlkXDwFSCi">
+<h2 data-page-node-id="Jf1uOfhEBnEg3h2E9oEDMK">第十四章</h2>
+<h3 data-page-node-id="5xXHUPqMDkQkbcWuF2GGg7">如何降低风险</h3>
+<p class="indent" data-page-node-id="G8LU2t86KVvC5mtp0x4HmD">预防胜于治疗</p>
+<p class="indent" data-page-node-id="rUN3uCo5gfhDZYiXzNCVE0">我们沿用字典上的定义来界定风险，即"损失或受伤的可能性"。<span class="yr" data-page-node-id="OB4N2oxOkKBSESL0a4Fm1F">（1993年）</span></p>
+<p class="indent" data-page-node-id="ZA7l69ILGJAyVC83fDCob8">我和查理厌恶冒任何哪怕是小的风险，除非我们觉得自己得到了与之相称的足够补偿。<span class="yr" data-page-node-id="mvPQf24Cen84AlSdGo7jTI">（2003年）</span></p>
+<p class="indent" data-page-node-id="eqvXpbqMD87FwVICe7JJaJ">我和查理相信，CEO绝不能把风险控制下放出去。它实在太重要了……如果他没有能力胜任这项工作，他就应该另谋他职。如果他在这项工作上失败了——以至于政府不得不出资或提供担保介入——他和他的董事会所应承担的财务后果应当严重。<span class="yr" data-page-node-id="6gCsvyfMOsIUDJ2u6KfPmT">（2009年）</span></p>
+<h3 class="sec" id="ch-14-s1" data-page-node-id="o0KusW4qAzhV4UAuXkjHCL">A. 简单方好办</h3>
+<p class="indent" data-page-node-id="NIOZ5R6ppGg1QWg7CtpTEW">无论在商业还是投资中，坚持简单和显而易见的事情通常比解决困难的事情有利得多。<span class="yr" data-page-node-id="SYuGKBXLzkqEE882qVrALD">（1989年）</span></p>
+<p class="note" data-page-node-id="TFexQcAK4xXZguOh3PeDy2">避免麻烦的最佳方式之一就是保持简单</p>
+<p class="indent" data-page-node-id="URTlrY6W4nvVVFACzEmEJf">人类目标中最难捉摸的——把事情保持简单，并记得你最初要做的事情。<span class="yr" data-page-node-id="cq5K2ddPnv1784BkRqBcGQ">（1982年）</span></p>
+<p class="indent" data-page-node-id="CBbGIGAXSV6ysWjIFfIVAJ">拉尔夫（Scott Fetzer的CEO拉尔夫·谢伊）成功的原因并不复杂。45年前，本·格雷厄姆就教给我：在投资中，并不需要做非凡的事情才能取得非凡的成果。后来我惊讶地发现，这句话在商业管理上同样适用。一位管理者需要做的就是把基本要做的事情做好，并且不要分心。这正是拉尔夫的公式。他设定了正确的目标，从不忘记自己出发时要做的事情。<span class="yr" data-page-node-id="3HiwyJBCQnLmNtGYO1l4wI">（1994年）</span></p>
+<p class="note" data-page-node-id="mj099QFFE4a4sQXZ5Cmvug">坚持简单的命题</p>
+<p class="indent" data-page-node-id="00vgIJDvPxgpnAiwAyLYM4">去年Mid-American核销了一项重大投资，这项锌回收项目始于1998年，2002年投入运营。在我们加州地热作业产生的盐水中含有大量的锌，我们相信我们可以从中获利地提取这种金属。许多个月里，看起来商业上可行的回收方法似乎指日可待。但在采矿业，就像在石油勘探中一样，前景总有一种"逗弄"它的开发者的方式，每解决一个问题，另一个问题就冒出来。9月份，我们认输了。<span class="yr" data-page-node-id="WNMrINSqYzA58CVwXr8vsK">（2004年）</span></p>
+<p class="indent" data-page-node-id="ctHiSnIAS0ylynpyuSAesQ">我们在这里的失败说明了一条准则的重要性——坚持简单命题——这是我们通常在投资和经营中都遵循的准则。如果只有一个变量是决策的关键，并且该变量有90%的可能朝你期望的方向发展，那么成功结果的可能性显然就是90%。但如果一个成功的结果需要十个独立变量都向有利方向发展，每个变量有90%的成功概率，那么取得胜利的可能性就只有35%了。在我们的锌项目中，我们解决了大部分问题。但有一个被证明无法解决，而那一个就足够了。既然链条的强度不会超过其最薄弱的环节，那就应该寻找——请原谅这个矛盾说法——只有一个环节的链条。<span class="yr" data-page-node-id="HVOMsdxsJ3HCuF9lcuhjw3">（2004年）</span></p>
+<p class="indent" data-page-node-id="irFpMqepRMpdbiBtRBZNzy">身处一门即使犯一些错误也仍能取得相当令人满意的整体表现的生意中，是令人欣慰的……贵管理层学到的一个教训——并且不幸的是有时是反复"重学"的——就是身处顺风而非逆风的业务的重要性。<span class="yr" data-page-node-id="y2Xkf0QEZgsnaAUXw5vHFx">（1977年）</span></p>
+<p class="indent" data-page-node-id="90IOrNW4V8nTy5iPt5D9xG">我们坚持……选择简单的情形。当一根针就摆在显眼处时，为什么要去大草堆里找？<span class="yr" data-page-node-id="yPqGHFGBnPLPHTM3TMvl8N">（1993年）</span></p>
+<p class="note" data-page-node-id="JrsJ14reCUDNKB64432BlR">我只需要少数几个好主意</p>
+<p class="indent" data-page-node-id="kLAi6VLKwaTd2zZRJMfBDu">一个投资者只要避免大错误，就只需做对很少的几件事。<span class="yr" data-page-node-id="sU10MZWEwgGhOVLLZzp9js">（1992年）</span></p>
+<p class="note" data-page-node-id="fHV559OjmcmZO24sIbF34h">与其想要非常聪明，不如努力避免做真正愚蠢的事——那些会真正伤害我的事</p>
+<p class="indent" data-page-node-id="IC9PplEUv9F1KwwjiZpouX">正如投资一样，保险公司取得卓越的长期业绩主要靠避免愚蠢的决策，而不是靠做出聪明绝顶的决策。<span class="yr" data-page-node-id="0HwNZNWeQEaD7GALE1Tw9d">（2001年）</span></p>
+<p class="note" data-page-node-id="agr0Pq1jabYGEoeYjS8Vp0">为自己降低难度——不要逆流而上</p>
+<p class="indent" data-page-node-id="F8dgIV3IqPRABcPYkyWPGw">在购买和监管各种各样企业25年后，我和查理并没有学会如何解决困难的商业问题。我们学到的是如何避开它们。我们之所以成功，是因为我们专注于识别那些可以跨过的一英尺障碍，而不是因为我们获得了跨越七英尺障碍的能力。<span class="yr" data-page-node-id="Pnr7bCmrot1jiqMupkuiIK">（1989年）</span></p>
+<p class="indent" data-page-node-id="KGbyFBJToeADViHrLghHA6">我和查理很久以前就决定：在一个投资生涯中，做出成百上千个明智决策实在太难。随着伯克希尔的资本急剧膨胀，能够对我们的结果产生重大影响的投资范围大幅缩小，这一判断变得越发令人信服。因此，我们采取了一种只需要在极少数情况下聪明——而且也不需要太聪明——的策略。事实上，我们如今只要一年有一个好主意就满足了。<span class="yr" data-page-node-id="YuFf4TMpwZ9c9DgHsJz1NT">（1993年）</span></p>
+<p class="note" data-page-node-id="YI21S4S5wk54wZoaYGqTNF">研究伤害，以便我知道该避开什么</p>
+<p class="indent" data-page-node-id="WsGEUbJvJDIMcI5ykBLQXD">我们的副主席查理·芒格，无论在商业还是生活的其他方面，一直强调研究错误而非研究成功。他这样做秉承的是说出下面这句话的人的精神："我只想知道我会死在哪里，这样我就永远不去那里。"<span class="yr" data-page-node-id="FkIDoO9LGhpftKkrcXwTxU">（1985年）</span></p>
+<p class="indent" data-page-node-id="g3bdKbn0fYvTS3xhcEkgiv">我和查理避开那些我们无法评估其未来的企业，无论它们的产品多么令人兴奋。<span class="yr" data-page-node-id="B3wfhDFpGveBllDEdczGSV">（2009年）</span></p>
+<p class="indent" data-page-node-id="Mo917ki3HkQBM1Eo01SJtZ">预测那些在快速变化行业中运营的公司的长期经济前景，根本远远超出了我们的能力范围……我们只坚持我们能理解的东西。<span class="yr" data-page-node-id="0ByPPi7tOzVV7SQrhc9NU7">（1999年）</span></p>
+<p class="note" data-page-node-id="IZb60QQcpJT64T7MYuQEaP">处理那些有真正影响的事情</p>
+<p class="indent" data-page-node-id="lUU18FvTKpd3ZlBwL7oKVC">钱包鼓胀……是优异投资业绩的敌人。如今伯克希尔的净资产为119亿美元，而我和查理开始管理公司时仅约2200万美元。虽然好生意和过去一样多，但与伯克希尔的资本相比，购买无关紧要的小生意对我们来说毫无意义。（正如查理经常提醒我的："如果一件事根本不值得做，就不值得做好。"）<span class="yr" data-page-node-id="H6utkjR4f5MGd7CYBd8TFB">（1994年）</span></p>
+<p class="indent" data-page-node-id="kyWu5lKogX6bAx6oEdr5Vj">我们继续……需要"大象"，才能消化伯克希尔涌入的现金洪流。因此我和查理必须忽略追逐老鼠，把收购的精力集中在更大的猎物上。<span class="yr" data-page-node-id="Qkkmmbh7jqAdrBEhfnyx6x">（2006年）</span></p>
+<h3 class="sec" id="ch-14-s2" data-page-node-id="bU3vGqU1CVSExTro9nWi7G">B. 把做出坏交易的可能性降到最低</h3>
+<p class="note" data-page-node-id="4rPJBG3rMhyH1kfXHIdCbD">知道我在哪里有优势，并以安全边际买入</p>
+<p class="note" data-page-node-id="5m9cDdlqp9ARvsUUrI33r4">买入我能理解、且便宜的卓越或良好企业</p>
+<p class="indent" data-page-node-id="31bYeHuMKqVnCJ79rIxDNF">虽然评估股票所需的数学计算并不困难，但分析师——即使是经验丰富、聪明的——在估算未来的"息票"时也很容易出错。在伯克希尔，我们尝试以两种方式应对这个问题。<span class="yr" data-page-node-id="E0H8iZFvRk4T76D2YhOfFG">（1992年）</span></p>
+<p class="note" data-page-node-id="lZyiFL8chFQ0hk2YKULx23">坚守我能理解、且我具有才能的领域，忘掉那些我不懂的事情</p>
+<p class="indent" data-page-node-id="02pOZix8ARP91i59OkmfOZ">第一，我们尽力坚持我们相信自己能理解的业务。这意味着它们必须性质相对简单、稳定。如果一家企业复杂或不断变化，我们的智力就不足以预测未来的现金流。顺便说一句，这种不足并不让我们烦恼。对大多数人来说，投资中重要的不是他们知道多少，而是他们如何如实地界定自己不知道的东西。<span class="yr" data-page-node-id="aK2XIjen3CPmtMFMLNYVLS">（1992年）</span></p>
+<p class="note" data-page-node-id="eP9kCXdVa4V0axxkmNdQFl">我是否理解该公司的产品、其竞争的本质，以及随着时间的推移可能发生什么变故？</p>
+<p class="note" data-page-node-id="Pmr5DWe6ZE3Qmgepgq8eBb">如果我不理解一个东西，我怎能为它估算价值范围？如果我无法对资产估值，我怎么知道自己是不是买得便宜？</p>
+<p class="note" data-page-node-id="4cGBkzIBMtk5UOryZmyirw">知道我能做什么、不能做什么，知道我懂什么、不懂什么——做不到这点的人是危险的</p>
+<p class="indent" data-page-node-id="Bv73hD4PvyhbzyXwxovzpP">如果我们有什么长处的话，那就是认清自己何时是在能力圈内安全运作，何时是在接近能力圈边界。<span class="yr" data-page-node-id="R27mqFVvePXTVuOpSYB8Mf">（1999年）</span></p>
+<p class="note" data-page-node-id="meVWLUxbk09M3C61sI4NqG">我是否聪明到知道我自己不知道什么？</p>
+<p class="indent" data-page-node-id="2qV0l0KdAB9bzChUhgwbQe">聪明的投资并不复杂，尽管这远不等于说它容易。投资者所需要的是正确评估所选企业的能力。请注意"所选"这个词：你不必成为每家公司、甚至许多公司的专家。你只需能够评估你能力圈内的公司。这个能力圈的大小并不那么重要；但知道它的边界至关重要。<span class="yr" data-page-node-id="Mnwo6JaO9isiRD2BfsApgq">（1996年）</span></p>
+<p class="note" data-page-node-id="O74mIs5GXdHrkzMqzShRJs">以安全边际买入——得到的价值要超过我支付的</p>
+<p class="indent" data-page-node-id="mwUGmIMQvGc9dLuyfa4WaO">第二点同样重要：我们坚持在购买价格上要有安全边际。如果我们计算出一只普通股的价值只略高于其价格，我们就不感兴趣买入。我们相信本·格雷厄姆所强烈强调的这一安全边际原则，是投资成功的基石。<span class="yr" data-page-node-id="HGGm1IDDh4Tl2cRpITOm3Y">（1992年）</span></p>
+<p class="note" data-page-node-id="DpzlEIlgqzdeYGSFS5kXP2">意外和事故总会发生——出乎意料且随机</p>
+<p class="indent" data-page-node-id="2x6yhYcqgDT2jMff7TOl3s">偶尔……不可想象的事情发生了。例如，谁能猜到南卡罗来纳州查尔斯顿会发生大地震？（它发生在1886年，里氏震级估计为6.6，造成60人死亡。）又有谁能想到我国最严重的地震会发生在密苏里州的新马德里，那里在1812年遭受了估计为8.7级的强震。<span class="yr" data-page-node-id="1rdIeQt1NzFK7WDVLNvHN9">（1992年）</span></p>
+<p class="indent" data-page-node-id="fFqj4fh5cBQCg80ZmpmxgR">显然，我们永远无法精确预测企业的现金流入流出时机，也无法精确预测其确切金额。因此，我们试图保持估算的保守，并把焦点放在那些商业意外不太可能给所有者带来毁灭性打击的行业上。<span class="yr" data-page-node-id="s5GJkCGEUCbq7JR2EOTgtd">（2000年）</span></p>
+<p class="note" data-page-node-id="mGXrmk9u7V9AxeQ9D6CfPo">可能"杀死我"的，往往是我最意想不到的</p>
+<p class="note" data-page-node-id="F4v6pfeApmfpRoeFRp5CWx">我可能在这里损失什么？我可能受到多大伤害？先关注我可能损失的，再看我可能赚到的——如果我无法判断会出什么差错——那就远离它！</p>
+<p class="indent" data-page-node-id="NWPSu6IS5QEAvT6LG3oaIX">在为财产保险定价时……我们看向过去，只考虑了我们可能因风暴、火灾、爆炸和地震而产生的成本。但历史上最大的被保险财产损失（加上相关的营业中断索赔后）却并非源于这些自然力量。简而言之，我们这个行业的所有人都犯了一个根本性的核保错误——专注于经验而非风险敞口，从而承担了一项我们没有获得任何保费的巨大恐怖主义风险。<span class="yr" data-page-node-id="G8DRA7f7F0yqmH43iixnME">（2001年）</span></p>
+<p class="note" data-page-node-id="CnkcijcjEqVv33DHFLVmkp">得失比是否有利且有意义？如果我对了，能赚得多吗？如果我错了，亏得少吗？</p>
+<p class="note" data-page-node-id="a1H9vBMNovKYEv1M1xgvR8">如果我错了，后果有多糟？</p>
+<p class="indent" data-page-node-id="2mLuUwp43lGPr1ofok2Mnv">如果我们无法容忍某种可能的后果，无论它多么遥远，我们都会避免播下导致它的种子。这就是为什么我们不大额借贷，为什么我们要确保我们超级巨灾业务的损失——尽管最大值听起来很大——不会使伯克希尔的内在价值大打折扣。<span class="yr" data-page-node-id="JcKhBwGW3w1LRq5pVCEV6I">（1996年）</span></p>
+<p class="note" data-page-node-id="mJs6UqDpY1BGm3kAk2w659">关于如何在保险业胜出的一些准则，也适用于其他领域</p>
+<p class="indent" data-page-node-id="sASioXd7Kx3uc7bNc29Pjx">胜出者就是那些坚持以下三项关键原则的：</p>
+<p class="indent" data-page-node-id="I5EpF8XrUFUzdNr8h3JPmz">- 他们只接受那些他们能够恰当评估的风险（待在能力圈内），并且在评估了所有相关因素（包括极端损失情境）之后，这些风险预期能带来利润。这些保险公司忽略市场份额的考虑，对失去那些向竞争对手提供愚蠢的价格或保单条件的业务感到坦然。</p>
+<p class="indent" data-page-node-id="ejsKkNNh4jshH2RoWVFtBf">- 他们以一种方式限制接受的业务量，确保他们不会因为单一事件或相关事件造成的损失累积而威胁到他们的偿付能力。他们不停地搜寻看似无关风险之间可能的相关性。</p>
+<p class="indent" data-page-node-id="tQ4MokzIwQdCzomD8qGRk7">- 他们避免涉及道德风险的业务：无论费率如何，试图与坏人签订好合同行不通。虽然大多数保单持有人和客户是诚实的、有道德的，但与少数例外做生意通常代价昂贵，有时甚至代价极其高昂。<span class="yr" data-page-node-id="Lu1B6zps0u8bd6rnYxMXgQ">（2001年）</span></p>
+<p class="indent" data-page-node-id="2tKEZilDapCwwVZaQmE43v">我们绝不发行一份没有上限的保单。<span class="yr" data-page-node-id="gDL6zrpWpnMC3tZOkTGEiZ">（2000年）</span></p>
+<h3 class="sec" id="ch-14-s3" data-page-node-id="X5lCL8YlkI3Rq8uDEDEU0S">C. 我最有机会找到好交易的条件和环境——以及在好日子里的警告</h3>
+<p class="note" data-page-node-id="CTgbm41FznhJjQG20GTiJd">狂热是我的敌人</p>
+<p class="indent" data-page-node-id="wVxYthWGNQnqLRmLV9JT6C">投资时，悲观是你的朋友，狂热是你的敌人。<span class="yr" data-page-node-id="t8XMqlGmZRdh1AjWmE7uOE">（2009年）</span></p>
+<p class="note" data-page-node-id="o0pUEKAWPvXFHFnYe9H6kz">在最暗淡的时候，资产往往最便宜</p>
+<p class="indent" data-page-node-id="rsSLf0UyMWp9ff4208rDj6">低价最常见的原因是悲观——有时是普遍的，有时是特定于某家公司或某个行业的。我们想在这样的环境里做生意，并非因为我们喜欢悲观，而是因为我们喜欢它所产生的价格。乐观才是理性买家的敌人。<span class="yr" data-page-node-id="TTCDKj98HFCnKpRBcufM0M">（1990年）</span></p>
+<p class="indent" data-page-node-id="ocF9dnh5L2Z3AEe2rDHLKt">如今的评论员们经常谈论"巨大不确定性"。但请回想一下，例如1941年12月6日、1987年10月18日和2001年9月10日。无论今天多么平静，明天总是不确定的。<span class="yr" data-page-node-id="Rn208BtzMEznTVAkFHTYR8">（2010年）</span></p>
+<p class="indent" data-page-node-id="jM5AiMgfzcWkSuqZwlK9Bs">我们通常在人们对某些宏观事件的担忧达到顶峰时做出我们最好的购买。恐惧是赶时髦者的敌人，但却是基本面派的朋友。<span class="yr" data-page-node-id="oxqzKPNzrdXbawhIIJyU99">（1994年）</span></p>
+<p class="indent" data-page-node-id="dGmcgTps3133IUxcudMp4I">投资者应该记住，激动和费用是他们的敌人。如果他们坚持试图择时参与股市，他们应该尝试在别人贪婪时恐惧，在别人恐惧时贪婪。<span class="yr" data-page-node-id="wLH3xflkvWr9xEsT2TJFUR">（2004年）</span></p>
+<p class="indent" data-page-node-id="VYhREYCPVnAyogpDPLM6VC">不过，这一切并不意味着一家企业或一只股票仅仅因为不受欢迎就是聪明的购买；逆向投资和追随大众一样愚蠢。所需要的是思考，而不是民意调查。<span class="yr" data-page-node-id="rG8OZ9FQ70R3VVGSrAbX1F">（1990年）</span></p>
+<p class="indent" data-page-node-id="zGvpqBwiXbwaUCQWtMrFtV">大机会并不常出现。当天上下着金子时，要拿一个桶去接，而不是一个顶针。<span class="yr" data-page-node-id="lxIJlUfrm0dZU3RZCAZGFL">（2009年）</span></p>
+<p class="note" data-page-node-id="CLe0GvqHLFzYIqR5BfmhTV">灾难最常见的开端往往是虚假的安全感</p>
+<p class="note" data-page-node-id="Cd3EJx2FacVtjKH7Q27hOt">好时光和乐观情绪有时是我最糟的敌人</p>
+<p class="indent" data-page-node-id="hLMkaAq88TBqzjYZNH08uy">投机在看上去最容易的时候最危险。<span class="yr" data-page-node-id="4Iq7Ier9bUaAwFumzEDpPj">（2000年）</span></p>
+<p class="note" data-page-node-id="1usdApwu9Ru24PuMzI5VjN">经过一段长时间的好日子和美好经历后，我会感到虚假的安全和自信，忘记风险与危险</p>
+<p class="note" data-page-node-id="pAiNn9ccdC7wNu5ekEMvFK">我会变得过度乐观和过度自信，放松我的标准，忘记历史，忘记大多数行业和公司表现都呈周期性变化（有的更明显）这一事实</p>
+<p class="note" data-page-node-id="G1lMsyOwiewRKUFMFP6wuX">本不该借钱的借款人正在被本不该放贷的放贷人融资</p>
+<p class="indent" data-page-node-id="YJMkQZkkIKCxdTDvT2lE1k">首先，对有意义首付款的要求经常被无视。有时还涉及造假……此外，借款人同意了他们根本无法偿付的月供，因为他们反正没什么可失去的。由此产生的抵押贷款通常被打包（"证券化"）后由华尔街公司卖给毫无戒心的投资者。这条蠢事链条注定要以糟糕的方式结束，而它也确实如此。<span class="yr" data-page-node-id="jymVALOAdbtUxnoOjThSrG">（2008年）</span></p>
+<p class="note" data-page-node-id="KUaQGBKcr6AhtBKzaFq1Sm">我从未看到好日子结束——直到为时已晚</p>
+<p class="indent" data-page-node-id="4s9AFF7ZxObCgmngbeZKZ4">放贷人乐于发放借款人无法用收入偿还的贷款，而借款人也同样乐于签字承诺这些还款。双方都指望"房价升值"来让这个本不可能成立的安排成立。这又是一次斯嘉丽·奥哈拉式的：明天再想吧。<span class="yr" data-page-node-id="1DP0eWA38Z8z7mwKj5Nn1k">（2008年）</span></p>
+<p class="note" data-page-node-id="DNjnRnRFIgyC9kguQv6UiC">在危险最大时却相信风险很低</p>
+<p class="indent" data-page-node-id="7hcR0gHGeHZvZnVrPjQDV3">经验……是对大多数险种进行核保时一个非常有用的起点……然而在某些时候，把经验作为定价的指南不仅毫无用处，而且实际上是危险的。例如，牛市后期，董事和高管责任保险（"D&amp;O"）的大额损失可能相对罕见。当股票上涨时，被起诉的对象稀缺，可疑的会计和管理诡计往往未被发现。在那个节点上，高额D&amp;O的经验数据可能看起来很棒。<span class="yr" data-page-node-id="wF82zCNPCuC72Qyeqv0GOi">（2001年）</span></p>
+<p class="indent" data-page-node-id="oxXRkEa642neqmGDsBGFaP">但这正是风险敞口可能爆炸的时刻——通过荒谬的公开发行、盈利操纵、链信式的股票促销以及各色其他不光彩的活动。当股票下跌时，这些罪过便浮出水面，给投资者带来数千亿美元的损失。<span class="yr" data-page-node-id="VyaiRXZNTNGmzTNpN7slCA">（2001年）</span></p>
+<p class="note" data-page-node-id="POKTGXtGeUScUJD9FdROT0">只有在"潮水退去"时，我才知道自己暴露在多大的风险下</p>
+<p class="indent" data-page-node-id="mln15CJEG2V3ELcRqhDmRg">随着房价下跌，大量的金融蠢行正在被揭露。只有当潮水退去时，你才知道谁在裸泳——我们如今在某些最大的金融机构身上目睹的景象是丑陋的。<span class="yr" data-page-node-id="T3lbogw3192mi6C2HgVmeE">（2007年）</span></p>
+<p class="note" data-page-node-id="m7kY5lVrdHUuYV6StDuiGp">我们都以为自己刀枪不入，但不要飞得离太阳太近</p>
+<p class="indent" data-page-node-id="zEwwP3oliUBiDGKotFIGo2">没有什么比大量轻松到手的金钱更能麻醉理性。在那种令人陶醉的经历之后，正常理智的人会漂移到类似舞会上的灰姑娘的行为。他们知道留在节日庆典中太久——也就是说，继续投机那些相对于其未来可能产生的现金而言估值惊人的公司——最终会变出南瓜和老鼠。但他们仍然舍不得错过这场了不起的派对的哪怕一分钟。因此，那些晕乎乎的参与者都打算在午夜前几秒钟离开。但有一个问题：他们正在一间钟表都没有指针的房间里跳舞。<span class="yr" data-page-node-id="8vAl5XTzwkXDiO8L0wkzx5">（2000年）</span></p>
+<p class="note" data-page-node-id="vVs6THcsk3mW6VmhQphXSF">我以为自己在赚钱——直到我摇头时</p>
+<p class="indent" data-page-node-id="t0ytuVl1NjoDAWjmw2c5dH">没有人能精确地知道偿还我们继承下来的索赔需要多少钱。医疗事故保险是一项"长尾"业务，意味着索赔往往需要多年才能结清。此外，还有一些已经发生但我们要过一段时间才会听到的损失。然而，在这门生意里干了多年（艰难地）学到的一件事是：保险中的意外远远不是对称的。如果你每遇到10个不幸的意外能换来1个让人愉快的意外，你就算走运了。然而保险公司常常以乐观的态度对待将至的损失问题。他们就像那个在弹簧刀斗殴中的家伙，对手对他的喉咙猛地一划之后，他喊道："你根本没碰到我。"对手回答："等你想摇头时再说。"<span class="yr" data-page-node-id="RXclgh69zGDH5bxYcEHXbq">（2005年）</span></p>
+<p class="note" data-page-node-id="VnyNYgUOAjFspWtJczLutF">每一代人都得以自己的方式被砍掉自己的脑袋——历史上一直有泡沫和崩溃——但每次它们都让我们大吃一惊</p>
+<p class="indent" data-page-node-id="FzozbCgzTjPDztvG0hRQZI">别人行事越不审慎，我们行事就越要审慎。<span class="yr" data-page-node-id="Bv0E3WRzF1TGlN8jHnDEy6">（1988年）</span></p>
+<p class="note" data-page-node-id="lHRm0AigBp7u8dJ8A8Zem8">耐心是一种美德，它能帮我远离麻烦</p>
+<p class="indent" data-page-node-id="7nF9viMJECW8b1bSQFPcrI">如果我们要击中靶心，我们就需要那种能在合理条款下购买企业和证券的市场。眼下市场艰难，但它们能够——并且将会——以意料之外的方式、在意料之外的时刻发生变化。在此期间，我们将努力抵抗仅仅因为我们手头现金充裕就去做某件勉强的事的诱惑。如果你走在错的路上，跑也没用。<span class="yr" data-page-node-id="uPQ1wOiOmSOjZvJU1uB34R">（1993年）</span></p>
+<p class="indent" data-page-node-id="Twfg0123OUCGZdZyid9GT7">我们可以非常有耐心。（无论才能或努力多么了不起，有些事就是需要时间：你不可能通过让九位女性同时怀孕，在一个月内造出一个婴儿。）<span class="yr" data-page-node-id="ssdo4wVkTBD0daR5mPdL6h">（1985年）</span></p>
+<p class="indent" data-page-node-id="NSrgvkWCHWHx66fOnVs7i3">在寻找时，我们采取的态度与寻找配偶时所应有的态度相同：积极、感兴趣、思想开放是有用的，但着急没有好处。<span class="yr" data-page-node-id="WChqbEsZLCYHhJ4BEHWqyK">（1992年）</span></p>
+<p class="note" data-page-node-id="DGZBK0RNeI6whTsKbZOMqZ">不作为有时是非常聪明的</p>
+<p class="indent" data-page-node-id="BSLerttPV8Kv8kGYJ1Wldl">在配置资本时，活动量并不等同于成就。事实上，在投资和收购领域，狂热的行为往往适得其反。<span class="yr" data-page-node-id="frxWw8VfdwcsgCwijmzOPx">（1998年）</span></p>
+<p class="note" data-page-node-id="o5OR3y9DMD3nRj0n5PNr1X">D. 在债务上保持保守</p>
+<p class="indent" data-page-node-id="GSCc1tN6UYD2uIPoLZOwbV">财务实力赋予我持久力以及更多选择</p>
+<p class="note" data-page-node-id="43VXP7v4VYC0vL6IFNMRMh">我可能因杠杆而陷入大麻烦</p>
+<p class="indent" data-page-node-id="LT0Lk3jkxDqUhIL0KnOXBk">我们不感兴趣为伯克希尔的收购或经营目的承担任何重大债务。<span class="yr" data-page-node-id="xxW2sBWkdDAaKlqDSSk4SE">（2005年）</span></p>
+<p class="indent" data-page-node-id="OY3W76oE51oEYjb34Cu42c">我们谨慎使用债务；当我们确实要借款时，我们尽力以长期、固定利率的基础安排贷款。（《所有者手册》）</p>
+<p class="indent" data-page-node-id="T2fh9wdJ4Aa4rNMZ88F2AV">我们选择波洛涅斯的劝告（略加改动）："既不做短期借款人，也不做长期放贷人。"<span class="yr" data-page-node-id="GOLxYKQS1GKEgwc9WhqdHQ">（1979年）</span></p>
+<p class="indent" data-page-node-id="ifsCRapueUhLqHeENKwpG7">我们宁愿拒绝有趣的机会，也不会过度对资产负债表加杠杆。这种保守做法降低了我们的回报，但鉴于我们对保单持有人、贷款人，以及那些将其净资产中异常大的部分委托给我们看管的众多股权持有人所负的信托义务，这是唯一让我们安心的行为。（《所有者手册》）</p>
+<p class="indent" data-page-node-id="OFDna2DZOSRCYB2Hak2luC">毫无疑问，有些人通过使用借来的钱致富了。然而，这也是一种致穷的途径。当杠杆奏效时，它放大你的收益。你的配偶觉得你聪明，你的邻居开始嫉妒。但杠杆是会上瘾的。一旦从它的奇迹中获利，很少有人会退回到更保守的做法。<span class="yr" data-page-node-id="D5WC9HSNyWN8R8MhFPEPT0">（2010年）</span></p>
+<p class="note" data-page-node-id="7X6VazNnhUNCc1kW5uKAzU">杠杆经常变出一个零——即使对聪明人也是如此</p>
+<p class="indent" data-page-node-id="O2435G9zP7YuqYJpLdXo3I">多年来，许多非常聪明的人吃了苦头，才明白一长串令人印象深刻的数字乘以一个零总是等于零。这不是一个我希望亲身经历的等式，更不是我愿意把它的惩罚强加给别人的等式。<span class="yr" data-page-node-id="vPUxOUHM5EdG5ncJL6TjqZ">（2005年）</span></p>
+<p class="note" data-page-node-id="YqmaRoGbFWM73dN7UNgAcL">要想第一个冲过终点，我必须先冲过终点。</p>
+<p class="indent" data-page-node-id="Ae6WIiE1BfhtC1AzADqDb3">赛车的基本原则是：要赢得第一名，你必须先到达终点。这条格言同样适用于商业，并指导着我们在伯克希尔的每一项行动。<span class="yr" data-page-node-id="OVRAC6EesJCxWPtQMoRcyX">（2010年）</span></p>
+<p class="note" data-page-node-id="16M56no6OsYENJsq10llNz">确保我能应付即使最糟糕的条件</p>
+<p class="indent" data-page-node-id="b25i78p6veRJMV1rI8Jc7F">我们不希望仅仅是"很可能"能履行我们的义务；我们希望这一点是"确定无疑"的。因此，我们在债务以及所有其他事项上都坚持这样的政策——能让我们在极其不利的条件下取得可接受的长期成果，而不是在正常条件下取得最优成果。<span class="yr" data-page-node-id="kej3xBcnTfFyKVI69u3zbq">（1987年）</span></p>
+<p class="indent" data-page-node-id="zqrhyTyIt8dIZYWcyDySI3">人们告诉我们，巨额债务会让运营管理者前所未有地集中精力，就像在汽车方向盘上安装一把匕首可以让驾驶员加倍小心一样。我们承认，这样的注意力提升器确实会造就一位非常警觉的驾驶员。但另一个肯定的后果是：哪怕汽车撞上最微小的坑洼或一片薄冰，也会发生致命的——也是没必要的——事故。商业的道路上布满坑洼；一个要求避开每一个坑洼的计划是灾难的计划。<span class="yr" data-page-node-id="fXIUHPqhxRMCXdN72RA3sG">（1990年）</span></p>
+<p class="note" data-page-node-id="GhsLnn0TCVFbliSd7m4GAF">备好充足的现金储备能让我睡得安稳</p>
+<p class="indent" data-page-node-id="z7Hw6C9vNyS1A75gfvGMUC">负债累累的公司常常假定这些债务可以在到期时再融资。这个假定通常是有效的。然而偶尔——或是由于公司自身的问题，或是由于全球性的信贷短缺——到期时必须实际偿付。而要做到这一点，只有现金才行。借款人这时会明白，信贷就像氧气。当二者中任何一项充足时，它的存在被忽视。当二者中任何一项缺失时，那就是被关注的全部。即使是短暂缺乏信贷，也能让一家公司跪下。<span class="yr" data-page-node-id="VicHh1F9h5oweagBqAkxWs">（2010年）</span></p>
+<p class="note" data-page-node-id="0hS0u8BDtHsBrKo4KwjyyK">绝不指望陌生人的善意</p>
+<p class="indent" data-page-node-id="DYOkKpVEXVJfhUe9LBglQV">我们绝不会变得依赖陌生人的善意。在伯克希尔，"大到不能倒"不是我们的退路。相反，我们将永远把事务安排妥当，使任何我们可能想到的现金需求都被我们自己的流动性所相形见绌。此外，这种流动性会被我们众多多元业务源源不断喷涌而出的盈利持续补充。<span class="yr" data-page-node-id="xpFFNg3EX6T9y98FFPpNZG">（2009年）</span></p>
+<p class="indent" data-page-node-id="bhNRnWe3GkldwlOm2O6nCC">由于在杠杆问题上如此谨慎，我们的回报受到了一定程度的拖累。但拥有大量的流动性让我们睡得安稳。<span class="yr" data-page-node-id="f2jNrXt7KhJjO24KOBFEN3">（2010年）</span></p>
+<p class="note" data-page-node-id="Xrxwwg2Yn4hrdT2YK1l9ta">手头有大量现金也能给我带来机会——尤其是在动荡时期或别人害怕时</p>
+<p class="indent" data-page-node-id="FnaGWXQwnNRQ0LH1HSzYFW">我们的基本原则是：如果你想射中稀有的、快速移动的大象，你就应该始终背着一把上了膛的枪。<span class="yr" data-page-node-id="GPRWunvnjDlC4hYMmdEqS9">（1987年）</span></p>
+<p class="indent" data-page-node-id="GZtmkH9l9isFMAS5U4gyyc">最有吸引力的机会，往往会在信贷极其昂贵——甚至无法获得——的时候出现。在那种时候，我们想拥有充沛的财务火力。<span class="yr" data-page-node-id="oeRhbAmgANMwLZCVKZnptj">（1980年）</span></p>
+<p class="indent" data-page-node-id="uvRmlsiR9ZjWxygAk0undS">银根紧缩条件——它意味着负债成本高——将带来最好的收购机会，而便宜钱则会让资产价格被推到天上。<span class="yr" data-page-node-id="mgtiAMGLpZsGX4m0wuqK4x">（1987年）</span></p>
+<p class="indent" data-page-node-id="EztoyKKGuf6aXgX4AzEZuZ">在我们经济中偶尔爆发的金融混乱期间，我们将在财务上和情感上都做好准备发起进攻，而其他人则在为生存而挣扎。这就是为什么2008年雷曼破产之后25天的恐慌中，我们能够投入156亿美元。<span class="yr" data-page-node-id="GygmA6DnnKP99ceOuZJbeQ">（2010年）</span></p>
+<p class="note" data-page-node-id="ok03gOmG4UMcvzuM4SHk6Y">要让现金"随时可用"，它必须是安全的</p>
+<p class="indent" data-page-node-id="uHoywiaf6rlouMtBoK67BD">我们把现金大部分放在美国国库券中，避开了那些收益高出几个基点的其他短期证券；早在2008年9月商业票据和货币市场基金的脆弱性变得明显之前，我们就一直坚持这一政策。我们赞同投资作家雷·迪沃（Ray DeVoe）的观察："因追求收益而损失的钱比在枪口下损失的钱还要多。"在伯克希尔，我们不依赖银行授信额度，我们也不签订任何可能要求缴纳抵押品的合约，除非那些金额相对于我们的流动资产来说微不足道。<span class="yr" data-page-node-id="T8LKYfrN7xykJ7pv6mY0T1">（2010年）</span></p>
+<p class="note" data-page-node-id="Ys2FlO4pxXOYw1TLsetaXV">不要拿我已有、且需要的东西去冒险，以换取我并不需要的东西，或避免无关紧要的事</p>
+<p class="indent" data-page-node-id="xFTh3ZFUYTMLguYEnaCNFj">我和查理对任何可能对伯克希尔的健康造成丝毫威胁的活动都不感兴趣。<span class="yr" data-page-node-id="5idQRTo2KkdG30VKvHeHH6">（2010年）</span></p>
+<p class="indent" data-page-node-id="itxB5qjLvaniEYXsHkJOuf">我和查理所采用的财务计算永远不会允许我们用一夜的安眠去博取百分之几的额外回报。我从不相信冒险拿我家人和朋友所拥有、所需要的东西去追求他们没有、也不需要的东西。（《所有者手册》）</p>
+<p class="note" data-page-node-id="oEytckWzhA5GOHvNbeSSWp">向子公司放贷</p>
+<p class="indent" data-page-node-id="a6Dt7K7aUmDBJABOLCrkwS">你可能想知道我们为什么在坐拥现金山的同时还借钱。这是因为我们的"各人桶自己撑底"哲学。我们相信任何子公司若需要借钱来支撑其应收款，就应当为那些资金支付一个适当的利率，而不应由母公司给予补贴。否则，有一个有钱的爸爸可能会导致草率的决策。<span class="yr" data-page-node-id="aRis0qsohBEP24Xmyg19Tl">（2003年）</span></p>
+<h3 class="sec" id="ch-14-s4" data-page-node-id="whkZmt2BNfjIyV6NyHtzXb">E. 不要轻信带有偏见的建议</h3>
+<p class="note" data-page-node-id="HjLS5tUmVbcMuhvjyon6Xx">并非所有看起来闪闪发光的投资建议都是金子</p>
+<p class="indent" data-page-node-id="adLCnMioIxSQ6gmCH0v8a4">在证券业里，凡是能卖出去的都会被卖出去。<span class="yr" data-page-node-id="vByujjpDdKaDmDfnxLxhrh">（1996年）</span></p>
+<p class="note" data-page-node-id="fNq4XbhuFhY1HSuHgvmSLv">看似好得令人难以置信的事情，往往就是真的难以置信</p>
+<p class="indent" data-page-node-id="JYI9LXVg8VVuWLehUuasBg">那些预期本世纪股票每年能获得10%回报的人——设想其中2%来自股息，8%来自价格升值——实际上是在隐含预测：到2100年道指水平将达到约24,000,000点。如果你的顾问跟你谈两位数的股票回报，请向他解释这个数学——尽管这不会让他动容。许多"帮手"显然是《爱丽丝梦游仙境》里那位王后的直系后代，王后说："哎呀，有时早饭前我已经相信过六件不可能的事了。"小心那些用幻想填满你脑袋、同时用费用填满自己口袋的伶牙俐齿的帮手。<span class="yr" data-page-node-id="9hEwPe1q9NpxEdSmtPrzi7">（2007年）</span></p>
+<p class="note" data-page-node-id="DoJDhPxAh8NogPGmdKehVt">不要听信那些向我提供免费的钱的人</p>
+<p class="indent" data-page-node-id="k6O9ZVHuUyy1joBrTSQyfy">当一个有经验的人向一个有钱的人提议一笔交易时，往往以那个有钱的人获得了经验、那个有经验的人获得了钱而告终。<span class="yr" data-page-node-id="BNIABc09UxspfIGhx0XEYZ">（2006年）</span></p>
+<p class="note" data-page-node-id="PWYlgGyUk1UWFtnjik9PTZ">或者提供复杂投资技巧的人</p>
+<p class="indent" data-page-node-id="ZhxfnuHfkyPZ9xxvuGG9NH">笼罩在神秘之中的技巧对那些贩卖投资建议的人显然有价值。毕竟，哪个巫医曾仅凭一句"吃两片阿司匹林"就名利双收？<span class="yr" data-page-node-id="SLZaU92ZZGQkGxiSj5jURi">（1987年）</span></p>
+<p class="note" data-page-node-id="Wz8rbg0LTeiwds7NdpEegA">对券商有利的，未必对我有利</p>
+<p class="indent" data-page-node-id="MZcrJAJsWDMtiFnhUJOCIF">股市的一个讽刺之处是对活动量的强调。券商们使用诸如"可销售性"和"流动性"这样的词，赞美换手率高的公司（那些填不满你口袋的人，会满怀信心地填满你的耳朵）。但投资者应当明白，对赌场荷官有利的，对客户并不有利。<span class="yr" data-page-node-id="vF9HwTYDUYH0QAqvJHPHMN">（1983年）</span></p>
+<p class="note" data-page-node-id="1Qqm784e8ARlzgm9EH2EvC">顾问们害怕得罪养活他们的那只手</p>
+<p class="indent" data-page-node-id="wrGEdFGutX1bp5G2fDR4av">CEO的过度伸手在1990年代大大加速，因为最贪婪者（这个头衔的争夺颇为激烈）所赢得的薪酬方案很快就被其他地方复制。这股贪婪的瘟疫的快递员通常是顾问和人事部门，他们看清楚是谁给他们涂面包黄油毫无困难。正如一位薪酬顾问所言："你不会想得罪的客户有两类——现实的和潜在的。"<span class="yr" data-page-node-id="WXiPTh2zmF4MJYCnzVJvf5">（2003年）</span></p>
+<p class="indent" data-page-node-id="zPbRXLNXUFHgj2Y23GNztk">我忍不住要提一下：我们与拉尔夫·谢伊的薪酬安排是在大约五分钟内敲定的——就在我们买下Scott Fetzer之后立即敲定，没有律师或薪酬顾问的"帮助"。这一安排体现了一些非常简单的理念——而不是那些除非先确认你有一个大问题（当然，还需要每年评审一次）否则就难以开出大账单的顾问所青睐的那种条款。<span class="yr" data-page-node-id="LR6FMwjcR7j7qhAubOafuj">（1994年）</span></p>
+<p class="note" data-page-node-id="XHyEaf1oLldvGoQWLIPVuA">即使是"独立"的会计师也是有所依赖的</p>
+<p class="indent" data-page-node-id="wbyjaz9jzdJK6glgGMjlQU">显然，许多高管今天对准确报告的不尊重态度是商业上的耻辱。审计师们，正如我们已经暗示的，也未在正面上做什么。尽管审计师应将投资公众视为他们的客户，但他们却往往向选择他们并发放他们薪酬的管理者磕头哈腰。（"吃谁的饭，唱谁的歌。"）<span class="yr" data-page-node-id="I5tbVg7wpKlzx9klFaoDwz">（1998年）</span></p>
+<h3 class="sec" id="ch-14-s5" data-page-node-id="eVukv68BdQaAG0SU3YU7wl">F. 避免无脑模仿，不要被最新的潮流和时髦所席卷</h3>
+<p class="note" data-page-node-id="NC2kx6TuFJBecuOInxeKnB">不要落入"机构必然性"的管理陷阱</p>
+<p class="indent" data-page-node-id="ng3DIOLCPhMVdgO5NnNYtn">高管无脑地模仿同行的行为，无论这样做多么愚蠢，都是一种倾向。<span class="yr" data-page-node-id="ekTohTuhJkK7IUljzjBQ6c">（1990年）</span></p>
+<p class="note" data-page-node-id="JNQxhFYJa84rCZ4o3y8TY1">在市场上也是同样的情况</p>
+<p class="indent" data-page-node-id="2f8CYobNq4SZXQmnIOp9NF">正如在华尔街司空见惯的那样：聪明人开始做的事情，最后由傻瓜来收尾。<span class="yr" data-page-node-id="852BVkk4XuBTAjlutnwshO">（1989年）</span></p>
+<p class="note" data-page-node-id="rhtRSAD0JH8fDehBWwaGNk">聪明的管理者并不总是做出理性的决策</p>
+<p class="indent" data-page-node-id="KisLUnirv9jrn6EbFNanVZ">例如：（1）就像受到牛顿第一定律支配一样，一个机构会抵抗任何对其现有方向的改变；（2）就像工作会扩展到填满可用的时间一样，公司项目或收购会冒出来吸收掉可用的资金；（3）领导者的任何商业渴望，无论多么愚蠢，都会迅速得到他的下属准备好的详细回报率和战略研究的支持；（4）同行公司的行为，无论是扩张、收购、设定高管薪酬还是其他什么，都会被无脑地模仿。<span class="yr" data-page-node-id="ACARbOc4hO7socwSPG8qB5">（1989年）</span></p>
+<p class="indent" data-page-node-id="siHP2kbhItXwNNeYAn3tmw">在因为忽视了这种必然性的力量而犯下一些代价高昂的错误之后，我尝试用能够将其影响降到最低的方式组织和管理伯克希尔。此外，我和查理还试图把我们的投资集中在那些似乎对这一问题保持警惕的公司上。<span class="yr" data-page-node-id="QP43KeKOrEhAINEHliqglu">（1989年）</span></p>
+<p class="note" data-page-node-id="xRe1Xc92MeUYH3Pw03uBfL">"我宁愿在群体中错，也不愿一个人对。"</p>
+<p class="indent" data-page-node-id="r6VLI0SYT4G796OwiQlyH9">大多数管理者都缺乏做出"聪明但有可能看起来像白痴"的决策的动力。他们个人的得失比一目了然：如果非常规决定结果良好，他们获得一个拍肩膀；如果结果糟糕，他们就被解雇。（按常规失败才是出路；作为一个群体，旅鼠形象糟糕，但从没听说哪只单独的旅鼠遭到过负面评论。）<span class="yr" data-page-node-id="zRVZHbTq4LFeBXXKBx33ee">（1984年）</span></p>
+<p class="indent" data-page-node-id="4HflgRyKy0rONV9GtOrKO4">我们愿意看起来愚蠢，只要我们觉得自己没有愚蠢地行事。<span class="yr" data-page-node-id="PpMbHoDFOSMUoAzX9WAPP6">（1989年）</span></p>
+<h3 class="sec" id="ch-14-s6" data-page-node-id="uUeWmedZFvqnHVYd2IGCNj">G. 出于害怕失去业务而模仿</h3>
+<p class="note" data-page-node-id="m8CYZongXi7VfBihrJ2xGs">来自保险业的一个例子</p>
+<p class="indent" data-page-node-id="1aYB8d9QRWpXj1oPHZ6M6o">华尔街的怂恿、代理人团队和经纪人的施压，或者仅仅是某位睾酮过盛的CEO不肯接受成交量下滑——这些都导致了太多保险公司以不充足的价格承保。"别人都在做，所以我们也得做"，在任何业务中都意味着麻烦，但在保险业中尤为如此。<span class="yr" data-page-node-id="mHuwBrHJWHgWJElySJm1a5">（2010年）</span></p>
+<p class="indent" data-page-node-id="nfdG9K1osdL8D6ApVb1ECm">归根结底，一项稳健的保险业务需要四项纪律：</p>
+<ol data-page-node-id="aTq2oLTWu9aOaxELRTtjb2">
+<li data-page-node-id="d7G89EmUUxxwr1ISyjYLBH">对所有可能使一份保单产生损失的风险敞口有理解；</li>
+<li data-page-node-id="9TsWNBqbjaI9ucNffRRUGh">对任何风险敞口实际造成损失的可能性以及一旦发生时的可能成本进行保守评估；</li>
+<li data-page-node-id="aw4TdUWDHxqDIThgzGsZOh">设定一项保费水平，使得在覆盖了预期损失成本和经营费用之后，平均能带来利润；以及</li>
+<li data-page-node-id="GMGNLGnEAHj07FTqOwYE3C">在无法获得适当保费时，愿意走开。许多保险公司通过了前三项测试，却在第四项上不及格。<span class="yr" data-page-node-id="CSBbX2toM1SCWcDeukfenA">（2010年）</span></li>
+</ol>
+<p class="note" data-page-node-id="KN7H961tPsCbwcyLiHfbeo">大多数管理者厌恶失去业务</p>
+<p class="indent" data-page-node-id="nzLsvRy4RosvyiBxNQO64g">随着市场放松、费率变得不充足，我们又将面临从理念上接受成交量减少的挑战。这将需要非凡的管理纪律，因为让对方夺走业务——即使是以愚蠢的价格——与正常的机构行为是相反的。<span class="yr" data-page-node-id="ENq5Cfwr5AtxyRNCYy1Fh0">（1977年）</span></p>
+<p class="indent" data-page-node-id="dFrW5QIJhvDhLEyX7T1fjb">我们听到很多保险经理谈论愿意减少成交量以求承保盈利，但我们发现实际这样做的人很少。<span class="yr" data-page-node-id="P89sNWqnEzEIEnMBI0ZHHP">（1979年）</span></p>
+<p class="note" data-page-node-id="T6t7mlH8iHeCAooIKD2wTA">不要把成交量奉为高于盈利能力的神</p>
+<p class="indent" data-page-node-id="FuKYDtAuHMXzuUkGzoO27y">通用再保险在追逐和保留业务方面竞争过度。虽然涉及各方都可能想小心承保，但对于能干而执着的专业人士来说，遏制战胜竞争对手的冲动仍然很难。然而，如果"获胜"等同于市场份额而不是利润，麻烦就在前面。"不"必须成为任何核保师词汇中重要的一部分。<span class="yr" data-page-node-id="FLxJHqwCcB7guojhV5PkEb">（2001年）</span></p>
+<p class="indent" data-page-node-id="MmpV4hPpyIFLWxFyS2rMu8">我们一般不在保险业务中设定成交量目标……因为只要不顾盈利标准，几乎任何成交量都能达到。<span class="yr" data-page-node-id="GwQoqQjADz9Js7GXHxpwRO">（1971年）</span></p>
+<p class="note" data-page-node-id="tDPfaZHvYzfB7CdcxS5ObM">如果业务有意义，就做；如果没有，就走开</p>
+<p class="indent" data-page-node-id="pxaCPjk1QYjI2w53S1HBAa">那句"一个傻瓜和他的钱很快就会被邀请到每个地方"的谚语在再保险业里加倍适用，事实上我们拒绝了被介绍来的98%以上的业务。<span class="yr" data-page-node-id="fq991qpsWv1nY7QLtlYUHc">（1992年）</span></p>
+<p class="note" data-page-node-id="vDJ58ukH2n1fjeKhMbXWmP">害怕错过</p>
+<p class="indent" data-page-node-id="OtDjoFaOGaP1PTSuZ3aAky">这里有一种恐惧因素在起作用：业务萎缩通常会导致裁员。为了避免被解雇，员工会把价格不充足的业务合理化，告诉自己必须容忍定价不当的业务以保持组织完整、保持分销系统满意。如果不走这条路，他们会争辩，公司就无法参与他们坚信即将到来的复苏。<span class="yr" data-page-node-id="USnsK3iq6PbkGxjIuQ3U3C">（2004年）</span></p>
+<p class="note" data-page-node-id="VHpq5HhAjhP9OAn4OphOPr">不裁员</p>
+<p class="indent" data-page-node-id="OtGDBSWADIUPXkCrNnbKpd">我们的政策是不会因为这种自愿性成交量变化所产生的工作负荷大幅波动而裁员。我们宁愿组织中时不时有一些松弛，也不愿让所有人都忙得团团转去签署那些将让我们亏损的业务。<span class="yr" data-page-node-id="FgDTKjJmdclk0jmiiFzhdU">（1979年）</span></p>
+<p class="indent" data-page-node-id="cmXTeQbjewsHwgV5kuwSdE">这种不裁员的做法符合我们自身利益。担心大幅减少保费规模会伴随着大规模裁员的员工，可以理解地会无论好坏（多半是差）都拼命签下大量业务。<span class="yr" data-page-node-id="0Rc3gyYNQfSqAzFx6Fsrb2">（1986年）</span></p>
+<h3 class="sec" id="ch-14-s7" data-page-node-id="17Y9mx6I80FcKZ21zcbW9b">H. 不必理会经济预测</h3>
+<p class="indent" data-page-node-id="qTyapFVB1UFO7gp3I6IVUF">我们不试图预测证券市场将如何表现；成功地预测短期股价波动是我们认为既我们也任何人都做不到的事情。<span class="yr" data-page-node-id="Ap29j4MxY6BmztymgKB7KD">（1978年）</span></p>
+<p class="indent" data-page-node-id="xPRc1bdzfLOrS3w3EFMPN6">我们相信短期的股票或债券价格预测是无用的。这些预测可能让你了解很多关于预测者的事情；它们却什么也没告诉你关于未来的事情。<span class="yr" data-page-node-id="SKnB3pJbMFu3oLoOXbvoPY">（1980年）</span></p>
+<p class="indent" data-page-node-id="vC4yqchqXHXmlq5a27rwQk">我们将继续无视政治和经济预测，它们对许多投资者和商人来说是一种昂贵的分心。三十年前，没有人能预见越南战争的巨大扩展、工资和价格管制、两次石油危机、一位总统的辞职、苏联的解体、道指一天下跌508点，或国库券收益率在2.8%和17.4%之间波动。<span class="yr" data-page-node-id="UsrIJ0bkrWvaPebFdFbz7W">（1994年）</span></p>
+<p class="indent" data-page-node-id="TIrhtYM4NQJHXgC1KDCrrz">未来30年肯定会发生另一组重大冲击……如果我们能识别出与我们过去购买过的相似的企业，外部意外对我们长期结果的影响将很小。<span class="yr" data-page-node-id="vmi9EI7mqL5VlVJpLq0Zhp">（1994年）</span></p>
+<p class="indent" data-page-node-id="ZEJLAQy0dbm8apCxVEbStX">我应当指出，预言家的公墓里有一大块地是留给宏观预测者的。<span class="yr" data-page-node-id="lql6zG9g5DjEj41tjMeQ90">（2003年）</span></p>
+<p class="note" data-page-node-id="npUtBhYlzhRSJwEdzZPmrn">那么我应该做什么？</p>
+<p class="indent" data-page-node-id="xAqAYgiJ7NlaKn2YAvSn7R">我们试图为购买进行定价，而不是择时。在我们看来，因为对一个我们明知不可预测的经济或股票市场的短期担忧，而放弃购买一家其长期未来可预测的卓越企业的股份，是愚蠢的。为什么要因为一个无知的猜测而抛弃一个明智的决定呢？<span class="yr" data-page-node-id="vjGw7WRmi3HmlHmTUlNIvC">（1994年）</span></p>
+<h3 class="sec" id="ch-14-s8" data-page-node-id="KuGMvpOAqfHWvFeAyU2nCK">I. 对市场波动持有正确的心态</h3>
+<p class="note" data-page-node-id="3nPoHFZW3nymBkHYAVhfYp">评估真正重要的事实，并保持纪律</p>
+<p class="indent" data-page-node-id="lxMo56nAooXNeYzdrHVXPd">一位投资者将通过把良好的商业判断力与一种将自己的思想和行为与市场上四处弥漫的高度传染性情绪隔离开来的能力相结合，而取得成功。在我自己努力保持隔离的过程中，我发现牢牢记住本所说的"市场先生"概念非常有用。<span class="yr" data-page-node-id="aH4cbfhahBZHIj75ChnB4Z">（1987年）</span></p>
+<p class="indent" data-page-node-id="OeyjXZUnQ3ZkYUiM3pxsHK">把市场报价想象成来自一位极其随和的家伙，名叫"市场先生"，他是你私下生意中的合伙人。市场先生每天都毫不失约地出现，并给出一个价格——他要么以这个价格买下你的权益，要么以这个价格把他的权益卖给你。<span class="yr" data-page-node-id="iHSpgrODFWRGqvDkuciT9I">（1987年）</span></p>
+<p class="note" data-page-node-id="94DFhdqweRczotbQoArzu9">市场先生有一些情感问题</p>
+<p class="indent" data-page-node-id="DsJ0hSmlKMd9qwe1EV7laf">有时他感到狂喜，只能看到对生意有利的因素。在那种心情下，他会喊出一个非常高的买卖价格……另一些时候他抑郁，只能看到企业和世界前方的麻烦。在这些场合，他会喊出一个非常低的价格。<span class="yr" data-page-node-id="euiZQSlMNcYQqvik6bD7zE">（1987年）</span></p>
+<p class="note" data-page-node-id="G8Mt7h6t2X1UTq42fDTx1t">他不介意被忽视</p>
+<p class="indent" data-page-node-id="2B7GRS0ZsHsW5PQrAnu6IJ">如果他的报价今天对你没有吸引力，明天他会带着新的报价回来。交易完全由你选择。在这种条件下，他的躁狂—抑郁行为越严重，对你越有利。<span class="yr" data-page-node-id="D6o0xBZhFlwOwycyG0OdKV">（1987年）</span></p>
+<p class="note" data-page-node-id="o167hsL6xI7VvGq9uDleJ7">但永远不要忘记——他在那里是为我服务的，不是来指引我的</p>
+<p class="indent" data-page-node-id="zJSpVFcNNpdlgxzdz8r7cO">你会觉得有用的是他的钱包，而不是他的智慧。如果他某一天出现时心情特别愚蠢，你可以自由地忽视他或利用他，但如果你陷入他的影响之下，那将是灾难性的。<span class="yr" data-page-node-id="BJMWxZfxleXnNJmOpHlYih">（1987年）</span></p>
+<p class="indent" data-page-node-id="EM7rINdkksq0wI0REbYwv7">遵循本的教导，我和查理让我们持有的可流通股票通过它们的经营业绩——而不是通过它们每天甚至每年的价格报价——告诉我们我们的投资是否成功。市场可能会暂时无视商业上的成功，但最终会确认它。<span class="yr" data-page-node-id="huNJbxIoNxl4GochbNUtq2">（1987年）</span></p>
+<p class="indent" data-page-node-id="IyCH1NxeAddLVQpmO5NbkN">正如本·格雷厄姆所说："短期来看，市场是一台投票机——反映的是只需要钱、不需要智力或情感稳定就能进行的选民登记测试；但长期来看，市场是一台称重机。"<span class="yr" data-page-node-id="8Qbav2Cq3LCWxgfGeC2HcC">（1993年）</span></p>
+</section>
+
+<section class="content-block" id="ch-15" data-page-node-id="qO3vBWAAj7F3PrA3uucAUV">
+<h2 data-page-node-id="qQUP8674WMhxz1VB06jBEp">第十五章</h2>
+<h3 data-page-node-id="Bcs3rF7rXCs0d81abdvgdi">有时也会犯错</h3>
+<p class="indent" data-page-node-id="720h8OMFZeGAE8MBaMBt0H">这些错误的产生，是因为我误判了所购入企业的竞争实力，或所运营行业未来的经济。在做收购时，我试图把目光放到十年或二十年之后，但有时我的视力却不够好。<span class="yr" data-page-node-id="BS7rQVVFCFNtLh47SxJWKI">（2010年）</span></p>
+<p class="note" data-page-node-id="93yBcaWxNWOMGPE6ki1nWB">对我那些愚蠢的决定进行复盘</p>
+<p class="indent" data-page-node-id="pNNCwm9utvRQCjof4mSmk0">为错误而苦恼是一种错误。但承认并分析它们却是有益的，尽管这种做法在公司董事会里很少见。在那里，我和查理几乎从未目睹过对一项失败决策——尤其是涉及收购的决策——的坦诚复盘。一个值得注意的例外是《华盛顿邮报》公司，它毫无失误地、客观地在收购完成三年后审视它们。其他地方，胜利会被吹响号角，而愚蠢的决定要么得不到后续跟进，要么被合理化。<span class="yr" data-page-node-id="36umnjkUqFVw5og5nB3blA">（2000年）</span></p>
+<p class="note" data-page-node-id="FhYyAj4YkFhvn4RgXfOd50">然后从中学习，但更好的是设法从他人的错误中学习</p>
+<p class="indent" data-page-node-id="Textp6W1BiQDCCxEWIAUVC">诀窍在于从他人的经验中学到大多数的教训。那些过去主要从亲身经验学到很多的管理者，通常注定将在未来从亲身经验中学到很多。<span class="yr" data-page-node-id="FJS5zBu2Hd6vKOYNcxRzxH">（1985年）</span></p>
+<p class="note" data-page-node-id="CreZbofjSKTjMEnB36nuQk">接受现实、适应现实</p>
+<p class="note" data-page-node-id="xHwyzz3Ru63uBL3Wogtztr">无论现实多么痛苦，再多的一厢情愿也无法让现实消失</p>
+<p class="indent" data-page-node-id="PTGxoRLpDwVHyk7mL07DZn">我忽视了孔德的告诫——"理智应当是心灵的仆人，而非奴隶"——并相信了我更愿意相信的东西。<span class="yr" data-page-node-id="HLrS3lWqDQfjSbuYL7pNuj">（1985年）</span></p>
+<p class="note" data-page-node-id="VrizFtZLNZyRMLmMqFbGgf">但我并不想思考遥远的问题或预防未来的威胁</p>
+<p class="indent" data-page-node-id="6ux5MMJp12JczxBnzr6xPj">迄今为止，两党的大多数政客都遵循着查理·布朗的建议："没有任何问题大到我们不能从它面前逃跑。"<span class="yr" data-page-node-id="AEG8QgUNHNXwP5asvXPiol">（1984年）</span></p>
+<p class="note" data-page-node-id="Di85WLmzG2sfmYXMhFX2uf">但在我该行动时不要吮拇指</p>
+<p class="indent" data-page-node-id="VawDoFFWXyQRILFXKMisfP">在2008年……我犯了一些"不作为"的错误，在新事实出现时本应该让我重新审视我的思考并迅速采取行动，但我却在那里吮拇指。<span class="yr" data-page-node-id="HlHcBlZmgTCBGChffnj28G">（2008年）</span></p>
+<p class="indent" data-page-node-id="QzdqYtl6gQkxNlZaf7lOdH">你可能会问，为什么我没有在9·11之前认识到……这些事实？答案令人遗憾——我认识到了，但我没有把思考转化为行动。我违反了诺亚法则：预测下雨没有用，造方舟才算数。结果，我让伯克希尔在危险的风险水平上运作——尤其是在通用再保险。我很遗憾地说，许多我们没有为此获得过补偿的风险仍存在于我们的账面上，但它正在逐日减少。<span class="yr" data-page-node-id="KBbVT7MLBdLLCtxOXF8oCJ">（2001年）</span></p>
+<p class="note" data-page-node-id="4lNYvgZYOBc0hx8hYOwzAf">尽早攻克日益恶化的问题</p>
+<p class="indent" data-page-node-id="C0Q9UOBgwDHADzAfRhkwXh">当问题存在时，无论是人员还是经营，行动的时机就是现在。<span class="yr" data-page-node-id="kVgDl9xpJSp5DAJh7LfznZ">（2005年）</span></p>
+<p class="indent" data-page-node-id="hOPJOmvESlnOKDC8xOtdGL">我们所采取的那种轻微程度的谨慎，对正在我们周围展开的世界来说是一种不当的反应。当别人在睡觉时，你只是半醒着是无法充分保护自己的。<span class="yr" data-page-node-id="h35VWQdxZsi1Ct1wIFo5Eb">（1979年）</span></p>
+<p class="note" data-page-node-id="gqjlNgKllK5NZWTVp9fyFT">预防永远胜于治疗</p>
+<p class="indent" data-page-node-id="Dx1Lg0Eqj56C7mRxb043nl">这是一种应当现在就予以关注、而不是事后才关注的情境。考虑——并改进——新奥尔良堤坝可靠性的时机是在卡特里娜飓风之前。<span class="yr" data-page-node-id="HlGBDT2mgxrF9nw1BteFiw">（2005年）</span></p>
+<p class="note" data-page-node-id="eJCtQuekGpvskCfHriUVR0">当我在最初的买入上犯了错，或这家企业、其竞争地位或管理永久性恶化时，要走出去</p>
+<p class="indent" data-page-node-id="AbwRvkRkpRmHAZ8fKXHl8A">当你发现自己处在坑里时，最重要的事情就是停止挖掘。<span class="yr" data-page-node-id="fGIC2dW2BuBiMqBRcjSELk">（1990年）</span></p>
+<p class="note" data-page-node-id="ysselk6srM1ZD1OyCbz9s3">当事实和情况发生变化时，我也要适应并改变看法</p>
+<p class="note" data-page-node-id="6sIrZ0qQaljnM9yB210Hvj">承认我错了并改变方向——绝不要染上"扳回劲"的病——我不必以我亏损的方式把它赚回来</p>
+<p class="indent" data-page-node-id="WooutVqJ6yeaQOIqTkEAj6">我们在1994年年底把我们对USAir的投资减记到了8950万美元，相当于每美元只值25美分。这一估值既反映了我们的优先股价值会全部或大部分恢复的可能性，也反映了股票最终一文不值的相反可能性。无论结果如何，我们将牢记一条投资基本原则：你不必以你亏损的方式把它赚回来。<span class="yr" data-page-node-id="ASjwXcbLo7hlN74lZ73xRH">（1994年）</span></p>
+<p class="note" data-page-node-id="RLK9T9c6QsZ4bjzldDWzUR">决策应当基于现在以及我希望去的地方，而不是基于我曾经在的地方</p>
+<p class="indent" data-page-node-id="rngtQYreIexEAGOPk4sidS">一旦我们知道通用再保险的合并一定会发生，我们就要求该公司处置其持有的股票……通用再保险随后清掉了约250只普通股的头寸，过程中产生了9.35亿美元的税款。这种"清扫"方式反映了我和查理在商业和投资中所使用的一个基本原则：我们不会在决策中"倒着进"。<span class="yr" data-page-node-id="8hFM1YY3XAOQJJ7LrMnO6a">（1998年）</span></p>
+<p class="note" data-page-node-id="cM1fD0WM8PI8uFnIl0QDOT">最后一句话——像一个商人那样思考</p>
+<p class="indent" data-page-node-id="q8cXSqH5Wiacx7VxPKpX8B">在我认为有史以来关于投资写得最好的书——本·格雷厄姆的《聪明的投资者》——的最后一章的最后一节里，开头一句是："投资在最像生意时最为聪明。"（这一节叫做"最后一句话"，这个标题恰如其分。）<span class="yr" data-page-node-id="EfD5j0Mv1x6pqUbQllV4Q8">（1984年）</span></p>
+<p class="indent" data-page-node-id="OFhR1MYIOAgTd5oVaBLGbt">万事成功都仰赖于事先的准备，没有这种事先的准备，必然走向失败。</p>
+<p class="sign" data-page-node-id="HlEj8uJA3IDoT1FlvsPy8t">——孔子</p>
+<p class="colophon" data-page-node-id="6YcdCQ62PY7rFCsblihAyc">本书由The R¿ddler整理编纂，献给广大书友。</p>
+</section>
+
+<div class="end" data-page-node-id="W0sd5yv5ReXC9g4WRcycup"><span data-page-node-id="bICrZKx0rP6aLUOmNMGCwi">《巴菲特给投资者和管理者的几点建议》· 全文完</span><span data-page-node-id="FtSHcHlQE4EDG6dPLNp2zh">The Riddler 整理编纂</span></div>
+</div></div></div>
+
+<div class="resume" hidden="" id="resume" data-page-node-id="Yk2Royvy53TsSnKsSdA6ZR">
+<span data-page-node-id="VtRu8kR5TZ8u16j8vHWbOZ">上次读到 <b id="resumeTitle" data-page-node-id="ZuTpZLGARRoviIaSGjFFy0"></b></span>
+<button class="tool" id="resumeGo" data-page-node-id="v9wBACJIjyeKpW0g7lfAoy">继续</button>
+<button aria-label="关闭" class="x" id="resumeX" data-page-node-id="BarAaBUPHImJxBMg2dtdnh">✕</button>
+</div>
+<aside class="results" hidden="" id="results" data-page-node-id="te0PENbRmWGRXKmpO1eQLG">
+<div class="rhead" id="rhead" data-page-node-id="D7HIJPhR4swYKUSoSiAuTL"></div>
+<div id="rlist" data-page-node-id="T5Xj5CyAuLFScRG9WvDXgt"></div>
+</aside>
+<button class="totop" id="totop" data-page-node-id="BpgFiJhUu7GN1bcBqh5W82">回到顶部</button>
+
+<script>
+
+
+(function(){
+  var root=document.documentElement, body=document.body;
+  var store={
+    get:function(k,d){try{var v=localStorage.getItem("bfadv:"+k);return v===null?d:v}catch(e){return d}},
+    set:function(k,v){try{localStorage.setItem("bfadv:"+k,v)}catch(e){}}
+  };
+
+  /* 主题 */
+  function setTheme(t){root.dataset.theme=t;store.set("theme",t);
+    document.querySelectorAll("[data-theme-btn]").forEach(function(b){
+      b.setAttribute("aria-pressed", b.dataset.themeBtn===t?"true":"false")})}
+  function setSize(px){px=Math.max(14,Math.min(22,px));root.style.setProperty("--fs",px+"px");
+    store.set("fs",px);document.getElementById("fsNow").textContent=px}
+  setTheme(store.get("theme","light"));
+  setSize(parseFloat(store.get("fs","17")));
+  document.querySelectorAll("[data-theme-btn]").forEach(function(b){
+    b.addEventListener("click",function(){setTheme(b.dataset.themeBtn)})});
+  document.getElementById("fsUp").addEventListener("click",function(){
+    setSize(parseFloat(getComputedStyle(root).getPropertyValue("--fs"))+1)});
+  document.getElementById("fsDown").addEventListener("click",function(){
+    setSize(parseFloat(getComputedStyle(root).getPropertyValue("--fs"))-1)});
+
+  /* 目录折叠 */
+  document.querySelectorAll(".toc-part>button").forEach(function(b){
+    b.addEventListener("click",function(){
+      var p=b.parentElement, open=p.dataset.open!=="false";
+      p.dataset.open=open?"false":"true";
+      b.setAttribute("aria-expanded",open?"false":"true")})});
+
+  /* 移动端菜单 */
+  var menuBtn=document.getElementById("menuBtn");
+  menuBtn.addEventListener("click",function(){
+    body.dataset.toc = body.dataset.toc==="open" ? "closed":"open"});
+  document.querySelector(".toc").addEventListener("click",function(e){
+    if(e.target.closest(".toc-item") && window.innerWidth<=900) body.dataset.toc="closed"});
+
+  /* 滚动高亮 */
+  var tocLinks=document.querySelectorAll(".toc-item");
+  var linkMap={};
+  tocLinks.forEach(function(a){
+    var href=a.getAttribute("href");
+    if(href&&href.startsWith("#")) linkMap[href.slice(1)]=a;
+  });
+  var currentId=null;
+  function markCurrent(id){
+    if(!id||id===currentId)return; currentId=id;
+    for(var k in linkMap) linkMap[k].classList.toggle("current",k===id);
+    var a=linkMap[id];
+    if(a){ var p=a.closest(".toc-part"); if(p&&p.dataset.open==="false"){p.dataset.open="true"} }
+    store.set("last",id);
+  }
+  /* 监听所有有 id 的标题和 content-block */
+  var targets=[].slice.call(
+    document.querySelectorAll(".content-block[id], .content-block h1[id], .content-block h2[id], .content-block h3[id], .content-block h4[id]")
+  );
+  /* 也监听 content-block 本身（用其 id 作为锚点） */
+  var blocks=[].slice.call(document.querySelectorAll(".content-block"));
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) markCurrent(e.target.id) });
+  },{rootMargin:"-70px 0px -75% 0px"});
+  blocks.forEach(function(t){io.observe(t)});
+
+  /* 进度条 */
+  var bar=document.getElementById("progress"), totop=document.getElementById("totop"), tick=false;
+  function onScroll(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?Math.min(100,window.scrollY/h*100):0)+"%";
+    totop.classList.toggle("on",window.scrollY>900);
+    tick=false;
+  }
+  window.addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});
+  onScroll();
+  totop.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})});
+
+  /* 继续阅读 */
+  var last=store.get("last",null), resume=document.getElementById("resume");
+  if(last && document.getElementById(last) && !location.hash && window.scrollY<10){
+    var el=document.getElementById(last);
+    var title=el.querySelector("h1")||el.querySelector("h2")||el.querySelector("h3");
+    if(title){
+      document.getElementById("resumeTitle").textContent=title.textContent.trim().slice(0,30);
+      resume.hidden=false;
+      document.getElementById("resumeGo").addEventListener("click",function(){
+        el.scrollIntoView();resume.hidden=true});
+      document.getElementById("resumeX").addEventListener("click",function(){resume.hidden=true});
+      setTimeout(function(){resume.hidden=true},14000);
+    }
+  }
+
+  /* 搜索 */
+  var input=document.getElementById("q"), panel=document.getElementById("results"),
+      rhead=document.getElementById("rhead"), rlist=document.getElementById("rlist");
+
+  var index=blocks.map(function(block){
+    var h=block.querySelector("h1")||block.querySelector("h2")||block.querySelector("h3");
+    return {
+      id:block.id,
+      title:h?h.textContent:block.id,
+      text:block.textContent.replace(/\s+/g," ").trim()
+    };
+  });
+
+  function esc(s){return s.replace(/[&<>]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;"}[c]})}
+  var timer=null;
+  function run(){
+    var q=input.value.trim();
+    if(q.length<1){panel.hidden=true;return}
+    var ql=q.toLowerCase(), hits=[], total=0;
+    index.forEach(function(it){
+      var t=it.text.toLowerCase(), from=0, n=0, first=-1;
+      while(true){var i=t.indexOf(ql,from); if(i<0)break; if(first<0)first=i; n++; from=i+ql.length}
+      if(n){total+=n; hits.push({id:it.id,title:it.title,n:n,
+        snip:it.text.slice(Math.max(0,first-30), first+ql.length+40)})}
+    });
+    rhead.textContent = hits.length ? "\u547d\u4e2d "+total+" \u5904 \u00b7 "+hits.length+" \u4e2a\u7ae0\u8282" : "\u6ca1\u6709\u627e\u5230\u300c"+q+"\u300d";
+    rlist.innerHTML = hits.slice(0,60).map(function(h){
+      var s=esc(h.snip), re=new RegExp(esc(q).replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"gi");
+      return '<button class="hit" data-go="'+h.id+'"><div class="hit-t">'+esc(h.title)+
+             (h.n>1?' \u00b7 '+h.n+' \u5904':'')+'</div><div class="hit-s">\u2026'+
+             s.replace(re,function(m){return "<mark>"+m+"</mark>"})+"\u2026</div></button>";
+    }).join("");
+    panel.hidden=false;
+  }
+  input.addEventListener("input",function(){clearTimeout(timer);timer=setTimeout(run,180)});
+  rlist.addEventListener("click",function(e){
+    var b=e.target.closest("[data-go]"); if(!b)return;
+    var el=document.getElementById(b.dataset.go);
+    if(el) el.scrollIntoView();
+    if(window.innerWidth<=900) panel.hidden=true;
+  });
+
+  /* 键盘 */
+  document.addEventListener("keydown",function(e){
+    if(e.key==="/" && document.activeElement!==input){e.preventDefault();input.focus();input.select()}
+    else if(e.key==="Escape"){ if(!panel.hidden){panel.hidden=true;input.value="";input.blur()}
+      else if(body.dataset.toc==="open"){body.dataset.toc="closed"} }
+    else if((e.key==="["||e.key==="]") && !e.metaKey && !e.ctrlKey && document.activeElement!==input){
+      var visible=blocks.filter(function(t){return t.getBoundingClientRect().top>0});
+      var i=blocks.indexOf(visible.length?visible[0]:blocks[blocks.length-1]);
+      if(i<0)i=0;
+      var j=e.key==="]" ? Math.min(blocks.length-1,i+1) : Math.max(0,i-1);
+      blocks[j].scrollIntoView();
+    }
+  });
+})();
+
+
+</script>
+</body>
+</html>

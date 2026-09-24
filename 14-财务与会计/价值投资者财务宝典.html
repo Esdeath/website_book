@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>价值投资者财务宝典 - 41课精读</title>
+<style>
+:root {
+    --bg: #fafbfc;
+    --card-bg: #ffffff;
+    --text: #2c3338;
+    --text-light: #6b7280;
+    --primary: #1a56db;
+    --primary-light: #ebf2ff;
+    --accent: #d97706;
+    --accent-light: #fef3c7;
+    --success: #059669;
+    --success-light: #d1fae5;
+    --danger: #dc2626;
+    --danger-light: #fee2e2;
+    --border: #e5e7eb;
+    --sidebar-bg: #ffffff;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+/* 进度条 */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    z-index: 1000;
+    transition: width 0.2s;
+}
+
+/* 侧边栏 */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 320px;
+    height: 100vh;
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    padding: 24px 0;
+    z-index: 100;
+}
+
+.sidebar-header {
+    padding: 0 24px 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.sidebar-header h1 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.sidebar-header p {
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+.sidebar-search {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+}
+
+.sidebar-search input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.sidebar-search input:focus {
+    border-color: var(--primary);
+}
+
+.sidebar-nav {
+    padding: 12px 0;
+}
+
+.nav-module {
+    margin-bottom: 8px;
+}
+
+.nav-module-title {
+    padding: 8px 24px 4px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-item {
+    display: block;
+    padding: 7px 24px 7px 48px;
+    font-size: 13px;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: all 0.15s;
+    border-left: 3px solid transparent;
+    line-height: 1.5;
+}
+
+.nav-item:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.nav-item.active {
+    background: var(--primary-light);
+    color: var(--primary);
+    font-weight: 600;
+    border-left-color: var(--primary);
+}
+
+/* 主内容 */
+.main-content {
+    margin-left: 320px;
+    padding: 40px 60px 80px;
+    max-width: 900px;
+}
+
+/* 封面 */
+.cover {
+    text-align: center;
+    padding: 60px 0 48px;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--border);
+}
+
+.cover h1 {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+}
+
+.cover p {
+    font-size: 15px;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cover-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 32px;
+}
+
+.cover-stat {
+    text-align: center;
+}
+
+.cover-stat .num {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.cover-stat .label {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 2px;
+}
+
+/* 模块标题 */
+.module-header {
+    margin: 48px 0 24px;
+    padding: 24px 32px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary-light), #f0f7ff);
+    border-left: 4px solid var(--primary);
+}
+
+.module-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.module-header p {
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+/* 课程卡片 */
+.lesson {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.2s;
+}
+
+.lesson:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.lesson-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.lesson-num {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--primary);
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lesson-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.4;
+    padding-top: 6px;
+}
+
+.lesson-body p {
+    margin-bottom: 16px;
+    text-align: justify;
+    color: var(--text);
+    line-height: 1.9;
+}
+
+.lesson-body strong {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.lesson-body code {
+    background: #f3f4f6;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--accent);
+}
+
+.lesson-list {
+    margin: 16px 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.lesson-list li {
+    padding: 8px 0 8px 24px;
+    position: relative;
+    color: var(--text);
+    line-height: 1.8;
+}
+
+.lesson-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 8px;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* 响应式 */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 280px;
+    }
+    .main-content {
+        margin-left: 280px;
+        padding: 32px 32px 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+    .main-content {
+        margin-left: 0;
+        padding: 20px 16px 40px;
+    }
+    .lesson {
+        padding: 20px 16px;
+    }
+    .cover h1 {
+        font-size: 24px;
+    }
+    .cover-stats {
+        gap: 20px;
+    }
+}
+
+/* 滚动条美化 */
+.sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 2px;
+}
+
+/* 统一调色板 */
+:root{
+  --paper:#c0edc6; --page:#c0edc6; --ink:#162c17; --ink-soft:#33503a; --muted:#5c7763;
+  --rule:#a3d8ac; --rule-soft:#b5e3bd; --amber:#9e4433; --sel:#a9e3b3;
+  --accent:#7c4331; --quote-bg:#cfead4;
+  --shadow:0 1px 0 rgba(22,44,23,.04), 0 18px 44px rgba(22,44,23,.06);
+  --serif:"Songti SC","Noto Serif CJK SC","Source Han Serif SC","SimSun",serif;
+  --kai:"Kaiti SC","STKaiti","KaiTi","Songti SC",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",sans-serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --measure:36em; --gutter:90px; --fs:17px; --bar:52px;
+}
+html[data-theme="warm"]{
+  --paper:#e7ddc9; --page:#f7f0e1; --ink:#2a2318; --ink-soft:#544835;
+  --muted:#857a63; --rule:#ddd0b6; --rule-soft:#eae0cb; --amber:#96671a; --sel:#eadcbb;
+  --accent:#6b5a3f; --quote-bg:#efe5d0;
+  --shadow:0 1px 0 rgba(42,35,24,.05), 0 18px 44px rgba(42,35,24,.08);
+}
+html[data-theme="night"]{
+  --paper:#121513; --page:#1a1e1c; --ink:#dfe4e0; --ink-soft:#b3bcb7; --muted:#828d88;
+  --rule:#2a302d; --rule-soft:#232825; --amber:#c9a052; --sel:#2c3a34;
+  --accent:#d4a858; --quote-bg:#1e2522;
+  --shadow:none;
+}
+:root{--bar:94px}
+/* token 桥接到统一调色板 */
+:root{
+  --bg:var(--paper);
+  --border:var(--rule);
+  --card-bg:var(--page);
+  --shadow-lg:var(--shadow);
+  --sidebar-bg:var(--paper);
+  --text:var(--ink);
+  --text-light:var(--ink);
+}
+/* 统一字体与字号变量 */
+body{font-family:var(--serif);font-size:var(--fs);line-height:1.95;color:var(--ink);background:var(--paper)}
+.toc{font-family:var(--sans)}
+
+</style>
+</head>
+<body>
+<div class="progress-bar" style="width:0%"></div>
+
+<aside class="sidebar">
+    <div class="sidebar-header">
+        <h1>价值投资者财务宝典</h1>
+        <p>41课 · 5大模块 · 完整版</p>
+    </div>
+    <div class="sidebar-search">
+        <input type="text" placeholder="搜索课程..." />
+    </div>
+    <nav class="sidebar-nav">
+        <div class="nav-module">
+<div class="nav-module-title">🎯 发现好公司</div>
+<a class="nav-item" href="#lesson-1" data-title="净利润·10倍股背后的秘密">01 净利润·10倍股背后的秘密</a>
+<a class="nav-item" href="#lesson-2" data-title="扣非净利润·年赚百亿，股票竟腰斩？">02 扣非净利润·年赚百亿，股票竟腰斩？</a>
+<a class="nav-item" href="#lesson-3" data-title="营业营收·海底捞为什么成功了？">03 营业营收·海底捞为什么成功了？</a>
+<a class="nav-item" href="#lesson-4" data-title="营业成本·京东是怎么崛起的？">04 营业成本·京东是怎么崛起的？</a>
+<a class="nav-item" href="#lesson-5" data-title="毛利率·我不是药神的救命药有多暴力？">05 毛利率·我不是药神的救命药有多暴力？</a>
+<a class="nav-item" href="#lesson-6" data-title="净利润·医美新氧都花哪了？">06 净利润·医美新氧都花哪了？</a>
+<a class="nav-item" href="#lesson-7" data-title="ROE·巴菲特赚钱的秘密！">07 ROE·巴菲特赚钱的秘密！</a>
+<a class="nav-item" href="#lesson-8" data-title="杜邦分析·巴菲特赚钱秘密2">08 杜邦分析·巴菲特赚钱秘密2</a>
+<a class="nav-item" href="#lesson-9" data-title="ROIC·7000亿资产的公司，一夜整垮了！">09 ROIC·7000亿资产的公司，一夜整垮了！</a>
+<a class="nav-item" href="#lesson-10" data-title="分红·千亿上市公司，上演逼宫大战">10 分红·千亿上市公司，上演逼宫大战</a>
+<a class="nav-item" href="#lesson-11" data-title="现金流1·京东亏着亏着怎么就称王了？">11 现金流1·京东亏着亏着怎么就称王了？</a>
+<a class="nav-item" href="#lesson-12" data-title="现金流2·越投资越上瘾的腾讯">12 现金流2·越投资越上瘾的腾讯</a>
+<a class="nav-item" href="#lesson-13" data-title="净现比·收现比·死于康美药业的冤魂">13 净现比·收现比·死于康美药业的冤魂</a>
+</div>
+<div class="nav-module">
+<div class="nav-module-title">💣 排雷指标</div>
+<a class="nav-item" href="#lesson-14" data-title="商誉·谁在为郑州的天价薪酬买单">14 商誉·谁在为郑州的天价薪酬买单</a>
+<a class="nav-item" href="#lesson-15" data-title="带息债务·地产界的范冰冰垮了">15 带息债务·地产界的范冰冰垮了</a>
+<a class="nav-item" href="#lesson-16" data-title="固定资产·万亿航空巨头倒下了">16 固定资产·万亿航空巨头倒下了</a>
+<a class="nav-item" href="#lesson-17" data-title="应收账款·血亏150亿的兄弟情">17 应收账款·血亏150亿的兄弟情</a>
+<a class="nav-item" href="#lesson-18" data-title="存货·扇贝长腿了？6年越狱4次">18 存货·扇贝长腿了？6年越狱4次</a>
+<a class="nav-item" href="#lesson-19" data-title="增发·贾布斯A股造梦之王">19 增发·贾布斯A股造梦之王</a>
+<a class="nav-item" href="#lesson-20" data-title="质押·从1000亿跌倒100亿">20 质押·从1000亿跌倒100亿</a>
+<a class="nav-item" href="#lesson-21" data-title="减持·一笔买卖赚5000倍">21 减持·一笔买卖赚5000倍</a>
+<a class="nav-item" href="#lesson-22" data-title="换手率·上市公司黑吃黑被人爆了">22 换手率·上市公司黑吃黑被人爆了</a>
+</div>
+<div class="nav-module">
+<div class="nav-module-title">📊 估值方法</div>
+<a class="nav-item" href="#lesson-23" data-title="市盈率（PE)·如何抓住10倍股">23 市盈率（PE)·如何抓住10倍股</a>
+<a class="nav-item" href="#lesson-24" data-title="市净率（PB）">24 市净率（PB）</a>
+<a class="nav-item" href="#lesson-25" data-title="市销率PS美团烧了多少钱？">25 市销率PS美团烧了多少钱？</a>
+<a class="nav-item" href="#lesson-26" data-title="PEG比亚迪：东风来了，谁也挡不住！">26 PEG比亚迪：东风来了，谁也挡不住！</a>
+<a class="nav-item" href="#lesson-27" data-title="自由现金流(DCF)一个公司到底值多少钱？">27 自由现金流(DCF)一个公司到底值多少钱？</a>
+</div>
+<div class="nav-module">
+<div class="nav-module-title">⚡ 交易技巧</div>
+<a class="nav-item" href="#lesson-28" data-title="均线·左侧交易抄底如何才能稳准狠">28 均线·左侧交易抄底如何才能稳准狠</a>
+<a class="nav-item" href="#lesson-29" data-title="均线·右侧交易·再不上车就没机会了">29 均线·右侧交易·再不上车就没机会了</a>
+<a class="nav-item" href="#lesson-30" data-title="均线量价·买点如何发现一鸣惊人的股票">30 均线量价·买点如何发现一鸣惊人的股票</a>
+<a class="nav-item" href="#lesson-31" data-title="均线量价·卖点·6000亿龙头，说崩就崩">31 均线量价·卖点·6000亿龙头，说崩就崩</a>
+<a class="nav-item" href="#lesson-32" data-title="PEPB BAND 神级功能来了，无价之宝">32 PEPB BAND 神级功能来了，无价之宝</a>
+</div>
+<div class="nav-module">
+<div class="nav-module-title">🔍 信息与研究</div>
+<a class="nav-item" href="#lesson-33" data-title="公司公告一个免税牌照引发的风波">33 公司公告一个免税牌照引发的风波</a>
+<a class="nav-item" href="#lesson-34" data-title="研究报告·电池之王40年后业绩大预测">34 研究报告·电池之王40年后业绩大预测</a>
+<a class="nav-item" href="#lesson-35" data-title="业绩超预期·如何发现3年10倍大牛股">35 业绩超预期·如何发现3年10倍大牛股</a>
+<a class="nav-item" href="#lesson-36" data-title="机构股东·抄大佬作业，跟着TA赚钱">36 机构股东·抄大佬作业，跟着TA赚钱</a>
+<a class="nav-item" href="#lesson-37" data-title="股东户数·让人欲罢不能的就绝味鸭脖">37 股东户数·让人欲罢不能的就绝味鸭脖</a>
+<a class="nav-item" href="#lesson-38" data-title="增持回购·抓住走势反转的强烈信号">38 增持回购·抓住走势反转的强烈信号</a>
+<a class="nav-item" href="#lesson-39" data-title="激励计划·十年磨一剑，终成苹果顶级供应商">39 激励计划·十年磨一剑，终成苹果顶级供应商</a>
+<a class="nav-item" href="#lesson-40" data-title="股价强度·乘新能源东方，稀土之王崛起">40 股价强度·乘新能源东方，稀土之王崛起</a>
+<a class="nav-item" href="#lesson-41" data-title="新高和回撤中国最强药神夫妇的商业帝国">41 新高和回撤中国最强药神夫妇的商业帝国</a>
+</div>
+
+    </nav>
+</aside>
+
+<main class="main-content">
+    
+    <div class="cover">
+        <h1>价值投资者财务宝典</h1>
+        <p>从净利润到自由现金流，从ROE到PEG——41课掌握价值投资的核心财务分析框架</p>
+        <div class="cover-stats">
+            <div class="cover-stat"><div class="num">41</div><div class="label">课程</div></div>
+            <div class="cover-stat"><div class="num">5</div><div class="label">模块</div></div>
+            <div class="cover-stat"><div class="num">100+</div><div class="label">实战案例</div></div>
+            <div class="cover-stat"><div class="num">20+</div><div class="label">核心公式</div></div>
+        </div>
+    </div>
+    
+        <div class="module-header" id="module-0">
+            <h2>🎯 第1模块 · 发现好公司</h2>
+            <p>从净利润、收入、成本到ROE、ROIC、现金流，掌握判断好公司的核心财务指标</p>
+        </div>
+        
+            <div class="lesson" id="lesson-1">
+                <div class="lesson-header">
+                    <div class="lesson-num">01</div>
+                    <div class="lesson-title">净利润·10倍股背后的秘密</div>
+                </div>
+                <div class="lesson-body">
+                    <p>我们买股票是为了赚钱。股票价格上涨，我们赚钱。股票价格下跌，我们亏钱。所以在第一堂课上，我们必须要弄清楚两个问题。第一，<strong>什么是股票？</strong> 第二，<strong>股价等于什么？</strong> 关于股票，股票是一种权力评证，他代表了<strong>公司所有权</strong>的一部分。也就是说，当你买了股票，就意味着你成为了公司的股东，公司的一部分权益归你所有。再来说股价等于什么？这里必须要提到一个核心公式：<strong>股价 = 每股收益 × 估值倍数</strong>。这个公式看不懂不要紧啊，我们在等式两边同时乘以总股本，公式就变成了：<strong>市值 = 净利润 × 估值倍数</strong>。</p>
+<p>根据上面的公式，我们能发现股价上涨意味着公司的市值变大，而市值大小取决于两个要素，一是净利润，二是估值倍数。估值倍数反应的是投资者对购买一家公司的热情。通常而言，估值倍数只是在一个相对小的范围内波动，因此<strong>净利润就成了股价变化的最大变量</strong>。在估值倍数不变的情况下，公司的净利润翻一倍，股价就跟着翻一倍；如果净利润翻十倍，那股价也就跟着翻十倍，<strong>这就是股价上涨的命门</strong>。</p>
+<p>如果不好理解，没有关系，我们举个通俗的例子解释一下。小明有个公司，名字叫做“水上漂”，主营火锅店，但经营情况惨淡，一年净利润只有十万。小明萌生退意，想把公司卖掉。后来老王把公司按照十倍估值，总共100万卖给了老王。拿到公司之后，老王把公司名字改成了“海里捞”，开始细心经营，不到三年，一年净利润就有1千万。在老王的努力下，海里捞成功上市，估值倍数还是十倍，但公司市值变成了一个亿。不管是当年小明把公司整体卖给了老王，还是老王把公司上市后发行股票，<strong>本质上交易的都是公司的所有权</strong>。所以说，我们做投资最核心的就是<strong>公司的净利润要增长</strong>，这也是价值投资和成长股投资的核心秘诀：<strong>大不是美，小不是美，由小变大才是美</strong>。</p>
+<p>从数据看，过去20年A股<strong>净利润大幅增长的公司股价表现优秀</strong>，相反净利润原地踏步甚至下滑的公司股价表现不佳。如果你能找到净利润持续增长的公司，那么你就开启了财富增长的大门。例如，<strong>万科</strong>1991年上市，当年净利润只有2300万元，而2020年这个数字超过了400亿元，30年间股价涨了将近<strong>5000倍</strong>。<strong>格力电器</strong>1996年上市，净利润从1.86亿增长到2018年的262亿元，20多年间股价涨了将近<strong>4000倍</strong>。<strong>贵州茅台</strong>2001年上市，当年净利润3.3亿元，2020年已达到467亿元，股价至今也涨了超过<strong>500倍</strong>。</p>
+<p>所以我们常说，<strong>好公司与股价长牛的背后一定是业绩长牛、净利润长牛</strong>。公司净利润的持续增长才是推动股价上行的根本动力。那是不是我们听说过的大公司都值得投资呢？并不一定。例如<strong>中国石油</strong>，2007年上市时净利润有1346亿，而2020年的净利润却只有100多亿，股价也跌了64%。<strong>中国石化</strong>上市20年，净利润从100多亿增长到300亿，股价只涨了一倍，投资收益率非常低。所以<strong>投资的关键不在于公司的规模大小、牌子大小，而在于它的净利润能不能够长期持续增长</strong>。</p>
+<p>随着中国经济的发展，大家开始追求更多精神面的愉悦。<strong>海天味业</strong>上市七年，净利润从20亿变成60亿，成为一只“十倍股”。<strong>美的集团</strong>上市七年多，净利润从50亿变成250亿，股价涨了七倍多。医药领域的<strong>恒瑞医药</strong>，2011年首个创新药上市时净利润不到9亿，去年已超过60亿，十年间股价上涨12倍。此外，做社交的<strong>腾讯</strong>、做电商的<strong>阿里</strong>、做电池的<strong>宁德时代</strong>、做医疗器械的<strong>迈瑞医疗</strong>等好公司，在为社会创造价值的同时，利润不断增长，推动股价昂扬向上，给投资者带来了极其丰厚的回报。</p>
+<p>总结本期内容：<strong>真正的好公司与K线无关，股价长牛的背后一定是业绩长牛、净利润长牛</strong>。<strong>找到净利润长期持续增长的好公司，就找到了开启财富大门的金钥匙</strong>。在后面的课程中，我将和大家分享长期投资的理念和方法，一起寻找净利润能够持续增长的好公司。下一期我们来聊聊利润指标：<strong>扣非利润</strong>。感谢收听。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-2">
+                <div class="lesson-header">
+                    <div class="lesson-num">02</div>
+                    <div class="lesson-title">扣非净利润·年赚百亿，股票竟腰斩？</div>
+                </div>
+                <div class="lesson-body">
+                    <p>冠军球队就地解散。2021年2月，首次夺得中超冠军的江苏苏宁足球俱乐部，被告知停止一切运营等待买家。原因很简单，他的投资人苏宁没钱了。冠军虽荣誉，但足球太费钱，无力支撑只能砍了。不过这个时候如果你去看看苏宁易购的报表，你会发现有些不对劲。苏宁可一点都不像没钱的公司。17年到19年，这三年他的利润相当棒，平均下来每年<strong>净利润接近百亿</strong>。这一边年入百亿，一边喊着没钱，实际上苏宁没骗人，他是真没钱了。砍掉足球后没几天，为了让苏宁活下去，老板张近东就开始转卖自己的股权了。显然苏宁这百亿利润是有水分的。要是我们只看净利润，很容易被误导。</p>
+<p>如何甄别公司净利润是否有水分呢？除了看净利润之外，再看下<strong>扣非净利润</strong>。什么叫扣非净利润呢？全称叫做“<strong>扣除非经常性损益后的利润</strong>”，它等于<strong>利润减去非经常性损益</strong>。非经常性损益是指公司当年的利润或者损失与正常经营业务无直接关系，或者虽与正常经营业务相关，但是是<strong>偶然发生的，没有持续性</strong>的。归纳起来很简单，就两点：<strong>要么和正常业务无关，要么就是偶然发生的。</strong></p>
+<p>实际生活中，非经常性损益公司基本都会有，但如果一个公司的非经常性损益过大或者连续发生，就应该引起我们的关注。一般来说，常见的原因有三种。<strong>第一种是卖房子</strong>。在A股一直盛传：没有什么亏损是卖一套房子不能解决的，如果有，那就两套。海马汽车2019年为了扭亏为盈，一口气卖了401套房子，获利8亿多，最终年底净利润8500万成功转正，但其<strong>扣非净利润却是亏损7.3亿</strong>。<strong>第二种是卖子公司</strong>。比如2020年华为以400亿美元把荣耀出售，这笔钱肯定属于非经常性损益，因为不可能每年都卖。<strong>第三种是卖股票</strong>。不少上市公司也爱炒股，比如雅戈尔2020年卖出宁波银行股票套现100亿，当年非经常性损益超过40亿，比主营卖西装的利润都多。</p>
+<p>实际商业中，<strong>好公司的非经常性损益不会太大，更不会长时间太大</strong>。因此，<strong>绝大多数好公司的净利润和扣非净利润是非常接近的</strong>，水分很少，比如恒瑞医药、海天味业。但如果二者差距很大，则很可能是因为公司卖了资产。通常偶尔一年出售资产还能理解，要是<strong>连续多年出售，公司大概率是有问题了</strong>。这就好比自己的家庭，不到万不得已，谁也不会没完没了地卖房卖车。</p>
+<p>再看苏宁，17到19年净利润平均百亿，但<strong>扣非净利润全是亏损</strong>。这说明<strong>苏宁的主营业务不赚钱</strong>，利润全是靠卖资产卖出来的：17年卖阿里股票获利33亿，18年再卖获利108亿，19年出售苏宁小店、苏宁金融获利超百亿，此外还卖了PPTV、员工公寓等。苏宁作为传统的线下家电龙头，随着线上电商京东的崛起开始走下坡路。虽然曾尝试与阿里合作转型，但可惜苏宁并没有专注转型，而是四处出击投资足球、证券、恒大等。在关键转型期<strong>朝三暮四</strong>，最终主营业务被京东彻底甩开。为了活命只能靠卖资产强行输血续命，但资产卖一件少一件，最终只能选择“卖身”。</p>
+<p>通过苏宁的故事我们可以学习到：<strong>靠非经常性损益堆积起来的高利润，不仅不是利好，反而可能预示着巨大的风险</strong>。总结来说，研究公司利润主要有三点：</p>
+<ul class="lesson-list"><li>*经营优秀的公公司，净利润和扣非净利润会同步增长，且二者差距不会很大。**</li></ul>
+<ul class="lesson-list"><li>*如果某一年净利润大幅增长但扣非净利润没动，说明主营没变好，增长是靠非经常性损益造成的，要引起注意。**</li></ul>
+<ul class="lesson-list"><li>*如果连续几年二者差距都很大，应高度怀疑公司已陷入危机，在靠卖资产续命，这样的公司要远离。**</li></ul>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-3">
+                <div class="lesson-header">
+                    <div class="lesson-num">03</div>
+                    <div class="lesson-title">营业营收·海底捞为什么成功了？</div>
+                </div>
+                <div class="lesson-body">
+                    <p>前两级课我们讲了净利润和扣非净利润。本期我们来讲净利润的来源，营业收入。众所周知，<strong>净利润等于收入减成本</strong>。多数情况下，净利润持续上涨的公司收入也是持续增长的。<strong>那么公司如何提高收入呢？不外乎两种方式，要么大销量，要么提高单价</strong>，除此之外没有第三种。先说提价。作为企业大家都想提价，但是价格这事可不是你想提就能提啊。原因很简单，价格涨多了势必会影响销量。所以只有在有一定的条件下，产品才能够提价，提价的条件归纳为两大类。</p>
+<p><strong>第一类，跟随周期涨价</strong>。一年四季交替循环，春夏秋冬。经济发展也是如此，是有周期的。所谓经济周期是指一个国家总体的经济情况，受到国家政策或其他外部因素影响，周期波动好几年坏几年。对于很多行业或者公司来说，他的经营情况无法逃避大环境的影响，实好实坏。咱们国家呀，有不少行业是强周期的。好的时候价格上涨，企业家可以资个大金给那数钱。不好的时候呢，产能过剩，价格暴跌，底裤可能都亏没了。常见的周期行业，比如石油化工，煤炭建材等，他们的价格就经常上天下地。2007年一桶原油120美元，2018年你直接把1给砍了，变成了20美元。再比如猪肉行业本身就有很强的周期性，主要是因为个体养殖比例很大，猪价高的时候一哄而上，猪价低的时候一哄而散，造成猪肉供给不是过剩就是短缺。2018年下半年非洲猪瘟又在中国爆发，造成猪肉供给数量严重不足，猪肉价格从2019年初一公斤13块钱，年底就变成了30。这真的是风来了，猪也能飞，<strong>牧原股份</strong>也起飞了，2019年收入200亿，20年超过了500亿。</p>
+<p>咱们再说<strong>第二类，利用优势涨价</strong>。产品或者服务一旦具有某种独到的竞争优势，那么对手就很难超越。这就好比<strong>城堡前的护城河，挡住了对手，也让产品有了更强的定价权</strong>。那么护城河有可能体现在哪里呢？护城河可能是<strong>理念创新</strong>，乔布斯时代的苹果手机用极致的简洁颠覆了人们对手机的认知。护城河也可以是<strong>技术领先</strong>，辉瑞的13价肺炎疫苗覆盖全部年龄段，甚至是最易感染的两岁以前的婴儿，这让其他疫苗下风。护城河还可以是<strong>历史人文积淀</strong>，贵州茅台的每一瓶酒用的都是赤水河的水，后来被确认为1949年开国大典的国宴用酒。护城河还可能是<strong>特许经营</strong>，拿到政府批准的牌照才能进入，比如中国唯一有资格生产香烟的公司，赚钱和纳税能力都无人能及。</p>
+<p>到这里两大类涨价情况咱们就说完了。做个小节：一，跟随周期涨价；二，利用自己独到的竞争优势涨价。无论是第一种还是第二种，涨价都是不容易的。那如果涨不了呢？没有关系，还有第二种方式：<strong>扩大销量</strong>。我们把整个市场想象成一个蛋糕，公司能否扩大销量取决于两点：<strong>一，蛋糕能否持续变大？二，自己能切走多少？</strong> 蛋糕大小是指行业规模，显然蛋糕越变越大的行业，公司提高销量会更容易。这就是我们平常所说的新产业，<strong>新兴产业需求旺盛</strong>，在这里你很容易发现收入持续增长的公司。比如最近几年特别火爆的新能源汽车特斯拉，收入从不到50亿美元增加到300多亿美元。蔚来、小鹏、理想、华为、小米都是新兴行业的魅力，初期需求太大了。反之夕阳产业，蛋糕越来越小，收入不降都难。</p>
+<p>说完蛋糕本身，我们再来说说切大切小的问题。在蛋糕不变的情况下，公司想扩大产品销量，就要靠抢走别人手上的蛋糕。比如<strong>海底捞</strong>，火锅市场早就很成熟了，海底捞的崛起并不是得意火锅市场的增长，而是凭借高质量的服务，抢走了其他火锅店的生意。蛋糕没变，但是他切走的多了。海底捞蛋糕切越多的方式很简单，就是先<strong>建立竞争优势，并不断加以复制</strong>。这种模式被冠以一个专门的名字，叫做曲奇模式（Cookie模式）**。类似的比如美国的星巴克、麦当劳，中国的周黑鸭、绝味鸭脖、爱尔眼科都是靠这种模式让星星之火得以燎原。互联网行业也是如此，比如这两年迅速崛起的拼多多，利用人情关系以极低价格切走了淘宝的一大块蛋糕。</p>
+<p>现在到了总结时间。我们炒股的目的是赚钱，公司的收入越高，利润越多，我们手上的股票就越值钱。所以想赚钱就要找到<strong>收入能持续增长的好公司</strong>。哪种公司的收入能够增长？<strong>要么是产品能提价（典型的比如贵州茅台的白酒），要么是产品能放量（典型的就是特斯拉的电动汽车）</strong>。从上面两点入手发现一只具备收入增长潜质的股票，骑上去坐稳扶好，享受一把躺赢的乐趣。好了，今天的课程就到这里，下期我们来讲影响利润的另一个变量——成本。感谢收听。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-4">
+                <div class="lesson-header">
+                    <div class="lesson-num">04</div>
+                    <div class="lesson-title">营业成本·京东是怎么崛起的？</div>
+                </div>
+                <div class="lesson-body">
+                    <p>众所周知，<strong>公司的利润等于收入减去成本</strong>。很多人重视利润和收入，却忽视了成本。上一期课我们提到拼多多这两年风头正盛，切走了淘宝的蛋糕。然而同在电商市场，京东却过得相当滋润，收入和利润双增，股价最近两年也上涨超过了五倍。那么京东靠的是什么呢？<strong>成本控制</strong>。在很多行业公司能脱颖而出，并不是因为产品性能比别人强，而是依靠成本控制。更低的成本就可以做到同样的产品，要么比你卖得便宜，要么比你有更好的服务体验。这样一来，控制成本建立的竞争优势就让公司有能力干掉对手赢得市场。所以说<strong>控制成本就是提高公司竞争力</strong>，竞争力强的公司收入和利润才有可能持续提升。今天我们就来学习一下同时影响公司收入和利润的关键指标：成本。咱们平常所说的成本主要分成两部分：<strong>一部分叫做营业成本</strong>，只与企业生产的最终产品或者是服务直接相关的一些直接成本，<strong>包括原材料成本、生产人员工资、水电费用、机器折旧等</strong>；<strong>另外一部分叫做费用</strong>，只和企业最终产品和服务不直接相关的间接成本，主要包括四个细分：<strong>销售费用、管理费用、财务费用、研发费用。</strong></p>
+<p><strong>先说营业成本，公司规模大小不同，金额差异很大，不能直接比较，因此我们通常用成本率来衡量</strong>。<strong>成本率 = 营业成本 / 营业收入</strong>。不少企业都是通过卓越的营业成本控制，也就是低成本、重成长成巨头的。比如京东，2012之后成本控制能力就直线提高，原因就是<strong>京东自营的物流系统成功地把仓储、配送、采购合为一</strong>，将货物搬运次数从多次直接减少到两次：一次是工厂到仓库，另外一次就是从仓库到消费者手中。在配合上完善的信息系统，大幅度缩短了货物的流动距离，降低了物流成本。按照当时公开的财务报表，<strong>京东商城物流成本率不到10%，而国美苏宁都超过了17%</strong>，这7%的成本控制优势对于千亿收入的企业来说，相当于多赚了好几百亿啊。类似京东的还有沃尔玛，沃尔玛一直坚持在城市外围以低成本开店，而且很早就使用了信息系统以降低成本。对比国内超市龙头永辉超市，永辉的成本率是80%，而沃尔玛将这个数字降到了75%。由此可见，我们<strong>通过营业成本率可以判断在一个行业中哪些公司的成本控制做得更好</strong>。</p>
+<p>说完营业成本，我们再来说费用。费用跟营业成本一样，数值差异大，不同企业直接对比也不合适，一般是用<strong>费用率</strong>对比。<strong>费用率 = 费用 / 营业收入</strong>。整体看，控制好费用率也是企业控制成本的方法。比如全球知名仓储超市<strong>Costco最大的特点就是产品低价，而它可以低价的核心就在于费用控制</strong>。通过大包装销售、少人工、多自助等一系列措施，让Costco的费用率只有10%左右，比行业平均水平的一半还要低。不过，费用也不能随便削减，对于不同类型的费用，要根据行业和业务情况做到“<strong>该省省，该花花</strong>”。</p>
+<p>先说<strong>销售费用</strong>，顾名思义就是为了把东西卖出去所花的钱，主要是广告投入和销售人员工资。<strong>销售费用占比大的行业主要集中在日常消费品行业和医药行业</strong>。日常消费品差异小，竞争激烈，为了让消费者记住自己，公司就需要不断的广告投入。一旦停止，再大的品牌也很容易被遗忘，这也是可口可乐一年广告费就超过40亿美元的原因。<strong>医药行业药品种多更新不断，医生很难及时了解，医药公司为了销售药品就需要有大量的医药代表做药品的学术推广</strong>。因此，对于这些行业，销售费用是公司收入的保证，不能轻易压缩。例如，科沃斯主营扫地机器人，为了让大家更好的了解产品特点，公司一直在加大宣传，近五年销售费用率从15%上涨到21%，而效果也很显著，营业收入从2015年的27亿增长到2020年的72亿。</p>
+<p><strong>财务费用主要是借款利息</strong>。通常来说，<strong>房地产以及基建行业</strong>财务费用都会很大，主要是因为这些行业项目建设周期长，投入资金大。因此，对于这些行业，<strong>更低的财务费用率就是重要的竞争优势</strong>。比如房企龙头万科的综合融资成本大概在3.5%，最终财务费用率只有1%上下，远低于房地产行业2%的平均水平。</p>
+<p>接下来再看<strong>研发费用</strong>，是指企业进行研究与开发过程中发生的费用。很明显，这是<strong>科技创新型企业的立命之本</strong>，压缩研发费用无异于饮鸩止渴。对于科技创新企业，<strong>持续的研发投入是他们的核心竞争力</strong>。比如海康威视（海威士），在芯片方面总被美国掐着脖子，这几年一直加大研发投入，研发费用率从7.62%提高到10%。再比如恒瑞医药，之所以能保持中国创新药一哥的地位，背后是他在研发上的高投入，研发费用率从2017年的12.7%增加到2020年的18%。</p>
+<p>最后看一下<strong>管理费用</strong>，指管理企业生产经营发生的费用。这个科目包含的内容多，不少界定模糊的费用都会被算到这个科目内，因此<strong>管理费用更像一个“杂货铺”</strong>。这种情况下，企业就容易利用管理费用对业绩进行粉饰调节。所以，<strong>正常公司管理费用率不应该占比太大，更不应该变化很大</strong>。如果突然出现显著的变化，我们就要去找背后的原因。但如果找不到合理的解释，那就要引起警惕了。</p>
+<p>现在到了总结时间，我们炒股的目的是赚钱，公司利润高，股票就值钱。<strong>除收入之外，成本和费用无疑对公司的利润有很大的影响</strong>。<strong>一方面，我们要思考公司有没有在不必要的地方尽可能节约成本；另一方面，我们也要看公司有没有在核心竞争力方面有足够的投入。判断方法也不难，我们通过营业成本率和各项费用率将公司数据与行业平均水平或主要竞争对手的数据进行比较</strong>，看谁高谁低，想想有没有道理，心里不就有数了吗？ 好了，今天的课程就到这里，下期我们来讲企业竞争力指标：利率（注：应指毛利率/净利率）。感谢各位的收听。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-5">
+                <div class="lesson-header">
+                    <div class="lesson-num">05</div>
+                    <div class="lesson-title">毛利率·我不是药神的救命药有多暴力？</div>
+                </div>
+                <div class="lesson-body">
+                    <p>电影《我不是药神》中有位老奶奶说了一句戳人泪点的台词：“我病了三年，吃了三年。为了买药，房子没了，家人也拖垮了。谁家还没个病人呢？你能保证一辈子不生病吗？我不想死，我想活着。”老奶奶说的这款药叫做格列卫，由瑞士诺华公司生产，治疗<strong>慢性粒细胞白血病</strong>。这是一款神药，直接把绝症变成了高血压式的慢性病。但是呢，药价特别贵，一盒两万，一年二三十万，直接把老奶奶一家拖入深渊。但是你知道药品天价背后生产成本是多少吗？不到500块。不考虑费用和交税的话，每一盒药，诺华收入2万，扣掉生产成本500，可以赚19500，利润率高达97.5%。这里提到的利润率会计上叫做<strong>毛利率，它等于收入减营业成本之后再除以收入</strong>。从公式可以看出影响毛利率大小的因素有两个，一个是收入，另一个是营业成本。我们做投资自然是要找收入高，成本低的赚钱的企业。根据上面的公式，如果一家企业的收入高，成本低，它的毛利率就会高。所以在挑选股票时，你要记住，<strong>毛利率高是加分项，毛利率低是减分项</strong>。</p>
+<p>影响企业毛利率高低的最主要因素是其<strong>所处的行业</strong>。<strong>多数行业的毛利率在10%到40%之间</strong>。如果你发现一些企业毛利率常年在<strong>40%以上</strong>，表明他们所在的行业是比较<strong>幸福</strong>的；反之毛利率在<strong>10%以下</strong>，表明他所在的行业是比较<strong>苦命</strong>的。先说幸福的，比如<strong>互联网软件行业，毛利率超过90%很常见</strong>。对于软件公司来说，产品只要研发成功了，接下来要做的就是简单的复制粘贴、线上销售了，每多卖一份产品几乎不会再增加生产成本。</p>
+<p>除了软件之外，<strong>医药白酒行业的毛利率也很高，平均在70%以上。</strong>这两个行业毛利率高，主要是因为<strong>商品生产成本低，还能卖高价</strong>。医药生产成本虽然做不到软件行业那么低，毕竟还是需要买一些原材料生产商品的，但原材料这价格都不高。你比如白酒，它主要就是高粱、小麦，这些商品价格不可能很贵。再比如医药，药就是化工品，规模化生产，单位成本很低，一支玻尿酸生产成本只有19块钱。除了成本低之外，白酒药品卖的价格还很贵，一瓶白酒九百块钱很常见，而开篇提到的<strong>隔裂位</strong>，按重量算比黄金还贵。此外，让女人更美的医美产品，如爱美客、华西生物、浩海生科，出场价200块的玻尿酸，到了终端消费者手上能涨到几千块。这些商品能卖高价是因为他们的<strong>附加值比较高</strong>，比如白酒有深厚的文化底蕴，药品研发技术要求高、品牌推广需求大。</p>
+<p>再说苦命的行业。<strong>铁路、航空运输、资源开采、建筑工程，这些行业毛利率普遍都低于20%，有的甚至只有个位数</strong>。这些行业的共性就是<strong>生产成本很高，产品又都差不多，卖不了高价</strong>。以建筑行业为例，竞争激烈，企业一边要垫资向分包商支付成本，另一边又常被开发商欠款，造成整个行业成本高而收入低。</p>
+<p>除了行业影响外，企业也能通过自身努力获得更高毛利率。如果一家企业在<strong>时间维度上能持续提升毛利率</strong>，或者在<strong>行业维度上能做到毛利率高于同行的竞争对手</strong>，我们可以给它加分；反之则减分。时间维度上，毛利率<strong>稳步上升</strong>意味着<strong>产品竞争力变强，效益变好</strong>，<strong>如小米集团毛利率从10%上涨到13%</strong>。负面例子如补血神药东阿阿胶，毛利率从66%跳水到48%，反映出竞争力下降严重。</p>
+<p>行业维度上，比如伊利因自建牧场、奶源稳定，生产成本比三元低，且有品牌溢价，其液态奶毛利率平均在<strong>35%左右，而三元股份不到30%。低成本、高单价最终都体现在毛利率上。再比如海螺水泥</strong>毛利率为48%，远高于冀东水泥的34%，表明其收入更高、成本更低、竞争力更强。需要强调，比较毛利率时要对比<strong>产品类型</strong>，若产品结构差异大，要<strong>区分产品来比较</strong>，而非直接比两家企业的整体毛利率。</p>
+<p>总结时间：关于毛利率，首先要<strong>优先选择生在幸福行业、毛利率高、赚钱容易的企业</strong>，避开苦命、毛利率低、赚钱困难的企业。其次，如果一家企业的毛利率能<strong>长期高于行业平均水平或主要竞争对手</strong>，表明其有竞争优势。再次，如果毛利率在最近一段时间<strong>稳步提升</strong>，表明竞争力在加强；反之若逐步下降则应当小心。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-6">
+                <div class="lesson-header">
+                    <div class="lesson-num">06</div>
+                    <div class="lesson-title">净利润·医美新氧都花哪了？</div>
+                </div>
+                <div class="lesson-body">
+                    <p>“新氧医美整整，女人美了才完整，做女人整好。”哎，这是新氧公司2019年铺天盖地的一则广告啊。尽管广告词争议不断，但确实让新氧更火了。新氧是一家<strong>互联网医美平台</strong>，大家可以在他的APP或者网站上看到很多医美机构，找到各种医美服务。平台本身还是个社区，形式类似大众点评。这两年医美概念很火，新氧的收入也节节攀升，如今已经超过十亿。上期课我们提到了互联网软件和医美行业毛利率极高，那新氧这几年的<strong>毛利率都稳定在80%以上</strong>。然而这么高的毛利率背后，新氧最后的赚钱能力却令人失望，2020年十多亿的收入，净利润却只有600万。</p>
+<p>一般情况下，公司最直接的赚钱能力我们用<strong>净利率</strong>来衡量。<strong>净利率 = 净利润 / 营业收入</strong>。2020年新氧的净利率只有<strong>0.38%</strong>，相较于80%的毛利率，差距太大了。可见，<strong>高毛利率背后不一定就意味着高净利率</strong>。咱们看一个公司赚钱能力是否优秀，光看毛利率还不够，还得再看一下净利率。<strong>净利率越高，公司的赚钱能力越强</strong>；净利率越低，公司赚钱能力越弱。在挑选股票时，<strong>净利率是个正向指标，高是加分项，太低了是减分项</strong>。</p>
+<p>一般来说，多数公司的净利率在<strong>5%到20%之间。如果你发现一家公司长年保持在20%以上</strong>，表明其盈利能力出众，钱赚得很容易，比如<strong>苹果</strong>最近十年净利率都在20%以上，<strong>阿里巴巴</strong>长期在30%上下。反之，如果一家企业净利率在<strong>5%以下</strong>，表明其盈利能力很弱，钱赚得很辛苦，比如<strong>东方航空、南方航空</strong>常年徘徊在3%左右，<strong>中国联通</strong>的净利率只有百分之四五左右。</p>
+<p><strong>公司净利率的大小，主要和毛利率、费用率有关</strong>。从毛利到净利还需要扣掉费用和所得税。所得税影响不大，主要看<strong>费用</strong>多少。那些净利率长期超过20%的公司，毛利率比较高是必须的，所以<strong>从高毛利率的行业入手，找到高净利率公司的机会更大</strong>。当然，也有不少公司毛利率很高，但最终净利率却很低，这主要是因为<strong>费用率太高了</strong>。费用率越高，表明你为了卖出产品所付出的代价就越大。</p>
+<p><strong>四个费用率中占比最大的是销售费用率和研发费用率</strong>。新氧2020年低净利率的主要原因就是<strong>销售费用率太高了，达到了56%</strong>，其中绝大多数是广告支出，比如赞助《乘风破浪的姐姐》。互联网平台型企业追求的是<strong>网络效应</strong>（用户越多越有价值），一旦突破临界点会进入<strong>赢家通吃</strong>的状态。因此新氧必须加大营销推广去抢客户、抢流量。但有些公司超高的销售费用率是存在隐患的，比如<strong>莎普爱思</strong>，作为医药公司不爱研发而迷信营销，销售费用率在40%以上，利用洗脑广告宣传其滴眼液能治白内障，最终被医生质疑、被药监局认定涉嫌夸张宣传，城堡瞬间塌了，业绩腰斩。可见，<strong>卖产品不靠质量纯靠营销，即使短期净利率不错，但隐藏的风险也很高</strong>。</p>
+<p>再说说<strong>研发费用</strong>。对于科技创新企业，这块费用占比大，也容易让毛利率不错的公司最终净利率不给力。比如<strong>中芯国际</strong>，近十年毛利率平均在25%左右，但研发费用率也在20%上下，导致净利率只有个位数。研发费用率高低没有明显的坏处之分，主要看持续投入后，<strong>公司产品是否能建立新的竞争优势</strong>。如果能研发出更好的产品或药物，净利润就很可能提高并带动股价上涨。而对于那些<strong>毛利率已经低于10%的公司，净利率很容易跌到5%以下，投资这些公司不好赚钱</strong>。</p>
+<p>最后总结一下：</p>
+<ul class="lesson-list"><li>*优先选择净利率高的企业，避开净利率过低的企业。**</li></ul>
+<ul class="lesson-list"><li>*净利率长期高于行业平均水平或主要竞争对手的企业优先考虑。**</li></ul>
+<ul class="lesson-list"><li>*净利率持续提高的公司应更加关注，持续下降要更加小心。**</li></ul>
+<ul class="lesson-list"><li>*将净利率和毛利率两个指标一起看，可以找到企业竞争力强弱背后的原因。**</li></ul>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-7">
+                <div class="lesson-header">
+                    <div class="lesson-num">07</div>
+                    <div class="lesson-title">ROE·巴菲特赚钱的秘密！</div>
+                </div>
+                <div class="lesson-body">
+                    <p>研究难度很大。有没有一个指标帮我们快速判断谁是好公司？答案是有的。<strong>ROE（净资产收益率）就是这样一个指标</strong><strong>。今天我们一起来学一学。1988年夏天，当美股经历崩盘不久，可口可乐公司股价从高点下跌了25%。随后不到一年时间，巴菲特总共花了10亿美元买入了可口可乐的股票。这是当时巴菲特最大的一笔投资，花了他三成资金。自此，巴菲特从可口可乐公司的忠实粉丝变成了公司的重要股东，这一变就是30年。至今为止，巴菲特没有卖出一股可口可乐公司的股票。长期持有让当初投资的10亿美元，如今已经超过了200亿美元，年化收益率超过12%。巴菲特表示，可口可乐公司虽然遇到了一些挑战，但依然是非常好的生意。这里提到的资产回报率是巴菲特选择企业最看重的财务指标</strong>。</p>
+<p>它的准确名字叫做<strong>净资产回报率</strong>，英文叫作<strong>ROE</strong>。巴菲特曾经说过：“<strong>如果非要我用一个指标进行选股，我会选择ROE</strong>。”<strong> ROE = 净利润 / 净资产</strong>。净资产可以理解为股东的投入，所以<strong>ROE反应的是股东投入资金之后，公司能给股东带来多少回报</strong>。咱们的老朋友老王拿100万开了家网红公司亲自直播带货，这100万就是公司的净资产。第一年利润2万，第二年10万，第三年因竞争激烈变回1万。老王没日没夜直播才赚了13万，而买银行理财（5%利息）三年能赚15万。老王的故事告诉咱们，作为股东，<strong>ROE高的公司更有价值</strong>。我们买股票的时候应该<strong>挑选ROE高的公司，摒弃低的公司</strong>。按照巴菲特的观点，那些<strong>ROE能常年稳定在15%以上的多数都是很好的公司；要是超过了20%就应该再提高一个关注级别</strong>；反之，如果一家公司的<strong>ROE小于5%</strong>（比银行利率还低），那它的<strong>投资价值不大</strong>。</p>
+<p>ROE尽管可以看作是巴菲特的选股神器，但其实他一开始并没有这么看重。这还要归功于他的好搭档<strong>查理·芒格</strong>。巴菲特曾习惯于寻找价格低于自身价值的烂公司，就像在地上寻找还能抽一口的“<strong>烟蒂</strong>”一样。但<strong>芒格告诉他：“时间是好生意的朋友，烂生意的敌人。投资那些便宜的烂公司，不如用合理价格投资那些好公司</strong>。” 悟到这个真理后，巴菲特在投资战场上如同开了挂。70年代买入<strong>华盛顿邮报</strong>，1000万美元变成了20亿美元，盈利超过200倍；80年代投资<strong>可口可乐</strong>，10亿变成200亿；90年代投资<strong>美国运通</strong>（全球最大旅游服务金融投资公司），获利超过200亿美元。</p>
+<p>最近20年，巴菲特又把目光投在了<strong>宝洁</strong>和<strong>苹果</strong>身上，获利也超百亿美元。回顾巴菲特一系列成功操作，你会发现这些公司的<strong>ROE都是又高又稳定</strong>。早年的华盛顿邮报、可口可乐、美国运通长期都超过了25%，甚至达到30%；最近的宝洁、苹果也都维持在<strong>20%以上</strong>。可见，<strong>长期高ROE几乎可以等同于股价上涨</strong>。<strong>ROE高本质上是公司竞争力的一种体现，意味着公司已经建立了足够强大的护城河</strong>。这种护城河可以挡住竞争对手的进攻，让公司一直在安全的堡垒里舒服地挣钱。</p>
+<p><strong>可口可乐公司超级宽阔的护城河体现在其神秘配方和品牌文化上</strong>。可口可乐诞生于1886年，主打的理念一直是分享和快乐，被称为“<strong>肥宅快乐水</strong>”。这种理念吸引了一大批追随者，对他们而言，可乐已经不仅是一种饮料，更是一种情怀。1980年可乐宣布改变口味曾引发大批追随者愤怒谴责。独特的口感和品牌文化让可口可乐公司持续成长，并最终转化为<strong>高ROE</strong>。</p>
+<p>在中国，这招同样管用。最近十年，<strong>每年ROE都大于20%的公司平均涨幅超过700%</strong>，远超所有指数，其中包括<strong>恒瑞、茅台、美的</strong>。支撑这些公司高ROE的也是企业强大的竞争优势。比如<strong>恒瑞医药</strong>的优势是<strong>研发领先</strong>，药品的领先优势很难被追上。当然，如果ROE一开始没那么高，但一直<strong>稳步上涨</strong>，这样的公司也非常有投资价值。ROE涨通常表明公司竞争力变强，例如<strong>中顺洁柔</strong>，其ROE从2017年的12.3%上涨到2020年的19.9%，股价上涨超过2.7倍。</p>
+<p>总结一下：<strong>ROE是选股最好用的指标</strong>，简单直接。<strong>ROE长期稳定高于15%的公司经营状况不错，未来股价上涨机会较大；高于20%的非常少见，应直接纳入股票池；长期低于5%的公司则应放弃</strong>。<strong>ROE背后是企业竞争力的体现，所以第一步是找到ROE高的公司，第二步是去理解公司背后的竞争优势</strong>。如果公司ROE常年很高且竞争优势突出，这种公司是非常值得投资的。巴菲特告诉我们，炒股赚钱就是<strong>用合理价格投资好公司</strong>。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-8">
+                <div class="lesson-header">
+                    <div class="lesson-num">08</div>
+                    <div class="lesson-title">杜邦分析·巴菲特赚钱秘密2</div>
+                </div>
+                <div class="lesson-body">
+                    <p>老王学了咱们上一期课之后就搞懂了ROE很重要。 所以他决定投入10万块开一间奶茶店，叫做“知识之家”，目标是每年能挣2万块，<strong>ROE就是20%</strong>。 搞不好哪天他就被巴菲特看上了呢。 然而理想很丰满，现实很骨感。 奶茶店开业头一年只赚了1万块钱，ROE是10%，不算差但跟奈雪的茶这些没法比。 于是老王每天绞尽脑汁想怎么能提高ROE，只好拨打电话给“知识”求助。 奶茶店投了10万块但ROE只有10%，能不能给兄弟出出招呢？ 这当然没问题，一共由三招。 <strong>第一招，提高收入</strong>。 比方说去年卖的都是芥末奶茶导致销量不好，今年换成火爆的“知识奶茶”。 也就是说，<strong>如果资产不变但收入提高，ROE就能上去</strong>。 老王听完觉得有道理，但还有芥末存货，问还有没有别招。 这当然有，<strong>第二招，把利润做高</strong>。 比方说开掉偷懒的员工，成本低了，利润空间就大了。 也就是说，<strong>如果收入不变但利润提高，ROE也能上去</strong>。 但老王说店员都是亲戚开不掉，问还有没有第三招。 那行，<strong>第三招，增加资产。</strong></p>
+<p>照你说的，收入上不去了，利润也挤不出来了，那你只能从资产上想办法了。 比方说跟隔壁小明借10万块，利息每年5%，把隔壁店铺也租下来，多弄几台机器，收入也能翻倍。 原来一年赚1万，现在能赚2万，除去给小明5000块利息，净利润还有1.5万，<strong>ROE就从10%提高到了15%</strong>。 也就是说，在现有规模下，要是收入和利润都上不去，你可以<strong>考虑通过借钱提高资产、扩大规模</strong>。 最终只要多赚的钱比付出的利息多，公司的ROE也能提高。 老王听完喜上眉梢，问能不能借他十万，知识果断挂了他的电话。</p>
+<p>我们来分析一下这三招妙计，它们主要聚焦在钱、资产、收入、利润上面。 因为这就是<strong>开公司做买卖的流程</strong>。 首先，奶茶店要从股东或债主那里获得一笔钱，然后用这笔钱购买设备、原材料等资产。 紧接着用这些资产生产出奶茶卖出去获得收入，最后收入扣掉成本获得利润。 所以从生意的角度看，一共用四个要点三个环节：<strong>首先是用钱形成资产，再依靠资产创造收入，最后用收入创造利润</strong>。 如果想有更高的ROE，要么是提高后两个环节的效率，即用同样的资产创造更多收入，或在同样收入中挤出更多利润；要么是从源头直接用更多的钱获得更多的资产。</p>
+<p>这个重要的规律早在20世纪20年代就被美国杜邦公司发现。 他们在原有的ROE公式基础上引入了营业收入和总资产，在数学上：<strong>净资产收益率（ROE）= 销售净利率 × 总资产周转率 × 权益乘数</strong>。 三个指标和前面的三招妙计对应：<strong>周转率是指资产不变的情况下能创造多少收入（第一招）；利润率是指收入不变的情况下能挤出多少利润（第二招）；权益乘数是指加杠杆，即通过举债来增加资产规模（第三招）。 </strong>通常而言，一门生意能做起来基本就是两种模式：<strong>要么周转率高，要么利润率高</strong>。</p>
+<p><strong>周转率高是说单位资产能带来很多收入</strong>，典型的如<strong>商业贸易、物流、传媒及一些保质期短的商品</strong>。 这些企业相对资产轻、收入多但利润率较低，总资产周转率通常在1以上。 比如火腿肠之王<strong>双汇发展</strong>，周转率约为2.3；水产饲料之王<strong>海大集团</strong>，周转率约为2.6。 另一种是<strong>利润率高</strong>，即单位收入能带来很高利润，典型的有<strong>医疗器械、医疗服务、高端白酒</strong>。 比如<strong>泰格医药</strong>，为制药企业提供难度极大的临床研究服务，其净利在63%左右。 还有国产玻尿酸巨头<strong>爱美客</strong>，其产品净利率高达61%。 此外，酒王<strong>茅台</strong>的净利率也在52%左右。 不过通常这些企业的资产周转率较低，大概在0.2到0.5之间。</p>
+<p>这里要强调两个知识点：<strong>第一，高周转率的生意产品简单，利润率很难上去；反之高利润生意产品复杂，周转率很难提高。</strong> 几乎没有行业能同时具备这两点，具备其一就很好了。 第二，如果生意既不具备高周转也不具备高利润，还可以通过<strong>举债扩大资产规模，利用杠杆把收益率放大</strong>，所以权益乘数会很大。 最典型的就是<strong>金融和地产行业</strong>。 银行的权益乘数基本在10到15，保险公司通常是8到10，证券和房地产公司多在4到8。 这意味着这些行业动用了很高的杠杆，资产中多数是债主投入的。</p>
+<p><strong>高杠杆也意味着高风险</strong>。 如果公司发展好，股东收益高；但如果出现问题，风险会被杠杆成倍放大，甚至导致破产清算。 比如美国曾经的金融巨头<strong>雷曼兄弟</strong>，中国大型房企<strong>华夏幸福、泰禾集团</strong>，虽然ROE曾维持高水平，但高杠杆埋下了隐患。 当我们面对这种依靠高杠杆维持高ROE的企业时，一定要更加谨慎。</p>
+<p>总结来说：ROE的高低通常由生意模式决定，<strong>最好能具备“高利润率”或“高周转率”其中之一</strong>。 对于高利润率企业，要关注其利润率能否维持并高于同行；高周转率企业同理。<strong> 如果一家企业的ROE很好，但利润率和周转率都很低，那么一定是依靠高权益乘数及高杠杆实现的</strong>。 由于杠杆会同时放大收益和风险，这类企业的<strong>估值往往比较低</strong>，我们在选择投资标的时要更加谨慎，做好充分的风险评估。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-9">
+                <div class="lesson-header">
+                    <div class="lesson-num">09</div>
+                    <div class="lesson-title">ROIC·7000亿资产的公司，一夜整垮了！</div>
+                </div>
+                <div class="lesson-body">
+                    <p>2008年9月12日晚上20点，纽约曼哈顿四季酒店，美国投资银行雷曼兄弟开始了最后的挣扎。“只要出资金什么都好谈。”雷曼被称为“斗牛犬”的福尔德绝望地呼喊着。然而在华尔街没人相信眼泪，美国政府、美国银行及英国巴克莱银行最终都拒绝了救助或收购。<strong>2007年ROE还超过20倍的雷曼，就这样众叛亲离，无人问津，一年之后破产倒闭</strong>。如此高的ROE公司却迅速崩盘，原因很简单：<strong>高杠杆</strong>。2003年美国政府推出“居者有其屋”计划，超低利率刺激了贷款买房，金融机构为了赚更多钱，开始贷款给根本没有还款能力的“次级贷款人”。<strong>雷曼是其中跑得最快最猛的，公司杠杆率接近30倍，如此高的杠杆加上重仓地产业务，雷曼如同抱着炸药包在奔跑</strong>，最终在2007年底次贷危机爆发时被击中，炸药包牺牲了。</p>
+<p>雷曼的故事让我们看到，容易忽视杠杆风险是ROE最大的弊端。为了把杠杆风险因素考虑进来，我们需要引入一个新的指标：<strong>ROIC（投入资本回报率）</strong>。<strong>ROIC衡量的是股东和债主投入的钱到底获取了多少回报</strong>。它不仅看股东回报，还把债主的回报也考虑进来了。如果把公司赚的钱比作蛋糕，这块蛋糕会被债主（利息）、国家（税收）和股东（利润）分走。虽然有三个人分蛋糕，但掏钱承办经营风险的只有股东和债主，因此<strong>ROIC的分母就是股东和债主一共给公司的钱，而分子就是股东和债主一共可以从公司获得的回报</strong>。</p>
+<p>为了通俗理解，看老王和小明开雪糕厂的例子：老王（股东）出50万，小明（债主）借50万（年息4%即2万）。2019年雪糕厂赚了20万，给小明2万利息后，交25%的税（4.5万），老王最后剩13.5万。在这个故事中，<strong>ROIC = (13.5 \+ 2) / (50 \+ 50) = 15.5%</strong>。对比来看，<strong>ROE是站在股东角度，考虑的是股东投钱后的回报；而ROIC考虑的是股东和债主投资后的总回报</strong>。这意味着，<strong>公司如果靠多借钱（加杠杆）提高了净利润，虽然会提高ROE，但由于分母（总投入资金）也变大了，ROIC不会有很大变化</strong>。也就是说，<strong>ROIC考虑了公司的杠杆风险</strong>。</p>
+<p>ROIC在实际使用中是ROE非常好的补充。<strong>如果你发现一个公司的ROE和ROIC差距很大（ROE很高，ROIC不高），则表明公司用了高杠杆，风险是否可控是必须考虑的</strong>。比如地产公司<strong>华夏幸福</strong>，2020年之前ROE连续在30%左右，但<strong>ROIC只有7%左右</strong>，巨大的差距说明其<strong>高ROE是靠借钱撑起来的</strong>。最终在2021年，华夏幸福因债务违约进入破产重整。可见，ROE和ROIC差距大，风险就会高，配置这类公司时比例不宜过高。</p>
+<p>此外，ROIC自身的数值也能帮助筛选公司。<strong>一般而言，公司ROIC长期高过12%以上很值得关注，高于20%以上则非常值得关注</strong>。这里要引入<strong>**WACC（加权平均资金成本）</strong><strong>的概念，即资金的平均回报率，上市公司平均约为7%。</strong>如果ROIC不到7%，意味着公司给股东和债主的回报还不如行业平均值，这种公司不值得投资**。通常ROIC比WACC高5%以上（即超过12%），表明经营情况比较优秀。</p>
+<p>总结时间：选股时，如果说ROE是倚天剑，那ROIC就是屠龙刀，配合使用更加完美。<strong>第一，对比ROE和ROIC，若二者差距大则表明杠杆率高，风险偏大，投资要谨慎</strong>。<strong>第二，如果你风险偏好低，可以直接用ROIC选股，关注高过12%甚至超过20%的公司</strong>。下一期我们将学习与公司回报率有很大关系的新概念——分红。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-10">
+                <div class="lesson-header">
+                    <div class="lesson-num">10</div>
+                    <div class="lesson-title">分红·千亿上市公司，上演逼宫大战</div>
+                </div>
+                <div class="lesson-body">
+                    <p>“朕的皇位我不给，你就不能抢。”这是电影《满城尽带黄金甲》里面，对造反失败的太子周杰伦，皇帝周润发说的一句狠话。类似的场景现实中也上演了。2021年6月，双汇集团52岁太子被废的消息传得铺天盖地。太子万洪建就接班人选一事被气之下，万洪建拳打房门、头撞玻璃，血流成河。随即万洪建被免掉了一切职务。在撤职公告中，公司给了万洪建一句评语：故意损坏公司财务，无法履行其董事职责，公告署名万隆。然而被废掉的万洪建并没有服软，一个月之后，他在朋友圈公开了当时冲突的更多细节，包括他们父子当天自己被父亲按在地上制服、父亲要求工作人员拍照取证等。同时他还指责万隆长期<strong>独断专行</strong>，公司管理非常落后，让双汇从快消品领军企业已经沦为一家二流企业。</p>
+<p>父子这番内斗也彻底揭开了双汇多年的乱象。此时我们再去看看双汇最近几年的业绩股价，也确实如万洪建所说，多年来公司<strong>利润增长非常缓慢，股价几乎原地踏步，表现相当平庸</strong>。但在这种平庸的背后，<strong>公司的ROE却非常优秀，长年高于30%</strong>。按照巴菲特的标准，双汇应该是超级大牛股，走势应该比茅台还好，那么在双汇身上，一边是平庸的表现，一边又是优秀的ROE，这矛盾是怎么造成的呢？<strong>因为分红。双汇成长确实乏力，但是依靠高分红维持出了高ROE</strong>。</p>
+<p>具体是怎么回事，今天咱们就来一说。首先我们先了解一下什么叫分红以及分红的意义。分红就是把利润分给股东。具体拿出多少，我们用<strong>股利支付率来表示，公式等于：分红金额 / 净利润。</strong>比如净利润1亿，分红5千万，那股利支付率就是50%。分红后，因为公司的钱被股东拿走了，所以公司的市值也会相应下降。因此对于股东来说，自己的资产并没有变化，分红钱多了一些，而持仓的股票市值反而少了一些。但这并不意味着分红没有意义。分红至少告诉了我们两点：首先，<strong>公司分红是需要真金白银的</strong>，长期分红的公司说明日子过得还不错，真正赚到钱了。反之，公司长期不分红多半是经营很惨甚至长期亏损，比如金杯汽车上市20年从未现金分红，经营情况果然很惨。其次，<strong>分红实质上给了我们选择权</strong>。分红这笔金额我们可以自由支配，如果觉得公司前景依然很好，可以考虑分红再投；如果有更好的投资选择或消费需求，分红也让我们的选择更加灵活。</p>
+<p>现在我们再来看分红是如何影响ROE的。公司每年的利润如果不分会留在公司，增加公司的资产。<strong>结合ROE公式（净利润 / 净资产），我们会发现一个赚钱的公司如果一直不分红，它的净资产会越来越大。那么想保持ROE稳定，公司的净利润就得持续增长。</strong>反过来，如果公司<strong>净利润无法保持持续增长，但又想维持ROE稳定，最常见的方法就是分红</strong>。通过分红把净利润分掉，这样公司的净资产就不会逐年变大，最终也可以把ROE稳定住。</p>
+<p>所以你看，同样是稳定的ROE，背后的原因可能完全不一样。有的是依靠成长（净利润持续增长），有的是依靠分红控制资产。从股票投资角度看，哪种更好？我们在第一节课就说过，<strong>投资的关键不在于公司的规模大小，而在于它的净利润能不能长期持续增长</strong>。如果一个公司没有成长，股价长期就很难上涨。因此，<strong>依靠净利润增长保持住的高ROE才是真的好</strong>，而依赖分红控制资产规模维持住的高ROE就要差很多。</p>
+<p>好公司优中选优可以更精细一些，就是：<strong>ROE很高（常年高于15%），同时分红比例适当，把更多利润留存起来继续为股东创造价值的公司。</strong>具体到数字可以这么看：<strong>ROE长期15%左右，股利支付率应控制在40%以内；ROE长期20%左右，股利支付率应控制在50%以内；ROE在25%左右，股利支付率应在60%以内；ROE在30%左右，股利支付率应在75%以内</strong>。</p>
+<p>我们举几个例子感受下。比如<strong>恒瑞医药</strong>，公司ROE长期高于20%，股利支付率只有10%，显然<strong>高ROE是靠利润带动</strong>的，最终公司十年上涨超过十倍。再比如<strong>海天味业</strong>，虽然股利支付率很高（接近60%），但是公司的ROE更高（超过30%），成长能力毋庸置疑，股价也上涨超过十倍。反面例子就是那些ROE挺高但股利支付率更高的公司，这类公司成长性通常比较弱，高ROE依靠高分红，含金量不足。<strong>双汇</strong>就是如此，近十年ROE平均在30%左右，但股利支付率更高（平均超过75%），2016年和2020年甚至都超过了100%，意味着把以前挣的钱也分了。这引发了投资者的广泛质疑，认为经营不佳的双汇应该加快转型，而不是一脑股地全分出去。这种高比例分红给人一种感觉：双汇就是大股东的“提款机”。</p>
+<p>实际上这种质疑并非毫无道理。双汇早期依靠第一根火腿肠和“王中王”系列走向全国，推动了高速成长。但从2011年“<strong>瘦肉精事件</strong>”爆发后，双汇名誉扫地，火腿肠魅力大减。之后伴随消费升级和外卖兴起，火腿肠不再受欢。在这种情况下，双汇并没有明显改。不仅投资者有质疑，太子万洪建也公开指责老爹万隆独裁统治，不顾股东利益，通过股权结构设定和分红收割股东资产，认为父亲已成为双汇转型的最大障碍。</p>
+<p>总结时间：公司能够持续稳定向股东派发现金分红，不仅说明<strong>公司赚到的钱是真金白银</strong>，同时也给予了股东一个<strong>选择权</strong>。因此，这样的公司通常比多年不分红的“铁公鸡”更有投资价值。然而，股利支付率也不宜过高，如果把钱都分了，可能说明大股东认为<strong>公司未来的成长性较弱</strong>。综合两方面，<strong>ROE大于15%，同时 ROE / 股利支付率 \&gt; 0.4 的公司最值得关注</strong>。这类公司兼具了<strong>盈利能力强和成长能力强</strong>两个特点。下节课我们将带大家学习现金流的讲解。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-11">
+                <div class="lesson-header">
+                    <div class="lesson-num">11</div>
+                    <div class="lesson-title">现金流1·京东亏着亏着怎么就称王了？</div>
+                </div>
+                <div class="lesson-body">
+                    <p>2019年之前一直有人说京东每年都亏损，早晚得破产。刘强东是这样回应的：“这种质疑每年都有，我已经不想回复了。放心，京东破产不了，账上钱很多，即使所有供货商都来挤兑要求现结现付，京东也可以应付。”果然京东不但没有破产，活得还越来越好，市值越来越大。但华夏幸福的老板王文学服软了。2021年2月，他无奈承认，公司欠银行千亿要还，但现在账上能用的只有8亿，还不上了，没办法，只能破产重整。消息很突然，要知道2020年之前，华夏幸福每年的利润都有几百亿，而且一直在增长。盈利的公司说崩就崩了，这主要是因为<strong>公司运营不是看你公告了多少利润，而是看你有多少真金白银</strong>。一旦现金不足，这种就是说的<strong>现金流断裂</strong>，这个时候再好的利润都是纸面富贵。</p>
+<p>华夏幸福净利润那么多却没钱，是因为<strong>净利润和现金流统计的口径是不一样的</strong>。净利润是按照<strong>权责发生制</strong>记账的，签了合同就可以记账，收没收到钱并不重要。而<strong>现金流是按照收付实现制记账</strong>，意思就是<strong>必须收到钱才能算数</strong>。显然<strong>现金流才反应了公司到底有多少真金白银</strong>。华夏幸福承包了大量土地前期开发，都要公司垫钱去做，按照合同净利润很好，但实际回款特别慢，现金流非常差。赚的钱并没有真正落到自己的口袋里。可见，<strong>现金流是公司的血液，是公司经营的根本</strong>。没有真实现金的支撑，利润就是空中楼阁。因此研究公司的时候看净利润和ROE之后，也要看现金流检验利润的含金量。</p>
+<p>究竟什么是现金流？公司现金有进有出，一直在流动，所以用现金流描述特别准确。为了好统计，<strong>收到的现金叫做现金流入，花出去的现金叫做现金流出，二者的差额叫做现金流净额</strong>。只需要三条路线就能把现金流分类：<strong>第一条叫做经营活动现金流。所有跟主营业务（如生产、销售雪糕）有关系的现金流入或流出都归类于此。卖产品的收入是经营流入，而买原材料、发工资、交房租等则是经营流出。</strong></p>
+<p><strong>第二条叫做投资活动现金流。这主要包括买卖固定资产（如新产线）和金融产品（如买卖股票）。</strong>买固定资产和买股票属于投资活动现金流出，把股票卖掉获利或出售自身资产则属于投资活动现金流入。<strong>第三条是筹资活动现金流。主要就是筹资和还钱分红两块</strong>。从小明等股东处获得投资或从银行借钱属于筹资流入；而还债和分红则属于筹资活动现金流出。</p>
+<p>实战中我们主要关注三点：<strong>一，现金流一定要看长期，至少三年</strong>，短期数据参考意义不大。<strong>二，关键是现金流净额</strong>（流入减流出）。<strong>三，三个现金流中，优先看经营活动现金流，长期金额必须要是正的。其次是投资现金流，长期金额应该是负的（代表公司在扩张）；最后才是筹资现金流，净额可正可负。</strong></p>
+<p>根据这些原则，长期看<strong>好公司的现金流类型</strong>主要有两种：</p>
+<ul class="lesson-list"><li>*经营净额为正，投资净额为负，筹资净额为负。**</li></ul>
+<ul class="lesson-list"><li>*经营净额为正，投资净额为负，筹资净额为正。**</li></ul>
+<p>这两类公司的共同点是：主营业务能赚回真金白银，且公司在持续投入进行规模扩张。至于背后的深层原因，咱们下期课再揭秘。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-12">
+                <div class="lesson-header">
+                    <div class="lesson-num">12</div>
+                    <div class="lesson-title">现金流2·越投资越上瘾的腾讯</div>
+                </div>
+                <div class="lesson-body">
+                    <p>上期课我们介绍了好公司的经营现金流长期应当为正，而投资现金流应当为负。为什么呢？本期课我们一个一个来说。<strong>经营活动现金流反应的是公司主营业务情况，经营额为正，表明公司业务是赚钱的。</strong> 比如农夫山（泉）。提到它相信每个人第一反应都是他那个经典的广告语：我们不生产水，我们是大自然的搬运工。多年来农夫山也确实是这么做的。品牌理念主打天然健康，产品不使用城市自来水，每一滴水都来自中国优质的天然水源。就这样，优秀的产品外加积极的理念，让公司成为了饮用水行业标杆企业。2020年农夫山港股上市，市值一度接近（高点）。如此之高的市值依靠的是一直增长的净利润和实打实的经营额。最近四年公司净利润从30亿增长到50亿。<strong>经营额不仅年年为正，而且每年的净额比净利润还要多</strong><strong>。</strong> 这些都表明农夫山的主营业务那是真的厉害，公司是真的有钱呢。</p>
+<p>反正要是一个公司连续三年五年经营额都是负的，就说明主营业务不仅没给公司挣钱，还一直需要公司给它垫钱。比如上期课我们提到的华夏幸福。地产圈里华夏幸福也非常有名。2015年百亿投资中超和恒大一起把金元足球推向高潮啊。2017年之后，又依靠雄安概念，利润突飞猛进，一度成为了最有前景的地产公司。然而高光背后公司的经营额却特别差呀。<strong>2017年以来经营额一直是负的，数字还越来越多。这都表明公司地产业务不仅没有赚到钱，就连正常运转都需要外部资金支持。</strong> 2021年华夏幸福终于不行了，宣告破产重整。所以<strong>长期经营额为正是一个优秀公司的标配。</strong> 如果你发现一个公司经营额长年为负，基本上就可以回避了。把钱投资到一个连自己都养活不了的公司身上是不值得的。</p>
+<p>不过这里有少数科创板公司需要区别对待。2019年科创板成立，允许一些收入较少、甚至没有产品的科技医药公司上市。这些公司的产品尽管前景好，有技术优势，但多数还在研发，基本没有销售，所以这些公司的经营额都是负的。比如生物疫苗公司康希诺。目前除了新冠疫苗外，公司多数疫苗还在研发，无法销售，没有现金流入。显然，康希诺这样的公司，<strong>他们的经营额长期为负并不是因为经营不善，而是商业模式决定的。你必须先投入大量的钱，才能有机会创造出优秀的产品，因此需要区别对待。</strong> 当然优待也是有时间限制的。一般来说，<strong>从上市开始算，要是三年之后公司还不能自负盈亏，经营金额还不能转正，大概率证明公司发展得并不好啊。</strong> 本以为有前景的产品并没有转化成收入，那么这个时候这类公司也应该回避了。</p>
+<p>接下来我们再看<strong>投资现金流为什么应该长期为负。</strong> 这是一个大家习惯性的一个误区，认为投资金额为正等于投资赚钱了。实际上，<strong>投资金额为正表示公司的投资活动在收缩，为负表示投资活动在扩张，这与投资有没有挣钱是两码事</strong><strong>。</strong> 这个误区解除后，投资金额应该为负的逻辑就好理解了。对于好公司，经营足够好，钱一直流入。这个时候如果公司还不断地把投资的钱收回里，意义何在呢？公司赚到的钱，除了分给股东一部分之外，一定会继续投出去扩张投资。所以投资金额会长期为负。</p>
+<p>比如腾讯，主营方面，微信、游戏赚钱能力没得说。腾讯投资的公司超过了800家，2020年腾讯投资金额接近7000亿，每年靠投资赚的钱就超过百亿。但尽管如此，公司投资金额一直为负，而且数字越变越大。这说明<strong>一笔投资成功了，收回了本金，赚取了利润，但这并不是终点，这笔钱很快又被腾讯投出去了。资金一直在滚动，一刻都不停。</strong> 类似腾讯的还有巴菲特的伯克希尔哈撒韦，他的投资金额也一直为负。</p>
+<p>那么那些投资金额为正的都是怎么回事呢？通常<strong>投资金额长期为正，意味着公司一直在缩减投资规模，不断地收回投资资金</strong><strong>。</strong> 我们做了个统计，2018年至2020年，经营额和投资金额都为正的共31家，<strong>这些公司几乎都是靠出售资产和收缩理财规模，而不是靠投资挣钱</strong>。比如獐子岛，把海域租凭权和扇贝都卖了。这些公司还有一个特点，<strong>绝大多数业绩都很惨，股价更惨，平均跌幅26%。</strong> 逻辑是：<strong>投资总是净流入意味着公司一直收回投资，这往往是因为经营不善，赚到的钱不够支撑正常运转或偿还债务，只能通过收回投资金弥补</strong><strong>。</strong></p>
+<p>最后，筹资金额可正可负。<strong>筹资金额正负本身没有好坏之分，通常跟公司经营风格和所处行业有关</strong><strong>。</strong> 经营风格激进且行业发展速度较快的公司多会选择依靠筹资来快速成长。比如光伏龙头隆基股份，2020年引入高瓴资本筹资156亿。再看电池巨头宁德时代，2020年通过非公开发行股票筹资197亿。反之，<strong>行业已经比较成熟或者发展速度相对稳定，公司一般就不会大比例筹资了，而是选择分红回馈股东。</strong> 比如贵州茅台、海天味业，他们的主营赚钱能力强悍，不仅支撑公司扩张发展，还能不断地回馈股东。</p>
+<p>好了，现在到了总结时间。大家要记住，<strong>利润是本，现金流更多的是用来检验利润的含金量。</strong> 实践中依然要先看本，先要找到利润增长的公司，之后再用现金流做进一步的判断。具体方式是：<strong>好公司长期经营额应该为正，投资金额应该为负，而筹资金额可正可负。</strong> 筹资多公司激进，风险大；投资少公司保守，风险小。大家可以根据自己的风险偏好进行选择。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-13">
+                <div class="lesson-header">
+                    <div class="lesson-num">13</div>
+                    <div class="lesson-title">净现比·收现比·死于康美药业的冤魂</div>
+                </div>
+                <div class="lesson-body">
+                    <p>2019年4月30日，康美药业发了一则会计差错更正公告。康美药业的全体股东，由于公司会计师水平差，账没做好，再加上审计机构广东正中珠江也看走了眼。2017年公司收入多计了88.9亿，利润多计了20亿，现金多计了299.4亿。实在不好意思呀。不过请各位股东放心，更正会计操作是公司管理层的责任。审核更正情况是正中珠江的责任。我们双方都已经认真履行，记错的财务数据已经全部更正。康美这表态怎么样？公司说的意正言辞，而造假轻描淡写的让人产生错觉了。不看单位，你真以为是会计手误给记错咯。实际上康美这表态也不是因为良心发现，而是被逼的没有办法呀。早在2018年10月，市场就已经开始盛传康美造假，证监会也宣布对康美立案调查。显然康美是知道财务问题瞒不住了，相比被人查出来还不如自己主动交代。但不管怎么做，康美造假是做实了。这之后公司股价一路下跌，从高点下降了90%。不过对于咱们来说，这还不是最严重的。由于康美故意造假，你会发现公司之前可是妥妥的大牛股，利润稳定增长，经营额也是常年为正。是不是很可怕？目标大牛股，结果大雷股。那该怎么办？不要慌。要是想更准确的排除雷股，光经营额为正还不够，我们需要更厉害的武器，叫做<strong>收现比</strong>和<strong>净现比</strong>。</p>
+<p>两个武器，我们一个一个说。先说<strong>收现比</strong>，它反映的是<strong>收入现金含量</strong>。公式等于：<strong>销售商品、提供劳务收到的现金 / 营业收入</strong>。似懂非懂是吧？老王来帮你。老王开了个雪糕店，批发为主，小明是他的独家代理商。第一年雪糕店生意不错，但是老王总觉得钱不够用啊，经常资金周转不灵。年底算账，按照合同卖雪糕的收入确实不少，一年有十万。但是实际上收到现金只有8万。老王很奇怪。研究了下发现原来小明总是拖延付款，一年下来欠了两万雪糕钱没给。发现问题后，老王跟小明说，哎呀，小明哥，我这边小本买卖压力挺大，咱们货款能否稍微准时一点。小明心领神会，说道，老哥，去年怪我疏忽了，表诚意，今年我还买十万块钱，货款一次性结清，另外去年欠的2万也会一块给你。就这样，老王雪糕店第二年的收入虽然还是10万，但是加上去年欠款2万，一共收到12万现金，钱变得充裕了，公司周转顺利，老王特别开心。可见雪糕店两年的收入一样，但老王的心情却不一样。问题就在于两年实际收到现金差别很大。这一点咱们用收现比算一下就能看清楚。第一年收现比8除以10等于80%。第二年收现比等于12除以10等于120%。显然这第二年更好啊。不仅销售全部收到了现金，还把去年的欠款收回来了，收入质量非常高。</p>
+<p>对于老王来说，收现比高，雪糕店经营效率会高，经营风险会低。这里咱们多说一句。<strong>真实商业中，公司卖货收到现金里面是含增值税的。但是会计报表里的营业收入是不含增值税</strong>。因此算上适当的增值税和合理的应收账款，<strong>赚钱效应较好的公司收现比长期应大于100%</strong>。平常那些令人羡慕的十年长牛股，比如<strong>贵州茅台、海天味业、恒瑞医药</strong>等等，皆是如此。反之，如果<strong>收现比长期低于80%，则表明公司合同签了不少，但却没收到多少钱</strong>。这种情况是有很大隐患的。</p>
+<p>2020年9月24号，网上流出一份恒大集团至广东政府的公开函。内容很长，大概意思就两点。第一，动之以情的求助。第二，晓之以理的威胁。尽管后来恒大辟谣，但其实大家都明白，恒大遭遇危机了。老大危机可以求助政府，但上游小弟可就没那么幸运。首当其冲的就是<strong>凯伦股份</strong>。当天他的股价下降20%，后来一度腰斩。凯伦股份是做防水材料的，恒大是他的第一大客户。2017年，凯伦绑上了恒大，公司发展也上了快车道，收入飙升。2016年只有2.69亿，2020年超过了20亿。然而收入狂奔的背后，现金流却跟不上。收到的现金越来越少，公司的收现比从17年的85%逐年下降，2020年只有65%了。这说明什么？说明为了绑住金主，凯伦牺牲了现金流，先签合同延迟收款。然而不幸的是金主出问题了。这个时候抱大腿的凯伦慌了。高收入可能毫无意义，延迟款可能变成永不付款。<strong>收现比是用来检验收入的现金含量。赚钱效应较好的公司，收现比长期应大于100%。反之长期低于80%的公司，投资的时候要特别小心。</strong></p>
+<p>接下来我们再看<strong>净现比</strong>。它反映的是<strong>净利润的现金含量</strong>。公式等于：<strong>经营活动产生的现金流量净额 / 净利润</strong>。看完公式是不是又晕了？其实流入对应收入，流出对应成本，经营额对应利润。因此<strong>检验净利润的现金含量就应该用经营额除以净利润</strong>。它更直接，就是看看公告的净利润到底收到了多少钱。还是用老王雪糕店加深印象。第一年，老王雪糕店按照合同收入10万，成本7万，最终利润3万。但因为实际收到现金只有8万，扣掉成本后，最终经营额只有一万，净现比是33%。第二年，利润还是3万，但钱都收回来了加上去年的欠款2万，最终经营额是5万，净现比等于167%。显而易见，净现比越大越好。一般来说<strong>，赚钱效应较好的公司，净现比长期应大于90%</strong>，比如爱分红的<strong>格力电器</strong>，爱回购的<strong>美的集团</strong>，爱眼睛的<strong>爱尔眼科</strong>，爱牙齿的<strong>通策医疗</strong>。</p>
+<p>反之，如果<strong>长期低于60%，表明公司净利润质量很低，甚至还可能存在惊天阴谋</strong>。开篇我们提到康美药业，就是如此。2018年之前，无论业业绩成长还是股价走势，康美都是完美女神。但当你看到康美净现比的时候，你会发现女神有致命缺陷。<strong>2011年至2017年，康美净现比均只有50%</strong>。这七年公司声称自己赚了168亿，但实际上收到的现金只有88亿。这80亿的利润去哪了？康美就该如此慷慨吗？实际上这都是康美造假的无奈。公司深知股价上涨最重要因素就是收入利润增长以及稳定的ROE。因此花大力气虚增了收入利润。<strong>但是现金流造假难度更高，需要银行配合</strong>。对此康美其实也尽力了。每年虚增现金几百亿。发现没，造假时间越长，需要填补的窟窿越大，想帮也敢帮的银行会越来越少。因此万般无奈下，康美只能优先选择把利润收入包装得完美无瑕。而对现金流的粉饰被迫降低了标准。</p>
+<p>总结时间。首先还是要再强调一次，<strong>利润是本，现金流更像一个检验武器</strong>。因此看现金流之前，先要找到利润增长的公司，之后用现金流进行检验。具体方法是：</p>
+<ul class="lesson-list"><li>*确保长期经营额为正，投资额为负。**</li></ul>
+<ul class="lesson-list"><li>*好公司收现比长期大于100%，净现比长期大于90%。**</li></ul>
+<ul class="lesson-list"><li>*如果一个公司收现比长期低于80%或者净现比长期低于60%，表明公司要么被拖欠大量货款，要么有造假可能，不管是哪个，都意味着很大的风险，投资的时候尽量规避。**到这里，我们第一章“发现好公司”就全部讲完了。之后我们开始学习第二章“排雷指标”。</li></ul>
+                </div>
+            </div>
+            
+        <div class="module-header" id="module-1">
+            <h2>💣 第2模块 · 排雷指标</h2>
+            <p>商誉、债务、固定资产、应收账款、存货、增发、质押、减持、换手率——避开地雷</p>
+        </div>
+        
+            <div class="lesson" id="lesson-14">
+                <div class="lesson-header">
+                    <div class="lesson-num">14</div>
+                    <div class="lesson-title">商誉·谁在为郑州的天价薪酬买单</div>
+                </div>
+                <div class="lesson-body">
+                    <p>2021年4月29日，沈腾、文章、邓超、那英这一大堆明星啊先后恐后的把自己在新疆霍尔果斯的工作室注销了。发生了什么呢？三天前，大明星郑爽和她前男友张恒，他俩的互相伤害大战升级了。之前是你说我欠钱不还，我说你带孕弃养。虽然都挺招，也只能算私。估计不少明星跟咱们一样吃瓜吃得舒服。但这次变了，从私人争议直接升级成家国情怀。张恒微博表示，指控我是渣男，我可以忍，但是偷税漏税却是大是非关乎每一个公民的切身利益。我忍不了。我实名举报，郑爽拍《倩女幽魂》的片酬是1.6亿，偷税漏税近5千万。就这样张恒这一番“是可忍孰不可忍”，让各路明星慌得厉害，顺带着还把北京文化给炸出来了。</p>
+<p><strong>北京文化</strong>是一家影视上市公司，2016年收购了一个公司叫做<strong>世纪伙伴</strong>，主营拍电视剧，郑爽《倩女幽魂》的片酬就是这个公司给的。按照规定，演员片酬上限5千万，而且要缴税。但是世纪伙伴却通过<strong>阴阳合同</strong>给了妹子1.6亿还帮她偷税漏税。然而就是这样一个财大气粗的子公司，2019年给北京文化带来的损失超过14亿。最终造成北京文化巨亏，股价大跌。这都是一个叫<strong>商誉</strong>的财务指标惹的祸，<strong>它暴雷了会造成公司利润大减</strong>。</p>
+<p>首先什么叫商誉呢？杜邦分析那节课我们说过，公司是先有资产，然后再用资产创造收入利润。实际上公司的资产可以分成两种，<strong>一种是可辨认资产，比如土地、房子、设备、机器等等；而另外一种是不可辨认资产，比如公司的品牌文化、客户关系、粉丝忠诚等。</strong>因此，如果一家公司的赚钱能力超过了可辨认资产正常的赚钱能力，那么超出的这部分一定就是另外一种不可辨认资产带来的。这个<strong>不可辨认资产就叫做商誉</strong>。</p>
+<p>老王给大家举个例子，之前开的奶茶店“知识之家”，净资产只有20万，但被巴菲特用一千万收购了。这一下子竟然可以多卖980万。为什么呢？因为奶茶店是可以一直赚钱的，所以收购公司价格通常会高于标的公司的净资产。巴菲特发现，虽然硬件资产只值20万，但“知识之家”因为独特的<strong>奶茶文化</strong>、<strong>高品质产品</strong>和<strong>极致的用户体验</strong>，拥有极强的赚钱能力和大量死忠粉。这些独特之处的价值在平时很难辨认，但在收购时就体现出来了。</p>
+<p><strong>收购价格减去标的公司净资产，多出的部分就是商誉</strong>，会记录在收购方的资产科目中。<strong>商誉的英文叫作 Goodwill（美好的愿景）</strong>，其价值界定没有一个明确的标准，主观性很强。</p>
+<p>关于商誉的基础要点有三点：</p>
+<p><strong>一，商誉资产可以帮助公司创造利润（文化、管理能力、品牌依赖感）；</strong></p>
+<p><strong>二，只有收购公司的时候才会产生商誉；</strong></p>
+<p><strong>三，商誉大小的界定没有统一标准，主观性很强。</strong></p>
+<p>在商业实践中，为商誉付费有时是合理的。例如2016年<strong>青岛海尔</strong>以54亿美元收购美国通用家电，其中<strong>商誉支付了35亿美元</strong>。海尔通过收购收获了技术、品牌以及海外市场的门票，国际化之路越走越顺，股价也随之大幅上涨。这说明管理层对商誉的评估是合理且有价值的。</p>
+<p>然而，<strong>无标准外加主观性，就让商誉成为了隐患的高发区</strong>。北京文化2016年收购世纪伙伴形成了<strong>8.4亿的商誉</strong>，当时承诺会大赚，但其实只是画饼。收购不到两年，世纪伙伴就没落了，甚至高管还举报名公司财务造假。这证明当初的8亿多商誉毫无价值。</p>
+<p>形成商誉后，每到年末公司需要对商誉价值做一次<strong>测试</strong>。一旦发现被收购的公司商誉价值变小了，就需要进行<strong>减值</strong>。<strong>减值多少，当年利润就减多少</strong>。2019年北京文化对世纪伙伴的商誉进行了全额减值，造成当年业绩巨亏，股价也随之跳水。由此可见，<strong>高商誉就有高减值风险</strong>。</p>
+<p>通常<strong>传媒、游戏</strong>这些行业公司的商誉都比较高。一般来说，如果<strong>商誉占净资产比例超过30%就要引起警惕；如果超过50%，商誉的风险就需要特别留意</strong>。例如，蓝色光标占比52%，世纪华通占比72%，美年健康占比49%。</p>
+<p>总结时刻：</p>
+<p>一，商誉是并购的产物，<strong>内生增长为主、外延并购为辅的公司更值得关注</strong>；</p>
+<p>二，商誉本身有价值，但<strong>容易被上市公司操纵，需保持警惕</strong>；</p>
+<p>三，减值对利润影响很大，<strong>商誉占净资产超过30%，尤其是超过50%的公司，投资时要格外谨慎</strong>。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-15">
+                <div class="lesson-header">
+                    <div class="lesson-num">15</div>
+                    <div class="lesson-title">带息债务·地产界的范冰冰垮了</div>
+                </div>
+                <div class="lesson-body">
+                    <p>2017年，当时的政策对房地产很友好，<strong>底棚改</strong>，外加<strong>雄安</strong>、大湾区等政策，房价蹭蹭上涨，楼市火热到爆。这种氛围下，不少房企都认为赚大钱的机会来了，开始不计成本地拿地，生怕下手不够狠、出手不够快，被对手拿到地从而慢了扩张速度。这其中做得最猛的是<strong>泰禾集团</strong>。2017年12月，公司老板黄其森表示，明年泰禾集团在上海、南京、厦门、福州、郑州等城市都将集中发力，仅郑州一地就有望实现300亿销售额。<strong>2018年泰禾集团销售额的目标是再翻一翻至2000亿元</strong>。千亿销售额一年翻倍，何等的雄心壮志。当时的证券市场也是给足了黄总面子，一个月股价上涨了154%，从8块钱上涨到21块。当时无论是股票停牌还是证监会的多次问询，都挡不住股价上涨，市场都觉得黄总言出必行。</p>
+<p>可是黄总失信了。第二年泰禾集团的销售额只有1300亿，增长幅度不到30%。因为这个巨大的差距，黄总被证监会批评了，大概意思就是请黄总注意言行，吹牛也搂着点吹，不要忽悠投资者。不过对于投资者来说，相比后面的遭遇，被黄总忽悠只能算是小事。因为接下来事态升级了，泰禾集团从黄总个人失信变成整个公司违约了。<strong>2020年开始，公司陆续有几百亿的债务违约，还不上钱了。</strong> 而如此之高的债务，都是当年为了抢地盘、为了拿地王借的，<strong>有些债务利息高达10%</strong>。最终不到两年时间，泰禾集团就已经走到了破产边缘，股价跌到只有两块钱。可见投资股票，<strong>关注带息债务，防范公司暴雷破产，至关重要</strong>。</p>
+<p>首先什么叫<strong>带息债务</strong>？通俗地说就是<strong>需要给利息的借款</strong>，一般就是<strong>银行贷款和各种公司债</strong>。不同公司借款利息不同，多数在5%到10%。可见要是公司借的资金多达百亿以上，即使是5%的最低比例，一年的利息费用也是非常高的。通常我们用<strong>带息债务和全部投入资本的比例</strong>来衡量公司带息债务的规模大小。<strong>公式 = 带息债务 / 全部投入资本</strong>。一般来说，不同行业公司的带息债务比例差别很大，要区分对待。<strong>有些行业天生比例就高，平均超过40%，比如房地产、航空、工程建设、大型制造业。</strong></p>
+<p>这些行业带息债务高主要是因为两点：<strong>第一是投入多，第二是回报率（ROIC）低</strong>。这逼着公司去借债。地产买地、航空买飞机、制造买设备，这些价格都很贵，自有资金肯定是不够用的。而这些行业ROIC往往不到10%，甚至只有5%，这直接吓退了追求高回报的股权投资者，因此公司只能找债权投资者，用资产抵押借钱。反之，<strong>带息债务比例平均不到10%的行业，比如白酒、医药、传媒、游戏，特点是投入少、回报率高</strong>。以白酒为例，行业平均带息债务比例不到1%，而ROIC却接近20%，说明公司盈利能力出众，几乎不需要借钱。</p>
+<p>逻辑上，<strong>带息债务比例大的公司风险更高</strong>。一旦经营决策错误或遇到黑天鹅事件，公司就很可能还不上钱，出现债务违约。实际商业中，<strong>债务违约只要一出现，债主就会变成惊弓之鸟，上门催债并断绝往来</strong>。泰禾集团就是典型，公司酷爱“高举高打”：<strong>产品高贵</strong>（如“中国院子”系列）、<strong>营销高调</strong>（冯小刚导演、<strong>范冰冰站台</strong>）、<strong>拍地高价</strong>（地王收割机）。然而这一切背后靠的是<strong>高举债</strong>。由于公司疯狂举债，其<strong>带息债务比例长期高于80%</strong>。这相当于一块地泰禾自己只拿了20块钱，剩下的80块都是借的，<strong>四倍杠杆</strong>。在如此大的杠杆下，暴雷只是时间问题。2020年5月泰禾第一笔违约出现，至今违约金额已超400亿，股价跌至2元，随时可能破产。</p>
+<p>泰禾是否能活下来，主要看<strong>万科</strong>会不会救。2020年7月，万科和泰禾达成有条件入股协议，若泰禾处理好债务，万科会入股20%。由此可见，<strong>抱着过高的带息债务奔跑，无论跑得多快，早晚有体力不支的一天</strong>。这对于公司老板是警示，万科就是榜样。万科在2018年就喊出“活下去”的口号，其<strong>带息债务比例保持在40%左右</strong>，合理的借钱规模让万科在行业紧缩时成为了“救世主”，而泰禾则危在旦夕。</p>
+<p>最后到了总结时刻：<strong>带息债务比例过高，意味着高风险</strong>。投资的时候，我们要高度关注公司带息债务。具体方法：</p>
+<ul class="lesson-list"><li>*更多选择债务比例低的行业**（如白酒、医药），这类行业出现债务挤兑断裂的风险较低。</li></ul>
+<ul class="lesson-list"><li>*对于带息债务占比偏高的行业和企业，一是要控制仓位，降低配置比例；二是在经营稳健、财务状况较好的龙头企业中进行选择**。下节课我们将学习固定资产暴雷，感谢收听。</li></ul>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-16">
+                <div class="lesson-header">
+                    <div class="lesson-num">16</div>
+                    <div class="lesson-title">固定资产·万亿航空巨头倒下了</div>
+                </div>
+                <div class="lesson-body">
+                    <p>2017年，<strong>中国四大航空之一的海航集团资产突破万亿</strong>。他的董事长王健表示，当前已经到了海航冲刺世界100强乃至前十强的关键时刻。我们要继续加快全球并购扩张。然而壮智未深先死。2018年57岁的王健在法国意外坠亡。当时在普罗旺斯东东边的小村镇，王健想爬上当地教堂附近的护墙看风景和拍照片。第一次失败后，他再次尝试，结果直接翻了过去，从十米高的地方跌落，最终不幸离世。</p>
+<p>比失去董事长更不幸的是，没过多久<strong>疯狂举债并购的后遗症</strong>出现了。海航爆发了严重的流动性危机，集团从刺变成活命。从扩航空主业从买买变成了卖卖卖。2019年一年卖出资产超过3000亿。英国路透大楼，香港地产，凯撒旅游都不要了。然而断臂求生，却生不逢时。2020年疫情给了海航集团致命一击。本来被寄予厚望的航空主业也不行了，主体上市公司海航控股不但无法救集团，就连自身都很保全。</p>
+<p>2020年年报显示，海航控股亏损687亿，除掉因集团重整出现的各种担保合同坏账损失之外，公司巨额亏损主要是因为<strong>居高不下的营业成本和巨大的资产减值</strong>。而高成本和资产减值都跟<strong>固定资产</strong>这个财务科目有关系。今天我们来说一说。首先什么是固定资产呢？正式定义就比较长了。简单归纳可以理解为<strong>固定资产是指跟公司经营有关的交通工具，房屋，机器设备等。使用时间一般要超过12个月。</strong></p>
+<p>根据定义，大家会发现固定资产公司都会有，但是规模有的很大，有的很小。通常我们用<strong>固定资产和总资产的比例</strong>来衡量公司的固定资产规模。一般来说，<strong>占比低于10%表明公司固定资产规模小，属于轻资产类型</strong>。这类公司多数集中在互联网传媒行业。比如阿里腾讯。别看他们的资产都很大，超过万亿，但是固定资产占比却不到10%。再比如各类传媒巨头，分众传媒，万达电影，他们的固定资产占比也都低于10%。</p>
+<p>这些公司固定资产占比小，主要是因为他们的经营模式线上为主，并不需要大量厂房和各种昂贵的制造设备。那么反过来，那些厂房规模大设备要求高的公司，他们的固定资产占比自然就高了。这类公司多数集中在各类制造行业，比如芯片制造中芯国际，固定资产占比超过40%。煤炭集团中国神华占比超过45。水电巨头长江电力占比高达70。时间（实战）中<strong>公司固定资产占比超过30%就算比较大。要是超过40%就属于重资产类型</strong>。</p>
+<p>现在肯定有朋友会问，固定资产是什么，规模大小这啥都懂了，那他对投资有什么直接影响呢？是这样的。<strong>固定资产会影响净利润，主要通过两种方式：正常摊销和突发减值</strong>。先说正常摊销。我们直接用老王夫妻俩买车的故事给大家解释。老王准备开滴滴，于是买了一辆<strong>宝石节 11</strong>（保时捷 911），花了150万。老王媳妇小红看到车后特别生气，大声问，老王，你这是开低拉伙，你还是想开宝石出去泡妞？一下子花掉150万。这日子是不是不要过了？离婚！离婚！车房都是我的。</p>
+<p>老王呢早准备，从容不迫地解释。媳妇啊，我只爱你。我之所以买宝石节是因为我研究过了，滴滴豪华车比快车更容易挣钱。不仅单价高，还因为车快，每天能多拉好几单。另外花150万的事，你不要想成是一次性的花费。你得换个思路。宝石节这车它可以一直开，一直拉对吧。我计划开15年。因此这150万的总花费应该<strong>分摊到15年，相当于每年只花了10万元</strong>。</p>
+<p>小红听完很满意，就跟老王说，那走，带我溜一下。现在我们把老王换成一个公司，那么宝石节 911 就变成了这个公司的固定资产。现实中公司买了固定资产，对其成本的处理方式和老王刚才讲的是一样的。因为多数固定资产可以使用多年，所以花费也应该按照使用年线（限）进行分摊，每年记录一些到营业成本中。因此<strong>固定资产越大的公司，每年需要分摊的就会多，相应的营业成本也会大。这类公司当收入下降的时候，利润下降得会特别快，甚至亏损啊。因为固定资产分摊成本是很难减少的</strong>。</p>
+<p>开篇我们提到的海航控股就是这样。它的主营业务是航空客运输。公司运营346架飞机，主要是波音和空客330。这两种都是主流机型，价格昂贵。2020年公司<strong>固定资产超过500亿，占比达到35</strong>。如此高的固定资产，公司<strong>每年摊销成本就超过了50亿</strong>。疫情下航空收入锐减，但这块的成本变化却很小，最终利润暴跌，就非常正常了。</p>
+<p>说完正常的摊销，接下来咱再看看非正常的突发<strong>减值</strong>（原文：简直）。我们还是用老王的宝石节给大家解释。刚才说了老王的宝石节计划开15年。可是第六年年初就发生了交通事故。人没事，车没了呀，报废了。小红知道这个消息之后，再次习惯性地质问说，你这下好啊，车都没了，以后怎么分摊呢？老王垂头丧气：没办法呀，这后面十年肯定是没法摊笑了（摊销），一共有100万只能算做今年的<strong>一次性支出</strong>了。</p>
+<p>现实中老王的这100万支出是因为固定资产突发贬值造成的。<strong>会计上叫做固定资产减值，减值多少就会导致利润下降多少</strong>。显然相对正常摊销，固定资产的突发减值对公司的利润影响更大。还是看海航控股，业绩本来就够惨了，减值又给了他一记重锤。2020年年末海航控股公告，公司飞机等<strong>固定资产需要减值，总共22亿</strong>。就这样，22亿的减值，让海航亏损金额更上一层楼，也让海航集团自救之路的希望更加渺茫啊。</p>
+<p>现在到了总结时间。首先固定资产是公司的标配，规模可大可小，<strong>占总资产比例低于10%属于轻资产；占比超过40%属于重资产</strong>。其次，投资角度看，<strong>相对来说固定资产轻或者适中的公司更好一些</strong>，主要是因为两点：<strong>一，固定资产规模大，会造成公司成本摊销很多，持续影响净利润增长。第二，固定资产规模大，减值风险就会大。一旦发生，公司利润会大降，股价会暴跌呀。</strong></p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-17">
+                <div class="lesson-header">
+                    <div class="lesson-num">17</div>
+                    <div class="lesson-title">应收账款·血亏150亿的兄弟情</div>
+                </div>
+                <div class="lesson-body">
+                    <p>2016年11月，贾跃亭发布了一封全员信，名为《乐视的海水与火焰：是被巨浪吞没还是把海洋煮沸？》。信中坦诚公司资金严重不足，已经陷入危机。2017年1月，融创孙宏斌决定投资乐视，并举办了发布会。现场有投资者问孙宏斌，为什么要给150个亿。孙宏斌掷地有声地回答：“敢叫日月换新天，意气风发情万丈。”然而遗憾的是，这150亿没能将乐视从ICU上救下来。在一年后的说明会上，孙宏斌坦言，人有时候要敢叫日月换新天，有时候也要认赌服输。他表示，<strong>惨烈之处在于关联方欠上市公司的债务，无法得到有效偿还。这就是今天要讲的：应收账款</strong>。</p>
+<p><strong>应收账款财务上是企业因销售商品、提供劳务等日常活动应收取但还没有收到的款项。</strong><strong>通俗地讲就是东西卖了，活也干了，但钱没收到</strong>。在真实的商业环境中，企业有应收账款是很常见的。例如<strong>贵州茅台，它的应收账款少得惊人</strong>，2015年之前只有几百万，之后更是直接变成了零。这说明茅台不允许经销商赊账，甚至要求提前打款。这展现了<strong>茅台公司对下游经销商具有非常强的话语权。</strong></p>
+<p>相比之下，<strong>蓝思科技的应收账款就很多</strong>。蓝思科技是苹果公司的上游供货商，苹果话语权极强。2019年蓝思科技收入超过300亿，但其应收账款竟然有60多个亿，且逐年增多。总结来说：在产业链中，<strong>如果企业话语权强，一般就是先款后货，应收账款很少；反之，如果企业话语权弱，一般就是先货后款，应收账款就很多</strong>。</p>
+<p>在投资过程中，我们主要要<strong>警惕应收账款暴雷。如果应收账款过多或不合理，一旦收不回来，就容易发生坏账，把企业拉入泥潭</strong>。乐视网就是一个典型例子：2016年收入219亿，但应收账款却有86亿，占比超过40%，且多来自贾跃亭控制的<strong>关联方</strong>。最终乐视确认大量应收账款无法收回，预估损失超过60亿元，神话彻底破灭，股价从八块多跌到了一毛八，最终黯然退市。这带给我们的启示是：<strong>关联方最终没能将这些纸面富贵转为真金白银</strong>，而投资者如果不重视应收账款问题，就会遭受重创。</p>
+<p>类似的还有<strong>神雾集团</strong>。其旗下的“神雾双雄”曾号称神股，2014年至2017年收入暴增，股价涨幅接近十倍。然而<strong>这一切都依赖于应收账款</strong>。2017年收入看似有30亿，实际有20亿是应收账款。随着应收账款暴雷，股价暴跌直至最终退市。<strong>应收账款大雷引爆，不仅是股价下跌，公司还可能退市甚至破产</strong>。</p>
+<p>最后是重点总结：<strong>首先，应收账款的多少反映了企业话语权的强弱</strong>。其次，投资时要<strong>尽量避开应收账款风险很高的企业</strong>。判断风险有三个秘诀：</p>
+<ul class="lesson-list"><li>*应收账款金额很高，且占流动资产的比例特别高（通常超过50%就要引起警惕）。**</li></ul>
+<ul class="lesson-list"><li>*下游客户资信情况或现金流不好，坏账风险很高。**</li></ul>
+<ul class="lesson-list"><li>*账龄（欠款时间）很长，账龄越长，坏账风险就越高。**</li></ul>
+<p>本期就到这里，下一期我将和大家分享另一个经常暴雷的指标：存货。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-18">
+                <div class="lesson-header">
+                    <div class="lesson-num">18</div>
+                    <div class="lesson-title">存货·扇贝长腿了？6年越狱4次</div>
+                </div>
+                <div class="lesson-body">
+                    <p>在辽宁省大连市长海县，有一家上市公司以养殖<strong>扇贝</strong>为主业。上市之初被誉为“<strong>渔业茅台</strong>”，被投资者寄予厚望。可是在之后不到六年的时间里，扇贝们商量好了，集体“跑路”了一次，“饿死”了一次，“冻死”了一次，又因为说不清的原因又“死”了一次。反正很有规律，就是每隔一年扇贝就必须集体“出事”一次。由于事件太离奇，还成功出圈上了热搜。这家网红上市公司就是<strong>獐子岛</strong>。其实扇贝很单纯，复杂的是人。上市公司利用<strong>存货</strong>大做文章，以为能瞒天过海，最终暴雷坑杀<strong>小散</strong>无数。</p>
+<p><strong>存货是指企业在日常活动中持有以被出售的商品、半成品或者原材料等</strong><strong>。</strong> 通俗地讲，老王开了个面包店，那些已经摆在货架上的各式面包、烤箱里正在加工的面包胚子，以及堆在库房的高筋面粉，这些都是存货。 真实商业中企业肯定会有存货，或多或少。咱们先看个存货超级多的公司：<strong>万科</strong>。他的存货高得惊人，2020年超过了1万亿。如此高的存货跟<strong>地产的商业模式</strong>有很大关系：首先盖房子需要的周期较长；其次，建设前企业得先拿到很贵的土地。<strong>建设周期长和土地价格贵</strong>，是房地产企业存货多的原因。</p>
+<p>咱们再看看存货少的：<strong>海天味业</strong>。公司酱油市占率超30%，2020年收入超200亿，但存货却只有21亿。这主要是因为海天生产的酱油价格并不贵，酿造工艺也不复杂，发酵两个多月就可以了。 除了存货的多少外，<strong>存货卖得快也值得关注，这实际上就是存货周转</strong><strong>。</strong> 有的产品从生产到出售的周期很短，反应在财务上就是<strong>存货周转率高</strong>。比如<strong>伊利牛奶</strong>，保质期短，肯定急着卖出去，否则过了期就只能销毁。 而有的产品周期就长，财务上叫<strong>存货周转率低</strong>。比如<strong>茅台酒</strong>，从投料生产到最终成品销售需要六年时间，比盖房子还慢，因为其工艺复杂且<strong>放得时间越久越值钱</strong>。 存货的多少和卖得快慢跟<strong>商业模式</strong>关系很大，我们要从行业特性分析其合理性。</p>
+<p>作为投资者，我们最应该当心的是<strong>存货减值，也就是存货暴雷</strong>。 公司的存货价值是有可能突然变小甚至归零的。回想开篇提到的獐子岛，海底养殖的扇贝很难统计，第三方审计机构几乎不可能穿潜水服下海清点。 獐子岛利用这个特点，精准安排扇贝“跑路”时间，通过<strong>存货减值把亏损集中到一年释放</strong>，避免因连续三年净利润亏损而退市。 然而这方案被<strong>北斗卫星</strong>攻破了，证监会利用卫星还原了探测船的真实航行轨迹，证实了公司涉嫌造假。 2018年公司宣布存货减值后，股价连续跌停，最终导致投资者惨重损失，公司也面临退市风险。</p>
+<p>从獐子岛的故事可以看出，核算存货价值本就很难，<strong>农林牧渔</strong><strong>行业更是难上加青天</strong>。 存货是动植物，养殖面积广，会计师很难逐一清点，因此<strong>公司有很大的调节空间，让这些行业成为存货暴雷的高发区</strong>。 当然，<strong>存货暴雷也常发生在科技行业</strong>。科技产品一旦更新换代，老旧存货会飞速贬值。 最瞩目的例子就是苹果对<strong>诺基亚</strong>的打击，诺基亚老旧的功能机在智能机面前毫无还手之力，最终存货几乎一文不值。</p>
+<p>总结时间：我们炒股要避开业绩暴雷的公司。<strong>存货核实难、企业操纵容易、减值风险大，很容易导致利润和股价大幅下降。</strong> 规避存货暴雷的方法有两点：</p>
+<ul class="lesson-list"><li>*在没有充分了解前，避开存货容易暴雷的行业，比如存货数量难核实的农林牧渔，以及减值风险大的科技行业。**</li></ul>
+<ul class="lesson-list"><li>*如果发现某公司存货周转率突然大幅度变慢，很可能意味着产品滞销，这种公司要格外小心。** 从以上两点入手，可以帮我们规避风险。下期我们来讲增发暴雷。</li></ul>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-19">
+                <div class="lesson-header">
+                    <div class="lesson-num">19</div>
+                    <div class="lesson-title">增发·贾布斯A股造梦之王</div>
+                </div>
+                <div class="lesson-body">
+                    <p>最近十年，中国最会讲故事的上市公司老板是谁？非<strong>贾跃亭</strong>莫属。他的<strong>乐视网</strong>在2010年创业板上市了。这之后贾老板讲故事的天赋被彻底释放。他利用各种机会喊出了各种豪言壮语：“为梦想窒息”、“七大生态一个都不能少”、“下周回国”、“闭门造车”。这些口号、这些故事有的当年火爆出圈，有的现在还在延续。那贾老板爱讲故事到底是为了什么呢？很简单：<strong>增发融资</strong>。</p>
+<p>首先什么叫增发呢？增发英文缩写是 <strong>SPO</strong>。有个很相似的概念叫做 <strong>IPO</strong>，叫做<strong>首次公开招股</strong>。这两个概念我们对比着说。2010年乐视网登录创业板，从一个私营企业变成一个公众企业，发行股票2500万股，募集资金7亿，这个叫做首次公开招股（IPO）。上市之后，2014年再次发行股份3570万股，获得资产12亿，这个就叫做<strong>增发</strong>。无论是IPO还是增发，都是公司的<strong>融资工具</strong>，方式就是公司新发行一部分股票，从外界换取资本或者资产，力求让公司可以更快速地成长。增发相对复杂一些，除了获得现金之外，还可以通过发行股份直接换取资产。我们常见的增发通常都是<strong>定向增发</strong>，即新发行的股票只给少数特定对象。</p>
+<p>增发或者定增这事很中性，没有明确的好坏之分，但它的优缺点很鲜明。<strong>优点是公司可以快速从外界获得一大笔资产或者资本。缺点是对老股东不利，他们的股份会被稀释，拥有的权利（如表决权、分红权）会变弱。</strong>因此，多数<strong>盈利出众、利润持续增长的好公司很少增发</strong>。这是因为对好公司来说，自身资产已经足够优秀，股权价值更大，没必要牺牲股权换外部资产。比如<strong>贵州茅台</strong>，2001年上市至今从未增发，股价突破2600元。再比如<strong>巴菲特</strong>的投资公司多年来不分红、不增发，股价已突破每股40万美元。当然，个别好公司也会借助增发“锦上添花”，这通常是因为<strong>增发对象太出色了</strong>。比如<strong>高瓴资本</strong>2010年入股京东后，帮助其建设物流网络，并推动了腾讯入股京东。好公司和优秀投资者之间的增发联姻，更像是<strong>战略联盟</strong>。</p>
+<p>不过强强联合还是少的。整体看，好公司的增发频率很低。反之，<strong>烂公司对增发倒是真爱</strong>。对于业绩很烂的公司，股份本身就不值钱，稀释一下也没什么大不了。增发被不少烂公司利用，他们表面上融资收购资产，实际上就是<strong>借机讲一个充满想象力的故事，提升股价后再减持套现</strong>。这个套路贾跃亭用得炉火纯青。乐视网刚上市时业务简单，就是网络视频播放，钱并不好赚。贾老板开启了他的“造梦计划”，声称要构建<strong>七大超级生态</strong>，并创造了新词“<strong>生态化反</strong>”。宏大的蓝图描绘完了，但资金不够，于是“<strong>实力不够，故事来凑</strong>”。</p>
+<p>2010至2017年，乐视的造梦计划吸引了众多投资者，<strong>融资超过三百亿，其中定增就有两次</strong>。第一次是2013年，募集资金12亿收购花儿影视和乐视新媒体，被贾老板硬扯到了“生态”和“内容”上，股价随之大涨。然而细看会发现，<strong>收购价格贵得离谱</strong>：花儿影视估价9亿但每年只能出一两部戏，而乐视新媒体更是一个空壳公司。尽管有质疑，但当时很多投资者已经被忽悠蒙了。紧接着，2014年8月，乐视再次计划<strong>增发募资45亿</strong>。这次贾老板直接说是为了“乐视生态”的梦想，彻底点燃了大众的热情。</p>
+<p>梦想点燃后，乐视股价开始飙升，不到一年时间从七块多上涨到44块，<strong>市值突破1600亿</strong>。在这个时候，贾跃亭家族开始收割了。首先是其妹贾跃芳大举减持，随后贾跃亭亲自出马，套现价值超百亿。贾跃亭的套路很简单：<strong>利用增发融资造梦，推升股价，最后高位减持</strong>。当一个老板醉心于讲故事收割赚钱的时候，公司带来的只有伤害。2020年乐视网股价归零，除了贾氏家族，几乎所有股东损失惨重。<strong>孙宏斌</strong>投资150亿无功而返，刘涛、邓超等明星损失千万，无数散户倾家荡产。而贾老板拿着上百亿资金去了美国，喊着“下周回国”一喊就是四年。</p>
+<p>总结时间。增发虽然是中性事件，但容易被利用。投资中面对增发需关注三点：</p>
+<ul class="lesson-list"><li>*看公司是否经常增发。如果总是在增发，表明公司不在乎股权，不值得投资。**</li></ul>
+<ul class="lesson-list"><li>*看公司经营状况。如果经营一直不好，增发要么是赌一把，要么是收割中小股东，要多持怀疑态度。**</li></ul>
+<ul class="lesson-list"><li>*看增发对象是谁。如果对象是厉害的机构，可以考虑；如果是大股东本人或不知名小机构，也应持怀疑态度。**</li></ul>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-20">
+                <div class="lesson-header">
+                    <div class="lesson-num">20</div>
+                    <div class="lesson-title">质押·从1000亿跌倒100亿</div>
+                </div>
+                <div class="lesson-body">
+                    <p>好消息，好消息，清仓卖，一律一折，走过路过不要错过。这个场景大家很熟悉，街边小店他没完没了喊着，路过是不管你有没有被折扣吸引，但清仓甩卖肯定让你猜测小老板要撤退了。这个逻辑股市上也是如此。2018年6月5号，<strong>华谊兄弟的老板王中军再次把持有的股票质押，累计质押比97%</strong>。随后媒体相继报道华谊兄弟大股东股权清仓式质押，疯狂套现是要跑路了吗？面对质疑，华谊兄弟表示股权质押并不代表王中军先生不看好公司未来，也不会影响公司的正常经营。那到底会不会影响呢？我们今天就来说一说。</p>
+<p>首先什么是<strong>股权质押</strong>？<strong>股权质押是一种融资手段，就是把手里的股票从金融机构换回来一笔资金。</strong>通常金融机构会根据质押股票的市值打个三到六折换算成金额借给股东。股东拿到钱之后要定期支付利息，通常<strong>年利率在7%左右</strong>。相对于其他类型的融资，股权融资的特点很鲜明。首先它的<strong>融资规模大</strong>，股票数量多的话，一次融资上亿很容易。其次<strong>利率合适</strong>，7%左右平均利率并不高。最后最关键的是<strong>办理很容易</strong>，借还都方便，快的话一到两周就能处理好。因此股权质押深受上市公司大股东喜欢，A股超过一半的大股东有股权质押。</p>
+<p>虽然很常见，但对于上市公司本身来说，股权质押的风险是很多的。尤其是当大股东<strong>质押比例过大</strong>的时候，通常大股东<strong>质押率超过80%</strong>，也就是说持有的股份八成都质押了，那么这样的公司很容易因为股权质押出现问题。主要表现在三个方面。一，<strong>变相减持套现跑路</strong>。开篇我们提到的小店老板撤退在股票市场上真实存在。按照减持规定，大股东想卖掉自己的股票，需要提前提交申请并公告计划，直接变现需要很长时间。而靠股权质押则快得多，虽说市值会打个五折，但兵贵神速。因此当大股东不想干了，公司不想要了，股权质押就成了套现最好的工具。比如<strong>哥伦步</strong>的老板卫性华，2016年股权质押套现后立刻失联，公司随后破产。因此看到大股东大比例质押时，必须防范套现跑路的风险。</p>
+<p><strong>二，质押爆仓，股票强平。</strong>即使大股东不是为了跑路，高比例股权质押风险也很大。股权质押是以股票市值为质押物。一旦股价下降，质押物的价值也会下降。通常金融机构会设置一个<strong>平仓线</strong>，当质押的<strong>股票跌幅超过40%的时候，就会接近或到达平仓线。这时如果大股东无能力追加担保品，质押的股票就会被强制平仓</strong>。一旦强制平仓出现，会形成“股价下跌—继续被强平”的负反馈，最终结果可能导致大股东<strong>失去公司的控制权</strong>。比如2021年的<strong>苏宁易购</strong>，张近东及其控股公司质押比例超过80%，随着股价下降和接连暴雷，只能无奈转让控股权。</p>
+<p><strong>三，权力受限，分身乏术</strong>。质押爆仓失去控制权很可怕，但其实就算不爆雷，大股东高比例质押，他管理公司的权力也会受到很大限制。不少重大的战略部署或并购重组都需要告知债主，甚至需要债主批准。同时，大股东搞几十亿甚至上百亿的质押，通常不是为了日常生活，多半是去<strong>投资新的大项目</strong>，这种激进的扩张势必会影响上市公司原本的运营管理。所以华谊兄弟之前说股权质押不会影响正常经营，肯定是在吹牛。实际上华谊兄弟的衰落，从大股东质押比例极高这一点上就可见端倪。</p>
+<p>华谊兄弟曾是创业板前三的公司，2015年市值突破千亿。与此同时，老板王中军的股权质押比例从不到20%迅速扩大到80%，借款金额超过30亿。那段时间王中军逐渐淡出管理，投入更多精力在艺术品和股权投资上，斥资数亿购买毕加索、梵高和曾巩的作品。就这样，<strong>华谊兄弟开始迅速衰退</strong>。2015年行业大哥地位被光线传媒替代，16、17年爆款电影几乎没有，冯小刚也魔力不再。2018年5月，因电影《手机2》引发崔永元举报，<strong>阴阳合同</strong>浮出水面，影视圈大地震。华谊兄弟作为主控方受到重创。</p>
+<p>这轮暴击让华谊兄弟彻底走向下坡路，公司2018至2020年<strong>连续三年亏损</strong>，现金流出现重大问题。面对问询和质疑，王中军曾宣布卖掉豪宅名画拯救公司。但截至2021年，华谊兄弟状态并未好转，高价制作的电影票房不及预期，公司<strong>市值跌破百亿</strong>，相比千亿高点跌去九成。王中军质押的股权一直有平仓风险，甚至需要通过减持来偿还到期的质押借款。曾经的电影霸主，如今风雨飘摇。</p>
+<p>总结时间：股权质押是常见的融资工具，但是<strong>大股东大比例质押（超过80%）会有很多风险</strong>。投资时看到这样的公司一定要特别小心：</p>
+<ul class="lesson-list"><li>*如果质押股权已经开始被强制平仓，直接远离。**</li></ul>
+<ul class="lesson-list"><li>*多思考大股东是否想借股权质押跑路？**</li></ul>
+<ul class="lesson-list"><li>*大股东借这么多钱投资的新项目风险如何？主营业务是否会受影响？**</li></ul>
+<p>如果新项目风险大且主营受损，那么这样的公司不适合投资。感谢收听，下期课我们来学习减值暴雷。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-21">
+                <div class="lesson-header">
+                    <div class="lesson-num">21</div>
+                    <div class="lesson-title">减持·一笔买卖赚5000倍</div>
+                </div>
+                <div class="lesson-body">
+                    <p>腾讯的第一大股东是谁呢？南非公司 Naspers。长时间他对腾讯的持股比例一直超过 30%。2018 年 4 月，Naspers 对外界宣布计划减持 2% 腾讯股份，市值接近千亿。看到这个消息，我们应该怎么做？常规思维看到重要股东出货，第一反应就是大大利空，事态很严重，股价肯定下降。这样的公司要是持仓了赶紧跑，要是没持仓，那坚决不能碰了。但实际情况是什么样呢？除了短期随大盘一起下降之外，腾讯股价很快就掉头上涨。2020 年，股价相比当时的高点又上涨了 60%。可见<strong>股东减持并非只有利空，我们不应该谈“减”就色变，应该区别对待</strong>。</p>
+<p>首先明确看到减持绝不能一刀切，弄清楚下列两个问题，你心里就有数了。<strong>一，是谁减持？</strong> 我们可以把减持股东分成两类：<strong>内部人士和一般投资人</strong>。<strong>内部人士主要是指实际控制人、老板、公司董监高以及上述各方的一致行动人，他们是最了解公司的人</strong>。如果他们减持，尤其是多方一起减持，那么<strong>很大可能是他们认为公司不值这么多钱</strong>，所以计划拿股权换现金。反之不是内部人士，只是<strong>一般投资人</strong>（如公募基金、私募基金、信托计划等），他们多数就是<strong>财务投资，不参与公司管理决策，那他们的减持就不必过于担心</strong>。通常一般投资人发行的产品存续期也就七八年，到期了管理人就需要把产品清盘，把钱还给背后的投资人。所以看到股东减持先搞清楚到底是谁在减，<strong>要是内部人士，确实应该警惕；但要是一般投资人，那就平淡对待</strong>。</p>
+<p><strong>二，减了多少？</strong> 要是内部人士减持，我们还得重点看他们要减多少金额。<strong>适当的减持改善生活是可以理解的，一般来说 1% 左右是可以接受的</strong>。但如果<strong>减持比例超过 3% 或者一下子套现几个亿、几十个亿</strong>，这钱买火箭都够用了。比如<strong>英科医疗</strong>，2021 年 6 月董事长刘方毅宣布减持 6% 的公司股份，金额超过 30 亿，总经理等高管也跟着一起减持。显然，这不是为了改善生活，而是他们<strong>大概率认为公司不值现在这么多钱，先跑为快</strong>。英科医疗 2020 年股价上涨接近 30 倍，业绩因疫情手套需求暴增而炸裂，但这种增速是不可持续的，内部人士比咱们更清楚，所以抓紧套现。当看到<strong>内部人士大比例减持的时候，一定要高度谨慎，建议适当规避</strong>。</p>
+<p>同样的情况还有<strong>朗姿股份</strong>。公司从女装切入医美赛道，股价在八个月时间内上涨了 6.3 倍。就在这时，老板申东日和他的父亲计划减持 4.49%，金额预估超过十亿。这也是典型的<strong>内部人士减持套现</strong>。老板一家子大概率认为医美风口一过，公司实力很难支持如此高的股价，因此率先落袋为安。<strong>内部人士可以直接看见“底牌”，他们的大比例减持很大可能是认为底牌不行，赢不了</strong>。</p>
+<p>再看<strong>腾讯</strong>的例子，为什么 2018 年大股东减持不应看作利空？ Naspers 在 2001 年腾讯还不盈利时花了 3300 万美元买入 34% 的股权。到 2018 年，这笔投资回报倍数超过 <strong>5000 倍</strong>。虽然 Naspers 是第一大股东，但它并不参与公司经营，<strong>没有决策权，本质上是一个持股数量很大的财务投资者</strong>。正如其所言，减持是为了增加财务灵活性以投资其他业务，并承诺三年内不再减持。马化腾也评价其为“很难找”的支持性股东。腾讯股价能逆风上涨，是因为 <strong>Naspers 是财务投资而非内部人士，且减持比例相对其体量并不大，更核心的动力是腾讯公司基本面强大、业绩长牛</strong>。</p>
+<p>总结时间：股票减持是常见行为，我们不应该一刀切觉得所有减持都是利空，要<strong>区别对待</strong>，主要关注两点：</p>
+<p><strong>一、减持对象；</strong></p>
+<p><strong>二、减持金额。内部人士大比例减持要引起高度重视，这种利空是比较明确的，建议规避。</strong></p>
+<p>反之若是<strong>一般投资者的减持则佛系对待，应更加关注公司基本面情况</strong>。有时候短期情绪造成的股价下降，反而给了大家更好的买入机会。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-22">
+                <div class="lesson-header">
+                    <div class="lesson-num">22</div>
+                    <div class="lesson-title">换手率·上市公司黑吃黑被人爆了</div>
+                </div>
+                <div class="lesson-body">
+                    <p>中源家居的董事长曹总和董秘张总，你们好，有个事说一下。你们公司的市值管理找到的盘方不是东西。3月31号通过中间人找到我，拿出了你们的200名股东名册，表示你们和盘方计划出货三个亿，希望让我找一些公募基金和券商资管买你这个票。给基金经理100万的报酬，同时盘方许诺会配合拉升30%。结果上涨没看到，一直跌停啊，直接将股票出给我们，导致公募基金损失百万。更可气的是连100万的报酬也不给了。现在就这事，希望你们及时联系我，认真处理。否则我就只能实名举报中国证监会和发现场的公安经侦了。</p>
+<p>以上是微博上的公开爆料，对此中源家居第一时间予以否认，更表示我根本不认识叶飞。但是随着叶飞不断晒证据，各种微信截图、做直播，透露各种坐庄黑幕，两个月之后，证监会正式认定中源家居涉嫌股价操纵。实际上中源家居一直被称为“A股第一杀猪盘”。2019年至今，公司股价已经有过三次大起大落，每次都是快速上涨，短期接近翻倍之后，以更快速的跳水暴跌。显然这K线走势一定是背后庄家，或者说就是刚才提到的盘方操纵的结果。每一次拉升为的就是引诱散户上钩，而每一次暴跌都是因为他们收割散户。那么平常投资的时候，有什么办法可以帮助我们尽量躲开这类庄股呢？有，<strong>看换手率是个好方法</strong>。</p>
+<p>首先什么是<strong>换手率</strong>呢？是指在一定时间内市场中股票转手买卖的频率，公式等于：<strong>某一段时期内的成交量 / 流通股本 × 100%</strong>。比如某支股票在一天内成交了2000万股，而该股票的流通股为1亿股，则该股当天的换手率为20%。换手率可以告诉我们一支股票的活跃度。一般来说，<strong>股票每日的换手率在1%至10%之间都是正常的</strong>。不过这里不包括新股和那些市值特别大的公司。新股由于刚上市，流通盘很小，短期很容被炒作，所以通常换手率都会很高，10%以上的很常见。</p>
+<p>和新股相反，那些市值很大，千亿甚至万亿级别的公司，他们的换手率一般都会很低，可能都不到0.5%。这一方面是因为这些公司的股票很大一部分被国内大型公募机构、外资机构持有。这些机构多数都是长期投资，很少短卖，频繁换手。另一方面是因为市值太大。所以排除掉新股和市值大的公司，<strong>要是一支股票换手率长期低于1%，则表明该股很不受投资者欢迎，交易非常不活跃，股价很难上涨</strong>。比如三元股份市值不到百亿，但换手率只有0.1%左右，导致股价持续低位横盘。,</p>
+<p>反过来，<strong>要是一支股票的日换手率持续超过10%，那就是极度活跃了</strong>。但这背后很可能是因为这个公司被<strong>庄家控盘</strong>了。所谓控盘就是一个公司庄家持股比例完全可以影响股价波动。<strong>市值小、流通盘小的公司更容易成为庄股</strong>，因为庄家只需要少量资金就可以控制股价波动，且散户为主，机构几乎没有。庄家操纵主要分三步：<strong>建仓控盘、拉升股价吸引跟风资金、出货收割</strong>。,</p>
+<p>作为散户，在建仓和拉升初期很难发现，但<strong>最后庄家开始出货的时候，由于仓位集中，出货必定造成高换手率</strong>，这点很难隐藏。因此平时要多注意：<strong>如果一个公司股价快速上涨，到高位后又出现了过高的换手率，连续多日平均超过10%或者单日很高，这种公司要坚决回避，大概率是庄股</strong>。高位高换手率出现后，几乎可以断定股价暴跌只是时间问题。</p>
+<p>开篇提到的中源家居就是典型的庄股特质：规模小（不到20亿），流通股本小（8000万），前十大流通股东全是散户。上市不到三年已经有三次间歇性的大起大落：先快速拉升，随后高位出现极高换手率（甚至单日超过75%），最后跳水暴跌回归原点。2021年证监会认定相关团伙通过连续交易等方式拉台中源家居股价，交易金额达30余亿元，涉嫌构成操纵市场犯罪。</p>
+<p>总结时间：换手率反应了股票的活跃度。除了新股和少数字值特别大的公司，<strong>换手率在1%到10%这个区间是正常的</strong>。换手率适度提高表明受资金关注，上涨机会大。但是<strong>过高的换手率（高位连续超过10%或单日很大）则可能说明公司被庄家空盘，最终多以股价崩盘告终</strong>。投资时要明白，庄家和我们并不是同路人，他们是狼，我们是羊，不要妄想跟着庄家吃肉。</p>
+                </div>
+            </div>
+            
+        <div class="module-header" id="module-2">
+            <h2>📊 第3模块 · 估值方法</h2>
+            <p>PE、PB、PS、PEG、DCF——学会给公司定价，找到好价格</p>
+        </div>
+        
+            <div class="lesson" id="lesson-23">
+                <div class="lesson-header">
+                    <div class="lesson-num">23</div>
+                    <div class="lesson-title">市盈率（PE)·如何抓住10倍股</div>
+                </div>
+                <div class="lesson-body">
+                    <p>尊敬的杨涛、周桂银先生，按照一年前我们的赌约，今天随着茅台价格跌破140元，市值跌破1500亿，已经触发了裸奔条件。我将作为赌约的失败方履行承诺，于中秋节期间进行裸奔。视频将在凌通价值网发布。裸奔过程中，我的身上除了身体本身之外，不会出现任何其他东西，视频中不会有任何遮挡。以上声明出自董宝真，落款时期为2013年9月17日。董宝真是一名私募基金经理，他的基金几乎全仓茅台。2013年，由于反腐，茅台被市场一致看衰，股价持续下降。这个时候董宝真依旧高度看好茅台，甚至不惜和别人打赌裸奔，表达自己的决心。虽然之后他输掉了赌约，但是并没有输掉信仰，他在声明中继续有力地表示：“是的，我输掉了这场赌局，但是此时我的内心是难以抑制的贪婪。而在贪婪后则是确定无疑的巨大回报。” 这是因为茅台是一家在白酒行业中拥有绝对品牌优势的公司，而<strong>今天他的市盈率跌破了十倍，历史最低水平，这是天赐良机</strong>。最终董宝真依靠茅台一战成名，七年时间赚得了12倍收益。今天我们就以此为契机，一起看看董宝真重点提到的<strong>市盈率</strong>是什么意思。首先我们回忆一下知识的第一节课，净利润。当时我们提到了一个公式：<strong>公司市值等于净利润乘以估值倍数</strong>。这个<strong>估值倍数就是市盈率</strong>。</p>
+<p>怎么理解这个公式呢？咱们还是用老王和小明给大家解释一下。小明有个公司，名字叫做“水上漂”，主营火锅店，经营一般，年底算账，净利润只有十万。小明萌生退意，想把公司卖掉。老王做了一番功课后，认为这是个好机会，找到了小明，跟他说：“十万块，火锅店给我吧。” 小明冷笑一声：“老王啊，你把我当傻子了吧。我这火锅店虽然不火，但是一年也能挣十万。你十万就要拿走，一年就回本了，以后每年白赚，想得也太美了。” 老王一听心想，这小明不傻呀，得改变策略。于是对小明说：“开个玩笑了，认真点，一口价，我给你50万，我五年后才能回本，这算合理了吧。” 小明摇了摇头说：“老王啊，要是每年十万利润，50万五年回本确实合理，但据我所知，我这火锅店对面马上要开个商场，以后来我这吃饭的人可就多了。今年利润10万，但明年就得20万，后年估计30万了。要这么算，你最多三年就回本了。50万是不是太便宜了？所以你要是真有诚意，150万。你努力点，五年也差不多回本了。” 老王一听心惊啊，心想这还是小瞧了小明，开商场这事他都知道。不过他分析得倒是很有道理，未来火锅店利润大概率会有明显提高，所以150万的价格也算合理，买了。</p>
+<p>这个故事里老王对火锅店一共出价了三次，分别是10万、50万和150万。虽然价格不同，但是他的出价逻辑是一样的，就是<strong>根据火锅店当年的净利润给一个估值倍数</strong>。第一次是一倍，第二次是五倍，第三次是15倍。而这个<strong>估值倍数就叫做市盈率</strong>。最终之所以以15倍市盈率成交，主要是因为老王预期火锅店利润会有比较明显的增长。真实股票市场也是如此。多数有利润的上市公司，市场都会根据净利润给一个市盈率。通常一个行业或者一个公司的市盈率多数时间会在一个范围内波动，而不同行业的市盈率差距很大。比如贵州茅台就在20倍到40倍之间，而万科就在8到10倍之间。至于原因，《巴菲特的护城河》一书告诉了我们答案，<strong>影响市盈率的因素包括风险、增长、资本回报率（ROE）以及竞争优势</strong>。一般来说，<strong>增长快、资本回报率高的行业，市盈率都会高一些</strong>。比如白酒20%平均增速以及年20%以上的ROE，行业平均市盈率在30倍左右。反之，<strong>经营风险比较大的行业，市盈率都会低一些</strong>。比如地产负债多，暴雷风险大，外加增速不快，ROE不高，行业平均市盈率就比较低，只有个位数。</p>
+<p>现在市盈率公式和波动范围都搞清楚后，我们再进一步，看看它是如何帮助我们判断股价的。方法很简单，公式两边同时除以总股本，就变成了：<strong>股价等于每股收益乘以市盈率</strong>。可见在每股收益不变的情况下，股价高则市盈率高，股价低则市盈率低。因此通过市盈率高低并结合它的常规波动区间，我们就能判断出<strong>股价是高估还是低估，找到合理的价格</strong>。说到这里，我们正好引出一个小问题。我们经常说买便宜的，那是不是说市盈率越低的公司越值得买，买低的就是捡便宜呢？这是一个重大误区。其中一个原因就是刚才提到的<strong>不同行业市盈率差异很大</strong>。光看市盈率低的结果，很可能是买了地产错过了白酒。而最近五年投资地产股赚的钱要远少于白酒。除此之外，哪怕是同一个行业，只看市盈率低的也不对。还是刚才那个逻辑，同一个行业内，如果两个体量市值都差不多的公司，A公司市盈率一直比B公司高，那多数是因为市场认为<strong>A公司基本面更加优秀，要么增长快、更赚钱，要么是经营风险更低</strong>。比如招商银行和工商银行，2016至2021年这5年，招行平均市盈率是9.94倍，而工行只有6.45倍。相对于工行，专注零售业务的招行基本面更棒，它的利润增速更快，ROE更高，坏账率更低。而这一切都会反映到股价上面，五年间招行上涨了259%，而工行只上涨了48.2%，差距巨大。所以说<strong>看市盈率要先区分行业。同一行业业务规模近似的两家公司，通常市盈率长期更高的那家公司，素质往往更好，更值得关注</strong>。</p>
+<p>到这里可能有朋友会问，同行业比较市盈率高的好，那开篇董宝真说的“历史最低市盈率、天赐良机”又是怎么回事？ 是这样的，炒股想多赚钱就是找到好公司，在便宜的价格买入并长期持有。这里提到的便宜价格一般出现在市盈率较低的时候，但市盈率这个“低”，它不是指绝对值的低，而是指<strong>好公司跟自己的历史比，市盈率相对比较低的时候</strong>。我们把一个公司<strong>历史10年的市盈率按照百分比做四等分</strong>：75%分位意味着市盈率高于历史10年75%的时间，可能估值偏高；25%分位表示市盈率仅高于历史25%的时间，估值偏低；50%分位则表示当下市盈率处于历史十年均值附近，估值合理。一般来说，好公司受到资金追捧，估值多数时间处于合理或高估的水平，即市盈率的历史分位值通常是在50以上的。但是在一些特殊的时候，比如整个证券市场是大熊市，或者公司所在行业遭遇重大利空打击，绝大多数投资者的情绪是崩溃的。人们抛售造成好公司的市盈率处于历史低位。此时如果你通过研究判断出公司基本面没有问题，未来利润依然乐观，而股价下降更多是因为恐慌情绪和利空消息，那么<strong>超低市盈率就是天赐良机</strong>。</p>
+<p>当年的董宝真就是这么做的。2013年力度空前的反腐风暴横扫全国。高压反腐下市场几乎一致认为高端白酒，尤其是茅台，需求会萎缩。主要依据就是茅台的成长逻辑来自于腐败消费，随着反腐，茅台将失去成长动力。面对一致性看空，董宝真依靠对茅台深入的理解和研究坚定胜出。他认为首先<strong>茅台是东方人际关系的催化剂，它背后的强势文化才是茅台的核心价值</strong>。生活中两个老友见面，或者两个相对不熟悉的人见面，喝两次茅台，他们的关系自然就近了。换句话说，<strong>茅台成长的逻辑不是腐败，而是中国礼尚往来的文化和越来越膨胀的精神性消费</strong>。反腐会打压一部分茅台需求，但是更多的民间需求会取而代之。其次，董宝真亲自到贵州酒厂调研，了解茅台的真实情况。他和保安、扫地阿姨交流，了解到即使在最艰难的时候，茅台包装车间还在加班。之后又加了女工的微信，了解到以前车间一天包装2.8万到3万瓶，现在一天3.2万瓶。通过一系列实地考察，董宝真确信了自己的判断：贵州茅台根本就没有出现舆论所说的那种危机，也没有出现茅台酒卖不动的情况。那么茅台股价跌就是假跌，<strong>市盈率低就是机会</strong>。最终他在茅台100元左右大幅度加仓，一战成名。</p>
+<p>可见，<strong>好公司叠加低市盈率，助力我们创造收益奇迹</strong>。不过要是做反了，在很高的市盈率买入，那就是悲剧。一般来说，当<strong>市盈率超过95分位的时候，买入的风险就会很大</strong>。这个时候不管是大环境还是公司自身，稍微有点利空，股价都有可能大幅度下降了。比如2007年底的万科，市盈率高达100倍，历史最高，这个时候买入一年后亏损75%。再比如2021年初贵州茅台73倍市盈率，也是近十年最高，当时买入半年亏损严重。可见再好的公司买入价格过高，风险同样很大。幸运的是，学会用市盈率，这点我们已经可以避免。</p>
+<p>现在到了总结时间。市盈率是常见的估值方式，具体使用时注意：</p>
+<ul class="lesson-list"><li>*对于处于同一行业并且业务规模都近似的两家公司，通常而言市盈率长期更高的那家公司，素质往往更好，更值得关注。**</li></ul>
+<ul class="lesson-list"><li>*当市盈率处于近十年极高位，比如90%或者95%以上分位时，要警惕高估风险。**</li></ul>
+<ul class="lesson-list"><li>*在大熊市或者行业萧条时期，好公司的市盈率也很可能落到历史低分位水平，那是我们捡便宜的好机会。 **好了，虽然市盈率是一个很好用的估值方法，但是当净利润为负或者非常不稳定的时候，市盈率是不适用的。下期课咱们就一起看看这时候该如何估值。感谢收听。</li></ul>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-24">
+                <div class="lesson-header">
+                    <div class="lesson-num">24</div>
+                    <div class="lesson-title">市净率（PB）</div>
+                </div>
+                <div class="lesson-body">
+                    <p>2020年8月看到公司<strong>新希望</strong>，感觉充满了希望。半年报公司利润翻倍，<strong>市营率（PE）只有20倍</strong>了，均值附近，入手买点位，买后没多久，被套40%。此时三季度业绩公布了，公司整体利润继续保持高增速。再看市营率更低了，只有16倍，坚定不移。随后股价又下降了40%，就这样不到一年，希望变成了绝望。如果你认真学了上篇课程市营率，现在肯定纳闷，怎么到你这里<strong>低估市营率不仅不是天赐良机，还是个天然巨坑</strong>呢？按照百分位看市营率找到低估，这方法没错，错在<strong>忽视了市营率的适用范围</strong>。</p>
+<p>杜邦分析那节课，咱们曾经分析过公司核心的经营流程可以归纳为<strong>资产、收入、利润</strong>。所以当我们准备做一个公司股东、估算一个公司价值的时候，主要就是从这三个角度考虑。其中利润是最直接反应公司价值的指标，所以公司估值优先用市盈率。<strong>但是当公司没有利润或者利润非常不稳定的时候，市盈率就不适用了</strong>。此时我们就要退而求其次选择用收入或者资产来判断公司价值。由于收入和利润关系很近，只有一些互联网企业比较适合用收入进行估值。所以我们今天就先聊一聊如何用资产估值。这种资产估值的方法叫做<strong>市净率（PB）</strong>，<strong>公式等于市值除以净资产，等于每股价格除以每股净资产</strong>。和市盈率对比下，差异主要在分母，从净利润变成了净资产。</p>
+<p>市盈率是市场根据净利润给的一个估值倍数，那么<strong>市净率就是市场根据净资产给的一个估值倍数</strong>。接下来咱们再进一步分析一下用净资产给公司估值的逻辑。惯例我们用老王、小明的故事给大家解释一下。今年天气特别冷，小明有个雪糕厂，经营不佳想卖掉。老王很中意，找到了小明，出价50万。小明转身就走，边走还边骂：你神经病啊，我这雪糕厂这机器设备就值200万，减去负债100万，算下来光<strong>净资产就有100万</strong>了，老王你倒好，你出50万你就想拿走，脑子有问题。老王一看，赶紧拉回了小明说：你别急嘛，我不知道你雪糕厂的净资产有100万吗，那行，我出价100万，这下合理吧？小明一听，气不打一处来，就讽刺道：老王啊，你倒是不懂，我雪糕厂这100万净资产是可以生产雪糕创造收入利润的，你觉得光给100万合理吗？这样吧，你要是真有诚意，你给<strong>150万，净资产的1.5倍</strong>。老王听后琢磨了一下，觉得150万也是合理的，因为他得知今年天气不仅不会很冷，可能还挺热，雪糕肯定好卖。于是他就用150万买走了小明的雪糕厂。通过这个故事，我们可以看到雪糕厂的价值跟净资产是有很大关系的，主要体现在<strong>净资产本身的价值</strong>，以及<strong>公司净资产产生收入利润的能力</strong>。</p>
+<p>真实股票市场中，用净资产估值也是一个常用的方法。现在估值逻辑清楚后，我们再看一下哪些行业适合用市净率估值。一般来说，<strong>周期行业最适合用市净率估值</strong>。原因是周期行业最大的特点就是受到经济波动或者本身行业特点影响，<strong>利润会大起大落</strong>。行业景气的时候挣大钱，行业衰退的时候利润骤降甚至亏损。这种景气和衰退反复交替，一个到了极致就会迎来另外一个。具体到股票上面，就是当周期下行的时候，净利润持续走弱，股价下降。但此时<strong>公司的净资产变化小，这就造成市净率也持续下降</strong>。当周期下行到极致，行业亏损累累的时候，股价到达最低，此时市净率最小。紧接着周期反转开始上升，公司净利润持续走强，股价上涨，市净率上涨，直到到达周期高点，此时市净率最大。可见，因为公司<strong>净资产往往比较稳定</strong>，所以市净率大小和股价高低基本是对应的。<strong>市净率大，股价在高位；市净率小，股价在低位</strong>。</p>
+<p>按照这个逻辑，我们回到开篇提到的<strong>新希望</strong>。新希望是一家大型的猪肉养殖企业，公司所在的猪肉行业是典型的周期行业。从2006年至今，我国经历了四轮<strong>猪周期</strong>。每轮时间四到五年，上行期1.5到两年，下行周期2.5年到三年，循环往复。至于猪周期的形成，主要是<strong>供需不平衡</strong>造成的。中国一年大概要吃掉七亿头猪，但是前五家最大的猪肉养殖企业供给的猪不到一亿头，大量的猪都是个别<strong>散户</strong>养殖的。集中度很低，散户过多是造成猪肉供给波动很大的重要原因。散户最爱做的就是<strong>追涨杀跌</strong>。当猪肉价格高的时候，散户蜂拥而至，开始疯狂提高能繁母猪的数量。而当猪肉价格过低的时候，养猪亏损，散户不仅赶紧把商品猪都卖了，就连能繁母猪也一并杀掉，彻底弃养。赚钱扩产，亏钱减产，本来是正常操作，但由于猪本身有一个成长过程，散户这种跟着价格走的养殖模式，就会造成猪肉供应一会儿过多一会儿过少。想要扩大未来猪产量，这个过程大约需要<strong>18个月</strong>。因此，一旦猪肉价格很低的时候，能繁母猪都被散户杀了，18个月之后的商品猪会大量减少，这种预期下猪肉价格开始上涨。除了散户追涨杀跌，<strong>猪肉疫情</strong>也是重要推手。最近这轮猪肉价格上涨，<strong>非洲猪瘟</strong>是重要推手，它导致能繁母猪大量死亡。</p>
+<p>那么我们应该怎么抓住这个机会？首先你得对猪肉以及新希望公司基本面有充分了解，之后你就要善于利用<strong>市净率找到合适买点</strong>。刚才我们提到过，<strong>周期行业一定买在市净率低点</strong>。按照这个逻辑，你会发现2018年6月之后，<strong>新希望的市净率低于1.38倍，已经是历史最低位了</strong>。之后两年时间，新希望股价从六块多上涨到42元，涨幅够猛烈吧。这就是周期股的魅力，踩上风口，账户翻倍。但是也别兴奋过度，因为风口一过，股价坠落的时候可是没有降落伞的。2020年7月，猪肉的上行周期持续了两多（两）年，随着猪肉供给数量的提升，猪肉价格开始走下坡路了。之后短短一年时间，价格就从40元高位下降到14元的超低位。多数猪企利润亏损，股价大幅度下降，新希望跌幅超过70%。如果你不幸追涨，腰斩也是很平常的。但要是买之前看一眼市净率，腰斩就可以避免。<strong>2020年9月新希望的市净率接近六倍，近十年新高</strong>，显然这个时候买入风险巨大。</p>
+<p>总结时间：一、对于<strong>周期性或者净利润不稳定</strong>的行业和公司，我们很难用市盈率来衡量股价高低。往往在景气度高的时候，公司的市盈率低，看似便宜，但实际上利润即将拐头向下，这是一个陷阱。此时更适合通过<strong>市净率</strong>进行判断。二、对于这类公司，<strong>市净率处于历史十年百分位较低水平时</strong>，意味着你用更少的钱买到了更多的公司净资产，是一笔划算的买卖。反之，当市净率百分位较高时，意味着你付出了更多的成本，并不划算。三、关于周期性强的行业识别，我们将在后面的课程中教大家。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-25">
+                <div class="lesson-header">
+                    <div class="lesson-num">25</div>
+                    <div class="lesson-title">市销率PS美团烧了多少钱？</div>
+                </div>
+                <div class="lesson-body">
+                    <p>几年前呢，共享单车曾经有一场耗资百亿的橙黄大战。当时橙色一方<strong>摩拜</strong>和黄色一方<strong>OFO</strong>为了抢用户、战市场，最终干掉对手，两个公司先后<strong>融资超过十轮</strong>，金额超过百亿，开启了疯狂的<strong>烧钱模式</strong>。通过投放大量单车和各种补贴，摩拜和OFO的用户跟收入都上涨得很快，但由于投入的成本上涨更快，两个公司不仅没有盈利，欠债还越来越多。尽管如此，2018年的时候，OFO的估值依旧超过百亿，而摩拜4月被美团收购，<strong>收购价格为27亿美元</strong>。奇怪吧？两家公司一直亏损，什么时候盈利不敢想，而资产就是一堆很容易折旧报废的自行车，价值少得可怜。但就是这样，市场竟然认为他们价值百亿。</p>
+<p>把惊讶跟困惑先放一放，咱们再来看一看收购摩拜的<strong>美团</strong>。2017年亏损189亿元，净资产为负的405亿，但就是这样，2018年9月美团在港股上市了，市值接近4000亿。利润是负的，连净资产都是负的，但是公司却更值钱了。那么实践中这些又不挣钱又没什么资产的公司，他们的估值到底是怎么给的呢？企业核心的三要素：<strong>利润、资产、收入</strong>。前两期课我们已经学习了用利润给公司估值的方法——市盈率，以及用资产给公司估值的方法——市净率。</p>
+<p>但是如果一个公司没利润，同时资产又很少，甚至是负的，那市盈率和市净率就不合适了。这个时候要是公司<strong>收入有一定规模，而且在不断增长</strong>，我们就可以考虑用收入给公司估值。这种用收入给公司估值的方法叫做<strong>市销率，也就是PS</strong>。<strong>PS等于市值除以收入，等于每股价格除以每股收入</strong>。PS这个估值方法就是根据公司收入给一个估值倍数。对于绝大多数企业来说，提高收入是挣钱的第一步。更有一些企业成长初期，他们的目标就是扩大收入，而不是盈利赚钱。比如<strong>京东</strong>2010年至2017年一直亏损，但收入是持续提高的，市值也从1000多亿上涨到6000多亿。因此可以看出收入也是一个公司价值的体现。</p>
+<p><strong>PS具体适合哪类公司呢？互联网公司，尤其是发展阶段处于早期的</strong>。互联网企业模式有两个特点：<strong>一方面是边际成本极低</strong>。所谓边际成本就是指每多生产或者每多卖一件产品所带来的总成本的增加。对于互联网企业来说，增加的成本很少，比如微信多一亿人用，对于腾讯来说成本几乎没有增长。这个特点让<strong>互联网企业都在努力追求尽可能多的客户，因为客户多、收入高、成本又不怎么变，结果就是利润丰厚</strong>。</p>
+<p>除了边际成本低，建立在网络基础上的企业更容易获得垄断收益，这是因为<strong>网络效应</strong>。网络效应是指随着用户数量的增加，网络的价值指数级增长。随着网络价值变大，用户可以获得的价值也会变大，从而吸引更多用户使用。这个效应最终会造成一个结果<strong>：赢者通吃，形成垄断</strong>。一旦某个产品的用户数量突破临界点，它的网络效应就会变得特别强。当年的<strong>微信打败米聊</strong>就是这样。微信依靠QQ的强大基础后来居上，一年多的时间用户数量就已经过亿，建立了绝对优势。大家用微信是因为你的朋友、家人、同事在用，而他们用微信也是因为你在用。超低的边际成本和超强的网络效应，让互联网企业意识到<strong>一开始赢不盈利并不重要，用户数量才是关键</strong>。</p>
+<p>也就是所谓的<strong>流量为王</strong>。只要有足够多的用户，后续盈利可能性很大。因此这些公司在初期阶段的状态就是集中精力抢客户，收入增长但利润仍然亏损，因为需要投入更大成本继续抢客户。所以对于投资者来说，这些公司<strong>亏损是战略性地</strong>，并不可怕，收入才是关键。美团成立初期主打团购，在团购领域站稳脚跟后，转型生活服务电子商务平台。美团管理层相信衡量公司成功与否最根本的标准是<strong>是否能够为消费者、商家以及社会创造长期价值</strong>，这需要保持耐心和恒心，致力于取得<strong>长期成功</strong>而非短期利益。</p>
+<p>基于这样的战略目标，美团努力构建的是<strong>一站式消费者平台</strong>，更广泛地覆盖日常生活各类场景，这也就是公司高价收购摩拜的原因。摩拜当时的<strong>用户数量超过两亿</strong>，收购摩拜意味着美团可以直接切入到<strong>出行</strong>这个领域，进一步提高平台服务水平，<strong>捆住老用用户，吸引新用户</strong>。就这样，虽然利润一直亏损，但美团用户数量持续提升，从2017年的3.1亿成长到2020年的5亿，收入从340亿增长到117亿（注：原文此处为117亿）。市值从2018年的4000亿一路上涨到2021年初的2.8万亿。</p>
+<p>我们应该怎么抓住这个机会呢？首先得充分了解互联网生意模式以及美团的经营模式，之后就可以用<strong>市销率找到合适买点</strong>。通常当<strong>PS处于历史均值以下</strong>的时候，股价比较便宜；当PS高于历史90%分位的时候，股价高，要警惕高估风险。通过比对你会发现，<strong>市销率5到10倍是比较合理的</strong>。2019年初，美团的市销率最低小于4倍，低于均值很多，显然当时是一个非常好的买入机会。两年时间股价上涨了10倍。但到2021年初，美团PS超过20倍，比合理位置的估值高了一倍还多，股价已经很贵，买入风险很大。果然随后的一年，美团股价跌幅超过60%。</p>
+<p>总结时间：<strong>一，市销率PS通常适合互联网企业，尤其是处于快速发展阶段</strong>。因为他们多数资产很少，有一定收入，但净利润持续亏损，很难用市盈率和市净率衡量，而PS相当合适。二，具体使用方法：如果<strong>市销率处于历史五年百分位较低水平时，机会较好</strong>；反之百分位较高时，风险较大。三，互联网企业尤其是早期阶段<strong>竞争非常激烈</strong>，美团成名时类似的团购公司超过5000家，最后走出来的只有美团一家。因此投资这类企业<strong>收益大，但风险也很大</strong>，要求对行业有深入理解和更强的前瞻判断能力。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-26">
+                <div class="lesson-header">
+                    <div class="lesson-num">26</div>
+                    <div class="lesson-title">PEG比亚迪：东风来了，谁也挡不住！</div>
+                </div>
+                <div class="lesson-body">
+                    <p>中国速度有多快，中国制造有多强。这一点我们可以从一家深圳公司身上深刻地感受到。2020年1月31号凌晨，公司总裁表示，任何团队两周内研发出口罩，将给予总裁奖励。当时生产口罩的机器需要两个月才能到货，时间太久了，等不了，公司决定自己造。随后公司集合了全体工程师队伍，三天时间化出了400多张图纸，七天口罩生产线落地，又用了七天时间口罩正式下线。一个月之后，公司日产口罩千万片，成为了全球最大的口罩工厂，助力全球解决疫情下的口罩危机。那么这个自力更生光速生产口罩的公司到底是谁呢？他叫<strong>比亚迪，中国制造代表企业，业务布局涵盖电子、汽车新能源和轨道交通等领域</strong>，并在这些领域发挥着举足轻重的作用。公司总裁叫做<strong>王传福</strong>，因为对全球抗议做出突出贡献，他入选了美国《财富》杂志评选的2020年全球25位最伟大领袖榜单，位列第19名，排在德国总理默克尔之前。面对铺天盖地的好评，王传福是这样回应的：做口罩不是为了挣钱，而是企业家责任。能这么快地做出口罩，是因为我们国家制造业实力强大。一旦国家有困难，像我们这样的制造业代表站出来的话，什么都可以造。老板有情怀，公司有实力，这样的企业投资的时候理所应当值得关注。</p>
+<p>不过如果看下当时比亚迪的<strong>市盈率（PE），估计多数人都会打退堂鼓了，高达90倍</strong>。这对于一个制造业企业来说太高了。然而一年半之后，2021年8月，你会发现比亚迪股价竟然上涨了六倍。看来90倍的PE根本无法阻挡股价前进。那问题出在哪里呢？还是因为<strong>市盈率估值这种方法本身有局限性</strong>。PE更多考虑的是公司当时点的价值是否合理，<strong>对公司未来的成长情况考虑不足</strong>。如果一个公司未来几年业绩高速增长，那意味着就算是高PE，也很快会被高增速消化掉。我们用老王给大家解释一下。老王有个医美设备公司叫作“知识美”，一直在研发一个产品叫<strong>热玛吉</strong>。以前生产技术被国外垄断，今年终于被老王的知识美给攻克了，国产化在即。知识美之前的业绩一般，一年100万利润，几乎没人投资。但是自从热玛吉研发成功，给的价格还出奇的高，按照PE算高达100倍。看中的就是热玛吉未来的热销。他们认为老王的公司去年利润100万，今年大概率翻倍，未来三年平均增长率超过80%。这意味着<strong>三年后利润会上涨到接近600万，按照这个利润增长，市盈率三年后会降到16倍</strong>。</p>
+<p>所以当前看似高的市盈率，由于业绩高增长，其实一点都不高。通过老王的故事，我们应该能感受到市盈率过高是风险不假，但如果公司增速很快，就要更全面地考虑了。这里我们引用<strong>彼得·林奇的一句话：</strong><strong>不要投资过高市盈率的公司，除非公司未来保持高增速。</strong>大师告诉我们了，<strong>高增速面前高市盈率是可以接受的</strong>。这就要说到大师经常用的估值指标，它叫做 <strong>PEG</strong>。公式就是 <strong>PE除以G乘以100</strong>。<strong>PE是市盈率，G是公司利润增速</strong>，一般都是公司<strong>三年预期的平均增速</strong>。可以看到<strong>PEG既考虑了公司的盈利能力，也考虑了公司的成长能力，是一个比较全面的估值指标</strong>。实战中，<strong>PEG在1.5左右是比较合理的。如果低于1，表明公司估值偏低。如果高于2则说明公司估值偏高，要注意投资风险</strong>。PEG这种估值方法比较适合<strong>有利润的成长公司</strong>。而<strong>强周期行业、项目依赖型公司不适合</strong>，因为他们的利润不稳定，很难给出明确预期。比如石油化工这类受到全球经济影响太严重，你很难准确预测未来几年利润增长；再比如不少电影游戏公司，业绩随机性太强，出爆款利润就大增，反之则惨，但爆不爆很难预判。</p>
+<p>我们回过头看2020年初的比亚迪。<strong>比亚迪是中国制造业的代表</strong>。大家可能都知道比亚迪造汽车，实际上公司还制造各种手机零部件、手机电池、汽车电池、光伏设备以及轨道交通<strong>云轨云巴</strong>。业务看起来多而复杂，但其实背后的逻辑很清楚：<strong>目标一致，协同性很强</strong>。比亚迪把自己定位为<strong>全球新能源整体解决方案的开创者</strong>，致力于全面打造零排放的新能源生态系统。具体来说，新能源汽车和云轨云巴这类相对革命的交通工具都是为了解决污染，而光伏和电池是支撑设备。<strong>未来是新能源的时代，其中最受瞩目的就是各种燃油车转电动车。在这重大的变革之境，比亚迪不仅是参与者，更是引领者</strong>。公司制造电池起家，2020年研发出<strong>刀片电池</strong>，通过了电池安全标准中极其严苛的测试之一：<strong>针刺测试</strong>。所谓针刺测试，就是一根针穿刺到电池中停留一段时间，一般电池这个时候就会出现内部短路、产生热量，最终引起电池爆炸。</p>
+<p>比亚迪的刀片电池经受住了考验，被针刺之后不仅没着火，表面温度也只有30到60度，<strong>安全性能大幅度提高</strong>。而比亚迪的造车梦从2003年收购<strong>西安秦川汽车</strong>就启动了。买秦川就是买了一个生产汽车的许可。换句话说，<strong>比亚迪造车是彻彻底底从零开始</strong>。就这样，精准战略外加脚踏实地，比亚迪高速成长，如今成为了<strong>国内唯一一个新能源车三大核心部件（电池、电机、电控）全部自主可控的企业</strong>。2020年，东风来了，随着电池安全性、续航里程明显上了一个档次，新能源汽车性价比凸显，销量也开始高速上涨。2020年，我国新能源汽车销量136万辆，增长13.4%；2021年上半年销量120万，增长207%。这种情况下，行业引领者比亚迪自然受益，<strong>2020年利润上涨162%</strong>。2021年8月，股价超过300元，市值接近九千亿。从2020年初一年半的时间，股价上涨了近六倍。</p>
+<p>怎么抓住呢？依靠 <strong>PEG</strong>。2020年年初的时候，按照19年16亿的利润计算，PE是96倍，很高了。但是公司的新能源汽车以及其他协同业务处于爆发期，可以遇见未来几年利润会高速增长。结合新能源汽车增量、公司地位、实力以及券商研究报告预测，大致推算出2022年公司的利润很可能超过80亿。也就是说，<strong>三年利润预期平均增速在70%左右</strong>。这样算下来，当时<strong>比亚迪PEG为1.37倍，处于低估区间</strong>。最后总结时间：<strong>PEG这种估值方法通常适合有利润的成长型企业</strong>，它动态地考虑了公司的成长潜力。但是要注意，<strong>强周期行业和项目依赖性公司，因为业绩太不稳定，不适合PEG估值</strong>。一般来说，<strong>国内投资PEG在1.5左右是合理的；如果低于1，表明公司估值偏低；如果高于2则说明公司估值偏高</strong>。使用PEG需要我们对未来三年利润增速有一个较准确的预期，而<strong>准确的背后就要求我们首先对基本面有深入研究和较深刻的理解</strong>。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-27">
+                <div class="lesson-header">
+                    <div class="lesson-num">27</div>
+                    <div class="lesson-title">自由现金流(DCF)一个公司到底值多少钱？</div>
+                </div>
+                <div class="lesson-body">
+                    <p>89年，巴菲特接受了塔特兰大线章的记者梅丽莎·特纳的采访。他问了巴菲特一个经常被提及的问题：为什么要重仓可口可乐公司的股票？ 巴菲特是这样说的：<strong>假设你要外出十年，出发之前你要做一笔投资，这笔投资之后的十年不可以有变动，你会怎么做呢？</strong> 大概率你投资的这个标的，它的生意要<strong>简单易懂，有持续性，有成长性</strong>。按照这个标准，我能确定可口可乐就是这样的公司。我认为可口可乐的市场份额会继续提高，收入利润都会有极大的增长。简单来说，十年之后可口可乐公司会比今天好很多。10年之后，可口可乐确实没有让老巴失望，公司市值从258亿美元上涨到1430亿美元。在此期间，公司创造了269亿美元利润。巴菲特最初投资的10.23亿美元，变成了116亿美元，10年收益十倍。</p>
+<p>那么巴菲特如此准确的预判是怎么做到的呢？道理很简单：<strong>合适的价格买入好公司</strong>。可口可乐经营的历史堪称传奇，1886年成立，至今已经超过100年。一个世纪的经营足够漫长，但可口可乐做的生意却相当简单，就是卖可乐。品牌文化和忠实的粉丝让可口可乐建立了深厚的护城河。表现在财务数据上，<strong>ROE常年很高，平均在20%以上</strong>。1987年公司的ROE甚至达到了31%。巴菲特认为可口可乐极具价值，而1988年公司的价格却远低于价值。</p>
+<p>企业价值该怎么看呢？<strong>巴菲特认为一个企业的价值就是公司未来预期产生的所有自由现金流之和，在合理折现率上的折现</strong>。这个评估企业价值的方法叫做<strong>现金流折现模型，简称DCF</strong>。公式中，D0是当前自由现金流，D1是下一年自由现金流，G是企业未来的平均增长，R是折现率。</p>
+<p>为了通俗理解，看老王买白酒公司的故事。老王认为衡量一个公司的价值主要就是看它的盈利能力。通常我们习惯看净利润，但净利润是账面数字有时候会很虚，而股东想要的是真金白银。<strong>自由现金流可以近似理解为：经营活动现金流净额 \- 资本支出（维持竞争力必须投入的设备、工厂等更新资金）</strong>。所以衡量公司能力，用自由现金流更好。</p>
+<p>老王算了一下，知会家酿（注：源文为知识家酿）今年自由现金流是100万元，假设之后每年以5%的速度增长。但<strong>现金流是有时间价值的</strong>。未来的100元换算到今天肯定不值100元，因为有通货膨胀和潜在投资收益。这个计算过程叫作<strong>未来现金流折现，折扣率叫作折现率（通常在5%到15%之间）</strong>。老王给公司设定了10%的折现率，最终折现值相加，算出DCF等于2100万。</p>
+<p>实战中，1989年记者问巴菲特为什么在1988年才买可口可乐？ 巴菲特解释，70年代公司董事奥斯汀盲目多元化，不专注主营，导致经营混乱、危机重重。幸运的是，1980年公司更换了管理层，罗伯特·郭思达（Goizueta）和唐纳德·基奥上任后进行改革。公司停止多元化，专注汽水主营，努力提升每股盈利和ROE。1980至1988年，公司利润率创纪录达到19%，ROE一直在20%以上，现金流年平均增长17.8%。</p>
+<p>巴菲特早就锁定了可口可乐，但此前股价太贵无法下手。直到<strong>1987年10月美国股市遭遇“黑色星期一”，道指暴跌，可口可乐股价回撤25%</strong>。老巴认为公司现金流增长趋势会延续，增长率至少在5%以上（乐观可达15%），折现率给9%（参考美国30年国债收益率）。最终计算出<strong>可口可乐价值区间为207亿到324亿美元，而当时市值仅150亿</strong>。看到价格远低于价值，巴菲特果断买入三成仓位。</p>
+<p>DCF逻辑上虽然更完美，不需要参考同行，但实际应用难度很大。因为需要同时估算<strong>现金流增长率和折现率</strong>，这两个变量主观性极强且基于长期预测。<strong>变量稍微变化一点点，最终DCF结果变化就会很大</strong>。比如增长率从15%调成12%，价值会直接下降26%。如果公司未来不确定性高，DCF偏差会很大。</p>
+<p>因此巴菲特建议：<strong>宁要模糊的准确，不要精准的错误</strong>。具体有两点：</p>
+<p><strong>第一，评估自己的投资能力圈。看不明、无法预估未来现金流的公司（如很多科技股）应尽量规避，不强行估值。</strong></p>
+<p><strong>第二，模糊的准确，留出足够的安全边际。安全边际是指一定要等到价格低于企业价值的一定空间（通常至少25%左右）再投资。</strong></p>
+<p>总结时间：</p>
+<p>一，<strong>DCF是绝对估值方法，逻辑比PE、PB、PS更完美</strong>，其思想对评估企业价值至关重要。</p>
+<p>二，<strong>实际应用难度大，变量主观性强</strong>，实战中要谨慎使用。</p>
+<p>三，真正使用时参考巴菲特标准：<strong>避开看不懂的公司，投资时留出足够的安全边界</strong>。</p>
+                </div>
+            </div>
+            
+        <div class="module-header" id="module-3">
+            <h2>⚡ 第4模块 · 交易技巧</h2>
+            <p>均线、量价、PE/PB Band——掌握买卖时机的艺术</p>
+        </div>
+        
+            <div class="lesson" id="lesson-28">
+                <div class="lesson-header">
+                    <div class="lesson-num">28</div>
+                    <div class="lesson-title">均线·左侧交易抄底如何才能稳准狠</div>
+                </div>
+                <div class="lesson-body">
+                    <p>取消光伏发电补贴，限制新建规模，不设缓冲期，明天立刻执行。2018年5月31号，这道光伏新政直接把行业给打蒙了呀。在这一重大利空下，光伏上市公司被投资者争相抛弃，短短两个月，股价腰斩的一大片。然而，这轮暴跌虽然惨烈，却也给了睿智（注：原文为“瑞制”）有勇敢的投资者报复机会。比如当时已经是光伏电池龙头的<strong>隆基股份，暴跌后股价下降到不足10元，而三年后股价接近100元</strong>。看到没，要是我们当时底部买入，三年十倍收益，这诱惑力够大吧？显然这就是大家爱抄底的原因。然而抄底这件事吧，你要真实践却很难，要么是以为这是底部呀，结果山腰买完了被套得痛苦不堪（注：原文为“痛不欲声”）；要么是买完了一直震荡，就是不涨被磨得失去耐心了。这种感受很常见，那我们应该如何应对呢？当你准备出手抄底的时候，除了看公司基本面和估值之外，再看一个辅助指标，它叫做<strong>均线</strong>。</p>
+<p>首先什么叫均线呢？<strong>均线全称移动平均线，英文名字 moving average，简称 MA</strong>。它是将一定时期内的证券收盘价格加以平均，并把不同时间的平均值连接起来，形成的一根线。通常均线按时间可以分成短、中、长三种周期：<strong>5日、10日均线是短期均线</strong>，它们可以近似理解为一周两周；而<strong>20日、60日是中期</strong>，代表一个月和三个月；而<strong>120日和250日代表半年和一年，很明显是长期均线</strong>。这些均线有什么含义呢？以五日均线为例，它表示在任意时点，过去5日内所有投资者的平均买入成本。相应的250日均线，就意味着过去250天，也就是近似一年，所有投资者的平均买入成本。</p>
+<p>均线该怎么用？主要有两点：一个是<strong>均线可以告诉我们不同周期股价的趋势</strong>，一个是<strong>辅助我们发现长期趋势反转的迹象</strong>。通过观察均线的波动方向，我们就能知道股价的趋势：向上波动代表上行，向下代表下降，横盘则走平。为什么要强调长期呢？这是因为基于公司基本面的价值投资看得太短没有意义。但均线有个弱点，就是相对股价趋势变动有<strong>滞后性</strong>（注：原文为“后性”），时间周期越长的均线滞后性越严重。单独看一个周期的均线很难及时有效发现长期趋势变化，所以要<strong>不同周期的均线一起看</strong>。它们的形态主要有两种：<strong>发散和收敛</strong>。发散是指不同周期的均线离得很远，朝一个方向张口；收敛是指不同周期均线离得很近，缠在一块。一般情况，股价长期趋势反转之前都会出现时间的横盘震荡。<strong>中短期均线收敛是长期趋势反转的信号之一</strong>。</p>
+<p>长期投资中，<strong>基本面和估值是关键，均线只是一个辅助指标</strong>，单独用失败率很高。正确做法是：先认真研究公司基本面和估值，对未来有信心后再关注均线。均线有两种交易思路：<strong>左侧交易是指中长期均线处于下降趋势时的买入及提前埋伏</strong>，预期下降趋势会逐渐结束；而<strong>右侧交易是中长期均线处于上涨趋势的时候买入，即顺势而为</strong>。今天先重点说左侧交易。左侧交易的核心思路是<strong>低位布局，分批买入，越跌越买</strong>，不要把子弹一次性打光。当我们认为公司估值便宜了，就可以开始分批买入，但要拉开买入间隔，通常以10%左右为宜。细节方面参考均线形态，<strong>短中期均线收敛是较好的分批买入时机</strong>。</p>
+<p>以2018年的隆基股份为例，面对“531新政”补贴退潮，行业陷入恐慌。但隆基总裁李振国早有预见，他认为适度产能过剩可以淘汰落后产能，刺激技术进步。隆基长期专注<strong>单晶硅</strong>研究，凭借成本优势和技术转换效率后来居上。对于这种技术成本有优势、不靠补贴也能赚钱的企业，利空反而是机会。如果我们深入研究行业变化，就有底气去左侧买入。2018年7月底，隆基股价下降到8块多，<strong>市盈率12倍，处于历史分位10%以下</strong>，此时短期均线开始收敛，是早期买入机会。8月末股价跌到7元，市盈率仅9倍，短期均线再次收敛，又是好的买入机会。</p>
+<p>到了10月之后，<strong>中短期均线全部收敛，60日线和5日线缠在一块，意味着股价可能已处于底部</strong>，是很好的买入时机。之后随着政策放宽和业绩回暖，隆基开启了三年十倍的上涨之旅。最后总结：一，<strong>基本面和估值是核心</strong>，均线是辅助工具；二，交易可分为<strong>左侧和右侧</strong>；三，<strong>左侧交易要心态平和，分批入场，越跌越买</strong>。如果基本面太好导致底部横盘时间短，左侧没买到，我们也还有右侧交易可以等待。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-29">
+                <div class="lesson-header">
+                    <div class="lesson-num">29</div>
+                    <div class="lesson-title">均线·右侧交易·再不上车就没机会了</div>
+                </div>
+                <div class="lesson-body">
+                    <p>在美国那边，每个人走路都要特别小心，因为一小心呢，你就会踩到金子。那边的人走路的时候还要带着莫针眼镜，要不然随时有可能会被金子晃下了眼。这是电影《黄飞鸿》里忽悠华工去美国投金的一个片段，当时李连杰饰演的黄飞鸿听完都心动了，去的时候摘下了带着的墨镜。电影内容虽然夸张了些，但当时美国疯狂的淘金梦确实是真的。1848年，随着木将马夏尔在河边发现金块，加州遍地黄金的消息就不胫而走，吸引着一批又一批的人前来淘金。最终不少淘金人一夜暴富在加州。不过暴富的人却不止他们，<strong>那些不亲自淘金，却提供淘金工具服务的个人或者公司也相继发了财</strong>。比如提供全套淘金工具的商人萨姆·兰，再比如提供了专业挖矿裤子的牛仔裤品牌李维斯，<strong>这些群体被叫做“卖铲子的人”</strong>。</p>
+<p>实际上类似的致富模式在各个行业都很常见，比如医药研发行业。2017年10月，咱们国家的医药改革重磅出台，核心内容就是国家开始全力支持创新药研发。改革政策相当于就是国家喊话：从今天开始，创新药就是个大金矿。显然这喊话一出，那些一直专注在创新药领域的药企要笑出声，因为他们发现自己挖的矿以前不被重视也不值钱，但现在全变成了金矿。除此之外，<strong>为这些创新药企提供服务工具的企业也要乐开花了，因为他们知道自己就是创新药研发行业“卖铲子的人”</strong>。而这些企业中<strong>泰格医药</strong>最开心，因为它是中国领先的临床合作研究组织（CRO），<strong>为药企药物临床试验服务是它的王牌业务</strong>。</p>
+<p>创新药的浪潮下，泰格的“铲子”肯定卖得很好。不过当我们真的准备下手的时候，可能会由于政策发布时泰格股价已经涨到了20多块钱，相比半年前的13元涨幅超过了50%，而感到犹豫。不少人的第一反应是“有点贵，先等回落再买”，结果这一等就让翻倍牛股溜走了。实战投资中想等便宜没错，但一定要看时机，<strong>尤其是当股价处于“右侧交易”位置的时候，盲目等便宜很容易错过大行情</strong>。所谓<strong>右侧交易，它的判断依据就是中长期均线向上发散，表明股价上涨趋势很可能已经启动</strong>，如同已经提速出站的列车，期盼它大幅回落再上车是不切实际的。正确做法是找到合理买点迅速建仓上车。</p>
+<p>右侧交易的总原则是：<strong>先聚焦公司基本面和估值，再用均线找合理买点</strong>。没有基本面支撑或估值过高的上涨，很可能是短期情绪或庄家坑杀散户的陷阱，上涨趋势可能瞬间瓦解。当我们对公司未来有信心、认为估值有吸引力之后，再利用<strong>均线的支撑作用</strong>来寻找买点。所谓支撑作用，是指<strong>价格从均线上方回落到均线附近时，均线会产生支撑造成价格反弹</strong>。以60日均线为例，它意味着过去三个月投资者的平均持仓成本。当价格回落到均线附近，持仓的人没有被套压力，更多想继续持仓；而没上车的人觉得给了机会赶紧买入，从而形成支撑。</p>
+<p>实战中，股价上涨趋势的回落有“<strong>由浅入深</strong>”的规律：第一，<strong>股价一开始回调到短期均线就容易反弹，之后慢慢地需要回调到中长期均线才会反弹</strong>；第二，<strong>一个周期的均线首次被触碰到，受到支撑的概率大，多次触碰后跌破的可能性就会很大</strong>，此时股价大概率会回落到更长期的均线位置。建议在刚开始上涨且大环境乐观时，<strong>首次回调到5日均线可以买入</strong>；上涨一段后，若5日线已碰触多次，则等待<strong>20日或60日均线</strong>的支撑。通常<strong>不要选择250日均线做右侧交易</strong>，因为回落到那里时均线通常已变成收敛形态，属于左侧交易的思路了。</p>
+<p>以泰格医药为例，政策主导下CRO生意一定不错。新药研发分为药物发现、临床前研究和临床试验，<strong>泰格的招牌是临床试验服务，尤其是临床数据统计处理更是国际领先</strong>。2017年泰格利润增速超过100%，基本面极强，估值低于历史50分位，既不贵还挺便宜。2017年10月，泰格的中长期均线已向上发散，处于<strong>右侧交易位</strong>。回顾其实际股价，给了三次结合均线支撑的买入机会：<strong>2017年11月1日回踩20日线（约20元）；11月27日回踩60日线（约20.5元）；2018年2月6日回踩60日线（约22.5元）</strong>。这三次机会触碰均线后很快反弹，让投资者精准高效地抓住了牛股。</p>
+<p>总结时间：一，长期投资中，<strong>基本面和估值是核心，均线只是辅助工具</strong>，不要单独使用。二，交易分为左侧和右侧。左侧交易是在均线向下发散或收敛时分批入场提前埋伏；若错过了底部分批买入的时机，可以换成右侧交易模式。三，<strong>右侧交易是指中长期均线向上发散，上涨趋势已形成。核心思路是顺势而为、趋势交易</strong>，心态上不能过分等待便宜价格，行动上要利用均线支撑作用找到合理买点迅速建仓。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-30">
+                <div class="lesson-header">
+                    <div class="lesson-num">30</div>
+                    <div class="lesson-title">均线量价·买点如何发现一鸣惊人的股票</div>
+                </div>
+                <div class="lesson-body">
+                    <p>2017年315晚会，脚魔速行镜（OK镜）登上了光荣榜。脚魔速行镜俗称OK镜，是一种青少年使用的医疗产品，主要给8岁到18岁的孩子使用。按照规定，需要在正规医院验配。然而郑州科视公司却谎称自己是郑州市中小学近视防治中心，骗取了家长信任，在没有医疗执业许可证、没有眼科医生的情况下给孩子验配，且销售的国外产品定价高达万元。 最终科视公司被央视曝光，不仅自己完蛋，还让整个脚魔速行镜行业进入整改期，家长也开始忌惮。<strong>这种情况下被误伤最严重的就是欧普康视。</strong> 公司2017年年初上市就撞上行业利空，随后又遇到2018年的证券大熊市。这导致欧普康视股价在上市头两年基本处于横盘震荡状态。</p>
+<p>不过金子终究会发光。2019年2月底，欧普康视的股价启动了，一举突破了横盘区间之后爆发上涨，两年多时间涨幅近十倍，真正做到了一鸣惊人。 对于多数人来说，如果能在股价刚刚启动的时刻买入，既能省掉左侧交易的等待时间，又能避免右侧交易追高的恐慌，这种<strong>完美的买点可以通过“均线收敛突破”的方法找到</strong>。 通常股价从下降转成上涨需经历三个阶段：<strong>第一阶段是持续下降，波动幅度大且不稳定；第二阶段是震荡，波动幅度缩小并趋于稳定；第三阶段是快速拉升，波动再次变大</strong>。</p>
+<p>寻找完美买点的第一步是<strong>找到中长期均线收敛的股票</strong>。中长期均线收敛意味着在过去很长一段时间内，<strong>所有投资者的买入成本十分接近，且都没有明显盈利或亏损</strong>。这些投资者普遍富有耐心。一旦公司基本面出现利好（如业绩转好），由于投资者心理状态相近且卖盘阻力小，股价上涨会更加流畅长久。因此，<strong>中长期均线收敛的股票具备成为长牛股的潜力</strong>。</p>
+<p>第二步是从这些潜力股中寻找<strong>突破信号</strong>。突发信号的具体表现是<strong>价格明显上涨且成交额明显变大</strong>。这包括两种情况：一种是<strong>单日大爆发</strong>，比如之前涨幅微小、成交几千万，突然一天涨幅接近涨停且成交额飙升数倍；另一种是<strong>连续数日趋势变换</strong>，虽然单日不耀眼，但累计涨幅可观，且平均成交金额相对之前有数倍增长。总之，<strong>量价变化越明显，突破信号就越强</strong>。</p>
+<p>以欧普康视为例，公司上市前两年股价横盘，2018年底<strong>中长期均线收敛得非常厉害，缠绕在一起</strong>。 2019年2月26日，公司股价单日上涨9.47%，成交金额达到3.26亿（此前平均仅8千万左右），属于典型的<strong>量价单日大爆发</strong>。随后几天股价继续走强，每日平均成交额保持在1.6亿左右，明确了量价齐升的完美买点。</p>
+<p>需要强调的是，发现完美买点固然酷，但<strong>策略、均线和量价都只是技巧，公司能否持续上涨的根源还是基本面</strong>。研究好基本面的情况下应用技巧会效率大增，否则容易弄巧成拙。 回看当时的欧普康视，由于电子产品普及，小孩近视比例增大，市场需求极高。而脚魔速行镜属于最严格的<strong>三级医疗器械产品</strong>，研发到获批至少需要五年。2019年之前国内仅有八家公司获批，且<strong>欧普康视是唯一的国产品牌</strong>，面临着需求增长快且短期竞争不激烈的优良环境。</p>
+<p>从业绩看，公司上市前后始终保持<strong>30%至40%以上的净利润增速</strong>，成长性极佳。估值方面，2018年PE仅42倍，对应其增速属于明显低估。因此，欧普康视在2019年初是一个<strong>成长前景乐观、业绩好、估值低</strong>的潜力牛股。 类似的案例还有芯片巨头和CRO龙头招衍新药（昭衍新药），它们都在中长期均线明显收敛后出现了量价齐升的突破信号，随后开启了长牛之旅。</p>
+<p>总结来说：一，长期投资中，<strong>基本面和估值始终是核心</strong>，均线量价只是辅助参考，不可单独使用。二，利用<strong>均线收敛突破</strong>（结合量价明显放大）有可能找到更完美的买点。三，这些技巧能帮助快速锁定潜力公司，但<strong>最终决定公司能否一鸣惊人的关键还是其基本面素质</strong>。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-31">
+                <div class="lesson-header">
+                    <div class="lesson-num">31</div>
+                    <div class="lesson-title">均线量价·卖点·6000亿龙头，说崩就崩</div>
+                </div>
+                <div class="lesson-body">
+                    <p>公司市值增长1000亿，需要多久？2020年<strong>海天味业</strong>告诉了我们答案，只需要两周。8月18日海天市值5000亿，9月1日市值突破6000亿。实际上这只是海天2020年市值飙升的一个缩影。年初公司从3000亿起步一路上涨，市值屡创新高，股价势如破竹。彼时投资者赚了大钱，信心满满的同时也把海天捧上了天。大家认为海天对标的就是日本调味巨头龟甲万，未来成长空间巨大，6000亿只是开始，下一个万亿消费巨头指日可待。那时偶尔冒出的几个唱空声音很快就会被看多舆论拍死。多方观点大致就是：在场的人那不是傻就是坏，你想卖就卖，你别影响大家发财。然而，依靠海天带大家一起携手发财的美梦并没有持续多久。转过年海天的股价就崩了。2020年的势如破竹，变成了2021年的节节败退，6000亿、5000亿、4000亿、3000亿，20年市值怎么上去，21年就怎么掉下来。如果你在2020年买了海天但没有及时卖出，那持股体验肯定是相当糟糕的。先大喜再大悲，看着账户金额创新高，再看着金额回到原点。可见，<strong>买到好股票很重要，但赚钱了什么时候卖也很重要</strong>。在股市做过山车没有刺激，只有痛苦呀。这个道理谁都懂，但是好卖点却难找。你卖早了后悔，卖晚了也后悔。那有什么好的办法能够帮咱们找到一个相对完美的卖点呢？</p>
+<p>发现完美卖点的逻辑是：<strong>先看基本面，再看估值，最后利用均线量价</strong>。首先是<strong>基本面</strong>。我们买一支股票最重要的逻辑就是认为公司基本面好，未来持续成长概率大。那反过来，<strong>如果公司基本面不好了，或者有重大不确定性了，我们就该卖出</strong>。比如现金流那节课提到的<strong>凯伦股份</strong>，公司深度绑定了恒大。2020年9月15日，市面流传一封恒大的求助信，显示其资金不足。显然恒大已陷入危机，凯伦未来的不确定性就很大了，<strong>此时及时卖出凯伦股票是正确的做法</strong>。</p>
+<p>接下来我们再看<strong>估值</strong>。对于基本面没问题的公司，何时卖就得重点关注公司估值，看看<strong>贵不贵</strong>。贵了就卖逻辑容易理解，但操作难度不小。一方面是因为“贵”是一个区间，没有准确的点；另一方面是<strong>估值贵了也不意味着股价就不涨了</strong>。有时估值已经超过历史90%分位甚至创新高，但之后股价却继续上涨。比如<strong>贵州茅台</strong>，2020年6月市盈率突破40倍，创近十年新高，但之后股价无惧新高，继续强势上涨到2021年2月的2600多元。这背后是<strong>投资者情绪</strong>的影响，正如霍华德·马克思所说，情绪可以导致股票在短期内出现任何价格。<strong>乐观情绪造成估值过高、出现阶段性泡沫是客观规律，我们不要一看到估值贵就立刻卖掉，要学会享受泡沫收益</strong>。但是，为了能卖在泡沫破裂的边缘，除了看估值，我们还得找帮手，比如<strong>均线和量价</strong>。</p>
+<p>综合应用估值、量价、均线后，我们总结出两种有效的卖出信号。<strong>第一种是“单日见顶信号”</strong>，主要看量价。具体来说，当<strong>估值很贵的时候，要么日线暴跌（跌停或接近跌停），要么跌幅虽没那么极端但放量非常明显，日成交额接近或超过历史最高成交额，是平时交易额的数倍</strong>。这两种情况都是明确的单日见顶信号。日跌幅越大、成交额越大，卖出信号越强。背后的原因是：估值高位时，放量大跌通常是<strong>机构大资金用脚投票</strong>，大资金的撤退会形成带头示范作用，容易造成股价走弱。此外，如果<strong>日线有很长的上影线并伴随放量</strong>，表明卖盘借着上涨大幅度出货撤退，也是卖出信号。</p>
+<p><strong>第二种是“趋势反转信号”</strong>，主要看股价和均线的位置。具体来说，当<strong>估值很贵的时候，股价跌破关键均线（如120日均线），我们就认为上涨趋势大概率已经结束，该考虑卖出了</strong>。均线反映的是投资者的平均持仓成本。价格跌破均线意味着趋势变坏，投资者心态变消极，容易造成股价加速下降。之所以选择<strong>120日均线</strong>，是因为它能适度容忍股价波动，既不会像短期均线那样容易“卖飞”，也不会像长期均线那样卖得太晚，是一个<strong>风险收益比很好</strong>的选择。当然，实战中也可以结合对公司的把握调整参考的均线周期。</p>
+<p>回过头看<strong>海天味业</strong>。海天基本面没问题，酱油龙头地位稳固。从2020年4月开始，海天市盈率超过60倍创历史新高，估值确实贵了，但此时均线量价没变化，正确做法是<strong>持股躺平，享受泡沫收益</strong>。直到2020年9月1日，海天市值破6000亿，估值超过100倍。两天后的<strong>9月3日，海天股价下降6.79%，放量特别明显，成交金额达37.89亿的历史天量</strong>。这就是明确的单日见顶信号，次日开盘卖出价格约135元，能有效避免之后回撤到85元的痛苦。类似的案例还有<strong>三一重工</strong>，2021年1月13日出现长上影线且成交额超120亿的历史天量，次日卖出可避免股价腰斩。还有<strong>东方雨虹</strong>，2021年7月19日在估值很贵的情况下<strong>股价跌破120日均线</strong>，出现趋势反转信号，次日卖出可避开之后40%的回撤。</p>
+<p>总结时间：一，长期投资中，<strong>公司的基本面和估值始终是核心</strong>，均线量价是辅助工具。二，如果<strong>基本面出现重大不利变化，卖出是明智选择</strong>。三，如果基本面没问题，卖出主要看估值和均线量价。<strong>在估值很贵的情况下，有两种卖出信号：一是单日见顶信号（跌停或放历史天量大跌，或长上影线放量）；二是趋势反转信号（跌破120日均线等关键均线）</strong>。所谓完美卖点并不是卖在最高点，而是选择一个风险收益比最合适的时机落袋为安。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-32">
+                <div class="lesson-header">
+                    <div class="lesson-num">32</div>
+                    <div class="lesson-title">PEPB BAND 神级功能来了，无价之宝</div>
+                </div>
+                <div class="lesson-body">
+                    <p>“4000点才是A股牛市的开端”，这个观点出自2015年4月21日《人民日报》的一篇报道。这个报道直接把已经持续了近一年的牛市推向了高潮，疯牛最后一块拼图凑齐了。之后资金铺天盖地地涌入，日成交金额突破2万亿。创业板指在过去八个月已经翻倍，作为牛市主力板块，随后的一半月又涨了60%。那个时候全民炒股，“今天你又挣了多少”是办公室最热门的话题。但是这种其乐融融的发财话题并没有持续太久，因为这次疯牛背后创纪录的交易金额很多都来自配资加杠杆。换句话说，牛市的赚钱效应让很多投资者杀红了眼，他们并不满足慢慢变富，都在借钱炒股，比例最低1:2，有的甚至是1:10。一万本金借十万去炒股，如此高的杠杆，风险必然巨大。2015年6月12日，证监会开始清查股票配资，大量资金被迫离开。随着资金的退出，上涨信仰瞬间崩塌。一个月时间，主力军创业板接近腰斩，之后更是开启了漫长的熊市之旅，直到2019年初才开始反转。上述这种牛熊市交替变换已经在A股市场发生了多次，差不多五到七年就会有一次。而这种<strong>周期性变化就是证券行业的典型特点</strong>，相关证券公司的业绩也会跟着行业大起大落，比如中信证券，2015年牛市当年净利润接近200亿。</p>
+<p>这个数字不仅创了当年公司业绩的历史新高，而且五年之后依然是历史最高。实际生活中证券行业大家多少都有了解，强周期特点也容易观察，持续大涨必定是景气，持续下降必定是萧条。但还有不少行业，除非工作有接触，否则他们的周期特点，我们想要短时间搞明白还真是挺困难。那么有没有什么方法能帮到我们？还真有，它叫做<strong>估值区间通道</strong>，英文简写叫做 PE/PB <strong>Band</strong>。PE/PB Band不是一个常规的财务指标，而是一个很牛的分析工具，国外机构投资者都很爱用。它具体怎么个牛法？除了告诉你公司周期特点之外，这个分析工具还<strong>能告诉我们一个公司的业绩成长情况和估值情况</strong>。它牛就牛在靠一己之力就解决了投资股票最需要关心的两个问题：<strong>公司好不好？股价贵不贵？</strong> 接下来我们就具体感受一下。PE/PB Band主要由两部分构成：一个是<strong>一条真实股价走势线</strong>，一个是<strong>由五条假设股价走势线组成的通道</strong>。</p>
+<p>假设公司的市盈率固定不变，那股价变化就只和净利润有关系了。所谓的五条假设股价走势线就是如此。我们结合公司历史的市盈率情况，给出了五个等间距的假设市盈率。根据公司每年的净利润形成了五条假设股价走势线，由于净利润相同、市盈率恒定，因此这五条线互相平行，整体形成了一个通道。<strong>通过通道的方向，我们就能知道公司业绩的成长情况</strong>：如果<strong>通道整体平稳向上，就表明公司每股利润持续提高，大概率是好公司</strong>；反之<strong>通道一直向下，则表明公司每股利润持续下降，大概率是差公司</strong>。要是非<strong>通道上窜下跳、波动剧烈，就表明公司业绩不稳定，很可能是周期行业</strong>。这种周期公司，如果我们要了解其业绩情况，需要从 <strong>PE Band 切换到 PB Band</strong>，观察公司每股净资产的走势，判断方法是一样的：通道向上公司成长，向下公司衰退。学会判断公司好坏后，再了解如何用它看公司估值高低：结合真实的股价走势线，观察股价落在通道的位置。如果<strong>股价落在通道上沿附近，那就说明公司估值偏高，要注意风险；反之股价落在通道下沿附近，那就说明公司估值偏低，要考虑机会</strong>。</p>
+<p>接下来我们看几个典型的公司，体会下实战应用的方便。先看贵州茅台。首先<strong>茅台的通道是昂扬向上的</strong>，并没有上窜下跳，这表明公司过去十年业绩是持续增长的，且周期特点并不强。通过PE Band我们可以<strong>确定贵州茅台是个好公司</strong>。但它的股价好不好？截止到2021年10月，根据最近10年贵州茅台的估值水平，通道上沿对应的市盈率是51.38倍，下沿是8.83倍，中间是30.11倍。<strong>当前股价非常接近上沿位置，表明当前估值是偏高的，要注意投资风险</strong>。可见当下的贵州茅台是个好公司这不假，但股价也实在不便宜。</p>
+<p>看完好公司，我们再看下华谊兄弟。它2010年上市之后曾一度非常辉煌，业绩上涨，市值破千亿。但从2015年开始爆款电影越来越少，业绩还急转直下，从2018年开始连续三年亏损。华谊兄弟的经营表现在PE/PB Band上都能看出来。我们关注它最近10年的通道波动情况，可以分成三段：第一段是2011年到2015年，是上涨的，表明公司业绩持续上涨处于巅峰；第二段是2016年至2017年，两年的横盘小幅下降，表明公司业绩增长停滞，存在隐患；第三段是2018年至2021年，这四年是<strong>断崖式下降到零，是因为公司业绩亏损，没法用市盈率估值了</strong>。可见华谊兄弟如今危机重重，如果公司没出现重大转机，那它不是一个很好的投资标的。</p>
+<p>最后体验一个强周期公司，比如中信证券。看中信证券最近10年通道的表现，此时如果你选择市盈率估值（PE Band），你会发现通道上下跳动的表现很明确，告诉我们公司<strong>周期属性强，利润容易出现大波动</strong>。因此，判断公司成长<strong>最好切换到 PB Band</strong>。切换后你会发现通道变得稳定多了，整体缓慢向上。这说明中信证券的净资产在逐步提高，但成长性并不强。若不是疯牛市，投资它的回报率不能期望太大。截止到2021年10月，最近10年中信证券PB通道上沿对应的是3.16倍，下沿是1.20倍，中间是2.18倍。如今 <strong>PB 在1.70倍左右，处于合理偏低估的状态，有一定投资价值</strong>。但若没有大牛市出现，想获得较多收益难度还是挺大的。</p>
+<p>总结时间：PE/PB Band是国外机构投资者最常用的分析工具，对投资帮助主要体现在三个方面：<strong>业绩、估值、周期</strong>。第一，<strong>业绩好坏看通道趋势</strong>，持续上涨意味着公司利润持续上涨，下降意味着利润持续下降；第二，<strong>估值高低关注股价落在通道的位置</strong>，股价越靠近通道上沿，高估风险大，越靠近下沿，低估机会大；第三，<strong>周期强弱看 PE Band 的波动情况</strong>，波动越大周期性越强，波动越平稳周期性越弱。</p>
+                </div>
+            </div>
+            
+        <div class="module-header" id="module-4">
+            <h2>🔍 第5模块 · 信息与研究</h2>
+            <p>公告、研报、业绩超预期、机构持仓、股东行为——信息差就是收益差</p>
+        </div>
+        
+            <div class="lesson" id="lesson-33">
+                <div class="lesson-header">
+                    <div class="lesson-num">33</div>
+                    <div class="lesson-title">公司公告一个免税牌照引发的风波</div>
+                </div>
+                <div class="lesson-body">
+                    <p>2020年6月9日，上市公司王府井官宣，大喜免税牌照咱们有了。第二天，王府井再次官宣，糟心呢，因为免税牌照涉嫌内幕交易，咱被人告了。一个免税牌照引起如此大的风波，到底是怎么回事呢？<strong>免税在咱们国家属于准垄断的行业，需要牌照经营，有资质的公司很少，而且已经有很多年没有玩家加入。</strong> 因此这次王府井能获批确实是件大喜，对公司股价影响很大，该类事件属于内幕消息，需要严格保密，官宣之前是不能被泄露的。对此，按照王府井的说法，公司的控股股东首集团从2019年4月开始申请免税牌照，直到2020年6月9日获批。这个过程中，公司建立了内幕知情人档案，有关人员严格履行信息保密责任，不存在提前泄露内幕信息的情形。然而呢，再看公司股价，却感觉很蹊跷。2020年4月底，王府井的股价就已经开始启动，截止到6月9日上涨了140%。要知道这一个多月，王府井业绩受疫情影响，且A股市场并非牛市，而王府井股价却能如此突出，不禁让人怀疑免税牌照的事是不是早就泄露了。最终怀疑成真，2020年9月证监会通报，吴某涉嫌内幕交易王府警（井）股票获利巨大。</p>
+<p><strong>投资的本质是认知的变现，咱亏他赚，很大的原因就是因为咱对上市公司经营情况的了解不如人。</strong> 因此咱们散户想投资挣钱，就要努力缩小信息差，但努力的方向并不是靠内幕消息。这是一方面靠内幕消息投资是违法的，容易被证监会拍死，非长久之计；另一方面，对于咱们散户来说，想要获得准确又及时的内幕消息很难。<strong>那么不靠内幕消息，靠什么缩小信息差呢？靠上市公司公告。</strong> 当我们研究公司的时候，我们的目标是找到真实全面一手的信息，而这些信息主要集中在上市公司的公告中。</p>
+<p>上市公司融资的同时，也必须付出代价，最典型的就是公司的挺多事情不能再藏着了，必须公之于众。这是因为公司一上市就变成了公众公司，大家投资你成为你的股东金主，你肯定得跟大家交代一下你公司的情况，<strong>信息披露是上市公司的义务，且贯穿始终。</strong> 公司想要成功上市并卖个好价钱，就必须发布一份很有吸引力的报告，叫做<strong>招股说明书</strong><strong>。</strong> 报告中不仅会详细地介绍自己的情况，方方面面前世今生，还会把行业情况、竞争对手、上下游产业链以及经营风险都说了。因此如果你想快速全面地了解一个公司，从而尽量准确地预测公司未来发展，<strong>看招股说明书是个非常好的选择。</strong> 招股说明书里面内容都很真、很多，有几百页，通篇认真地看一看很有必要。如果想快捷一点，可以优先看一些重点的内容，其中<strong>“业务与技术”、“管理层讨论与分析”、“风险因素”、“业务发展目标”、“筹资资金运用”这几个章节都是很值得看的。</strong></p>
+<p>招股说明书有个不足，就是时效性弱，尤其是对于那些很早就上市的公司。那该怎么办呢？<strong>咱们还可以关注公司的再融资或者并购重组公告</strong><strong>。</strong> 上市公司之后还可以再融资或者发行股份换资产，再融资包括增发、配股、发行可转债、公司债等等。发行股份换资产主要就是并购重组，这些都属于重大事项，对公司和投资人都有重大影响，也都需要证监会批准才能实行。公司为了最终获批也会披露很多融资重组细节，详细介绍公司以及行业的情况，并重点说明融资重组的目的、对公司未来的影响等。另外，<strong>证监会收到申请报告后，有时候还会再发问询函，要求公司披露更多的经营细节和计划，证明融资重组是合理有实质意义的，并不是在炒作概念。</strong> 显然呢，这些信息对于我们投资者来说，又详细又真实，价值很大。</p>
+<p>除了招股书、再融资报告这些，上市公司还要<strong>定期发布自己的业绩报告，其中年报的内容最丰富。</strong> 通过年报，我们可以看到公司一年的经营情况、取得的成绩以及未来的计划。对比前后几年的年报，我们还可以看到公司的变化以及经营计划的执行能力，从而对管理层的水平有更深入的了解。<strong>年报中要重点看“公司业务概要”和“经营情况讨论与分析”这两个章节。</strong> 如果想了解得更透彻，还有一些公告可以帮助我们，比如<strong>投资者调研会议记录（纪要）和投资者互动平台。</strong></p>
+<p><strong>总结一下看公告的方法：信息价值最高的是招股说明书。</strong> 如果公司上市时间超过五年，可以结合相对近期的再融资报告、并购重组报告一起看。当你对公司整体情况了解之后，就可以把关注点放到公司的年报上面，通过对比公司最近三到五年的年报，理解会更加深刻。最后还可以依靠投资者调研会议记录以及投资者互动平台，了解细节更强、动态性更强的公司信息。</p>
+<p>以<strong>文灿股份</strong>实战为例，文灿2018年上市不算太早，所以我们要重点关注公司的招股说明书。打开招股说明书直接跳到第六节“业务与技术”，可以了解到公司是做<strong>汽车铝合金精密压铸件</strong>的，主要客户有通用、大众、特斯拉以及采埃孚、天合、博世、大陆等全球知名一级汽车零部件供应商。其次关注公司行业情况，在新能源汽车的推动下，零部件需求持续提高，且<strong>新能源汽车追求轻量化，对铝合金压铸件的需求相当旺盛。</strong> 竞争格局方面，文灿在汽车零部件压铸行业国内领先。看文灿再融资并购重组公告会发现，2019年公司计划收购法国百炼集团，构成重大资产重组。通过阅读公告内容，了解到文灿可以进一步完善铸造技术，利用协同作用进一步拓展欧美和中国市场。最后看2020年报，受益于新能源车放量以及轻量化趋势，公司的业绩成长很棒，净利润增长112.56%，客户数量也越来越多。</p>
+<p><strong>总之，投资的本质是认知的变现，想投资挣钱就需要比别人更深入地理解公司。 深入理解公司、缩小信息差异，不要寄希望于内幕消息，而是应该依靠公司公告，真实、全面、一手的信息都集中在这里。</strong></p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-34">
+                <div class="lesson-header">
+                    <div class="lesson-num">34</div>
+                    <div class="lesson-title">研究报告·电池之王40年后业绩大预测</div>
+                </div>
+                <div class="lesson-body">
+                    <p>如果让你预测电池之王<strong>宁德时代</strong>未来的业绩，你敢预测多少年？一年？两年？各位太保守了。<strong>国信证券</strong>的三名分析师在2021年8月4日发布研报，《宁德时代系列之二：储能篇，第二增长曲线的终局探讨》。在这份研报中，分析师预测，<strong>宁德时代2060年储能业务营收中枢约为1500至2000亿元，对应的储能净利润中枢为171亿元</strong>。此研报一出，当即在金融圈掀起了轩然大波。不是说数据预测得准不准，而是<strong>将上市公司的营收预测到40年后，这实在是让人瞠目结舌</strong>。一般来说，通过对上下游产业链的调研，对未来一年的营收做出预测是比较靠谱的。你再激进一点，预测个三年？最夸张你顶天了，咱们来个五年。所以这三位预测到40年后，实在是离谱。随着事件的发酵，监管大佬们也坐不住了。10月22日，深圳证监局对国信证券的三名分析师<strong>下发警示函</strong>，因为他们违反了《发布证券研究报告暂行规定》，研报存在<strong>逻辑不严谨、假设不审慎</strong>的问题。</p>
+<p>研报顾名思义是指研究报告。<strong>真正意义上的研报都是由专业金融人士撰写的</strong>。根据其任职机构的不同，又分为<strong>买方研报和卖方研报</strong>。买方研报由基金公司、信托公司等手握重金的买方大佬出品，目的是为了挖掘投资机会自己多挣钱，不对外发布。而<strong>卖方研报由券商出品，目的是让客户参考研报多做买卖，让交易更活跃</strong>，这样券商也能获得更高的收入。能当分析师，要么有金融背景，要么有行业背景，这就是<strong>专业优势</strong>。厉害的分析师可以<strong>通过折旧和减值来判断公司的会计处理是否严谨</strong>，可以通过<strong>固定资产、在建工程和其它非流动资产来判断公司产能扩张速度</strong>。</p>
+<p>这些专业的研究方法是咱们要重点关注的<strong>第一类信息</strong>。此外，分析师还要到公司<strong>实地调研</strong>，看看工厂生产线，请高管解答问题，最后把有价值的信息整理到研报中，这就叫<strong>信息优势</strong>。公司公告中会有一些没有详细展开的信息，比如分产线来看公司各项业务的增长情况，或者是什么造成了公司利润端增速快于收入端，又或者是毛利率下降的原因。<strong>这些你在公告中没有看到的、分析师调研整理的数据和资料，是咱们要重点关注的第二类信息</strong>。</p>
+<p>如何在成千上万份研报中快速找到“宝藏”呢？咱们可以参考<strong>新财富最佳分析师榜单</strong>。它是由手握上亿资金的买方大佬们评选出来的，标准就是谁的报告写得好、能帮买方赚更多钱。如果分析师能上榜新财富，年薪甚至能达到几百万。大家投资的时候一定要利用好这点，<strong>把金牌分析师的报告挑出来，优先读、反复读</strong>。研报中有三个非常重要的结论性观点：<strong>盈利预测、投资评级和机构目标价</strong>。</p>
+<p>第一个是<strong>盈利预测</strong>。分析师会对公司未来两到三年的营收和利润做出预测。由于A股没有成熟的做空机制，大家只能靠做多赚钱，所以<strong>分析师给出的盈利预测通常更偏乐观</strong>。盈利预测有依据、有价值，但可能有“水分”，不能照单全收。第二个是<strong>投资评级</strong>，也就是股票值不值得买。这是三项结论中<strong>价值最低的</strong>。因为市场更关心哪些公司能涨，所以<strong>超过90%的研报只会给出“买入”或“增持”</strong>，出现“卖出”的概率极低。</p>
+<p>第三个是<strong>机构目标价</strong>。目标价虽然大家最关心，但往往是<strong>最不准确的</strong>。股价等于业绩乘以估值，预测未来的业绩本就有难度，而<strong>预测公司未来的估值更是主观，属于猜情绪、猜人心，很难准确</strong>。目标价可以参考，但<strong>最好不要直接作为买卖依据</strong>。最后，公司越大，研报就越多。这时候咱们可以参考<strong>机构的普遍观点</strong>（平均值），这比单一某份研报更具参考价值。</p>
+<p>总结一下：首先，咱们平时读到的研报都是<strong>券商出品的卖方研报</strong>，分析师具有较强的<strong>专业优势和信息优势</strong>。研报中体现这些优势的内容以及<strong>公司公告中没有的内容更加值得关注</strong>。其次，<strong>新财富上榜分析师的研报质量有保证，建议优先阅读</strong>。第三，盈利预测、投资评级和机构目标价这三个结论性观点<strong>可以适当参考，但不要照单全收，更不要直接作为买卖依据</strong>。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-35">
+                <div class="lesson-header">
+                    <div class="lesson-num">35</div>
+                    <div class="lesson-title">业绩超预期·如何发现3年10倍大牛股</div>
+                </div>
+                <div class="lesson-body">
+                    <p>2021年底，电动车的行业巨头特斯拉市值已超过9000亿美元，是全球十大汽车企业的市值之和。对此特斯拉的老板马斯克看得很淡，他表示：“我只是想创造一些对人类有价值的东西。相对于企业家、创始人、CEO，我更喜欢‘工程师’这个称号。” 实际上类似的故事在咱们中国也有，比如<strong>亿纬锂能的刘金城</strong>。作为一个市值2000亿公司的董事长，华南理工大学的材料物理化学博士，他更喜欢的称呼是“刘工”，而不是刘董或者刘博士。刘工说：“亿纬锂能是一家干活的公司，强调<strong>技术和质量是促进企业发展的关键</strong>。我对单纯做大工厂兴趣不大，还是希望能做点真正有创造性的东西。” 最终在刘金城的带领下，亿纬锂能做到了。公司凭借高质量的产品在电池领域开疆拓土，无论锂原电池、消费电子电池，还是动力电池，都在不断地赢得客户信任。就这样，从2018年底开始，亿纬锂能赶上电池行业景气，<strong>业绩持续大涨，短短三年时间，股价就上涨了超过十倍</strong>。实战投资中这种公司没人不爱，那我们有什么办法在相对早期去发现它？办法当然是有，它叫做<strong>业绩超预期</strong>。</p>
+<p>首先先问大家一个问题，<strong>业绩是否超预期，谁说了算？</strong> 分析师？投资者？还是谁？实际上业绩是否超预期，单一客体说了不算，<strong>只有市场说了才算</strong>。那么市场认为<strong>业绩超预期的表现是什么呢？一般来说，业绩公布次日股价出现较明显的上涨</strong>。为什么这么说呢？这一点老王颇有感受。老王表示，首先咱们先明确一个概念：同样一个公司应该是<strong>利润越高，价值越高</strong>吧。这个概念明确后，咱们再看看啥叫业绩超预期，它不就是业绩报告一公布，大家发现公司业绩比预想的好，从而很容易得出一个结论：<strong>公司的实际价值比预想的要高</strong>。此时大家会怎么做？很简单，抢购买入呗，最终买的人多了，股价自然就上涨了。所以说多数情况下，如果市场认为公司业绩超预期了，<strong>次日股价应该会有个较明显的上涨，上涨幅度越大，业绩超预期的程度越强</strong>。实战中公司业绩超预期后，我们除了看到次日股价大涨之外，还经常能看到一个现象，就是次日的价格和前一日的价格形成一个<strong>跳空高开缺口</strong>。所谓的跳空高开缺口就是指当日的开盘价高于前一日的最高价。这个缺口意味着投资者看到公司业绩报告后买入的意愿更强，不光要抢购，还要提高价格抢购，生怕自己买不到。所以说<strong>如果当日有高开缺口并大涨，就意味着超预期的信号更强</strong>。</p>
+<p>业绩超预期为什么会对股价长期有很大影响呢？老王说，这关注公司的情况和咱们关注自己孩子学习成绩之类似。大家都知道我有个儿子叫小明，他不爱学习，考试经常不及格，典型的学渣。突然有一天他拿着考试卷子跟我说：“爸爸，我这次考了90分。”这成绩大超我的预期。我就很好奇，问他你怎么回事，怎么考这么高分？小明说：“我追班上的同学小红，结果她觉得我是学渣，残酷地拒绝了我。我一下子被刺激了，知耻而后勇，开始努力，终于找到了好的学习方法取得了突破，成绩一下子就上去了。现在我觉得学习这东西一点都不难，我下下次考个满分，看看小红还拒绝我不。” 听完之后我就理解了，看来儿子这次成绩变好不是偶然的，是因为他知道努力了，有了<strong>正确的学习方法</strong>，这些很可能让他以后的考试成绩都不错。实际上公司业绩超预期给咱们带来的启示也是类似，当一个公司出现业绩超预期或许也不是偶然的，很可能是<strong>公司的经营情况出现明显改善，或者是某个业务取得突破，这意味着未来公司业绩有机会持续高增长，甚至是不断的超预期。换句话说，公司很可能出现了蜕变，从“学渣”变身“学霸”</strong>。</p>
+<p>显然，这样的公司成长会很强，业绩大增带动股价大涨，非常值得投资。其实除了业绩大增之外，还有一点也很值得关注：大家都知道<strong>估值倍数和投资者情绪有很大关系</strong>。当一个公司向好的方向变化、业绩增长开始提速的时候，<strong>投资者会对公司未来的前景更乐观，从而愿意给公司更高的估值倍数</strong>。最终我们会发现，股价大涨不仅仅是因为业绩上涨，估值倍数的提升也起了很大的作用。早期买到业绩持续超预期的公司，往往能给我们带来超额回报。实践中<strong>公司业绩增长，同时估值提升，股价在二者的共同作用下大涨，叫做“戴维斯双击”</strong>。</p>
+<p>不过，是不是就意味着看到业绩超预期信号立马买入就行了呢？技术都只是锦上添花的方法，靠它们可以提高我们的投资效率，减少咱们筛选股票的时间成本，但它们都<strong>不能取代基本面研究</strong>。实际上<strong>没有基本面的支撑或者估值过高，任何策略都可能无效</strong>。因此策略帮我们选出股票之后，我们还得认真地研究一下这些公司的基本面。具体来说，就是通过基本面研究找到业绩改善或者业务突破的证据。最终<strong>好的基本面、合理的估值，配合上业绩超预期策略，这样的公司才是我们投资的好标的</strong>。</p>
+<p>现在回过头看看<strong>十倍股亿纬锂能</strong>。按照这个逻辑，咱们能否发现？2018年11月26日，亿纬锂能公布了2018年报业绩预告，净利润5.4亿至5.8亿，增长率33%至45%，看上去相当不错。但是否超预期呢？得看市场表现：次日股价<strong>开盘高开三个多点，收盘涨停，显然有缺口还不算小，涨幅也足够大</strong>。应该说亿纬锂能这个业绩超预期的信号很强了。此时先研究下基本面和估值：公司业绩快速提高，主要的原因就是<strong>动力电池收入增长和电子烟的投资增长</strong>。动力电池方面，前两年投的项目在2018年陆续投产了，产能提高配合上行业景气，收入大增；而电子烟方面，随着欧美国家政策越来越清晰，市场需求逐渐变大，投资的公司麦克韦尔业绩也高速成长，带来了越来越多的投资收益。</p>
+<p>根据公司半年报、投资者调研纪要以及研报，你还会发现公司聚焦动力电池的方向明确，未来业绩持续提高的可能性很大。基本面有把握之后再看下估值，可以看到<strong>市盈率只有27倍，处于历史很低的水平</strong>。现在综合基本面、估值、外加业绩超预期策略，亿纬锂能出手的机会明确了，次日买入价格大约在7.28元左右。后续股价一路上涨，2021年底涨到了152元，<strong>三年时间上涨超过10倍</strong>。原因是业绩爆发不止一次：2018年利润增长40%，2019年利润增速达到惊人的167%，2021年增速再次接近翻倍。就这样，三年时间里亿纬锂能的<strong>利润增长五倍多，估值上涨两倍多，二者的共同作用给投资者带来了完美的戴维斯双击</strong>。类似的案例还有<strong>隆基股份</strong>，2020年4月16日公布一季度业绩预告，次日股价高开6%收盘涨停，成交额47亿创当时历史极值，业绩超预期信号极强，截至2021年底上涨幅度超过300%。再比如<strong>欧普康视</strong>，2019年2月26日股价高开收涨停，符合“完美买点”的大爆发类型，实际上也是因为前一日公司公布了业绩预告，属于<strong>“均线收敛突破”和“业绩超预期”两个策略同时出现</strong>，随后股价三年上涨超过700%。</p>
+<p><strong>总结时间：</strong></p>
+<ul class="lesson-list"><li>*业绩超预期是一个效果较好的投资策略，可帮助我们发现好公司、找好买点<strong>。但依然要强调，</strong>没有基本面和估值的支撑，单独使用策略失败率会很高**。</li></ul>
+<ul class="lesson-list"><li>*业绩是否超预期，主要是市场说了算<strong>，标准就是</strong>业绩公布次日股价明显上涨<strong>。如果信号明确，还会出现</strong>跳空高开缺口**；缺口越大、涨幅越大，信号越强。</li></ul>
+<ul class="lesson-list"><li>*业绩超预期对后续股价影响较大<strong>，体现在两方面：一是</strong>基本面改善或业务突破<strong>，后续业绩可能持续高增长；二是</strong>提振投资者情绪，提高公司的估值水平**。最终在业绩和估值的双重带动下，给投资者带来巨大回报。</li></ul>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-36">
+                <div class="lesson-header">
+                    <div class="lesson-num">36</div>
+                    <div class="lesson-title">机构股东·抄大佬作业，跟着TA赚钱</div>
+                </div>
+                <div class="lesson-body">
+                    <p>还不会炒股或者炒股总是赔钱怎么办？很多人会被那些宣称每天推荐牛股、准确把握行情的广告吸引。虽然<strong>抄大佬作业、模仿高手操作</strong>的逻辑没问题，但具体怎么抄是有讲究的，抄不好可能会亏损严重。 首先，并不是谁的作业都能抄。那些知名的牛散、游资以及明星私募基金，虽然实力很强，但他们的作业很难抄。 原因是这些人的持仓情况只有在公司发布季报、且他们进入前十大股东名册时，我们才能通过公告得知，而<strong>季报通常会延迟一到两个月才公布</strong>。</p>
+<p>由于<strong>信息披露的滞后性</strong>，我们无法实时跟上大佬的节奏。这些大佬的交易思路多以中短线为主，可能等你看到作业跟风买入时，大佬已经撤退了，导致你成为“接盘侠”。 比如<strong>明星基金经理冯柳</strong>在2020年重仓世纪华通，金额一度超过40亿。但当三季报披露时，大家发现他已大幅减持，此时股价早已跌跌不休，抄作业的投资者很难赚钱。 那么谁的作业更容易抄呢？主要有两类：<strong>国内的公募基金</strong>和<strong>国外的机构投资者（北向资金）</strong>。</p>
+<p><strong>公募基金规模巨大</strong>（2021年三季度超过24万亿），且投资标的经过专业分析。由于“<strong>船大难掉头</strong>”，大资金买入和卖出通常需要相当长的一段周期，因此<strong>公募基金多以长期投资为主</strong>。 我们抄公募基金作业时，关注的是<strong>整体持股比例的明显提高</strong>。 比如<strong>名太铝业</strong>，2020年四季度公募基金持股比例从1.87%大幅上涨到8.08%。 究其原因，是公司通过转型提前布局汽车轻量化领域，在2020年开始收获果实。结合基本面研究发现其<strong>估值较低（市净率在历史20%分位左右）</strong>，这时抄作业就是安全且高收益的。之后名太铝业一年多时间股价上涨了三倍。</p>
+<p>另一类值得关注的是<strong>北向资金。这是指通过陆股通从香港买入A股的国外机构投资者，其风格稳健，以长期价值投资为主，且标的多为经营正常的规模企业</strong>。 不同于季报，<strong>北向资金的变动情况每天都可以查询</strong>。通过跟踪，我们可以发现北向资金大幅增持的股票。 例如<strong>百润股份</strong>，2019年底北向资金持股比例从2.79%快速提升到5.20%。 深度研究基本面后会发现，其主营的RIO预调鸡尾酒在行业洗牌后一家独大，市占率超80%，且定位明确，业绩进入高速成长期。 配合当时<strong>50倍左右的合理估值</strong>，这就是一份可以抄的优质作业。</p>
+<p>总结来说，<strong>实战投资中抄大佬作业是可行的，但要聚焦于资金量大、研究专业、长期投资的公募基金和北向资金</strong>。 具体操作分两步：</p>
+<ul class="lesson-list"><li>*看变动<strong>：关注公募基金每季度的前十大持仓变化，以及北向资金一段时间内的增持情况。如果</strong>比例明显提高**，则需重点关注。</li></ul>
+<ul class="lesson-list"><li>*研逻辑<strong>：在下单前必须</strong>认真研究公司的基本面和估值<strong>。因为大佬也可能看错，且“</strong>抄代码容易，抄心态难**”。只有对公司有深刻认知，才能经受住股价波动，最终获得收益。</li></ul>
+<p>你可以通过金融软件的选股策略设置相关选项，一旦公司<strong>增持比例明显</strong>，软件会给出提示。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-37">
+                <div class="lesson-header">
+                    <div class="lesson-num">37</div>
+                    <div class="lesson-title">股东户数·让人欲罢不能的就绝味鸭脖</div>
+                </div>
+                <div class="lesson-body">
+                    <p>天涯社区曾经有个娱乐段子很火，叫做<strong>一曲忠诚的战歌</strong>。大致的意思是说<strong>绝味鸭脖</strong>、沙县小吃、大娘水饺，这些具有中国特色风味的小吃连锁店，实际上是重要的国家情报网点，就连本拉登的藏匿位置都是由绝味鸭脖提供的。尽管段子内容是虚构的，但是绝味鸭脖却很会利用这点抓住机会营销，公司通过新浪官方微博声明对拉登的藏匿事件负责，并表示如果你买鸭脖的时候用内部暗号“一曲忠诚的歌”，还能有八折。最终这波营销效果很不错，公司收入增长的同时知名度又提高了一个档次，门店数量进一步扩张，随着经营业绩的持续提高，2017年绝味带着7000家鸭脖店上市了。然而由于新股上市估值过高，外加2018年的证券熊市，公司的股价表现很一般。不过这种颓势从2019年开始发生了变化，绝味的股价持续发力，两年多的时间上涨超过三倍。</p>
+<p>在投资的时候，如果一个公司<strong>股东户数很少或者下降得很多</strong>，那就表明公司很可能有投资机会。一般来说，个人散户的持仓规模都不大，多数就是几百股，而大资金或机构的持仓规模就比较大，上百万股很常见。一个公司股东中大资金或机构数量越多，股东户数就会越少，因为大资金需求量大，但公司股份数量有限，他只能从很多散户手里把股票买走。相对于多数散户来说，<strong>大资金机构的研究能力更强，投资更审慎，且投资周期以中长期为主</strong>，因此大资金机构大量买入的公司是很值得我们关注的。</p>
+<p>具体多少的变动才值得关注呢？我们要从两个方面看：<strong>下降比例</strong>和<strong>绝对值</strong>。首先要将上市公司分为两类：一类是<strong>新股或次新股</strong>，由于打新模式会有大量散户进入，若想判断大资金进入，其股东户数相对高峰的<strong>下降比例要超过70%</strong>。对于<strong>老股</strong>来说，股东户数<strong>下降比例超过30%就说明有大资金机构进入了。在绝对值方面，对于一些刚上市的新股或市值较小的公司，如果股东户数下降到1万以内</strong>就非常值得关注，这表明股份已经非常集中，后续通常会有上涨行情。</p>
+<p>尽管股东户数下降反映了机构投资者的态度，但正确做法依然是<strong>在看到股东户数提示后，认真研究公司基本面和估值</strong>。以<strong>绝味食品</strong>为例，2017年3月上市初期股东户数飙升到4万多，但到2019年4月时，股东户数<strong>绝对值下降到只有7000多户</strong>，相对高峰<strong>下降幅度超过80%</strong>。同时，相对2018年底的一万多户，仅仅一个季度的时间又下降了近30%，大资金买入信号很强。一番研究后会发现绝味业绩很好，利润增速在30%左右，店面数量持续增长，且作为行业老大，未来继续抢占市场份额的可能性很大。再结合当时<strong>历史极低的估值水平</strong>，投资机会明确，2019年4月买入后两年时间上涨了三倍。</p>
+<p>类似的案例还有很多，比如CRO龙头<strong>昭衍新药</strong>，2017年上市时股东户数超过2.3万户，到2019年3月下降到5800多户，<strong>下降幅度超过70%</strong>，随后股价三年上涨十倍。再如<strong>亿纬锂能</strong>，作为老股其股东户数在一年多时间里从接近10万下降到4万，<strong>下降超过50%</strong>，结合业绩超预期，后续两年多股价上涨超过十倍。</p>
+<p><strong>总结时间：</strong></p>
+<ul class="lesson-list"><li>*股东户数反映了股份集中的程度。** 大资金或机构数量越多，股东户数越少，股份越集中。</li></ul>
+<ul class="lesson-list"><li>*具体关注标准：<strong> 绝对值方面，</strong>低于1万<strong>值得关注；下降比例方面，</strong>新股/次新股下降超70%，老股下降超30%**值得关注。</li></ul>
+<ul class="lesson-list"><li>*必须结合基本面和估值。** 没有支撑的情况下，单独使用该策略失败率很高。</li></ul>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-38">
+                <div class="lesson-header">
+                    <div class="lesson-num">38</div>
+                    <div class="lesson-title">增持回购·抓住走势反转的强烈信号</div>
+                </div>
+                <div class="lesson-body">
+                    <p>2021年恒大集团到底有多火呢？10月份的时候，美国国务卿肯发文表示关切。不过讽刺的是，美国关切的不是因为恒大实力强大挑战了美国利益，而是因为他严重的债务问题。实际上恒大两年前还是中国规模大的地产集团，老板许家印是2017年的中国首富。然而整个2021年许老过得并不好，因为他的公司一直在债务违约的悬崖边上游走。至于原因就是之前过于激进的<strong>高杠杆扩张，撞上了历史最严格的地产调控政策</strong>。2021年，地产融资政策进一步收减，对于恒大这种负债率极高的企业影响巨大，很快恒大就出现了债务危机。这种情绪下，地产公司的股价持续下降，从1月跌到8月，跌幅超过40%的比比皆是。然而就在投资者情绪跌落到冰点的时候，8月5日保利发展（原保利地产）给了地产行业一剂强心针，<strong>公司大股东以及管理层宣布增持公司股份，原因就是看好公司未来发展</strong>。这之后地产行业股价下行趋势放缓，业绩优秀的龙头公司开始反转，保利发展更是在不到四个间里上涨超过了50%。</p>
+<p><strong>首先呢，不是任何人的增持都值得关注，通常值得我们关注的是大股东和管理层。</strong>因为他们都是公司的内部人士，<strong>内部人士是最了解公司的人</strong>。他们如果增持，那么很大可能是认为<strong>公司未来的业绩会变好，或者认为当前价格远低于公司价值</strong>。但在A股市场中确实有一些老板利用公告增持来提振股价吸引投资者上车，最终不执行或少增，比如贺美集团（赫美集团）在经历过三次延期之后宣布终止计划，仅完成了承诺金额的18.16%。</p>
+<p>因此为了避免被套路，看到大股东或者管理层增持，还需要考虑三个方面。一，<strong>增持人数</strong>：一般来说，<strong>公司内部人士报团增持，肯定比单一的个人增持要强</strong>。二，<strong>增持金额</strong>：增持金额越多效果越强，但需要和公司规模相匹配。如果市值上千亿了，公司增持金额却只有几千万，那作用就很小，只是“水滴石穿”（原文为水撤）。三，<strong>增持逻辑</strong>：大股东或管理层增持大概率是认为<strong>公司未来业绩有成长前景，或者认为当前的股价远低于价值</strong>。我们需要通过<strong>基本面研究</strong>，找到公司未来业绩向好以及价值被低估的证据。</p>
+<p>分析保利发展，其股价从2021年2月到8月下降幅度超过40%，主要原因是<strong>“三条红线”</strong>立空政策。三条红线分别是：一，剔除预收款的资产负债率不得大于70%；二，净负债率不得大于100%；三，现金短债比不得小于一倍。恒大等企业由于负债率极高，三条红线全部命中，融资异常困难。但<strong>保利发展的经营风格保守，负债率很低，完全触碰不到三条红线</strong>。当激进的公司退出后，腾出的市场份额将归经营稳健的公司。2021年7月，保利的<strong>市盈率只有3.9倍，估值不仅处在历史极低分位，而且当前市值比破产清算的价值还低</strong>。</p>
+<p>说完增持，再看<strong>股份回购</strong>，指公司直接买入自家股票。<strong>回购和增持一样，也表示大股东或管理层看好公司未来发展前景，或者认为公司当前价格远低价值</strong>。回购后的股票主要有两种用途：一是<strong>注销</strong>，会造成公司总股数变少，权益变大，股票价值提高；二是<strong>用作股权激励</strong>。股权激励通过给管理层及骨干员工股份并设定业绩目标，把他们的利益和公司的利益绑定在一起。</p>
+<p>以澜起科技为例，2021年10月28日公告回购方案3到6亿用于股权激励。当时蓝起利润下降主因是内存行业处于周期低谷，但2022年内存需求大概率回回归，新产品第五代内存接口芯片也会量产，业绩很可能会出现好转。公司管理层很可能是看准了未来的赚钱机会，通过股权激励绑定员工利益。公司宣布回购次日股价大涨，之后一个月上涨幅度接近50%。</p>
+<p>总结时间：一，<strong>大股东或者管理层增持的公司值得关注</strong>，因为作为内部人士他们最了解公司，增持意味着看好未来业绩或认为价值被低估。二，不要立刻投资，要考虑<strong>增持人数（报团强）、增持金额（需匹配公司规模）以及增持逻辑（需基本面支撑）</strong>。三，<strong>回购和增持逻辑一致</strong>，都表达了对发展的信心，且回购金额越大，价值越大。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-39">
+                <div class="lesson-header">
+                    <div class="lesson-num">39</div>
+                    <div class="lesson-title">激励计划·十年磨一剑，终成苹果顶级供应商</div>
+                </div>
+                <div class="lesson-body">
+                    <p>立讯精密是一家优秀的公司，他之所以优秀是因为他有一支充满激情和干劲的团队。我们个人非常认同王来春董事长的人文关怀理念，很高兴和立讯精密合作。这是2017年12月苹果总裁库克到访立讯的一番表态。对此王来春回应到，能与凤凰同飞的必是俊鸟。内容虽然简单，但立讯确实称得上是大家都知道最近几年苹果的无线耳机AirPods很火，一年出货量超过7000万。不过，由于AirPods加工难度很大，一开始AirPods的产量一直不足，消费者下单后需要两个星期才能拿着货。然而自从苹果和立讯深度合作之后，这个问题被完美地解决了。换句话说，AirPods日后成为爆款，立讯的功劳很大。就这样，从2017年开始，立讯的收入飙升。现在大家是不是很好奇立讯的战斗力为什么能这么强呢？实际上如果你了解老板王来春的经历，就觉得这很正常。王来春曾经是深圳富士康工厂的女工，深受当时的老板郭台铭的影响，认为公司管理要有铁的纪律，也要有人文关怀。纪律是产品的保证，而关怀是团队战斗力的保证。关怀体现在各个方面，其中有一种方式王来春用的最多，效果也最显著，它叫做<strong>股权激励计划</strong>。</p>
+<p>首先什么叫做股权激励呢？<strong>股权激励是一种常见的激励机制，公司通过授予员工股份设定业绩目标，把员工的利益和公司的利益绑定在一起，激励员工和公司一起奋斗，最终实现双赢</strong>。通常对于上市公司来说，激励员工的股份绝大多数都来自于公司之前的回购。上市公司常用的股权激励方式有两种：<strong>限制性股票和股票期权</strong>。<strong>限制性股票</strong>是指上市公司先给激励对象一定数量的股票并制定未来三到五年的业绩目标，只有业绩满足目标后股票才能自由出手。而<strong>股票期权</strong>是指给激励对象在未来一定期限内，以预先确定的价格和条件购买股票的权利，同样只有目标完成后才可以行权购买。尽管形式有差异，但背后逻辑是一样的，都是<strong>让激励对象有主人翁的感觉，自发地撸起袖子加油干</strong>，因为公司业绩成长带动股价上涨，他们可以分享巨大的股权收益。</p>
+<p>实际上股权激励计划相比于形式，更重要是关注激励对象的<strong>范围和设定的业绩目标</strong>。简单来说，<strong>激励对象范围广、数量多，激励效果会更好</strong>；如果对象很少甚至只激励老板一个人，效果就很弱。关于业绩目标，设定太低没挑战，太高没可能实现，<strong>一个好的业绩目标是那种有难度但通过努力有可能实现的</strong>。一个合理的股权激励计划对公司的发展非常有帮助，一方面表示老板在乎业绩并愿意让利给员工分享果实，能提振士气并吸引人才。而对于投资者来说，我们可以以此为锚，<strong>更准确地预期公司未来的业绩情况</strong>。此外，<strong>公司快速成长的前夕往往伴随着一份股权激励计划</strong>。</p>
+<p>其逻辑在于，老板最了解公司经营情况，当老板发现公司<strong>存在重大机遇</strong>（如签约大客户或研发出爆款）时，会发布股权激励计划来激励团队共同抓住机会。比如<strong>华兰生物</strong>，2018年12月发布了股权激励计划，业绩目标比前几年强不少，底气就在于公司获批了四价流感疫苗这一重大机遇。最终华兰成功超额完成目标，股价三年上涨超过三倍。所以实战中一旦看到<strong>有吸引力的股权激励计划</strong>，应认真研究基本面，看公司是否存重大机遇。同时，<strong>股权激励公布次日，如果股价出现类似超预期的跳空高开、放量大涨，表示市场认可该计划，这样的公司值得重点关注</strong>。</p>
+<p>回到<strong>立讯精密</strong>，王来春很早就判断出未来更大的市场是以手机为代表的消费电子，关键公司就是苹果。2011年立讯通过控股连滔电子正式成为苹果产业链一员。2015年公司公布了第一次股权激励计划，激励对象达1143人，<strong>无论是激励对象数量还是业绩目标增速都很强力</strong>。当时公司正处于从零部件供应商升级到零组件完整方案提供商的机遇期。最终团队给力，2017年业绩较2014年增长接近三倍。随后立讯在声学无线技术上发力，成为AirPods量产难题的解决方案，获得了苹果的认可。2018年8月公司再次推出股权激励计划，激励对象1899名，平均增速设定在15%左右。</p>
+<p>尽管当时处于大熊市，但该计划公布次日立讯股价高开上涨5%，表现相当优秀。最终立讯精密成倍完成目标，2021年收入超过1000亿。公司在2019年和2021年又接连推出新的计划，并正式迈入精密制造阶段，甚至开始挑战老东家富士康。总结来说：一、股权激励通过<strong>利益绑定实现共赢</strong>。二、形式包括<strong>限制性股票和股票期权</strong>，重点应关注<strong>激励对象范围（越广越好）和业绩目标（合理且有挑战）</strong>。三、利用股权激励可以帮助<strong>发现牛股</strong>，因为<strong>业绩目标能帮助预判成长性，且计划往往伴随重大发展机遇的出现</strong>。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-40">
+                <div class="lesson-header">
+                    <div class="lesson-num">40</div>
+                    <div class="lesson-title">股价强度·乘新能源东方，稀土之王崛起</div>
+                </div>
+                <div class="lesson-body">
+                    <p>2020年7月，美国又把武器卖给台湾，不能忍了，你给我等着。 美国多久啊，咱们的反制来了，美国战机F35关键部件被中国断供。 这次咱们用的是什么武器呢？<strong>稀土</strong>。 稀土呢，他不是土，它是17种稀有金属元素的总称，号称<strong>工业维生素</strong>。 咱们国家是西土大国呀，储量相当丰富。 早年邓小平就说过中东有石油，中国有西土。 尽管咱们拥有大量宝贵的西土资源，但是却一直没有用好。 正如咱们公信部长所说，西土没有卖出西的价格，卖出了土的价格。 就是因为恶性竞争，静香压价，使得这种宝贵的资源被浪费掉。 就这样，行业持续混乱，占据一半西图产量的<strong>北方西土</strong>公司本应光线夺目，但实际上却相当平庸。 不过这样的状况从2020年（此处原文漏字）之后开始出现改观。 政策加需求，西土价格开始上涨。 北方西土的业绩受益于此，股价更是在2021年7月之后的两个月里上涨三倍。 实战中这样的公司肯定属于投资的好标。 那么除了紧盯产品价格之外，还有什么好办法能让我们第一时间注意到？ 好办法肯定有，它叫做<strong>股价强度，英文简称 RPS</strong>。</p>
+<p><strong>RPS本质上是一个技术指标，它衡量了某一支股票在过去一段时间它的涨跌幅相对市场中其他股票的排名情况</strong>。 假如我们看到一个公司<strong>RPS60为80%</strong>，他就表示过去60个交易日，该股涨幅比市场中其他80%的股票更加优秀。 以此类推，软件中目前为大家提供了五个周期的RPS，包括长中短期。 其中<strong>120RPS、250RPS是中长期RPS</strong>。 前者可以理解为过去半年的股价涨幅排名，后者是过去一年的股价涨幅排名。 概念不难理解，但有朋友可能会问，为什么还要搞个排名呢？ 直接看涨幅不就行了，谁长得多谁厉害。 这个问题咱们还是让老王解释一下。</p>
+<p>老王表示，我给大家举个例子，去年我儿子小明参加证券考试，考了90分报喜啊，我一开始还挺高兴，但后来了解到这次考试纯开卷简单。 全班除了他呀都是满分。 这可把我气坏了，果断得抽他一顿啊。 之后没过多久，小明又去考试了，然后笑嘻嘻的跟我说，这次我考了60分。 我听了之后，气不打一出来，心想你越考越差，你还有脸笑。 不由分说，又果断抽他一顿。 但是之后了解到，原来这次考试题特别难，全班除了小明没人及格，看来小明是真的努力了抽错他了。 通过老王小明的故事，我们可以明白，股价涨幅就是考试成绩，你不能单独看绝对值，还要考虑客观环境。 如果是牛市涨230%，也许都算学渣。 反之<strong>熊势小跌或者不跌的，很可能就已经是学霸了</strong>。 因此实践中<strong>利用RPS，我们可以排除市场整体情况的干扰，准确地知道哪些股票更受资金关注，表现更强</strong>。</p>
+<p>影响股价短期波动的因素很多，有可能是基本面改善，也有可能是热点，作大资金操纵。 而长期股价走强主要是受到基本面影响。 大概率表明<strong>公司的基本面很强，或者正处在变强的路上</strong>。 因此你要是想通过股价表现发现那些基本面墙或者正在变强的公司，要<strong>更多地关注120日RPS和250日RPS这些中长期指标</strong>。 当然你可能会说，等中长期RPS强了，再关注公司，这不就晚了，我想更早地发现大牛。 可不可以关注一下60日RPS甚至更短的呢？ 答案是肯定，但是有一点你要明白，从越短周期的股价变动中发现牛股需要你有更强大的基本面研究能力和更敏锐的预判能力以及一点运气。 所以多数情况下，如果你是长期投资者，那么短期RPS对你的帮助不大，要优先关注那些120日和250日RPS变强的公司，研究下他们的基本面。</p>
+<p>大牛股很可能就在其中了。 此时有朋友可能会反驳到，你这逻辑不对呀，公司股价走强半年一年了，你让我们关注，你这不是让我们接盘吗？ 面对质疑，老王说道，散户更喜欢那些走势到爆的股票，感觉他们跌无可跌，买了他们就超别人底啊。 同时又非常厌恶那些走势很强的票，感觉他们马上就得崩盘买了，他们就是山顶战岗。 但是结果很多的时候事与愿违，<strong>弱的继续弱，强的他更强了</strong>。 刘祥2004年雅典奥运会打破纪录夺冠后，之后又拿了很多冠军，这并不是昙花一现。 类似道理，不少公司基本面变强之后，业绩成长往往可以持续好几年。 换句话说，你觉得公司已经圣级而衰了，殊不知人家的好日子才刚刚开始肉（注：原文如此）。</p>
+<p>为了避免被套路，要<strong>重点关注那些RPS开始走强或者走强时间不是很久的公司</strong>。 对于那些已经处于巅峰期很久的公司要更加小心。 具体来说，如果你发现一个公司<strong>中长期RPS之前比较弱，但是现在变强了，120日RPS或者250RPS突破了90</strong>，那这样的公司很值得关注。 其次，无论是RPS突然变强还是已经变强一段时间了，咱们都要<strong>认真的研究一下公司的基本面和估值</strong>。 如果你发现公司基本面很好，估值又不算贵，那很可能一个大牛国（注：原文如此）就被你找到了。 接下来你要做的就是利用之前学习的均线或者各种策略，确定一个好的买点，买入持有静贷收获（注：原文如此）。</p>
+<p>利用RPS抓开篇提到的<strong>北方西土</strong>。 2021年2月，北方西土<strong>250RPS首次超过了90%</strong>。 显然公司走势变强，值得高度关注，得抓紧研究下公司的基本面是不是也变强了。 经研究，北方西土是中国最大的西图公司，其控股东是包头钢铁集团，作用白云鄂博，这是全球最大的西土矿。 咱们国家为了限制土的盲目开采实行配额制度，其中<strong>北方西土的配额比例超过50%</strong>。 显然北方西土资源储备非常丰富，开采成本很低，优势巨大。 2020年7月之后，西土价格开始上涨了，主要是供需两端同时出现变。 首先是供给端，重点打击丝挖烂（注：原文如此）、恶性低价竞争。 其次，需求端新能源火热行情让稀土的需求大增。 最终<strong>供给收紧，需求爆发，西土价格出现明显上涨</strong>。</p>
+<p>2020年7月到2021年2月，公司股价涨幅在80%左右，最终也让北方西土的250日RPS走强，突破了90。 此时我们需要进一步思考业绩会不会持续变好以及估值贵不贵。 再番研究后，你容易判断出新能源爆发会持续，而西土供给限制不会放松，2021年公司业绩会有一个大幅度增长。 预期2021到2023年公司业绩分别是45亿、70亿、98亿，<strong>对应的PEG只有0.28、0.17、0.13</strong>。 显然基本面很好，估值很便宜。 最终2021年7月，北方西图股价开始爆发，两个月涨幅接近三倍。</p>
+<p>总结时间：第一，<strong>RPS衡量了一支股票在过去一段时间涨幅相对市场中其他股票的排名情况</strong>。 通过它，我们可以排除市场整体情况的干扰，准确地知道哪些股票更受资金关注。 第二，<strong>长期投资要多关注中长期RPS</strong>。 重点关注那些<strong>RPS刚开始走强或者走强时间不是很久的公司，即中长期RPS突破90%</strong>。 第三，利用中长期RPS找到潜力牛股是个很好的方法，但仍需要<strong>认真研究基本面和估值</strong>，只有基本面好、估值合理的情况下，我们才能下售（注：原文如此）。</p>
+                </div>
+            </div>
+            
+            <div class="lesson" id="lesson-41">
+                <div class="lesson-header">
+                    <div class="lesson-num">41</div>
+                    <div class="lesson-title">新高和回撤中国最强药神夫妇的商业帝国</div>
+                </div>
+                <div class="lesson-body">
+                    <p>“<strong>药神夫妇</strong>”财富紧追马云、马化腾。这是2019年福布斯中国富豪榜上最受关注的信息。这里提到的“药神夫妇”指的是<strong>孙飘阳和钟慧娟</strong>。他俩一人控制一个千亿市值的药企，合计身价超过1800亿。那这两个药企又是谁呢？分别是<strong>恒瑞医药和豪森药业</strong>。其中恒瑞医药更是当年的明星公司。2017年2月3日，恒瑞股价上涨3%创历史新高，取代上海莱士，成为了当时医药行业市值最大的公司。作为医药一哥，恒瑞一坐就是四年，这期间股价上涨超过400%。</p>
+<p>不过恒瑞的强势在2021年结束了。先是2月份，恒瑞市值被<strong>迈瑞医疗</strong>反超，丢掉一哥位置。之后更是大幅度下降，8月的时候相对高点已经<strong>腰斩</strong>。如此落差，令人唏嘘。那么如果让你选择投资2017年破新高的恒瑞和2021年腰斩的恒瑞，你会选择哪个呢？相信多数人会选择前者。原因也很朴素，挣钱谁不想啊，四年400%有几个公司能这样呢？然而实践中你会发现，2017年之后，恒瑞的大牛行情，很多人当了过客，眼睁睁地看着恒瑞股价创新高，却没敢下手啊。而2021年，恒瑞的颓势行情面对大幅度回撤，很多人却迫不及待地冲上车了，最终被套在其中，不得动弹。那为什么会这样呢？这是因为<strong>多数人面对股价新高都习惯性地恐惧</strong>，觉得涨这么多、太贵了，不能买。反之，面对股价大幅度回撤甚至新低，往往心里踏实，觉得跌这么多，那不会再跌了，现在买很便宜。</p>
+<p>但是这个逻辑对不对？今天咱们就一起聊聊<strong>股价新高和回撤</strong>，帮助大家找到答案。咱们先说股价新高。首先明确一点，咱们这里说的股价新高指的是<strong>长期新高</strong>，比如一年新高、两年新高甚至是历史新高，而中短期的股价新高不在讨论范围内。时间范围界定好后，接下来咱们该思考最重要的一个问题：<strong>长期股价新高，它意味着什么呢？</strong> 还记得咱们课程第一节课强调的那句话吗？<strong>股价长牛，背后是业绩长牛</strong>。按照这个逻辑，长期股价新高，很可能意味着<strong>公司的基本面正处于最好的时刻</strong>。常规分析这种状态下，公司业绩未来继续成长的可能性很大，这是从公司基本面层面给了咱们信心。</p>
+<p>除此之外，从投资者角度看，股价新高的意义也很大。<strong>股价新高意味着当下持仓的投资者都是挣钱的</strong>，心情愉悦。可别小看了投资过程中乐观情绪的作用。当大家都赚钱、都爽、都没有解套压力的时候，<strong>股价抛压会很小，上涨也会更容易</strong>。所以说股价创新高，一方面很可能预示着公司基本面很强，另一方面也告诉市场上涨会很顺畅，不容易回撤。显然这样的公司很符合我们的投资审美，安心挣钱还不用提心吊胆。到这里有的朋友可能会说，你说这些好处我都懂了，但是<strong>投资得看估值啊</strong>。股价都新高了，那估值不得上天呢？</p>
+<p>这话说对了一半。投资要看估值，但是<strong>股价新高并不意味着估值就一定很贵</strong>。换句话说，<strong>股价高和估值高不能画等号</strong>。原因也很简单：<strong>股价等于每股收益乘以市盈率</strong>。如果一个公司股价创新高，主要是因为每股收益大涨带动的，那它的估值很可能并不贵。所以我们看到股价创新高，尤其是刚新高，不要想当然地认为肯定贵了，没有投资机会了。而是应该去<strong>认真地研究一下公司的基本面和估值</strong>。如果你发现公司基本面确实很强，未来两到三年有很好的成长预期，同时股价上涨是因为业绩带动，当前估值合适，那么恭喜你，你的投资机会来了。如果你想抓住大牛股，那就更不能看到股价新高就怕、就闪，要知道那些两倍、五倍甚至十倍的牛股，股价都是<strong>一路破新高</strong>的。</p>
+<p>接下来咱们按这个思路盘下当年恒瑞的投资机会。2016年8月9日，恒瑞股价创历史新高。此时如果细致研究基本面，你会发现政策层面。2015、2016年是名副其实的医药政策年，国家密集出台了药品采购、一致性评价、医保扩容动态调整等一系列重磅政策。具体来说就是国家<strong>强调药品质量、鼓励创新</strong>。以前那些靠低质量药品、低价抢市场的企业将被清洗出局，而那些<strong>创新能力强、药品质量高的药企会受益快速成长</strong>。很明显这个政策非常利好恒瑞。</p>
+<p>首先，恒瑞一直高度重视药品质量。它的<strong>仿制药集中在麻醉、造影、肿瘤这些技术难度要求很高</strong>的领域，而且多数都是首仿，疗效优异，市占率领先。其次，恒瑞也很重视<strong>药品创新</strong>。这公司的医药研究从2003年就开始<strong>由仿制向创新转变</strong>。2011年首款创新药艾瑞昔布上市。2014年肿瘤创新药阿帕替尼上市。2015年更上一层楼，自研的PD\-1单克隆抗体已经开始海外授权，首付款收入超过2000万美元。除了药本身核心竞争力强之外，恒瑞销售团队的实力也非常强大。根据2015年报，公司销售人员超过5000人，覆盖全国。政策支持叠加优秀的产件以及给力的销售队伍，恒瑞的业绩成长非常值得期待。基本面之后再看下估值，2016年8月恒瑞的<strong>市盈率只有43倍，这个数值对于一个创新药企来说一点都不贵</strong>。满足了出手条件，这之后公司股价上涨超过四倍。</p>
+<p>到这里可能有朋友会问，恒瑞股价后续一直上涨，持续破新高，我追不追呢？<strong>追不追的核心看估值</strong>。具体来说就是在基本面研究清楚的情况下，<strong>估值不贵那就追，估值贵了就等等</strong>。按照这个要求，2017年年底之前恒瑞估值都还算合理。但是进入到2018年，尽管股价依然在创新高，但那会的<strong>估值已经超过70倍，历史最高了，再买入的性价比就不高了</strong>，风险很大。总结下：一，股价新高很可能预示着基本面强、走势顺畅，且与估值贵没有必然联系，值得研究。二，如果研究后基本面确实强、估值也合理，要果断下手，反之则放弃。三，若没有第一时间注意到创新高，后续是否买入取决于估值高低。</p>
+<p>说完新高，咱们再说<strong>回撤</strong>。股价适当的回撤是合理的。但是如果公司出现了巨大回撤，尤其是<strong>超过40%的时候，从概率的角度看，这样的公司短期内就不太值得投资了</strong>。为什么这么说呢？大家不要以为回撤多就给便宜买入机会，以后涨回原位全是利润。想得挺好，但大多事与愿违。以买房为例，恒大的房子六折卖你敢不敢买？相信大家不买的原因，要么担心质量有问题，要么担心恒大有问题，因为常规下房子不应该折价这么多。同样，看到一个公司的<strong>股价下降超过了40%，我们的反应不应该是好便宜，而应该是这公司是不是出了什么问题</strong>。</p>
+<p>一般来说，除非大熊市，否则如此大的跌幅，<strong>公司的基本面大概率都是有一些问题的</strong>，不是业绩增速匹配不了高估值，就是业绩直接下降甚至亏损了。这个时候咱们<strong>绝不能盲目抄底</strong>。要思考公司经营遇到的问题是否致命，以及什么时候才会恢复。通常就算公司基本面最终能恢复，也不可能一蹴而就，需要的时间少则几个月、多则几年。此外，从投资者角度看，大跌意味着持仓者多数都在亏钱，心情糟糕，<strong>着急解套的人很多，股价抛压很大，很难大幅度反弹</strong>。</p>
+<p>接下来咱们还是用恒瑞感受一下。2021年7月的时候，恒瑞股价跌幅达到40%。同行业大盘基本没下降，恒瑞如此弱势，很可能是基本面出问题了。一番研究后你会发现，<strong>恒瑞仿制药因为集采下降很快，而创新药又遭遇了严重的内卷问题</strong>，重磅产品PD\-1降价严重，销量远不及预期。最终就如恒大老板（注：原文此处可能笔误，应为恒瑞老板）孙飘阳所说：<strong>恒瑞的创新药在逐步成长，但仿制药是快速地从高峰下来了</strong>。2021年上半年，公司收入增速只有17%，利润增速只有0.2%，次日股价跌停。事实证明，恒瑞仿制药被重锤已成定局，而创新药的跟进是不可能一蹴而就的。这意味着<strong>公司业绩和股价想重回巅峰，需要很长的时间</strong>。</p>
+<p><strong>总结时间：</strong></p>
+<ul class="lesson-list"><li>*本质在于基本面**。做投资要降低对股价的关注程度，不能自然地认为涨多就高估、跌多就低估，这主要看业绩。</li></ul>
+<ul class="lesson-list"><li>*股价创新高的公司值得关注<strong>。这预示着公司基本面强、走势顺畅。股价新高不等于估值贵。但仍需认真研究基本面和估值，</strong>在基本面好、估值合理的场景下才能出手**。</li></ul>
+<ul class="lesson-list"><li>*警惕巨大回撤<strong>。如果公司出现</strong>超过40%的巨大回撤，从概率看短期内不值得投资**。因为这往往意味着基本面出了严重问题，且短期内难以恢复。</li></ul>
+<p>感谢各位收听。</p>
+                </div>
+            </div>
+            
+</main>
+
+<script>
+// 进度条
+window.addEventListener('scroll', function() {
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var progress = (scrollTop / scrollHeight) * 100;
+    document.querySelector('.progress-bar').style.width = progress + '%';
+});
+
+// 滚动高亮导航
+var navItems = document.querySelectorAll('.nav-item');
+var lessons = document.querySelectorAll('.lesson');
+
+function updateActiveNav() {
+    var scrollPos = window.scrollY + 100;
+    var currentLesson = null;
+    
+    lessons.forEach(function(lesson) {
+        if (lesson.offsetTop <= scrollPos) {
+            currentLesson = lesson;
+        }
+    });
+    
+    if (currentLesson) {
+        var id = currentLesson.id.replace('lesson-', '');
+        navItems.forEach(function(item) {
+            item.classList.remove('active');
+            if (item.getAttribute('href') === '#lesson-' + id) {
+                item.classList.add('active');
+            }
+        });
+    }
+}
+
+window.addEventListener('scroll', updateActiveNav);
+updateActiveNav();
+
+// 搜索过滤
+var searchInput = document.querySelector('.sidebar-search input');
+searchInput.addEventListener('input', function() {
+    var query = this.value.toLowerCase().trim();
+    navItems.forEach(function(item) {
+        var title = item.getAttribute('data-title').toLowerCase();
+        var text = item.textContent.toLowerCase();
+        if (query === '' || title.indexOf(query) !== -1 || text.indexOf(query) !== -1) {
+            item.style.display = '';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+});
+</script>
+</body>
+</html>
