@@ -56,3 +56,17 @@ async function init() {
 }
 document.addEventListener('keydown',e=>{if(e.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){e.preventDefault();$('#search').focus();}if(e.key==='Escape'&&document.activeElement===$('#search')){$('#search').value='';query='';if(catalog)render();}});
 init();
+
+// Warm only books the reader points at; never fetch the whole shelf or book body.
+const prefetched = new Set();
+function prefetchBook(event) {
+  if (navigator.connection?.saveData || /(^|-)2g$/.test(navigator.connection?.effectiveType || '')) return;
+  const link = event.target.closest('a[href^="/read/"]');
+  if (!link || prefetched.has(link.href) || prefetched.size >= 4) return;
+  prefetched.add(link.href);
+  const hint = document.createElement('link');
+  hint.rel = 'prefetch'; hint.href = link.href; hint.as = 'document';
+  document.head.append(hint);
+}
+document.addEventListener('pointerover', prefetchBook, {passive:true});
+document.addEventListener('focusin', prefetchBook);

@@ -1,2 +1,14 @@
 .library-home{flex-shrink:0;font:12px/1.5 "PingFang SC","Microsoft YaHei",sans-serif;border:1px solid var(--rule);border-radius:5px;padding:5px 9px;color:var(--ink-soft);white-space:nowrap}.library-home:hover{background:var(--page)}@media(max-width:600px){.bar{gap:7px;padding-left:8px;padding-right:8px}.library-home{padding:4px 6px;font-size:11px}.bar .brand{max-width:24vw}.bar .brand .author{display:none}}
 .library-home[data-floating="true"]{position:fixed;right:18px;bottom:20px;z-index:1000;background:#fff;color:#494881;border-color:#d4d5e4;box-shadow:0 3px 12px #0002;padding:8px 12px}
+/* Unread chapters do not download, parse, or lay out until approached. */
+[data-chapter-url]{content-visibility:auto;contain-intrinsic-size:auto var(--chapter-estimate,1000px)}
+[data-chapter-url],[data-chapter-url] [id]{scroll-margin-top:110px}
+.content-block:not([data-chapter-url]){content-visibility:auto;contain-intrinsic-size:auto 1000px}
+.reader-full-link{display:block;margin:24px 12px;font-size:12px;text-decoration:underline;color:var(--muted)}
+[data-chapter-loaded="false"]{min-height:var(--chapter-estimate,300px)}
+.chapter-placeholder{padding:24px 0;color:var(--muted);font-family:var(--sans);font-size:14px}
+.chapter-placeholder button{border:1px solid var(--rule);padding:5px 12px;border-radius:5px}
+.chapter-message{display:block;font-size:12px;margin-top:8px}
+.reader-notice{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:1000;display:flex;align-items:center;gap:15px;padding:10px 16px;border:1px solid var(--rule);border-radius:7px;background:var(--page);color:var(--ink);font:12px/1.6 var(--sans);box-shadow:0 2px 14px #0002;max-width:95vw}
+.reader-notice[hidden]{display:none}.reader-notice a,.reader-notice button{text-decoration:underline;white-space:nowrap}.reader-fallback{position:relative;z-index:1000;padding:15px;background:white;color:#333}.reader-fallback a{text-decoration:underline}
+@media print{.content-block{content-visibility:visible!important;contain-intrinsic-size:none}.reader-full-link{display:none}}

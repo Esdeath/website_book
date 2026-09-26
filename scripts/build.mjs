@@ -2,6 +2,7 @@ import { readdir, readFile, writeFile, mkdir, rm, cp, stat } from 'node:fs/promi
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { splitBook } from './progressive.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const out = path.join(root, 'dist');
@@ -11,7 +12,10 @@ const escape = s => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt
 await rm(out, { recursive: true, force: true });
 await mkdir(path.join(out, 'media'), { recursive: true });
 await mkdir(path.join(out, 'read'), { recursive: true });
+await mkdir(path.join(out, 'full'), { recursive: true });
+await mkdir(path.join(out, 'fragments'), { recursive: true });
 await cp(path.join(root, 'site'), out, { recursive: true });
+const assetVersion = hash(await readFile(path.join(root, 'site', 'reader.js')));
 const categories = [], books = [], media = new Set();
 const dirs = (await readdir(root, { withFileTypes: true })).filter(d => d.isDirectory() && /^\d{2}-/.test(d.name)).sort((a,b) => a.name.localeCompare(b.name));
 for (const dir of dirs) {
@@ -21,7 +25,7 @@ for (const dir of dirs) {
   for (const file of files) {
     const source = `${dir.name}/${file}`;
     let html = await readFile(path.join(root, source), 'utf8');
-    const id = hash(source), url = `/read/${id}.html`;
+    const id = hash(source), url = `/read/${id}`;
     const fullTitle = decode((html.match(/<title>([\s\S]*?)<\/title>/i)?.[1] || file.slice(0,-5)).trim());
     const parts = fullTitle.split(/\s+—+\s+/);
     const title = parts[0];
@@ -51,13 +55,22 @@ for (const dir of dirs) {
       return `<a${before}title="请使用本页目录查阅"${after}>`;
     });
     html = html.replace(/<img\b(?![^>]*\bloading=)/gi, '<img loading="lazy" decoding="async"');
-    const meta = `<meta name="labook-id" content="${id}"><link rel="icon" href="/favicon.svg"><link rel="canonical" href="https://book.labook.cn${url}"><link rel="stylesheet" href="/reader.css"><script defer src="/reader.js"></script>`;
+    const meta = `<meta name="labook-id" content="${id}"><link rel="icon" href="/favicon.svg"><link rel="canonical" href="https://book.labook.cn${url}"><link rel="stylesheet" href="/reader.css?v=${assetVersion}"><script defer src="/reader.js?v=${assetVersion}"></script>`;
     html = html.replace(/<\/head>/i, `${meta}</head>`);
     if (/<div class="bar"[^>]*>/.test(html)) {
       html = html.replace(/(<div class="bar"[^>]*>)/, '$1<a class="library-home" href="/" aria-label="返回书房">‹ 书房</a>');
     } else {
       html = html.replace(/(<body[^>]*>)/, '$1<a class="library-home" data-floating="true" href="/" aria-label="返回书房">‹ 返回书房</a>');
     }
+    const progressive = splitBook(html, id);
+    if (progressive) {
+      await writeFile(path.join(out, 'full', `${id}.html`), html);
+      for (const [url, data] of progressive.assets) await writeFile(path.join(out, url), data);
+      html = progressive.html;
+      book.progressive = true;
+      book.fullBytes = Buffer.byteLength(await readFile(path.join(out, 'full', `${id}.html`)));
+    }
+    book.initialBytes = Buffer.byteLength(html);
     await writeFile(path.join(out, 'read', `${id}.html`), html);
   }
 }

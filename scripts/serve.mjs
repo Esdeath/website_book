@@ -7,8 +7,9 @@ const types = { '.html':'text/html; charset=utf-8','.js':'text/javascript; chars
 http.createServer(async (req,res) => {
   try {
     const url = new URL(req.url,'http://localhost');
-    const file = path.resolve(root, '.' + decodeURIComponent(url.pathname === '/' ? '/index.html' : url.pathname));
+    let file = path.resolve(root, '.' + decodeURIComponent(url.pathname === '/' ? '/index.html' : url.pathname));
     if(!file.startsWith(root))throw new Error('Invalid path');
+    if(!path.extname(file))file += '.html';
     const info = await stat(file);if(!info.isFile())throw new Error('Not a file');
     res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream','Content-Length':info.size});
     if(req.method==='HEAD')res.end();else res.end(await readFile(file));

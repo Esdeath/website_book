@@ -8,5 +8,10 @@
     "check": "node scripts/check.mjs",
     "preview": "node scripts/serve.mjs"
   },
-  "engines": { "node": ">=22" }
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "parse5": "^8.0.1"
+  }
 }

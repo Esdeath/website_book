@@ -8,3 +8,9 @@
 
 /catalog.json
   Cache-Control: public, max-age=0, must-revalidate
+
+/fragments/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/read/*
+  Cache-Control: public, max-age=300, must-revalidate
