@@ -21,6 +21,7 @@
   const get = (key, fallback) => { try { return localStorage.getItem(prefix + key) ?? fallback; } catch { return fallback; } };
   const set = (key, value) => { try { localStorage.setItem(prefix + key, value); } catch {} };
   const last = get('last', '');
+  let savePosition = !last || Boolean(location.hash);
   const fullLink = document.createElement('a');
   fullLink.href = `/full/${bookId}`;
   fullLink.className = 'reader-full-link';
@@ -38,7 +39,7 @@
   // Neighboring chapters can change height after a jump. Hold the destination
   // steady until the reader deliberately scrolls or interacts again.
   for (const event of ['wheel', 'touchstart', 'pointerdown', 'keydown']) {
-    window.addEventListener(event, () => { pinnedTarget = null; }, { passive: true, capture: true });
+    window.addEventListener(event, () => { pinnedTarget = null; savePosition = true; }, { passive: true, capture: true });
   }
   document.addEventListener('load', event => { if (event.target.tagName === 'IMG' && pinnedTarget) alignTarget(); }, true);
 
@@ -135,7 +136,9 @@
     retry = action;
   }
   function markCurrent(id) {
-    if (!id || id === current) return;
+    if (!id) return;
+    if (savePosition) set('last', id);
+    if (id === current) return;
     current = id;
     document.querySelector('.toc-item.current')?.classList.remove('current');
     const link = [...document.querySelectorAll('.toc-item')].find(a => a.getAttribute('href') === '#' + id);
@@ -144,9 +147,9 @@
       const part = link.closest('.toc-part');
       if (part) { part.dataset.open = 'true'; part.querySelector('button')?.setAttribute('aria-expanded', 'true'); }
     }
-    set('last', id);
   }
   async function goTo(id, push = true) {
+    savePosition = true;
     const token = ++navigation;
     jumping = true;
     showNotice('正在打开章节…');
