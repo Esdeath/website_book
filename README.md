@@ -2,13 +2,13 @@
 
 网站：<https://book.labook.cn> · 仓库：<https://github.com/Esdeath/website_book>
 
-144 本 HTML 书籍，按原目录划分为 14 个主题。首页支持书名和作者搜索、主题筛选、排序、收藏、最近阅读；书籍保留原有阅读界面，并增加返回书房入口。收藏和最近阅读保存在当前浏览器，不跨设备同步。
+154 本 HTML 书籍，按原目录划分为 15 个主题。首页支持书名和作者搜索、主题筛选、排序、收藏、最近阅读；书籍保留原有阅读界面，并增加返回书房入口。收藏和最近阅读保存在当前浏览器，不跨设备同步。
 
 ## 本地预览
 
 需要 Node.js 22 或更新版本。无第三方运行时依赖。
 
-阅读页按章节加载：先显示目录和开头，接近下一章或点击目录时才下载正文；全书搜索在实际输入关键词后由 Web Worker 加载索引。140 本标准格式书籍使用此模式，4 本特殊格式保留原阅读器。目录底部的“完整书籍 · 打印”可打开全部正文，便于打印或使用浏览器全文查找。构建使用 parse5 识别章节边界，原始 HTML 和图片保持完整。
+阅读页按章节加载：先显示目录和开头，接近下一章或点击目录时才下载正文；全书搜索在实际输入关键词后由 Web Worker 加载索引。150 本标准格式书籍使用此模式，4 本特殊格式保留原阅读器。目录底部的“完整书籍 · 打印”可打开全部正文，便于打印或使用浏览器全文查找。构建使用 parse5 识别章节边界，原始 HTML 和图片保持完整。
 
 ```sh
 npm ci
@@ -21,7 +21,13 @@ npm run preview
 
 ## 更新与发布
 
-把 HTML 书籍放进对应的 `01-…` 到 `14-…` 目录，或修改 `site/` 中的首页文件，然后运行：
+EPUB 可先用 `scripts/import_epub.py` 转成兼容阅读页的 HTML。导入脚本需要 Python、`beautifulsoup4` 和 `lxml`；它按 EPUB 阅读顺序与目录拆章，内嵌图片并改写书内链接。例如：
+
+```sh
+python3 scripts/import_epub.py /path/to/epub-folder 15-潮玩与IP
+```
+
+检查生成的 HTML 后，把书籍放进对应的 `01-…` 到 `15-…` 目录。更新书籍或 `site/` 中的首页文件后运行：
 
 ```sh
 ./deploy.sh "feat(library): 新增书籍"
@@ -52,13 +58,14 @@ npm run preview
 
 ## 构建与目录
 
-- `01-…/` 至 `14-…/`：原始书籍，构建不修改这些文件。
+- `01-…/` 至 `15-…/`：原始书籍，构建不修改这些文件。
 - `site/`：书房首页、样式、交互、阅读页增强脚本。
 - `scripts/build.mjs`：从 HTML 标题提取书名和作者，将内嵌图片去重并提取到独立资源，生成书籍页面、索引、站点地图和无 JavaScript 的书目列表。
+- `scripts/import_epub.py`：把 EPUB 正文、目录、封面和插图转换为兼容阅读器的 HTML。
 - `scripts/check.mjs`：检查所有书籍、图片引用、返回书房入口、文件数量和大小。
 - `scripts/progressive.mjs`：保留原始章节内容，生成按需加载正文和全书搜索索引。
 - `dist/`：构建产物，不提交 Git。
 
-原始内容约 676 MiB，首次 Git 推送较大。构建将图片拆分并去重，以适配 Cloudflare Pages 单文件 25 MiB、免费版 20,000 文件限制。原始书籍路径决定阅读 URL；重命名或移动书籍会改变该书 URL。
+原始内容较大，首次 Git 推送可能较慢。构建将图片拆分并去重，以适配 Cloudflare Pages 单文件 25 MiB、免费版 20,000 文件限制。原始书籍路径决定阅读 URL；重命名或移动书籍会改变该书 URL。
 
 Cloudflare 自动构建与 GitHub Actions 都会执行构建和检查。官方文档：[Git 集成](https://developers.cloudflare.com/pages/get-started/git-integration/)、[自定义域名](https://developers.cloudflare.com/pages/configuration/custom-domains/)、[发布限制](https://developers.cloudflare.com/pages/platform/limits/)。
