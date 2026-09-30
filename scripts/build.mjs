@@ -7,6 +7,10 @@ import { splitBook } from './progressive.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const out = path.join(root, 'dist');
 const hash = value => createHash('sha256').update(value).digest('hex').slice(0, 24);
+// Preserve existing reading URLs and browser bookmarks when a book changes category.
+const legacyIdSources = new Map([
+  ['15-潮玩与IP/因为独特.html', '05-商业与企业/因为独特.html'],
+]);
 const decode = s => s.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&#(x[\da-f]+|\d+);/gi, (_, n) => String.fromCodePoint(n[0] === 'x' ? parseInt(n.slice(1), 16) : Number(n)));
 const escape = s => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 await rm(out, { recursive: true, force: true });
@@ -25,7 +29,7 @@ for (const dir of dirs) {
   for (const file of files) {
     const source = `${dir.name}/${file}`;
     let html = await readFile(path.join(root, source), 'utf8');
-    const id = hash(source), url = `/read/${id}`;
+    const id = hash(legacyIdSources.get(source) || source), url = `/read/${id}`;
     const fullTitle = decode((html.match(/<title>([\s\S]*?)<\/title>/i)?.[1] || file.slice(0,-5)).trim());
     const parts = fullTitle.split(/\s+—+\s+/);
     const title = parts[0];

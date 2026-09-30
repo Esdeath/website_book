@@ -66,6 +66,6 @@ python3 scripts/import_epub.py /path/to/epub-folder 15-潮玩与IP
 - `scripts/progressive.mjs`：保留原始章节内容，生成按需加载正文和全书搜索索引。
 - `dist/`：构建产物，不提交 Git。
 
-原始内容较大，首次 Git 推送可能较慢。构建将图片拆分并去重，以适配 Cloudflare Pages 单文件 25 MiB、免费版 20,000 文件限制。原始书籍路径决定阅读 URL；重命名或移动书籍会改变该书 URL。
+原始内容较大，首次 Git 推送可能较慢。构建将图片拆分并去重，以适配 Cloudflare Pages 单文件 25 MiB、免费版 20,000 文件限制。原始书籍路径默认决定阅读 URL；已上架书籍调整分类时，应在 `scripts/build.mjs` 保留原有 ID，以免旧链接及浏览器收藏失效。
 
 Cloudflare 自动构建与 GitHub Actions 都会执行构建和检查。官方文档：[Git 集成](https://developers.cloudflare.com/pages/get-started/git-integration/)、[自定义域名](https://developers.cloudflare.com/pages/configuration/custom-domains/)、[发布限制](https://developers.cloudflare.com/pages/platform/limits/)。
